@@ -1,0 +1,590 @@
+body{
+    position: relative;
+}
+
+.box-load{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    z-index: 6;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.pre{
+   width: 110px;
+   height: 110px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.pre img{
+  width: 100px;
+  height: 100px;
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    z-index: 4;
+    position: fixed;
+    box-shadow:  10px 5px 25px -8px #98999b;
+
+    img{
+        height: 90px;
+    }
+}
+
+#option{
+    display: none;
+}
+
+label{
+    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 22px;
+    width: 30px;
+}
+
+label span{
+    position: absolute;
+    display: none;
+    height: 3px;
+    width: 100%;
+    border-radius: 30px;
+    background-color: red;
+    transition: 0.25s;
+}
+
+label span:nth-child(1){
+ top: 0;
+}
+label span:nth-child(2){
+    top: 8px;
+}
+
+label span:nth-child(3){
+    top: 16px;
+}
+
+#option:checked + label span:nth-child(1){
+    transform:  rotate(-45deg);
+    top: 8px;
+}
+
+#option:checked + label span:nth-child(2){
+  opacity: 0;
+}
+
+#option:checked + label span:nth-child(3){
+    transform:  rotate(45deg);
+     top: 8px;
+}
+.border-option{
+    display: none;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+li{
+  width: auto;
+   gap: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+   i{
+      color: rgb(214, 25, 25);
+      font-size:25px; 
+   }
+}
+
+li a{
+    color: #06121e;
+    margin-right: 1rem;
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+}
+
+
+.container{
+    width: 100%;
+    height: 200vh;
+    background-color:transparent;
+    position: absolute;
+    z-index: 3;
+
+}
+.images-top-group{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+
+    .top-image{
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+.top-image img.selected {
+    opacity: 1;
+}
+
+.img-header{
+  width: 100%;
+  height: 120vh;
+  position: relative;
+
+  img{
+    width: 100%;
+    height: 120vh;  
+  }
+
+  .group-modal{
+       width: 100%;
+       height: 100vh;
+       position: absolute;  
+       left: 0;
+       right: 0;
+       top:0;
+       bottom: 0;
+       margin: auto;
+       z-index: 3;
+
+       .align-title{
+        width: 100%;
+        height: auto;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+
+        h1{
+            width: 100%;
+            color: #fff;
+            font-size: 27px;
+            text-align: center;
+        }
+       }
+
+       .painel{
+        margin: 0 auto;
+        width: 70%;
+        height: auto;
+        padding: 30px 60px;
+        transition:  0.9s;
+        border-radius: 0.5rem;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(1.25rem);
+        color: rgb(117, 114, 119);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 5px 15px 25px -25px #98999b;
+
+        .button-i{
+           width: 80%;
+           height: auto;
+           display: flex;
+           justify-content: center;
+           margin: 0 auto;
+           align-items: center;
+           padding: 30px 0;
+
+           .respansive-button{
+            width: 70%;
+            display: flex;
+            justify-content: center;
+           }
+           
+           button{
+            width: 100%;
+            padding:28px 30px;
+            cursor: pointer;
+            outline: none;
+            border: 1px solid #98999b;
+           }
+           
+           button:hover, 
+           button:active{
+            background-color: rgb(214, 25, 25);
+            color: #fff;
+           }
+        }
+
+        .group-select{
+          width: 100%;
+          height: auto;
+          display: none;
+          margin: 0 auto;
+    
+          .selector-i{
+            width: 70%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin: 0 auto;
+            padding: 20px 0;
+            flex-wrap: wrap; 
+            background-color: rgb(214, 25, 25);
+
+            .respansive-select{
+                width: auto;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+            }
+
+            .select-option{
+                width: 100%;
+                position: relative;
+
+                .col-option-select, 
+                 .col-option-select-2,
+                 .col-option-select-3{
+                    width: 99%;
+                    height: auto;
+                    position: absolute;
+                    background-color: #fff;
+                    flex-direction: column;
+                    z-index: 4;
+                    padding: 5px 0;
+                    gap: 10px;
+                    box-shadow:-5px 10px 25px -5px #98999b;
+
+                    .select-i-option{
+                      width: 100%;
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      margin-left: 10px;
+                      margin-top: 10%;
+
+                      label{
+                        width: 100%;
+                      }
+                    }
+                }
+
+                .col-option-select{
+                  display: none;
+                }
+                .col-option-select-2{
+                  display: none;
+                }
+
+                .col-option-select-3{
+                    display: none;
+                } 
+
+                select{
+                  width: auto;
+                  height: 60px;
+                  font-size: 12px;
+                  cursor: pointer;
+                  outline: none;
+                  padding: 0 30px;
+                  border: 1px solid #98999b;
+                }
+            } 
+        }
+
+
+        .row-i{
+            display: none;
+        }
+
+        .row-i-2{
+            display: none;
+            flex-direction: column; 
+            flex-wrap: wrap;
+        }
+        .row-i-3{
+            display: none;
+            flex-wrap: wrap;
+
+        }
+        .row-i-4{
+            display: none;
+            flex-wrap: wrap;
+        }
+
+        .row-i,
+        .row-i-2,
+        .row-i-3,
+        .row-i-4{
+            width: 70%;
+            margin: 0 auto;
+            height: auto;
+            background-color: #fff;
+            box-shadow:-5px 10px 25px -5px #98999b;
+            padding: 15px 0;
+           
+            .group-input{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 0 px;
+                gap: 15px;
+
+                label{
+                    color: red;
+                    font-weight: bold;
+                    margin-left: 10px;
+                }
+                input{
+                    margin-left: 30px;
+                    width: 140px;
+                    height: 10px;
+                    padding: 10px;
+                    outline: none;
+                    border: 1px solid #98999b;
+                }
+            }
+
+           .align-col-select{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           }
+
+         }
+         
+         .col-i{
+            padding: 0 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+
+            h4{
+                color: #7a7b7c;
+                font-size: 14px;
+            }
+            .group-check{
+                width: 100%;
+                display: flex;
+                margin: 10px;
+                gap: 10px;
+
+                label{
+                    width: 80%;
+                    font-size: 12px;
+                }
+            }
+        }
+         
+    }
+    .list-search{
+      width: 70%;
+      height: auto;
+      margin: 0 auto;
+      background-color: hwb(0 90% 8%);
+
+     ul{
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px 10px;
+        visibility: hidden;
+     } 
+
+     li{
+        background-color: rgb(214, 25, 25);
+        list-style-type: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        color: #fff;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        p{
+            color: #fff; 
+        }
+
+        i{
+            color: #fff; 
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+      }
+    }
+    .button-search{
+      width: 100%;
+      height: auto;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button{
+        width: 30%;
+        cursor: pointer;
+        padding: 18px 5px;
+        background-color: #3e3f41;
+        color: #fff;
+        border: 1px solid #98999b;
+      }
+      .active{
+        background-color: rgb(214, 25, 25);
+      }
+      
+     }
+    }
+  }
+}
+
+
+.images-top-group{
+    width: 100%;
+    height: 100vh;
+    background-image:  url('../images/luxo-moderno-em-quarto-domestico-confortavel-relaxamento-generativo-ai.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
+    .img-header {
+     width: 100%;
+     height: 800px;
+     background-color: blue;
+     position: relative;
+    }
+ }
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+
+.active{
+    background-color: rgb(214, 25, 25);
+    color: #fff;
+}
+
+.aboud{
+ width: 170px;
+ height: 30px;
+ background: rgba(255, 255, 255, 0.85);
+ transform: rotate(-89deg);
+ position: fixed;
+ border-radius: 3px;
+ top: 50%;
+ right: 0;
+ left: -70px;
+ z-index: 4;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ box-shadow:  -5px 5px 25px -10px #98999b;
+ padding: 10px 10px;
+
+ a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    i{
+        color: rgb(214, 25, 25) ;
+    }
+ }
+
+ p{
+    color: red;
+ }
+
+ p strong{
+   color: #7a7b7c;
+ }
+}
+
+@media screen and (max-width: 900px) {
+    ul{
+        display: none;
+    }
+  
+    .painel .button-i,
+    .respansive-select,
+    .align-col-select,
+    .row-i, .row-i-2, .row-i-3{
+       flex-direction: column;
+    }
+
+
+
+    ul.activeOption{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        position:absolute;
+        top: 80px;
+        z-index: 4;
+        padding: 30px 0;
+        box-shadow:  10px 10px 25px -2px #98999b;
+
+        .border-option{
+            width: 100%;
+            height: 30px;
+            background-color: rgb(214, 25, 25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            p{
+                color: #fff;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+        a:hover{
+          color: rgb(214, 25, 25);
+        }
+        i{
+            display: none;
+        }
+    }
+
+    label span{
+        display: block;
+    }
+    .align-title h1{
+       font-size: 18px;
+       margin-bottom: 10px;
+    }
+
+    .group-i .align-modal .painel{
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+}

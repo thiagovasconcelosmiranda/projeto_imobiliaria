@@ -1,0 +1,202 @@
+.page-about-i{
+   width: 100%;
+   height:  auto; 
+}
+
+.image-top{
+   width: 100%;
+   height:  500px; 
+   background-image:
+   linear-gradient( to right, rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.582)),
+    url('../images/marketing-digital-para-negocios-imobiliarios.jpg'); 
+   background-size: cover;
+   background-repeat: no-repeat;
+   position: relative;
+}
+.image-top
+.text-about-1{
+ position: absolute;
+ top: 70%;
+ left: 20%;
+ padding: 10px 10px;
+}
+
+.text-about-1
+h5{
+color: #fff;
+margin-bottom: 10px;
+text-transform: uppercase;
+font-weight: normal;
+
+}
+.p{
+   color: #fff;
+   font-weight: bold;
+   font-size: 25px;
+}
+
+.pag-2-row{
+   width: 100%;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   padding: 40px 0;
+}
+
+.main-row{
+   width:100%;
+   height: auto;
+   display: flex;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   padding: 40px 0;
+}
+
+.main-col{
+   width:100%;
+   height: auto;
+   position: relative;
+   display: flex;
+   justify-content: center;  
+}
+
+.justy{
+   justify-content: left;
+   
+}
+
+.main-col img{
+   width: 50%;
+   text-wrap: wrap;
+}
+
+.text-about-2{
+ width: 100%;
+ height: auto;
+ margin: 0 auto;
+ margin-left: 30px;
+
+
+}
+.text-about-2 .title-about{
+   max-width: 80%;
+   text-transform: uppercase;
+   margin-bottom: 20px;
+   font-size: 30px;
+   color: #000;
+   font-weight: normal;
+   padding-bottom: 40px;
+   
+}
+
+.text-about-2 p{
+    max-width: 80%;
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #a7a3a3;
+    font-weight: normal; 
+}
+.pag-2-row
+.col-valore{
+    width: 100%;
+    height: auto;
+    background-color: #d1cccc;
+    flex-wrap: wrap;
+}
+
+.pag-2-row{
+     height: auto;
+
+    .col-valore {  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .text-title{
+        width: 100%;
+        padding: 30px 0;
+        h2{
+         font-weight: normal; 
+         margin-left: 20%;
+        }
+      }
+      
+
+      .i-group-row{
+         width: 80%;
+         height: auto;
+         margin: 20px 0;
+         display: flex;
+         justify-content: center;
+
+         .col-i-4{
+           width: 100%;
+           height: auto;
+           padding: 20px 10px;
+           margin: 20px;
+
+           .group{
+             width: 100%;
+             display: flex;
+             margin: 10px;
+             align-items: center;
+
+             .valor-text{
+               width: 100%;
+               margin-left: 10px;
+
+               h5{
+                  margin-bottom: 10px;
+                  font-size: 20px;
+                  font-weight: normal; 
+               }
+               p{
+                  font-size: 14px;
+               }
+             }
+           }
+         }
+      }
+
+   }
+}
+
+
+
+@media screen and (max-width: 800px){
+   .pag-2-row{
+   flex-direction: column;
+   gap: 40px;
+   justify-content: center;
+ }
+ .text-about{
+   padding: 0 30px;
+ }
+  .i-group-row{
+     flex-direction: column;
+ }
+}
+
+@media screen and (max-width: 400px){
+   .image-top
+   .text-about-1 h5{
+      font-size: 14px;
+   }
+
+   .image-top
+   .text-about-1 p{
+      font-size: 14px;
+   }
+
+    .text-about-2
+    .title-about{
+      font-size: 14px;
+   }
+   .i-group-row{
+      flex-direction: column;
+  }
+   
+
+}
