@@ -23,5 +23,8 @@ $router->get('/sobre', 'AboutController@index');
 
 $router->post('/login', 'LoginController@login');
 
+$router->get('/anuncio', 'AnuncioController@index');
+$router->post('/anuncio', 'AnuncioController@add');
+
 
 

@@ -6,7 +6,7 @@ use \src\models\Imovel;
 use \src\models\End;
 use \src\models\Foto;
 
-class Imovelhandler extends Controller {
+class ImovelHandler extends Controller {
     public static function findAll($page, $limit){
       $imovel= Imovel::select()
       ->page($page,$limit)

@@ -4,8 +4,7 @@ const painel = document.querySelector('.painel');
 const mobile = document.querySelector('.menu-mobile');
 const ul = document.querySelector('#option-ul');
 
-mobile.addEventListener('click', ()=>{
-  
+mobile.addEventListener('click', ()=>{ 
   if(!ul.classList.contains('activeOption')){
     ul.classList.add('activeOption');
   }else{
@@ -104,7 +103,7 @@ function butonClick(info){
       quartos.style.display="none"; 
     }
    }
-
+   
    if(info === 'Regiao'){
      if(region.style.display==='flex'){
       region.style.display='none';

@@ -1,0 +1,176 @@
+
+
+
+.page-form{
+    width: 100%;
+    height: auto;
+
+    .title-form{
+          width: 100%;
+          padding: 100px 0;
+          h1{
+            text-align: center;
+            color: rgb(179, 182, 184);
+          }
+          .msg-alert{
+            width: 200px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span{
+              color: #fff;
+               text-transform: uppercase;
+            }
+          }
+
+        }
+
+        .text-form-p{
+            margin: 0 auto;
+            width: 80%;
+            height: auto;
+         
+            p{
+                padding: 0 20px;
+                margin: 20px; 
+            }
+        }
+        form{
+            margin: 60px auto;
+            width: 75%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        
+            
+            h1{
+                text-align: center;
+                color: rgb(179, 182, 184);
+                margin-bottom: 40px;
+                margin-top: 20px;
+            } 
+            .cont{
+                display: flex;
+                justify-content: left;
+                
+                background-color: red;
+            }
+            .group-input{
+                width: 100%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px 0;
+                .input-alert{
+                    width: 100%;
+                    margin: 10px;
+                    span{
+                        color: red;
+                        font-size: 12px;
+                        display: none;
+                    }
+                
+
+                input{
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 5px;
+                    outline: none;
+                    border: 1px solid #969494;
+                }
+
+                select{
+                    width: 105%; 
+                    padding: 10px 0;
+                }
+            }
+               
+            .align-i-5{
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                span{
+                    color: red;
+                    font-size: 12px;
+                    display: none;
+                    
+                }
+                p{
+                    margin-bottom: 20px;
+                    font-size: 12px;
+                }
+                .align-button-text-input{
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                   
+
+                    button{
+                        padding: 10px 80px;
+                        background: rgb(214, 25, 25); 
+                        color: #fff;
+                        outline: none;
+                        border: 0;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+                }
+
+                .text-input-group{
+                    width: 80%;
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                   
+
+                    input{
+                        width: 20px;
+                    }
+
+                
+                    label{
+                        width: 50%;
+                        margin-left: 10px;
+                        font-size: 12px;
+                    }
+
+                    label a{
+                       text-decoration: underline;
+                       text-transform: uppercase;
+                        color: rgb(214, 25, 25);
+                       
+                    }
+                }
+
+
+            }
+            }
+        }
+    
+       
+    }
+   
+    
+    @media screen and (max-width: 800px){
+      form .group-input{
+        flex-direction: column;
+      }
+
+      .align-button-text-input{
+         display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        button{
+            margin-top: 130px;
+        }
+      }
+    }

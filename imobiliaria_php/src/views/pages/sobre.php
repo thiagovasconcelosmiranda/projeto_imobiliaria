@@ -82,7 +82,7 @@
           <div class="group">
                 <img src="<?=$base;?>/assets/images/icons8-chamada-em-conferência-50.png" alt="imagem qualidade" height="80">
                 <div class="valor-text">
-                   <h5>Visão</h5>
+                   <h5>Valores</h5>
                     <p>Atuar no ramo imobiliário de forma diferenciada,
                       através da credibilidade e espírito inovador, 
                       na busca contínua pela excelência no atendimento e

@@ -5,13 +5,13 @@
                     <i class="fa-solid fa-key"></i>
                   </div>
                   <div class="text-i">
-                    <h5>Não encontrol o que procura?</h5>
+                    <h5>Não encontrou o que procura?</h5>
                     <a href="#"><p>Saiba mais sobre nossa visão e missão. </p></a>
                   </div>
                  </div>
                  <div class="footer-col-top">
                   <div class="i-circle">
-                    <i class="fa-solid fa-key"></i>
+                  <img src="<?=$base;?>/assets/images/logo.png" alt="Logo" height="50">
                   </div>
                   <div class="text-i">
                     <h5>Conheça a nossa imobiliaria</h5>
@@ -114,10 +114,11 @@
             </div>
        </div>
        <div style="display:none" id="base"><?=$base;?></div>
+       
        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+       <script src="<?= $base;?>/assets/js/alertInput.js"> </script>
        <script src="<?= $base;?>/assets/js/script.js"> </script>
        <script src="<?= $base;?>/assets/js/preload.js"> </script>
        <script src="<?= $base;?>/assets/js/pgImovel.js"> </script>
-     
    </body>
 </html>

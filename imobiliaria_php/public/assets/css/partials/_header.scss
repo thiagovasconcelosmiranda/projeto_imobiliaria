@@ -90,7 +90,9 @@ label span:nth-child(3){
 }
 .border-option{
     display: none;
+  
 }
+
 
 ul{
     display: flex;
@@ -109,6 +111,12 @@ li{
       color: rgb(214, 25, 25);
       font-size:25px; 
    }
+
+   
+ .i{
+    font-size:30px;
+   
+  }
 }
 
 li a{
@@ -118,6 +126,7 @@ li a{
     align-items: flex-start;
     font-size: 14px;
 }
+
 
 
 .container{

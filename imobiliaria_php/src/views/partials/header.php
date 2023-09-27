@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpg" href="<?= $base;?>/assets/images/logo.png"/>
-    <link rel="stylesheet" href="<?= $base;?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= $base;?>/assets/css/styl.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Merriweather:wght@300&family=Open+Sans:wght@300&family=Sora:wght@200;300;500;600&family=Tektur:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,6 +15,9 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Imobiliaria</title>
+    <style>
+     
+    </style>
 </head>
 <body onload="loading()">
 <?php if(isset($_GET['login'])){?>
@@ -40,8 +43,8 @@
              <p>Seja bem vindo(a)</p>
           </div>
             <li>
-                <i class="fa-solid fa-dollar-sign"></i>
-                <a href="">Indique a gente</a>
+                <i class="fa fa-bullhorn i" aria-hidden="true" ></i>
+                <a href="<?=$base;?>/anuncio">Anúnciar</a>
             </li>
             <li>
                 <i class="fa-solid fa-phone"></i>
