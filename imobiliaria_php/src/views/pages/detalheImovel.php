@@ -1,4 +1,6 @@
 <?php $render('header'); ?>
+<?php $render('login-item');?>
+
 <div class="page">
     <h1>Detalhe do imóvel</h1>
      <div class="photos">
@@ -31,26 +33,27 @@
   <div class="detalhe-row">
      <div class="detalhe-col">
          <div class="item-dados">
-            <h3><?= $imovel['tipo'];?></h3>
-            <h4 class="color">RESIDENCIAL - <?= $imovel['bairro'];?></h4>
-            <P> <?= $imovel['end'];?>, Nº <?=$imovel['num'];?></P>
-            <P> CEP: <?=$imovel['cep'];?></P>
-            <P>CIDADE - <?=$imovel['cidade'];?> - <?=$imovel['uf'];?></P>
-            <p>Descrição: <?=$imovel['descricao'];?></p>
+            <h3 class="color"><?= $imovel['tipo'];?></h3>
+            <h4 class="color"><?= $imovel['condominio'];?></h4>
+            <P><strong>ENDEREÇO: </strong><?= $imovel['end'];?>, Nº <?=$imovel['num'];?></P>
+            <P><strong>CEP: </strong> <?=$imovel['cep'];?></P>
+            <P><strong>BAIRRO: </strong> <?=$imovel['bairro'];?></P>
+            <P><strong>CIDADE: </strong> - <?=$imovel['cidade'];?> - <?=$imovel['uf'];?></P>
+            <p>DESCRIÇÃO: <?=$imovel['descricao'];?></p>
             <div class="item-icone">
-              <p class="blue"><?= $imovel['qtd_quarto'];?> quarto </P>
-              <p class="green"><?= $imovel['qtd_cozinha'];?> cozinha</P>
+              <p class="red"><?= $imovel['qtd_quarto'];?> quarto </P>
+              <p class="borange"><?= $imovel['qtd_cozinha'];?> cozinha</P>
               <p class="blue"><?= $imovel['qtd_banheiro'];?> banheiro</P>
              </div>
              <div class="item-icone">
               <?php if($imovel['qtd_vaga'] > 0){ ?>
-                <p class="red"><?= $imovel['qtd_vaga'];?> vagas</P>
+                <p class="blue-course"><?= $imovel['qtd_vaga'];?> vagas</P>
               <?php } ?>
               <?php if($imovel['qtd_varanda'] > 0){ ?>
               <p class="green"><?= $imovel['qtd_varanda'];?> varanda</p>
               <?php } ?>
-               <?php if($imovel['qtd_area_jogos'] > 0){ ?>
-                  <p class="yellow"><?= $imovel['qtd_area_jogos'];?> are de Jogos</p>
+               <?php if($imovel['outros'] > 0){ ?>
+                  <p class="gray"><?= $imovel['outros'];?></p>
                <?php } ?>
              </div>
             </div>
@@ -60,21 +63,19 @@
             <div class="item-align">
                <div class="i-tipo">
                   <h2>Aluguel:</h2>
-                   <h2 class="cinza">Preço: R$ <?=$imovel['preco_aluguel']?> /mês</h2>
+                   <h2 class="cinza">Preço: R$ <?=$imovel['preco_aluguels']?> /mês</h2>
                 </div>
                 <div class="i-tipo">
                   <h2>Venda:</h2>
                    <h2 class="cinza">Preço: R$ 
-                     <?= $imovel['preco_venda']?></h2>
-                   <a href="#">
-                     <button>Agendar visita</button>
-                   </a>
+                     <?= $imovel['preco_vendas']?></h2>
+                     <button class="button-i" onclick="click()" type="button">Agendar visita</button>
                 </div>
               </div>
            </div>
      </div>
   </div>
-  <div class="dados-row">
+  <div class="dados-row" >
       <div class="group-i-icone">
          <h3>Classificação</h3>
          <h5><?=$imovel['classificacao'];?></h5>
@@ -89,11 +90,6 @@
       </div>
    </div>
 </div>
-<?php $render('footer');
+<?php $render('modal-visita', ['id'=> $id, 'flash' => $flash]);?>
+<?php $render('footer');?>
 
- if($imovel['qtd_area_jogos'] > 0){
-    echo "Há dados";
- }else{
-   echo "Não há dados";
- }
-?>

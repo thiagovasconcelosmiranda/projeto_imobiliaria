@@ -16,6 +16,7 @@
         margin-top: 10%;
         text-transform: uppercase;
         color: rgb(102, 102, 102);
+        margin-bottom: 70px;
     }
   
  
@@ -26,8 +27,7 @@
      justify-content: center;
      gap: 20px;
      flex-wrap: wrap;
-     padding: 100px 0;
-     margin-top: 10%;
+     padding: 60px 0;
   }
  
   .image-photo{
@@ -54,28 +54,28 @@
   }
  
   .detalhe-row{
-     width: 100%;
+     width: 80%;
      height: auto;
      display: flex;
      justify-content: center;
-     gap: 40px;
      padding: 20px 0;
   }
+  
   .detalhe-col{
-     width: 80%;
-     height: 400px;
-     padding: 30px 20px;
+     width: 100%;
+     height: auto;
+     padding: 10px 20px;
      display: flex;
      justify-content: center;
      margin-top: 20px;
-   
-  }
- 
-  
-  .color{
-     color: red;
-  }
+     flex-wrap: wrap;
 
+     .color{
+        color: rgb(214, 25, 25);
+     }
+     
+  }
+  
   .item-dados{
      padding: 20px 50px;
      margin: 20px;
@@ -91,17 +91,21 @@
   }
 
   .item-icone{
+   width: 100%;
     display: flex;
     justify-content: left;
     gap: 10px;
     padding: 0 20px;
+
     p{
+       width: 100%;
         color: #fff;
+        font-size: 9px;
+        text-transform: uppercase;
+        text-align: center;
     }
 
  }
-
- 
   .blue{
     background-color: rgb(52, 52, 201);
   }
@@ -114,14 +118,21 @@
     background-color: red;
   }
    
-  .yellow{
-   background-color: yellow;
-   color: #000;
+  .gray{
+   background-color: rgb(95, 95, 93);
+   color: #fff;
  }
 
- .sinza-escuto{
-   background-color: rgb(114, 114, 107);
+ .blue-course{
+   background-color: rgb(43, 202, 202);
+   color: #fff;
  }
+
+ .borange{
+   background-color: rgb(221, 191, 21);
+   color: #000;
+ }
+ 
  
   .item-i {
      width: 230px;
@@ -151,7 +162,7 @@
         font-size: 16px;
       }
     
-      button{
+      .button-i, button.visit{
         margin-top: 20px;
         padding: 10px 40px;
         background: rgb(214, 25, 25);
@@ -159,6 +170,7 @@
         outline: none;
         border: 0;
         cursor: pointer;
+        box-shadow: none;
      }
     }
   }
@@ -208,15 +220,32 @@
   
 }
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 800px){
    .page{
       .item-i {
         margin-top: 30%;
       }
+      h1{
+         font-size: 18px;
+      }
    }
     .detalhe-row{
         flex-direction: column;
+        .detalhe-col{
+         justify-content: center;
+         height: auto;
+         align-items: center;
+        }
     }
+  }
+
+  @media (max-width: 400px){
+   .page{
+     
+      h1{
+         font-size: 16px;
+      }
+   }
   }
 
   @media (min-width: 903px) and (max-width: 1000px){

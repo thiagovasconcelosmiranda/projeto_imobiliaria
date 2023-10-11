@@ -93,4 +93,6 @@
        </div>
     </div>
   </div>
+<?php $render('login-item');?>
 <?php $render('footer'); ?>
+

@@ -3,11 +3,12 @@
 <div class="page-form">
     <div class="title-form">
         <h1>Quer anunciar o seu imóvel com o Estilo?</h1>
-        <?php if(!empty($msg)):?>
-        <div class="msg-alert">
-           <span>Enviado com sucesso!</span>
+        <?php if($flash):?>
+          <div class="info-flash">
+           <h3><?=$flash;?></h3>
         </div>
         <?php endif; ?>
+        
     </div>
     <div class="text-form-p">
         <p>Coloque seu imóvel para alugar ou vender. E comece já a atrair interessados.</p>
@@ -16,16 +17,16 @@
             tudo arrumadinho para novas fotos, faremos uma avaliação criteriosa para que seu
             imóvel seja anunciado com o melhor preço.</p>
     </div>
-    <form method="POST" action="<?=$base;?>/anuncio">
+    <form class="form-i" method="POST" action="<?=$base;?>/anuncio">
         <h1>Meus dados</h1>
         <div class="group-input">
            <div class="input-alert">
-             <input type="text"  name="name" placeholder="Nome">
-             <span id="0">Preencha os dados</span>
+             <input type="text" data ="0"  name="name" placeholder="Nome">
+             <span data ="0" >Preencha os dados</span>
            </div>
            <div class="input-alert">
-             <input type="email"  name="email" placeholder="Email">
-             <span id="1">Preencha os dados</span>
+             <input type="email" data="1"  name="email" placeholder="Email">
+             <span data="1">Preencha os dados</span>
            </div>
         </div>
         <div class="group-input">
@@ -42,7 +43,7 @@
         <h1>Dados do Imóvel</h1>
         <div class="group-input">
           <div class="input-alert">
-             <select type="text" name="preferencia" value="preferencia" >
+             <select class="select-i" name="preferencia" value="preferencia">
                 <option value="">Selecione...</option>
                 <option value="Locacão">Locação</option>
                 <option value="Venda">Venda</option>
@@ -91,7 +92,7 @@
             <span id="12">Aceite o contrato</span> 
             <div class="align-button-text-input">
 
-              <div class="text-input-group">
+              <div class="text-input-group group-input">
                   <input type="checkbox" name="norma" value="Contrato aceito">
                   <label>
                     Ao clicar no botão "Enviar", afirmo que li e concordo
@@ -99,15 +100,17 @@
                     DE PRIVACIDADE</a> (atualizados dia 13/08/2021).</p>
                   </label>
                 </div>
-                 <button type="button"  id="button">Enviar</button>
+                 <button class="button_announcement" type="button"  id="button">Enviar</button>
              </div>
              
            </div>
         </div>
     </form>
-</div>
-<?php $render('footer');
-   echo $msg;
-?>
+    </div>
+<?php $render('login-item');?>
+<script src="<?= $base;?>/assets/js/alert-error-an.js"> </script>
+
+<?php $render('footer');?>
+
 
 

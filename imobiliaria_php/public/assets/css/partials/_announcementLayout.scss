@@ -12,21 +12,6 @@
             text-align: center;
             color: rgb(179, 182, 184);
           }
-          .msg-alert{
-            width: 200px;
-            margin: 0 auto;
-            padding: 20px 20px;
-            background-color: green;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            span{
-              color: #fff;
-               text-transform: uppercase;
-            }
-          }
-
         }
 
         .text-form-p{
@@ -68,15 +53,15 @@
                 gap: 10px;
                 padding: 10px 0;
                 .input-alert{
-                    width: 100%;
-                    margin: 10px;
-                    span{
-                        color: red;
-                        font-size: 12px;
-                        display: none;
-                    }
-                
+                  width: 100%;
+                  margin: 10px;
 
+                  span{
+                    color: red;
+                    font-size: 12px;
+                    visibility: hidden; 
+                 }
+                
                 input{
                     width: 100%;
                     padding: 10px;
@@ -85,9 +70,12 @@
                     border: 1px solid #969494;
                 }
 
-                select{
+                .select-i{
                     width: 105%; 
                     padding: 10px 0;
+                    border: 1;
+                    border: 1;
+                    border:  1px solid #969494;
                 }
             }
                
@@ -114,7 +102,7 @@
                     justify-content: space-around;
                    
 
-                    button{
+                    .button_announcement{
                         padding: 10px 80px;
                         background: rgb(214, 25, 25); 
                         color: #fff;
@@ -122,6 +110,7 @@
                         border: 0;
                         cursor: pointer;
                         border-radius: 5px;
+                        box-shadow: none;
                     }
                 }
 
@@ -161,6 +150,15 @@
    
     
     @media screen and (max-width: 800px){
+        .page-form
+        .title-form{
+             h1{
+                text-align: center;
+                color: rgb(179, 182, 184);
+                font-size:18px;
+             }
+        }
+    
       form .group-input{
         flex-direction: column;
       }

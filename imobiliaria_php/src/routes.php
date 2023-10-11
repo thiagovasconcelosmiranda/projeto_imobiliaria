@@ -12,6 +12,12 @@ $router->put('/imovel/{id}/update', 'ImovelController@update');
 $router->delete('/imovel/{id}/delete', 'ImovelController@delete');
 $router->get('/detalhe-imovel', 'DetalheImovelController@find');
 
+$router->post('/detalhe-imovel', 'DetalheImovelController@addSchedute');
+
+$router->get('/impreendimentos', 'ImpreendimentoController@index');
+$router->post('/impreendimentos', 'ImpreendimentoController@search');
+
+
 $router->get('/apartamento', 'PagImovelController@apartamento');
 $router->get('/casa', 'PagImovelController@casa');
 $router->get('/destaque', 'PagImovelController@destaque');
@@ -26,5 +32,9 @@ $router->post('/login', 'LoginController@login');
 $router->get('/anuncio', 'AnuncioController@index');
 $router->post('/anuncio', 'AnuncioController@add');
 
+$router->get('/area-cliente', 'AreaClienteController@index');
 
+$router->get('/preco', 'PrecoController@index');
 
+$router->get('/nao-encontrei', 'NotSearchController@index');
+$router->post('/nao-encontrei', 'NotSearchController@add');

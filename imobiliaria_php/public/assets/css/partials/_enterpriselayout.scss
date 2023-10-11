@@ -1,0 +1,94 @@
+.line{
+    width:80%;
+    height: 1px;
+    background: #000;
+    margin-top: 20px;
+
+}
+.inputs-row{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+h3{
+  font-size: 14px;
+}
+}
+
+.inputs-row form{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .group-i{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+  .align-i-10{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+   
+    label{
+      width: 100%;
+      font-size: 14px;
+
+      }
+
+      input {
+        width: 90%;
+        padding: 10px 10px;
+        outline: none;
+        border: 1px solid #bbb7b7;
+        }
+        
+        select{
+          width: 100%;
+          padding: 10px 10px;
+          outline: none;
+          border: 1px solid #bbb7b7;
+        }
+      }
+    }
+ }
+ .button-enterprise{
+  padding: 15px 70px;
+  background: rgb(214, 25, 25); 
+  color: #fff;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: none;
+ }
+
+
+@media screen and (max-width: 800px){
+.inputs-row
+ form{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputs-row 
+ form
+.group-i
+.align-i-10
+{
+  input{
+    width: 95%;
+  }
+}  
+}

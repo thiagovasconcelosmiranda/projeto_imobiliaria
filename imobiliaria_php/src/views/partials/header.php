@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpg" href="<?= $base;?>/assets/images/logo.png"/>
-    <link rel="stylesheet" href="<?= $base;?>/assets/css/styl.css">
+    <link rel="stylesheet" href="<?= $base;?>/assets/css/s.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Merriweather:wght@300&family=Open+Sans:wght@300&family=Sora:wght@200;300;500;600&family=Tektur:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,10 +14,9 @@
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <title>Imobiliaria</title>
-    <style>
-     
-    </style>
+
 </head>
 <body onload="loading()">
 <?php if(isset($_GET['login'])){?>
@@ -27,7 +26,7 @@
         <img src="<?= $base;?>/assets//images/progress-icon-gif-1.jpg" alt="loading">
      </div>
  </div>
- <div class="content"></div>
+ <div class="content" data="<?=$base;?>"></div>
     <nav class="navbar">
       <input type="checkbox" id="option">
       <label for="option" class="menu-mobile">
@@ -38,10 +37,14 @@
         <a href="<?=$base;?>">
            <img src="<?= $base;?>/assets/images/logo.png" alt="Logotipo">
         </a>
-        <ul id="option-ul">
+        <ul class="ul" id="option-ul">
           <div class="border-option">
              <p>Seja bem vindo(a)</p>
           </div>
+          <li>
+             <i class="fa-solid fa-building"></i>
+                <a href="<?=$base;?>/impreendimentos">Impreendimento</a>
+            </li>
             <li>
                 <i class="fa fa-bullhorn i" aria-hidden="true" ></i>
                 <a href="<?=$base;?>/anuncio">Anúnciar</a>
@@ -56,7 +59,7 @@
             </li>
             <li>
                 <i class="fa-solid fa-user"></i>
-                <a style="cursor: pointer;" id="area-client">Área do cliente</a>
+                <a style="cursor: pointer;" class="area-client">Área do cliente</a>
             </li>
         </ul>
         <div class="aboud" style="display: <?=$aboutFlex;?>;">
@@ -67,3 +70,5 @@
         </div>
     </nav>
    
+   
+  

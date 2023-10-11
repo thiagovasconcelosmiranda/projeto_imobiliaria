@@ -2,20 +2,26 @@
 namespace src\controllers;
 
 use \core\Controller;
-use \models\Login;
+use \src\handlers\LoginHandler;
 
 class LoginController extends Controller {
 
     public function login() {
-       $cpf = filter_input(INPUT_POST, 'cpf');
-       $password= filter_input(INPUT_POST, 'password');
+      $cpf = filter_input(INPUT_POST, 'cpf');
+      $password = filter_input(INPUT_POST, 'password');
 
-       if($cpf && $password){
-          echo "Há dados";
-       }else{
-        $this->redirect('/?login=false');
-        exit;
-       }
+      if($cpf && $password){
+        $token = LoginHandler::veryLogin($cpf, $password);
+
+        if($token){
+           $_SESSION['token'] = $token;
+           echo "Redirecionado";
+        }else{
+             $this->redirect('/');
+        }
+            
+      }
+       
     }
 
     public function add(){

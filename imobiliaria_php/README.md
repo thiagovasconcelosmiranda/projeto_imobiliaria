@@ -19,7 +19,10 @@ As configurações de Banco de Dados e URL estão no arquivo *src/Config.php*
 ## Uso
 Você deve acessar a pasta *public* do projeto.
 
-O ideal é criar um ***alias*** específico no servidor que direcione diretamente para a pasta *public*.
+## link biblioteca
+https://github.com/ClanCats/Hydrahon
+
+O ideal é criar um ***alias*** específico no servidor que direcione diretamente para a pasta *public*. 
 
 ## Modelo de MODEL
 ```php
@@ -31,3 +34,4 @@ class Usuario extends Model {
 
 }
 ```
+

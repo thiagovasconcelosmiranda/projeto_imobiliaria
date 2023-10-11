@@ -8,15 +8,30 @@ class SearchImovelController extends Controller {
 
     public function findName() {
       $imoveis=[];
-        $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);       
-        if(isset($data)){
-            $imoveis = ImovelHandler::findAllName($data);
+      $array = [];
+      $num = 1;
+      $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);    
+
+       if(isset($data)){
+          foreach($data as $key => $value){
+              $k =  explode('/', $key);
+              $num++;
+             
+              $ListImovel = ImovelHandler::findAllName($k[0], $value);  
+              $imoveis[$num] = $ListImovel;
+              
+              foreach ($imoveis[$num] as $key => $value) {
+                 $array[] = $value;
+              }
+          }
+         
         }else{
           $this->redirect('/');
         }
-       
+        
         $this->render('searchImovel', [
-          'imoveis'=> $imoveis
+          'imoveis'=> $array
         ]);
+        
     }
 }
