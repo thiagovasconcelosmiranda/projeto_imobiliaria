@@ -25,7 +25,7 @@
                 <h3>Institucional</h3>
                 <a href="<?=$base;?>/sobre"><p>Sobre a imobiliaria</p></a>
                 <a href="#"><p>Nossas unidades</p></a>
-                <a href="#"><p>Empreendimentos</p></a>
+                <a href="<?=$base;?>/impreendimentos"><p>Empreendimentos</p></a>
                 <a href="#"><p>Trabalhe conosco</p></a>
                 <a href="#"><p>Politica de privacidade</p></a>
                 <a href="#"><p>Acesso interno</p></a>
@@ -68,9 +68,9 @@
        <script type="text/javascript" src="<?= $base;?>/assets/js/modals.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/pg-cards-enterprista.js"></script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/pg-cards-home.js"> </script>
-       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-login.js"> </script>
+       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-logins.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-announcement.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-schedule.js"> </script>
-
+       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-no-encontrei.js"> </script>
    </body>
 </html>

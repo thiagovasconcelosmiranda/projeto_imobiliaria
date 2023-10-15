@@ -10,7 +10,10 @@ class NotSearchController extends Controller {
     }
 
     public function add(){
-
+       $array = filter_input_array(INPUT_POST);
+       echo '<pre>';
+         print_r($array);
+       echo '<pre/>';
     }
 
 }

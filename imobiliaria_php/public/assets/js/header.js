@@ -14,8 +14,6 @@ mobile.addEventListener('click', ()=>{
   }  
 });
 
-
-
   if(document.querySelectorAll('.button-i buttton')){
     function  butonClick(info) {
         if(document.querySelector('.group-select-row')){

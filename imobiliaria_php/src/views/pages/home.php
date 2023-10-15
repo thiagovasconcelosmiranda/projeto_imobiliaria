@@ -517,5 +517,6 @@
           <?php $render('login-item');?>
           <script type="text/javascript" src="<?= $base;?>/assets/js/image-sliders.js"> </script>
           <?php $render('footer');?>
+       
 
         

@@ -17,11 +17,10 @@ class LoginController extends Controller {
            $_SESSION['token'] = $token;
            echo "Redirecionado";
         }else{
+          $_SESSION['flash'] = 'Cpf ou senha invalidos';
              $this->redirect('/');
-        }
-            
-      }
-       
+        }     
+      } 
     }
 
     public function add(){

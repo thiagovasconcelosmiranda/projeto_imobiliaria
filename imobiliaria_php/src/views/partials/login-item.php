@@ -1,5 +1,11 @@
-
-<div class="modal-login">
+      <?php
+      $flash = '';
+       if(!empty($_SESSION['flash'])){
+        $flash = $_SESSION['flash'];
+        $_SESSION['flash'] = '';
+       }
+      ?>
+      <div class="modal-login" style="display: <?=($flash ? 'flex': 'none')?>">
           <h3>Bem vindo à Imobiliaria Estilo</h3>
           <div class="text-i">
             <div class="close">
@@ -9,10 +15,18 @@
               clique em "Acessar área do cliente" para visualizar seus extratos ou boletos</p>
           </div>
             <form method="POST" action="<?=$base;?>/login">
+                 <!---->
+                 <?php if($flash != ''): ?>
+                   <div class="flash-alert">
+                     <?=$flash;?>
+                   </div>
+                 <?php  endif;?>
+                
              <div class="group-input">
               <div class="input">
                 <label>CPF/CNPJ*</label>
-                  <input type="cpf" name="cpf"/>
+                  <input id="error-input-1" type="text" name="cpf"/>
+                  <strong  class="msg-error-1" id="msg-error-1" ></strong>
                   <a href="#"><p>Esqueceu sua senha?</p></a>
                 </div>
              </div>
@@ -20,14 +34,15 @@
               <div class="group-input">
                 <div class="input">
                   <label>Senha*</label>
-                  <input type="password" name="password"/>
+                  <input id="error-input-2" type="password" name="password"/>
+                  <strong class="msg-error-2" id="msg-error-2"></strong>
                 </div> 
               </div>
              </div>
              <div class="group-input">
                  <div class="input">
                   <div class="group-i-contract">
-                    <p><input type="checkbox"/> Ao clicar no botão "Acessar a área do cliente", afirmo que li e 
+                    <p id="contract"><input type="checkbox"/> Ao clicar no botão "Acessar a área do cliente", afirmo que li e 
                       concordo com os TERMOS DE USO (atualizados dia 11/08/2021) e POLITICA DE PRIVACIDADE
                        (atualizados dia 11/08/2021).</p>
                    </div>
@@ -41,7 +56,7 @@
              </div>
              <div class="group-input">
               <div class="input">
-                <input type="submit" value="Acessar área do cliente"/>
+                <input class="input_active" type="button" value="Acessar área do cliente" />
               </div> 
              </div>
             </form>

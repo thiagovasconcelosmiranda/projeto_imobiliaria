@@ -16,9 +16,7 @@ class LoginHandler extends Controller {
              $user->nome = $data['nome'];
              $user->cpf = $data['cpf'];
              $user->email = $data['email'];
-
              return $user;
-
          }
          return false;
       }
@@ -31,22 +29,13 @@ class LoginHandler extends Controller {
         if($user){
            if(password_verify($password, $user['password'])){
              $token = md5(time().rand(0,9999).time());
-            
              Login::update()
              ->set('token', $token)
              ->where('cpf', $cpf)
              ->execute();
              return  $token;
            }
-
-           return false;
-            
-           
-        }
-
-       
-
-        
+           return false;   
+        }   
     }
-
 }
