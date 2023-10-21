@@ -3,17 +3,15 @@ if(document.querySelectorAll('.col-group') &&
    document.querySelectorAll('.i-button-2 button')){
     document.querySelectorAll('.i-button-2 button').forEach(button =>{
         button.addEventListener('click', ()=>{
-           
                 veryError();
-            
         })
     }) 
 }
 
 
-let count = 0;
-let num = 0;
 function veryError(){
+  let count = 0;
+  let num = 0;
     document.querySelectorAll('.col-group input, .col-group select').forEach(item =>{    
     if(item.name === 'operacao'){
        if(!item.checked){

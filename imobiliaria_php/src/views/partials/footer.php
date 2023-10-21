@@ -65,12 +65,13 @@
        <script type="text/javascript" src="<?= $base;?>/assets/js/header.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/login.js"></script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/preload.js"> </script>
-       <script type="text/javascript" src="<?= $base;?>/assets/js/modals.js"> </script>
+       <script type="text/javascript" src="<?= $base;?>/assets/js/modal.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/pg-cards-enterprista.js"></script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/pg-cards-home.js"> </script>
-       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-logins.js"> </script>
+       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-login.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-announcement.js"> </script>
        <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-schedule.js"> </script>
-       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-no-encontrei.js"> </script>
+       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-noEncontrei.js"> </script>
+       <script type="text/javascript" src="<?= $base;?>/assets/js/alert-modal-shedul.js"> </script>
    </body>
 </html>

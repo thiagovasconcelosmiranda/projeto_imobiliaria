@@ -1,9 +1,21 @@
+
+.flash-alert{
+  width: 30%;
+  padding: 20px 20px;
+  background-color: rgba(25, 185, 33, 0.76);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 1px 3px 5px #c9c4c4;
+  margin-bottom: 20px;
+}
+
 .row-i-search{
     width: 100%;
     height: auto;
     display:flex;
     justify-content: center;
     flex-direction: column;
+
 
  form{
    width: 100%;
@@ -76,6 +88,7 @@
       h3{
         text-align: center;
         margin-bottom: 30px;
+        color: #ccc;
       }
      .row-i-x{
        width: 100%; 

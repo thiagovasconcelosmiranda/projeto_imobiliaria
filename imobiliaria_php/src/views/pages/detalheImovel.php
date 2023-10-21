@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<?php $render('header', ['activeLink' => $activeLink]); ?>
 <?php $render('login-item');?>
 
 <div class="page">

@@ -1,5 +1,5 @@
 
-<?php $render('header'); ?>
+<?php $render('header', ['activeLink' => $activeLink]); ?>
 <div class="page">
    <h1>Resutado da busca</h1>
        <div class="search-cards-x"> 
@@ -7,7 +7,6 @@
           <?php foreach($imoveis as $imovel):
             $c = explode('/', $imovel['classificacao']);
             $t = explode('/', $imovel['tipo']);
-         
             ?>
                 <div class="card">
                    <div class="hover-card">
@@ -23,8 +22,8 @@
                   </div>  
                   <div class="group-text">
                      <h4><?=$t[0];?> - <?=$t[1];?></h4>
-                     <p>Bairro:<?=$imovel['bairro'];?></p>
-                      <p><?=$imovel['cidade'];?></p>
+                     <p>Bairro: <?=$imovel['bairro'];?></p>
+                      <p> <?=$imovel['cidade'];?> - <?=$imovel['uf'];?> </p>
                       <p>Vender:</p>
                       <h2> R$ <?=$imovel['preco_vendas'];?></h4>
                       <p>Alugar:</p>

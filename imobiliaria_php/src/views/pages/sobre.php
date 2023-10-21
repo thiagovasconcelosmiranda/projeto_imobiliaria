@@ -1,4 +1,4 @@
-<?php $render('header', ['aboutFlex'=>$aboutFlex]);?>
+<?php $render('header', ['aboutFlex'=>$aboutFlex, 'activeLink' => $activeLink]);?>
   <div class="page-about-i">
        <div class="image-top">
            <div class="text-about-1">

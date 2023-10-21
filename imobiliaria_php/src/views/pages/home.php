@@ -1,4 +1,8 @@
-<?php $render('header', ['aboutFlex'=>$aboutFlex]); ?>
+<?php $render('header', [
+  'aboutFlex'=>$aboutFlex,
+   'activeLink' => $activeLink
+   ]);?>
+   
 <div class="images-top-group">
    <div class="top-image"></div>
 </div>
@@ -15,7 +19,7 @@
                  <form method="POST" action="<?=$base;?>/busca-imovel">
                   <div class="button-i">
                      <div class="respansive-button">
-                       <button onclick="butonClick('Preço de aluguels')" type="button">Alugar</button>
+                       <button  onclick="butonClick('Preço de aluguels')" type="button">Alugar</button>
                        <button onclick="butonClick('Preço da vendas')" type="button">Vender</button>
                        <button onclick="butonClick('Comprar')" type="button">Comprar</button>
                        <button onclick="butonClick('Impreendimento')" class="button" type="button">Impreendimento</button>

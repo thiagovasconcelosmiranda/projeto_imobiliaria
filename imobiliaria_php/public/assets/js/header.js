@@ -1,8 +1,6 @@
 AOS.init();
 const select = document.querySelector('.group-select');
 const painel = document.querySelector('.painel');
-
-
 const mobile = document.querySelector('.menu-mobile');
 const ul = document.querySelector('#option-ul');
 
@@ -14,13 +12,13 @@ mobile.addEventListener('click', ()=>{
   }  
 });
 
-  if(document.querySelectorAll('.button-i buttton')){
+  if(document.querySelectorAll('.button-i button')){
+
     function  butonClick(info) {
         if(document.querySelector('.group-select-row')){
            document.querySelector('.group-select-row').style.display="flex";
            priceAll(info);
         } 
-       
     }
 
     function selectClick(info){
@@ -36,7 +34,7 @@ mobile.addEventListener('click', ()=>{
                p2.style.display="none";
                p3.style.display="none";
                p4.style.display="none";
-               
+ 
             }else{
                p1.style.display="flex";
                p2.style.display="none";
@@ -114,10 +112,7 @@ mobile.addEventListener('click', ()=>{
           break;
        }
     }
-
   }
-
-
 
   if(document.querySelectorAll('.group-select-row input') && 
     document.querySelectorAll('.list-search ul') &&
@@ -132,10 +127,6 @@ mobile.addEventListener('click', ()=>{
     function buttonRadio(pos){
     listSearch.style.display="flex";
 
-    for (let index = 0; index < radio.length; index++) {
-      console.log(index + ' => ');
-        console.log(radio[index]);
-    }
       if(radio[pos].checked){
          p = pos;
          listRadio.unshift(radio[pos].value);
@@ -201,7 +192,6 @@ mobile.addEventListener('click', ()=>{
         const selectItem = document.querySelector('#preco');
          let i = info.split(' ');
          selectItem.name= i[2];
-         console.log(i);
         let titleOption = document.querySelector('#title-option');
         titleOption.innerHTML = info;
         selectItem.options.length=1;

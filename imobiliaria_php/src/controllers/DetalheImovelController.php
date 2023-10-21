@@ -7,6 +7,7 @@ class DetalheImovelController extends Controller {
 
     public function find() {
       $flash = '';
+       $activeLink = 'detalhes';
         $id = filter_input(INPUT_GET, 'id');
         if(!empty($_SESSION['flash'])){
            $flash = $_SESSION['flash'];
@@ -19,7 +20,8 @@ class DetalheImovelController extends Controller {
             $this->render('detalheImovel', [
               'imovel' => $item,
               'id' => $id, 
-              'flash' => $flash
+              'flash' => $flash,
+              'activeLink' => $activeLink
            ]);
           }
           

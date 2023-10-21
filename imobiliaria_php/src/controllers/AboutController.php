@@ -7,7 +7,10 @@ class AboutController extends Controller {
 
     public function index() {
         $about = "none";
-        $this->render('sobre', ['aboutFlex' => $about]);
+        $activeLink = 'sobre';
+        $this->render('sobre', [
+            'aboutFlex' => $about,
+             'activeLink' => $activeLink]);
     }
 
 }

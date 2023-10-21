@@ -1,4 +1,7 @@
-<?php $render('header', ['aboutFlex'=>$aboutFlex]); ?>
+<?php $render('header', [
+  'aboutFlex'=>$aboutFlex, 
+  'activeLink' => $activeLink
+  ]);?>
 
 <div class="page-form">
     <div class="title-form">
@@ -70,7 +73,7 @@
         <div class="group-input">
            <div class="input-alert">
               <input type="number" id="8" name="num" placeholder="Num">
-              <span id="msg-8">Campos obrigatório</span>
+              <span id="msg-8">Campos obrigatório*</span>
            </div>
            <div class="input-alert">
               <input type="text" id="9" name="bairro" placeholder="Bairro">

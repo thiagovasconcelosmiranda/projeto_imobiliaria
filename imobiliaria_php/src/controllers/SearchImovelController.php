@@ -5,11 +5,12 @@ use \core\Controller;
 use \src\handlers\ImovelHandler;
 
 class SearchImovelController extends Controller {
-
     public function findName() {
       $imoveis=[];
       $array = [];
       $num = 1;
+      $activeLink = 'buscar';
+      
       $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);    
 
        if(isset($data)){
@@ -30,7 +31,8 @@ class SearchImovelController extends Controller {
         }
         
         $this->render('searchImovel', [
-          'imoveis'=> $array
+          'imoveis'=> $array,
+          'activeLink' => $activeLink
         ]);
         
     }

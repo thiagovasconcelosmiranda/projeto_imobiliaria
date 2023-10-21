@@ -8,7 +8,12 @@ class ImpreendimentoController extends Controller {
 
     public function index() {
         $about = "flex";
-        $this->render('impreendimento', ['aboutFlex'=>$about]);
+        $activeLink = 'impreendimentos';
+        
+        $this->render('impreendimento', [
+          'aboutFlex'=>$about,
+          'activeLink' => $activeLink
+        ]);
     }
 
     public function search() {
@@ -41,8 +46,7 @@ class ImpreendimentoController extends Controller {
                 $array[] = $imoveis;
               break;
               */
-            }
-             
+            } 
           }
 
          }else{

@@ -5,7 +5,8 @@
         $_SESSION['flash'] = '';
        }
       ?>
-      <div class="modal-login" style="display: <?=($flash ? 'flex': 'none')?>">
+      <div class="container-login" style="display: <?=($flash ? 'flex': 'none')?>">
+      <div class="modal-login">
           <h3>Bem vindo à Imobiliaria Estilo</h3>
           <div class="text-i">
             <div class="close">
@@ -66,4 +67,5 @@
               <a href="#"><p>Entre em contato conosco</p></a>
             </div>
        </div>
+      </div>
        

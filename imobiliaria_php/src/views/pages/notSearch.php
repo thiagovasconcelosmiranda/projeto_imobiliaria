@@ -1,7 +1,12 @@
 
-<?php $render('header');?>
+<?php $render('header', ['activeLink' => $activeLink]);?>
 <div class="page">
     <h1>Não encontrou o que procura?</h1>
+    <?php if($flashNoSerach): ?>
+          <div class="flash-alert">
+              <p><?=$flashNoSerach;?> <p>
+          </div>
+      <?php endif;?>
    <div class="row-i-search">
      <form method="POST" action="">
       <div class="i-form-x">
@@ -75,7 +80,7 @@
            </div>
            <div class="align-i-x">
              <div class='input-i-x'>
-                <select name="tipo">
+                <select name="terreno">
                   <option value="">Terreno</option>
                   <option value="Área">Área</option>
                   <option value="Dentro do Condomínio">Dentro do Condomínio</option>
@@ -91,27 +96,27 @@
                 <label class="button-x" for="Marília">
                    <div class="active-button">Marília</div>
                 </label>
-                <input id="Marília" value="Marília" type="checkbox" name="cidade_1">
+                <input id="Marília" value="Marília" type="checkbox" name="cidade1">
 
                 <label class="button-x" for="Lupercio">
                    <div class="active-button">Lupercio</div>
                 </label>
-                <input id="Lupercio" value="Lupercio" type="checkbox" name="cidade_2">
+                <input id="Lupercio" value="Lupercio" type="checkbox" name="cidade2">
                 
                 <label class="button-x" for="Bauru">
                    <div class="active-button">Bauru</div>
                 </label>
-                <input id="Bauru" value="Bauru" type="checkbox" name="cidade_3">
+                <input id="Bauru" value="Bauru" type="checkbox" name="cidade3">
 
                 <label class="button-x" for="Garça">
                    <div class="active-button">Garça</div>
                 </label>
-                <input id="Garça" value="Garça" type="checkbox" name="cidade_4">
+                <input id="Garça" value="Garça" type="checkbox" name="cidade4">
 
                 <label class="button-x" for="Adamantina">
                   <div class="active-button">Adamantina</div>
                   </label>
-                <input id="Adamantina" value="Adamantina" type="checkbox" name="cidade_5">
+                <input id="Adamantina" value="Adamantina" type="checkbox" name="cidade5">
 
                 <label class="button-x" for="São Paulo">
                   <div class="active-button">São Paulo</div>
@@ -121,44 +126,44 @@
                 <label class="button-x" for="Sorocaba">
                   <div class="active-button">Sorocaba</div>
                 </label>
-                <input id="Sorocaba" value="Sorocaba" type="checkbox" name="cidade_7">
+                <input id="Sorocaba" value="Sorocaba" type="checkbox" name="cidade7">
                 
             </div>
             <div class="col-i-button">
                 <label class="button-x" for="Lacio">
                   <div class="active-button">Lacio</div>
                 </label>
-                <input id="Lacio" value="Lacio" type="checkbox" name="cidade_8">
+                <input id="Lacio" value="Lacio" type="checkbox" name="cidade8">
 
                <label class="button-x" for="Padre_Nobrega">
                   <div class="active-button">Padre Nobrega</div>
                 </label>
-                <input id="Padre_Nobrega" value="Padre Nobrega" type="checkbox" name="cidade_9">
+                <input id="Padre_Nobrega" value="Padre Nobrega" type="checkbox" name="cidade9">
 
                 <label class="button-x" for="Jau">
                   <div class="active-button">Jaú</div>
                 </label>
-                <input id="Jau" value="Jaú" type="checkbox" name="cidade_10">
+                <input id="Jau" value="Jaú" type="checkbox" name="cidade10">
 
                 <label class="button-x" for="Santos">
                   <div class="active-button">Santos</div>
                 </label>
-                <input id="Santos" value="Santos" type="checkbox" name="cidade_11">
+                <input id="Santos" value="Santos" type="checkbox" name="cidade11">
 
                 <label class="button-x" for="Americanas">
                   <div class="active-button">Americanas</div>
                 </label>
-                <input id="Americanas" value="Americanas" type="checkbox" name="cidade_12">
+                <input id="Americanas" value="Americanas" type="checkbox" name="cidade12">
                 
                 <label class="button-x" for="Panorama">
                   <div class="active-button">Panorama</div>
                 </label>
-                <input id="Panorama" value="Panorama" type="checkbox" name="cidade_13">
+                <input id="Panorama" value="Panorama" type="checkbox" name="cidade13">
 
                 <label class="button-x" for="Presidente_Prudente">
                   <div class="active-button">Presidente Prudente</div>
                 </label>
-                <input id="Presidente_Prudente" value="Presidente Prudente" type="checkbox" name="cidade_14">
+                <input id="Presidente_Prudente" value="Presidente Prudente" type="checkbox" name="cidade14">
             </div>
         </div>
         <div class="row-i-x" >

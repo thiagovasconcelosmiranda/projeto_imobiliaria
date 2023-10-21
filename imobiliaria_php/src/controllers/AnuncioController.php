@@ -8,15 +8,17 @@ class AnuncioController extends Controller {
 
     public function index() {
         $flash="";
+        $activeLink = 'anuncio';
         if(!empty($_SESSION['flash'])){
             $flash = $_SESSION['flash'];
-           $_SESSION['flash'] = "";
+            $_SESSION['flash'] = "";
         }
 
         $aboutFlex = "flex";
         $this->render('anuncio', [
             'aboutFlex' => $aboutFlex,
-            'flash'=> $flash
+            'flash'=> $flash,
+            'activeLink' => $activeLink
         ]);
        
     }

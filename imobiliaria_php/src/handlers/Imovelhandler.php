@@ -48,8 +48,9 @@ class ImovelHandler extends Controller {
 
     public static function findAllName($key, $value){
       $imovel = []; 
-      if($key != 'aluguels' && $key != 'vendas'){
-        
+      //echo $key;
+      //exit;
+      if($key != 'aluguels' && $key != 'vendas' && $key != 'bairro' ){
         $imovel= Imovel::select()
          ->join('ends', 'ends.imovel_id','=', 'imovels.id')
          ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
@@ -58,14 +59,27 @@ class ImovelHandler extends Controller {
          ->where('imovels.'.$key, $value)
          ->get();
         }else{
+
+          if($key == 'aluguels' || $key == 'vendas'){
+            $imovel= Imovel::select()
+            ->join('ends', 'ends.imovel_id','=', 'imovels.id')
+            ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+            ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+            ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+            ->where($key.'.preco_'.$key, $value)
+            ->get();
+          }
+
+          if($key == 'bairro'){
+            $imovel= Imovel::select()
+            ->join('ends', 'ends.imovel_id','=', 'imovels.id')
+            ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+            ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+            ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+            ->where('ends.'.$key, $value)
+            ->get();
+          }
           
-          $imovel= Imovel::select()
-          ->join('ends', 'ends.imovel_id','=', 'imovels.id')
-          ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
-          ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
-          ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
-          ->where($key.'.preco_'.$key, $value)
-          ->get();
       }
 
       return $imovel;

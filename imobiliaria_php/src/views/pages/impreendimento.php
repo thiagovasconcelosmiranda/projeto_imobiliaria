@@ -1,4 +1,4 @@
-<?php $render('header', [$aboutFlex=>$aboutFlex]); ?>
+<?php $render('header', ['aboutFlex'=>$aboutFlex,'activeLink' => $activeLink ]); ?>
 <?php $render('login-item');?>
 <div class="page">
    <h1>Confira nossos emprendedorismos</h1>

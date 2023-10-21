@@ -1,5 +1,7 @@
+
+
 let loginItem = document.querySelector('.area-client');
-let modalLogin = document.querySelector('.modal-login');
+let modalLogin = document.querySelector('.container-login');
 let closeMmodal = document.querySelector('.close');
 
 loginItem.addEventListener('click',()=>{
