@@ -53,13 +53,10 @@ class PagImovelController extends Controller
    {
       $data = [];
       $destaque = filter_input(INPUT_GET, 'destaque');
-      $pagAll = ImovelHandler::findAllCount();
-      $pageCount = ceil($pagAll / $this->limit);
 
-      $imoveis = ImovelHandler::findAll($destaque, $this->limit);
+      $imoveis = ImovelHandler::findByPublished(3);
 
       $data[] = $imoveis;
-      $data[] = $pageCount;
 
       header('Content: application/json');
       echo json_encode($data);

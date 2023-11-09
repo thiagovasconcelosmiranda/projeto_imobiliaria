@@ -3,20 +3,21 @@ namespace src\handlers;
 
 use \core\Controller;
 use \src\models\Imovel;
-use \src\models\End;
+use \src\models\Foto;
 use \src\models\Venda;
 use \src\models\Aluguel;
 
 class ImovelHandler extends Controller
 {
-  public static function findAll($page, $limit)
+  public static function findByPublished($limit)
   {
     $imovel = Imovel::select()
-      ->page($page, $limit)
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
-      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->limit($limit)
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->orderBy(['ends.create_at' => 'desc'])
       ->get();
     return $imovel;
   }
@@ -29,11 +30,21 @@ class ImovelHandler extends Controller
   public static function findId($id)
   {
     $imovel = Imovel::select()
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.id', $id)
+      ->get();
+    return $imovel;
+  }
+
+  public static function findPhotoId($id)
+  {
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('ends.id', $id)
       ->get();
     return $imovel;
   }
@@ -42,10 +53,11 @@ class ImovelHandler extends Controller
   {
     $imovel = Imovel::select()
       ->page($page, $limit)
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+
       ->where('imovels.tipo', $info)
       ->get();
     return $imovel;
@@ -56,22 +68,23 @@ class ImovelHandler extends Controller
     $imovel = [];
     //echo $key;
     //exit;
-    if ($key != 'aluguels' && $key != 'vendas' && $key != 'bairro') {
+    if ($key != 'aluguels' && $key != 'vendas' && $key != 'bairro' && $key != 'regiao') {
       $imovel = Imovel::select()
-        ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
         ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
         ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
         ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+        ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+
         ->where('imovels.' . $key, $value)
         ->get();
     } else {
 
       if ($key == 'aluguels' || $key == 'vendas') {
         $imovel = Imovel::select()
-          ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
           ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
           ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
           ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+          ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
           ->where($key . '.preco_' . $key, $value)
           ->get();
       }
@@ -86,6 +99,17 @@ class ImovelHandler extends Controller
           ->get();
       }
 
+      if ($key == 'regiao') {
+  
+        $imovel = Imovel::select()
+          ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+          ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+          ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+          ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+          ->where('ends.' . $key, $value)
+          ->get();
+      }
+
     }
 
     return $imovel;
@@ -94,8 +118,8 @@ class ImovelHandler extends Controller
   public static function findCount($info)
   {
     $imovel = Imovel::select()
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.tipo', $info)
       ->count();
     return $imovel;
@@ -104,8 +128,8 @@ class ImovelHandler extends Controller
   public static function findAllCount()
   {
     $imovel = Imovel::select()
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->count();
     return $imovel;
   }
@@ -113,11 +137,11 @@ class ImovelHandler extends Controller
   public static function searchAll()
   {
     $imovel = Imovel::select()
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->where('imovels.tipo', 'residencial/apartamento')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->get();
     return $imovel;
   }
@@ -125,10 +149,10 @@ class ImovelHandler extends Controller
   public static function enterprise($name, $item, $collumm)
   {
     $imovel = Imovel::select()
-      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.tipo', 'residencial/apartamento')
       ->where($collumm . $name, 'like', '%' . $item . '%')
       ->get();

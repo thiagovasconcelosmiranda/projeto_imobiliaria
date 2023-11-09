@@ -12,6 +12,8 @@ $router->put('/imovel/{id}/update', 'ImovelController@update');
 $router->delete('/imovel/{id}/delete', 'ImovelController@delete');
 $router->get('/detalhe-imovel', 'DetalheImovelController@find');
 
+$router->get('/photo','PhotoController@photo');
+
 $router->post('/detalhe-imovel', 'DetalheImovelController@addSchedute');
 
 $router->get('/impreendimentos', 'ImpreendimentoController@index');

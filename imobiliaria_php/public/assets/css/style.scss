@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 @import 'partials/header';
@@ -16,14 +16,15 @@
 @import 'partials/enterpriselayout';
 @import 'partials/scheduleLayout';
 @import 'partials/notSearchLayout';
+@import 'partials/imageLayout';
 
- 
-body{
+
+body {
   font-family: Lato, sans-serif;
   font-size: 1rem;
   font-weight: normal;
 }
- 
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -32,35 +33,34 @@ body{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(214, 25, 25); 
+  background: rgb(214, 25, 25);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-   background: #b30000; 
+  background: #b30000;
 }
 
-li{
-    list-style-type: none;
+li {
+  list-style-type: none;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.info-flash{
+.info-flash {
   width: 20%;
   margin: 0 auto;
 
-  h3{
-      font-size: 14px;
-      text-transform: uppercase;
-      line-height: 20px;
-      color: #646161;
-      background-color: rgb(93, 170, 170);
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-align: center;
+  h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 20px;
+    color: #646161;
+    background-color: rgb(93, 170, 170);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
   }
 }
-

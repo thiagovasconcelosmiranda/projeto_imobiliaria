@@ -78,6 +78,7 @@
          <span class="tooltip-text">Whatzapp flutuante</span>
      </a>
  </div>
+ <script type="text/javascript" src="<?= $base;?>/assets/js/image-script.js"> </script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/headers.js"> </script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/login.js"></script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/preload.js"> </script>
