@@ -31,7 +31,7 @@
        </div>
      </main>
   </div>
-  <div class="pag-2-row">
+  <div class="pag-2-row" >
     <div class="col-valore">
        <div class="text-title">
            <h2>Nossos Valores</h2>
@@ -39,7 +39,7 @@
        <div class="i-group-row">
           <div class="col-i-4">
              <div class="group">
-                <img src="<?=$base;?>/assets/images/icons8-alta-qualidade-50.png" alt="imagem qualidade" height="100">
+                <img src="<?=$base;?>/assets/images/icons8-alta-qualidade-50.png" alt="imagem qualidade" height="80">
                 <div class="valor-text">
                     <h5>Politica de Qualidade</h5>
                    <p>Permanente aprimoramento dos colaboradores 
@@ -55,7 +55,7 @@
           </div>
           <div class="col-i-4">
              <div class="group">
-                <img src="<?=$base;?>/assets/images/icons8-objetivo-50.png" alt="imagem qualidade" height="80">
+                <img src="<?=$base;?>/assets/images/icons8-objetivo-50.png" alt="imagem qualidade" height="60">
                 <div class="valor-text">
                     <h5>Missão</h5>
                    <p>Proporcionar aos nossos clientes os melhores serviços,
@@ -65,10 +65,10 @@
              </div>
           </div>
        </div>
-       <div class="i-group-row">
+       <div class="i-group-row" >
           <div class="col-i-4">
           <div class="group">
-                <img src="<?=$base;?>/assets/images/icons8-procurar-usuário-masculino-50.png" alt="imagem qualidade" height="80">
+                <img src="<?=$base;?>/assets/images/icons8-procurar-usuário-masculino-50.png" alt="imagem qualidade" height="60">
                 <div class="valor-text">
                     <h5>Visão</h5>
                    <p>Atuar no ramo imobiliário de forma diferenciada,
@@ -80,7 +80,7 @@
           </div>
           <div class="col-i-4">
           <div class="group">
-                <img src="<?=$base;?>/assets/images/icons8-chamada-em-conferência-50.png" alt="imagem qualidade" height="80">
+                <img src="<?=$base;?>/assets/images/icons8-chamada-em-conferência-50.png" alt="imagem qualidade" height="60">
                 <div class="valor-text">
                    <h5>Valores</h5>
                     <p>Atuar no ramo imobiliário de forma diferenciada,

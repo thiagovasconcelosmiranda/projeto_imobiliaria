@@ -4,12 +4,14 @@ namespace src\controllers;
 use \core\Controller;
 use \src\handlers\AnuncioHandler;
 
-class AnuncioController extends Controller {
+class AnuncioController extends Controller
+{
 
-    public function index() {
-        $flash="";
+    public function index()
+    {
+        $flash = "";
         $activeLink = 'anuncio';
-        if(!empty($_SESSION['flash'])){
+        if (!empty($_SESSION['flash'])) {
             $flash = $_SESSION['flash'];
             $_SESSION['flash'] = "";
         }
@@ -17,20 +19,21 @@ class AnuncioController extends Controller {
         $aboutFlex = "flex";
         $this->render('anuncio', [
             'aboutFlex' => $aboutFlex,
-            'flash'=> $flash,
+            'flash' => $flash,
             'activeLink' => $activeLink
         ]);
-       
+
     }
 
-    public function add(){
+    public function add()
+    {
         $input = filter_input_array(INPUT_POST);
         $dados = AnuncioHandler::create($input);
-      
-         if($dados){
-           $_SESSION['flash'] = 'Enviado com sucesso!'; 
-         }
-         $this->redirect('/anuncio');
-         exit;    
+
+        if ($dados) {
+            $_SESSION['flash'] = 'Enviado com sucesso!';
+        }
+        $this->redirect('/anuncio');
+        exit;
     }
 }

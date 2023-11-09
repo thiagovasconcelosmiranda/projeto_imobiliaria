@@ -3,14 +3,17 @@ namespace src\controllers;
 
 use \core\Controller;
 
-class AboutController extends Controller {
+class AboutController extends Controller
+{
 
-    public function index() {
+    public function index()
+    {
         $about = "none";
         $activeLink = 'sobre';
         $this->render('sobre', [
             'aboutFlex' => $about,
-             'activeLink' => $activeLink]);
+            'activeLink' => $activeLink
+        ]);
     }
 
 }

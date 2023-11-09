@@ -1,6 +1,5 @@
-
 .search-cards,
-.search-cards-x{
+.search-cards-x {
     width: 100%;
     height: auto;
     display: flex;
@@ -11,32 +10,27 @@
     gap: 40px;
     overflow: hidden;
 
-    h3{
+    h3 {
         text-transform: uppercase;
         font-size: 20px;
         padding: 100px 0;
         color: rgb(214, 25, 25);
         margin-top: -80px;
     }
-  
-          
-    }
-  
-
-
- @media screen and (max-width: 800px) {
-    .search-cards,
-.search-cards-x{
-    
-    
-    h3{
-        text-transform: uppercase;
-        font-size: 18px;
-        padding: 100px 0;
-        color: rgb(214, 25, 25);
-        margin-top: -80px;
-    }
-  
- }
 }
-  
+
+@media screen and (max-width: 800px) {
+
+    .search-cards,
+    .search-cards-x {
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 18px;
+            padding: 100px 0;
+            color: rgb(214, 25, 25);
+            margin-top: -80px;
+        }
+
+    }
+}
