@@ -3,7 +3,7 @@
 
 <div class="page">
     <h1>Detalhe do imóvel</h1>
-     <div class="photos">
+     <div class="photos" >
      <?php if($imovel['foto1']){ ?>
        <div class="image-photo">
          <img src="assets/images/<?=$imovel['id']?>/<?=$imovel['foto1'];?>" alt="Imagem imovel 1">
@@ -90,6 +90,7 @@
       </div>
    </div>
 </div>
+<?php $render('modal-photo', ['imovel' => $imovel]);?>
 <?php $render('modal-visita', ['id'=> $id, 'flash' => $flash]);?>
 <?php $render('footer');?>
 

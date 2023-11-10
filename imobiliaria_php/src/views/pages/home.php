@@ -42,9 +42,10 @@
                                     <option value="Zona Norte">Zona Norte</option>
                                     <option value="Zona Sul">Zona Sul</option>
                                 </select>
-                                <select onclick="selectClick('Bairro')">
-                                    <option value="">Bairro</option>
-                                </select>
+                                <div class="select-i-m" onclick="selectClick('Bairro')">
+                                    <p>Bairro</p>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </div>
                                 <div class="select-i-m" onclick="selectClick('Edificio/Condominio')">
                                     <p>Edificio/Condominio</p>
                                     <i class="fa-solid fa-caret-down"></i>
@@ -533,7 +534,7 @@
                     <p>Seu Apartamento dos seus sonhos</p>
                     <div class="hover-i">
                         <h3>Seu Apartamento dos seus sonhos</h3>
-                        <a href="#">
+                        <a href="<?=$base;?>/Impreendimentos">
                             <p>Mais detalhes</p>
                         </a>
                     </div>
@@ -594,7 +595,7 @@
             </div>
         </section>
         <div class="item-page-col">
-            <h3>Venda de imóveis recém publicados</h3>
+            <h3>Imóveis recém publicados</h3>
             <div class="cards" id="destaque"></div>
             <div class="paginate" id="pag-3"></div>
         </div>

@@ -37,5 +37,8 @@
            <h3>Imóvel não encontrado</h3>
          <?php endif;?>
        </div>
+       <div class="link-i-search">
+         <h3>Não encontrou o que procura? <a href="<?=$base;?>/nao-encontrei"> click aqui </a></h3>
+       </div>
 <?php $render('login-item');?>
 <?php $render('footer'); ?>

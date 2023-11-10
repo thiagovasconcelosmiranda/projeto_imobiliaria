@@ -30,15 +30,16 @@
    }
 
    .image-photo {
-      width: 30%;
-      height: 40%;
+      width: 90%;
+      max-width: 320px;
+      height: 250px;
       background-color: rgb(148, 144, 139);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
       border-radius: 10px;
-
+      cursor: pointer;
    }
 
    .image-photo img {

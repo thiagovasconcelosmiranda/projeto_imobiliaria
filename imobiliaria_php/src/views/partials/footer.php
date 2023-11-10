@@ -1,3 +1,5 @@
+ 
+  
  <footer class="footer" data="<?=$base;?>">
      <div class="footer-i-top">
          <div class="footer-col-top">
@@ -89,6 +91,8 @@
  <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-announcement.js"> </script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-schedul.js"> </script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-noEncontrei.js"> </script>
+ <script type="text/javascript" src="<?= $base;?>/assets/js/modal-phot.js"> </script>
+
  </body>
 
  </html>

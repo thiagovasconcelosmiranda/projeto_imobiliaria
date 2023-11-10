@@ -1104,14 +1104,16 @@ select option {
   padding: 60px 0;
 }
 .page .image-photo {
-  width: 30%;
-  height: 40%;
+  width: 90%;
+  max-width: 320px;
+  height: 250px;
   background-color: rgb(148, 144, 139);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   border-radius: 10px;
+  cursor: pointer;
 }
 .page .image-photo img {
   width: 100%;
@@ -1310,6 +1312,16 @@ select option {
   padding: 100px 0;
   color: rgb(214, 25, 25);
   margin-top: -80px;
+}
+
+.link-i-search {
+  padding: 20px 20px;
+  background-color: #f0efef;
+  margin-bottom: 20px;
+}
+.link-i-search a {
+  color: rgb(214, 25, 25);
+  font: 20px normal Arial;
 }
 
 @media screen and (max-width: 800px) {
@@ -2328,6 +2340,130 @@ select option {
   color: #969292;
 }
 
+.container-photo {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.carousel {
+  width: 80%;
+  height: 450px;
+  background-color: #fff;
+  margin-top: 5%;
+}
+.carousel .carousel-close {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.carousel .carousel-close i {
+  padding: 5px 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(214, 25, 25);
+}
+.carousel .slider-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+.carousel .slider-wrapper .slider-button {
+  width: 50px;
+  height: 60px;
+  box-shadow: none;
+  color: #fff;
+  background-color: rgb(214, 25, 25);
+  outline: none;
+  font-size: 2.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  z-index: 3;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-60%);
+}
+.carousel .slider-wrapper .slider-button:hover {
+  background-color: rgb(223, 31, 31);
+}
+.carousel .slider-wrapper #prev-slide {
+  left: 30px;
+  display: none;
+}
+.carousel .slider-wrapper #next-slide {
+  right: 20px;
+}
+.carousel .slider-wrapper .image-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 20px;
+  overflow-x: auto;
+  font-size: 0;
+  scrollbar-width: none;
+}
+.carousel .slider-wrapper .image-list::-webkit-scrollbar {
+  display: none;
+}
+.carousel .slider-wrapper .image-i {
+  width: 400px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.carousel .slider-scrollbar {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.carousel .slider-scrollbar .scrollbar-track {
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+}
+.carousel .slider-scrollbar .scrollbar-track {
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+}
+.carousel .slider-scrollbar .scrollbar-thumb {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  cursor: grab;
+  border-radius: inherit;
+}
+.carousel .slider-scrollbar .scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+.carousel .slider-scrollbar:hover .scrollbar-track {
+  height: 4px;
+}
+.carousel .slider-scrollbar .scrollbar-thumb:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+
 body {
   font-family: Lato, sans-serif;
   font-size: 1rem;
@@ -2370,4 +2506,4 @@ a {
   padding: 10px 20px;
   border-radius: 8px;
   text-align: center;
-}/*# sourceMappingURL=styl.css.map */
+}/*# sourceMappingURL=style.css.map */
