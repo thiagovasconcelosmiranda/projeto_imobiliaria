@@ -9,7 +9,7 @@
 <main>
     <div class="container">
         <div class="img-header">
-            <img src="<?= $base; ?>/assets/images/arquitetura-e-natureza-se-fundem-em-ia-generativa-de-design-moderno.jpg"
+           <img src="<?= $base; ?>/assets/images/arquitetura-e-natureza-se-fundem-em-ia-generativa-de-design-moderno.jpg"
                 alt="slide de imagens" id="slider">
             <div class="group-modal">
                 <div class="align-title">

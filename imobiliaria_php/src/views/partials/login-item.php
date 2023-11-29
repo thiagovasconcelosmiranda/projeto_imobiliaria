@@ -5,7 +5,7 @@ if (!empty($_SESSION['flash-i'])) {
   $_SESSION['flash-i'] = '';
 }
 ?>
-<div class="container-login" style="display: <?= ($flash ? 'flex' : 'none') ?>">
+<div class="container-login" style="display: <?=($flash ? 'flex' : 'none') ?>">
   <div class="modal-login">
     <h3>Bem vindo à Imobiliaria Estilo</h3>
     <div class="text-i">

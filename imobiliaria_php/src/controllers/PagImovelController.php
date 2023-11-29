@@ -3,10 +3,16 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\handlers\Imovelhandler;
+use \src\handlers\LoginHandler;
 
 class PagImovelController extends Controller
 {
    private $limit = 3;
+   private $infUser;
+
+   public function __construct(){
+      $this->infUser = LoginHandler::checkLogin();
+   }
 
    public function apartamento()
    {
@@ -65,4 +71,11 @@ class PagImovelController extends Controller
          $this->redirect('/');
       }
    }
+
+    public function findIdImovel($id){
+       $immobile = ImovelHandler::findId($id);
+       return $immobile;
+       
+
+    }
 }

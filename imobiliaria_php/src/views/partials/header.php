@@ -1,12 +1,11 @@
 <?php ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpg" href="<?= $base; ?>/assets/images/logo.png" />
-    <link rel="stylesheet" href="<?= $base; ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= $base; ?>/assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Merriweather:wght@300&family=Open+Sans:wght@300&family=Sora:wght@200;300;500;600&family=Tektur:wght@500;800&display=swap"

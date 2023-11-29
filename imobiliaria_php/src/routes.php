@@ -11,10 +11,9 @@ $router->get('/imovel/{id}/find', 'ImovelController@find');
 $router->put('/imovel/{id}/update', 'ImovelController@update');
 $router->delete('/imovel/{id}/delete', 'ImovelController@delete');
 $router->get('/detalhe-imovel', 'DetalheImovelController@find');
-
-$router->get('/photo','PhotoController@photo');
-
 $router->post('/detalhe-imovel', 'DetalheImovelController@addSchedute');
+
+$router->get('/photo', 'PhotoController@photo');
 
 $router->get('/impreendimentos', 'ImpreendimentoController@index');
 $router->post('/impreendimentos', 'ImpreendimentoController@search');
@@ -29,12 +28,17 @@ $router->get('/busca-imovel', 'SearchImovelController@findName');
 
 $router->get('/sobre', 'AboutController@index');
 
-$router->post('/login', 'LoginController@login');
+$router->post('/login', 'LoginController@checkLogin');
+$router->get('/logout', 'LoginController@logout');
 
 $router->get('/anuncio', 'AnuncioController@index');
 $router->post('/anuncio', 'AnuncioController@add');
 
-$router->get('/area-cliente', 'AreaClienteController@index');
+$router->get('/ksi/area-cliente', 'AreaClienteController@index');
+$router->get('/ksi/panel', 'KsiPanelController@index');
+$router->get('/ksi/alter-user', 'KsiAlterUserController@index');
+$router->get('/ksi/contract', 'KsiContractController@index');
+$router->get('/ksi/immobile', 'KsiImmobileController@index');
 
 $router->get('/preco', 'PrecoController@index');
 

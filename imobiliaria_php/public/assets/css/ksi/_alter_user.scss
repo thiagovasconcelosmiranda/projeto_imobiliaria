@@ -1,0 +1,113 @@
+.user-alter {
+    width: 90%;
+    height: auto;
+
+    h1 {
+        font-weight: 500;
+        font-size: 25px;
+        font-weight: bold;
+        color: #918f8f;
+        margin-bottom: 10px;
+    }
+
+    .user-alter form {
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    form .user-group-title {
+        width: auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #ccc9c9;
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+
+    form .user-group-title i {
+        margin-left: 20px;
+    }
+
+    form .row-upload {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    form .row-upload .col-group-upload {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-right: 80px;
+        gap: 20px;
+    }
+
+    form .row-upload .col-group-upload img {
+        height: 150px;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .col-group-upload button {
+        padding: 10px 20px;
+        background-color: #fff;
+        border: 1px solid #918f8f;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .group-input {
+        width: 100%;
+        height: auto;
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .group-input input {
+        width: 100%;
+        padding: 10px 10px;
+        outline: none;
+        margin: 0 auto;
+    }
+
+    form .group-row-input {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        gap: 60px
+    }
+
+    .group-row-input .col-input-x {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .col-input-x button {
+        width: 150px;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .user-alter h1 {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    form .group-row-input {
+        flex-direction: column;
+    }
+
+}

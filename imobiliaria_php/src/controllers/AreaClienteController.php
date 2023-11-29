@@ -6,19 +6,22 @@ use \src\handlers\LoginHandler;
 
 class AreaClienteController extends Controller
 {
-  private $loggedLogin;
-
-  public function __construct()
-  {
-    $this->loggedLogin = LoginHandler::ckeckLogin();
-    if ($this->loggedLogin == false) {
-      $this->redirect('/');
+    
+    private $infUser;
+    
+    public function __construct()
+    {
+        if (!empty(LoginHandler::checkLogin())) {
+            $this->infUser = LoginHandler::checkLogin();
+        } else {
+            $this->redirect('/');
+        }
     }
-  }
-
-  public function index()
-  {
-    $this->render('AreaCliente');
-  }
-
+    
+    public function index()
+    {
+        $this->render('areaCliente', [
+            'infUser' => $this->infUser
+        ]); 
+    }
 }

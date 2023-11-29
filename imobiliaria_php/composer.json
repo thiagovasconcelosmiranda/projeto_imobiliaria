@@ -1,6 +1,7 @@
 {
     "require": {
-        "clancats/hydrahon": "^1.1"
+        "clancats/hydrahon": "^1.1",
+        "smalot/pdfparser": "^2.7"
     },
     "autoload": {
         "psr-4": {

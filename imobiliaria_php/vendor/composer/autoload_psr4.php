@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'src\\' => array($baseDir . '/src'),
     'core\\' => array($baseDir . '/core'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'ClanCats\\Hydrahon\\' => array($vendorDir . '/clancats/hydrahon/src'),
 );

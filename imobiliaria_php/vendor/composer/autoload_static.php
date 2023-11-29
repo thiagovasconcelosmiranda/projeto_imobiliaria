@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit40e6187583ff6b5810c86d2fb4726621
 {
+    public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
@@ -14,6 +18,10 @@ class ComposerStaticInit40e6187583ff6b5810c86d2fb4726621
         'c' => 
         array (
             'core\\' => 5,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
         ),
         'C' => 
         array (
@@ -30,9 +38,23 @@ class ComposerStaticInit40e6187583ff6b5810c86d2fb4726621
         array (
             0 => __DIR__ . '/../..' . '/core',
         ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
         'ClanCats\\Hydrahon\\' => 
         array (
             0 => __DIR__ . '/..' . '/clancats/hydrahon/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'Smalot\\PdfParser\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/smalot/pdfparser/src',
+            ),
         ),
     );
 
@@ -45,6 +67,7 @@ class ComposerStaticInit40e6187583ff6b5810c86d2fb4726621
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit40e6187583ff6b5810c86d2fb4726621::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit40e6187583ff6b5810c86d2fb4726621::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit40e6187583ff6b5810c86d2fb4726621::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit40e6187583ff6b5810c86d2fb4726621::$classMap;
 
         }, null, ClassLoader::class);
