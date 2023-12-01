@@ -1,7 +1,5 @@
 window.onload = function () {
 
-
-
     let base = document.getElementById('refresh').getAttribute('data-url');
     if (document.querySelectorAll('.user-button-option-group')) {
         document.querySelectorAll('.user-button-option-group .group-accordion').forEach(item => {
@@ -14,18 +12,23 @@ window.onload = function () {
 
     function activePainel(item) {
         if (item.querySelector('.panel') != null) {
-            document.querySelectorAll('.user-button-option-group .group-accordion .panel').forEach(item => {
-                item.style.display = "none";
+            let panel = item.querySelector('.panel');
+            let idButton = item.querySelector('button').id.split('-');
+
+            document.querySelectorAll('.panel').forEach(accordion => {
+                let idPanel = accordion.id.split('-');
+                if (idPanel[1] != idButton[1]) {
+                    accordion.style.marginTop = '-150px';
+                }
             });
 
-            let panel = item.querySelector('.panel');
-            if (panel.style.display == 'flex') {
-                panel.style.display = "none";
+            if (panel.style.marginTop == '-150px') {
+                panel.style.marginTop = '0';
+
             } else {
-                panel.style.display = "flex";
+                panel.style.marginTop = '-150px';
             }
         }
-
     }
 
     document.querySelector('.nav-icon').addEventListener('click', () => {
@@ -48,27 +51,36 @@ window.onload = function () {
 
     document.querySelector('.menuMobile').addEventListener('click', () => {
         let panel = document.querySelector('.aside-group');
-
-
         if (panel.style.display == "flex") {
             panel.style.display = "none";
         } else {
             panel.style.display = "flex";
         }
-
     });
 
-    document.getElementById('button-alter').addEventListener('click', ()=>{
+    document.querySelectorAll('.modal-option p').forEach(item => {
+        item.addEventListener('click', () => {
+            if (item.id == 'user') {
+                $('#refresh').load(`${base}/ksi/alter-user`);
+            }
+
+            if (item.id == 'information') {
+                $('#refresh').load(`${base}/ksi/information`);
+            }
+        })
+    })
+
+    document.getElementById('button-alter').addEventListener('click', () => {
         $('#refresh').load(`${base}/ksi/alter-user`);
     });
+
     refreshPage(1);
 
-    $('#button').click(function () {
+    $('#start').click(function () {
         refreshPage(1);
     });
 
-    document.querySelectorAll(".user-button-option-group .group-accordion .panel .user-i-option").forEach(button => {
-
+    document.querySelectorAll(".panel .user-i-option").forEach(button => {
         button.addEventListener('click', () => {
             refreshPage(button.id)
         });
@@ -76,13 +88,14 @@ window.onload = function () {
 
     function refreshPage(element) {
         switch (element) {
-
             case 1:
                 $('#refresh').load(`${base}/ksi/panel`);
+                document.querySelectorAll('.panel').forEach(item => {
+                    item.style.marginTop = "-150px";
+                })
                 break;
-
             case 'contract':
-                $('#refresh').load(`${base}/ksi/contract?contract=locador-proprietario`);
+                $('#refresh').load(`${base}/ksi/contract?contract=proprietario-locador`);
                 break;
 
             case 'imovel':
@@ -90,19 +103,20 @@ window.onload = function () {
                 break;
 
             case 'contract-2':
-                $('#refresh').load(`${base}/ksi/contract?contract=locatario-Inquilino`);
+                $('#refresh').load(`${base}/ksi/contract?contract=inquilino-locatario`);
                 break;
-                case 'contract-3':
-                $('#refresh').load(`${base}/ksi/contract?contract=beneficiario-favorecido`);
+            case 'contract-3':
+                $('#refresh').load(`${base}/ksi/contract?contract=favorecido-beneficiario`);
                 break;
 
-                case 'fiador':
-                    $('#refresh').load(`${base}/ksi/contract?contract=fiador`);
-                    break;
+            case 'fiador':
+                $('#refresh').load(`${base}/ksi/contract?contract=fiador`);
+                break;
         }
     }
-
 }
+
+
 
 
 

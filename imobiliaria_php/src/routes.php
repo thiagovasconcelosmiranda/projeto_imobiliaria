@@ -29,6 +29,7 @@ $router->get('/busca-imovel', 'SearchImovelController@findName');
 $router->get('/sobre', 'AboutController@index');
 
 $router->post('/login', 'LoginController@checkLogin');
+$router->post('/login/{id}/update', 'LoginController@update');
 $router->get('/logout', 'LoginController@logout');
 
 $router->get('/anuncio', 'AnuncioController@index');
@@ -39,6 +40,7 @@ $router->get('/ksi/panel', 'KsiPanelController@index');
 $router->get('/ksi/alter-user', 'KsiAlterUserController@index');
 $router->get('/ksi/contract', 'KsiContractController@index');
 $router->get('/ksi/immobile', 'KsiImmobileController@index');
+$router->get('/ksi/information', 'KsiInformationController@index');
 
 $router->get('/preco', 'PrecoController@index');
 

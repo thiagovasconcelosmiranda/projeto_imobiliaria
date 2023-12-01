@@ -8,7 +8,15 @@ class KsiPanelController extends Controller
 
     public function index()
     {
-        $this->render('ksi/panel');
+        $flash = "";
+        if(!empty($_SESSION['flash'])){
+         $flash = $_SESSION['flash'];
+         $_SESSION['flash'] = "";
+        }
+        
+        $this->render('ksi/panel',[
+            'flash'=> $flash
+        ]);
     }
 
 }

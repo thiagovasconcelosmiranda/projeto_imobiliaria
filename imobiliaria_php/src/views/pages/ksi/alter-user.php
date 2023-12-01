@@ -1,7 +1,14 @@
+<?php
+//Formate date time
+ $date = explode(' ', $infoUser->updated_at);
+ $arrayDate = explode('/',$date[0]);
+ $arrayDate = array_reverse($arrayDate);
+ $newDate = $arrayDate[0]."/".$arrayDate[1]."".$arrayDate[2];
+?>
 <div class=" user-alter container">
     <h1>Dados do Usuário</h1>
 
-    <form method="PUT" action="<?= $base;?>/login">
+    <form method="POST" action="<?= $base;?>/login/1/update" enctype="multipart/form-data"  autocomplete="off">
         <div class="user-group-title">
             <i class="fa-solid fa-pencil"></i>
             <p>Alteração do cadastro</p>
@@ -10,36 +17,33 @@
             <div class="col-group-upload">
                 <h1>Foto</h1>
                 <?php if(!empty($infoUser->photo)): ?>
-                   <img src="<?= $base; ?>/assets/media/user/<?=$infoUser->id;?>/<?=$infoUser->photo;?>" alt="user">
+                   <img class="preview" src="<?= $base; ?>/assets/media/user/<?=$infoUser->id;?>/<?=$infoUser->photo;?>" alt="user">
                 <?php else: ?>
-                    <img src="<?= $base; ?>/assets/images/user.png" alt="user">
+                    <img class="preview" src="<?= $base; ?>/assets/images/user.png" alt="user">
                 <?php endif;?>
             </div>
             <div class="col-group-upload">
-                
-                <label for="u">
-                    <button type="button">Selecionar</button>
+                <input id="upload" name="photo" type="file" onchange="preview()">
+                <label for="upload">
+                    <div class="button">
+                        Selecionar
+                    </div>
                 </label>
-                <input id="u" type="file" >
-                <button type="button">Salvar</button>
             </div>
         </div>
         <div class="group-input">
             <label>E-mail:</label>
             <input type="email" value="<?= $infoUser->email;?>" name="email">
-            <label>Confirmação de E-mail:</label>
-            <input type="email" name="check_email">
         </div>
         <div class="group-row-input">
             <div class="col-input-x">
                 <h1>Alteração Senha:</h1>
                 <div class="group-input ">
-                    <label>Senha atual:</label>
+                    <label>Nova Senha:</label>
                     <input type="password" name="password">
-                    <label>Nova senha:</label>
-                    <input type="password" name="new-password">
+
                     <label>Confirmação de senha:</label>
-                    <input type="password" name="check_password">
+                    <input type="password" name="check_password"  autocomplete="off">
                 </div>
             </div>
 
@@ -61,7 +65,7 @@
                 <h1>Endereço:</h1>
                 <div class="group-input ">
                     <label>Cep:</label>
-                    <input type="cep" value="<?=$infoUser->cep;?>" name="cep">
+                    <input type="text" value="<?=$infoUser->cep;?>" name="cep">
                     <label>Cidade:</label>
                     <input type="text"  value="<?=$infoUser->cidade;?>" name="cidade">
                     <label>Estado:</label>
@@ -72,8 +76,6 @@
                     <input type="text"  value="<?=$infoUser->end;?>" name="end">
                     <label>Numero:</label>
                     <input type="number"  value="<?=$infoUser->num;?>" name="num">
-                    <label>Ap:casa:</label>
-                    <input type="text"  value="" name="ap">
                 </div>
             </div>
 
@@ -81,33 +83,32 @@
                 <h1>Endereço Comercial</h1>
                 <div class="group-input ">
                     <label>Cep:</label>
-                    <input type="cep" value="<?=$infoUser->cep_comercial;?>" name="cep">
+                    <input type="text" value="<?=$infoUser->cep_comercial;?>" name="cep_comercial">
                     <label>Cidade:</label>
-                    <input type="text" value="<?=$infoUser->cidade_comercial;?>" name="cidade">
+                    <input type="text" value="<?=$infoUser->cidade_comercial;?>" name="cidade_comercial">
                     <label>Estado:</label>
-                    <input type="test" value="<?=$infoUser->uf_comercial;?>"  name="uf">
+                    <input type="test" value="<?=$infoUser->uf_comercial;?>"  name="bairro_comercial">
                     <label>Bairro:</label>
-                    <input type="test" value="<?=$infoUser->bairro_comercial;?>"  name="bairro">
+                    <input type="test" value="<?=$infoUser->bairro_comercial;?>"  name="uf_comercial">
                     <label>Endereço:</label>
-                    <input type="text" value="<?=$infoUser->end_comercial;?>"  name="end">
+                    <input type="text" value="<?=$infoUser->end_comercial;?>"  name="end_comercial">
                     <label>Numero:</label>
-                    <input type="number" value="<?=$infoUser->num_comercial;?>"  name="num">
-                    <label>Ap:casa:</label>
-                    <input type="txt" name="ap">
+                    <input type="number" value="<?=$infoUser->num_comercial;?>"  name="num_comercial">
                 </div>
             </div>
         </div>
         <div class="group-row-input">
             <div class="col-input-x">
-                <button>Alterar</button>
+                <button id="button-alt" type="button">Alterar</button>
             </div>
             <div class="col-input-x flex">
-                <p> <input type="checkbox"> Confirmo que os dados estão atualizados</p>
+                <p class="error"> <input id="contract-input" type="checkbox" name="contrato" value="concordo"> Confirmo que os dados estão atualizados</p>
             </div>
 
             <div class="col-input-x">
-                <p>Última atualização: 19/10/2023</p>
+                <p>Última atualização: <?=$newDate;?> - Hora: <?=$date[1];?></p>
             </div>
         </div>
     </form>
 </div>
+<script src="<?=$base;?>/assets/js/ksi-user-alt.js"></script>

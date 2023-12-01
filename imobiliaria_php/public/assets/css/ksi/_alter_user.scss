@@ -23,13 +23,15 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        background-color: #ccc9c9;
+        background-color: #dfdcdc;
         padding: 10px 0;
         margin-bottom: 10px;
+        color: blue;
     }
 
     form .user-group-title i {
         margin-left: 20px;
+        color: blue;
     }
 
     form .row-upload {
@@ -48,16 +50,18 @@
 
     form .row-upload .col-group-upload img {
         height: 150px;
+        border-radius: 50%;
+       
     }
 
     input[type="file"] {
         display: none;
     }
 
-    .col-group-upload button {
+    .col-group-upload label .button {
         padding: 10px 20px;
-        background-color: #fff;
-        border: 1px solid #918f8f;
+        background-color: #d1d1d1;
+        border: 1px solid #adabab;
         outline: none;
         cursor: pointer;
     }
@@ -92,11 +96,19 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+       
+        p{
+            font-size: 14px;
+        }
     }
 
     .col-input-x button {
         width: 150px;
         padding: 10px 0;
+        outline: none;
+        border: 0;
+        background-color: #cccccc;
+        cursor: pointer;
     }
 }
 

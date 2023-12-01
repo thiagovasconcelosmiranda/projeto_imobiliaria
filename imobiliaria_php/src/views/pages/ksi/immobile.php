@@ -5,14 +5,18 @@
     <div class="count-immobile">
         <h5><i class="fa-solid fa-house"></i></h5>
         <h5>Você possui
-            <?= count($infImmobile); ?> imóve<?=(count($infImmobile) > 1 ? 'is' : 'l');?>
-             cadastrado<?= (count($infImmobile) > 1 ? 's' : '');?>
+            <?= count($infImmobile); ?> imóve
+            <?= (count($infImmobile) > 1 ? 'is' : 'l'); ?>
+            cadastrado
+            <?= (count($infImmobile) > 1 ? 's' : ''); ?>
         </h5>
     </div>
     <div class="list-immobile">
+
         <?php foreach ($infImmobile as $item): ?>
             <?php $tipo = explode("/", $item['tipo']); ?>
             <div class="immobile-row">
+
                 <div class="group-inf">
                     <div class="immobile-col">
                         <div class="immobile-image">
@@ -125,7 +129,123 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="activitie-row">
+                    <div class="activitie-title">
+                        <div class="group-title">
+                            <i class="fa-solid fa-square-poll-vertical"></i>
+                            <p>Veja abaixo todas as movimentações do imóvel</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="movements_title">
+                        <p>Movimentação</p>
+                    </div>
+                    <div class="list-activitie">
+                        <table>
+                            <tr class="tr-title">
+                                <td>Data Hora</td>
+                                <td>Descrição</td>
+                                <td>Unidade</td>
+                                <td>Atendente</td>
+                                <td>Setor</td>
+                            </tr>
 
+                            <tr class="tr-info">
+                                <td>14/09/2023 01:11:44</td>
+                                <td>Visita Site</td>
+                                <td>Internet</td>
+                                <td>Site</td>
+                                <td>Locação</td>
+                            </tr>
+
+
+                            <tr class="tr-info">
+                                <td>14/09/2023 01:11:44</td>
+                                <td>Visita Site</td>
+                                <td>Internet</td>
+                                <td>Site</td>
+                                <td>Locação</td>
+                            </tr>
+
+
+                            <tr class="tr-info">
+                                <td>14/09/2023 01:11:44</td>
+                                <td>Visita Site</td>
+                                <td>Internet</td>
+                                <td>Site</td>
+                                <td>Locação</td>
+                            </tr>
+
+
+                            <tr class="tr-info">
+                                <td>14/09/2023 01:11:44</td>
+                                <td>Visita Site</td>
+                                <td>Internet</td>
+                                <td>Site</td>
+                                <td>Locação</td>
+                            </tr>
+
+
+                            <tr class="tr-info">
+                                <td>14/09/2023 01:11:44</td>
+                                <td>Visita Site</td>
+                                <td>Internet</td>
+                                <td>Site</td>
+                                <td>Locação</td>
+                            </tr>
+
+
+                            <tr class="tr-info">
+                                <td>14/09/2023 01:11:44</td>
+                                <td>Visita Site</td>
+                                <td>Internet</td>
+                                <td>Site</td>
+                                <td>Locação</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="document-row">
+                    <div class="document_title">
+                        <p>Documentos</p>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="list-document">
+                      <table>
+                        <tr class="tr-title">
+                            <td>Categoria</td>
+                            <td>Descrição</td>
+                            <td>Download</td>
+                            <td>Tamanho</td>
+                            <td>Data</td>
+                        </tr>
+
+                        <tr class="tr-description">
+                            <td> <i class="fa-solid fa-image"></i>Documento Imóvel</td>
+                            <td><a href="">Autorizado</a></td>
+                            <td>0</td>
+                            <td>19kb</td>
+                            <td>02/03/2023</td>
+                        </tr>
+
+                        <tr class="tr-description">
+                            <td> <i class="fa-solid fa-image"></i>Documento Imóvel</td>
+                            <td><a href="">Autorizado</a></td>
+                            <td>0</td>
+                            <td>19kb</td>
+                            <td>02/03/2023</td>
+                        </tr>
+
+                        <tr class="tr-description">
+                            <td> <i class="fa-solid fa-image"></i>Documento Imóvel</td>
+                            <td><a href="">Autorizado</a></td>
+                            <td>0</td>
+                            <td>19kb</td>
+                            <td>02/03/2023</td>
+                        </tr>
+                      </table>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 nav {
   width: auto;
   height: auto;
@@ -50,6 +49,7 @@ nav li .nav-icon .modal-option {
   font-size: 14px;
   padding: 5px 0;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .nav-icon .modal-option a:hover {
@@ -63,6 +63,7 @@ nav li .nav-icon .modal-option {
 ul li a {
   color: #fff;
 }
+
 
 .menuMobile {
   width: 35px;
@@ -191,13 +192,22 @@ aside .aside-group {
 
 }
 
+.animation-accordion {
+  background-color: red;
+  overflow: hidden;
+
+
+}
+
 .panel {
   background-color: #585858;
-  display: none;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
   padding: 10px 0;
+  margin-top: -150px;
+  transition: 0.5s;
 }
 
 .panel .user-i-option {
@@ -225,6 +235,7 @@ main {
 main .container {
   margin: 0 auto;
   padding: 10px 10px;
+  
 
 }
 
@@ -234,29 +245,46 @@ main .panel-row {
   display: flex;
   flex-direction: column;
 
-}
+  .panel-alert p {
+    color: #fff;
+    display: inline-block;
+    padding: 20px;
+    box-shadow: 0 2px 10px #cfcfcf;
 
+  }
 
-.panel-row .panel-title {
-  width: 100%;
-  padding: 10px 0;
-  border-bottom: 1px solid #7a7878;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
+  .panel-title {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #7a7878;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
-.panel-row .panel-title h1 {
-  font-weight: 500;
-  font-style: arial;
-  font-size: 30px;
-}
-
-.panel-row .panel-title p {
+    h1 {
+      font-weight: 500;
+      font-style: arial;
+      font-size: 30px;
+    }
+    
+p {
   font-weight: 500;
   font-style: arial;
   font-size: 20px;
   color: #585858;
+}
+
+  }
+  .panel-description {
+   padding: 20px;
+   
+    h3{
+      font-weight: 500;
+      font-size: 25px;
+      padding: 20px;
+      color: blue;
+    }
+  }
 }
 
 

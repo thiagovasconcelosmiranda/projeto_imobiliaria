@@ -7,16 +7,12 @@ use \src\models\Contrato_proprietario;
 
 class ContatoProprietarioHeandler extends Controller
 {
-   public static function findId($id, $descrition)
+   public static function findById($id)
    {
-      if($descrition == 'proprietario'){
-         $contratos = Contrato_proprietario::select()
+         $info = Contrato_proprietario::select()
          ->where("login_id", $id)
          ->execute();
 
-         return $contratos;
-      }
-      
+         return $info; 
    }
-
 }

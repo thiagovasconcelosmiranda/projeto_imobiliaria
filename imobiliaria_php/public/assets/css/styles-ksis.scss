@@ -11,7 +11,8 @@ a {
   text-decoration: none;
 }
 
-@import 'ksi/access_user';
+@import 'ksi/.header_user';
 @import 'ksi/alter_user';
 @import 'ksi/immobile_user';
 @import 'ksi/contract_user';
+@import 'ksi/information';
