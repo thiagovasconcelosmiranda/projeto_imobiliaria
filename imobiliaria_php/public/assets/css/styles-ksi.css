@@ -20,10 +20,14 @@ nav {
   width: auto;
   height: auto;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   background-color: #333;
   padding: 10px 0;
+}
+nav .logo-p {
+  color: #fff;
+  margin-left: 25px;
 }
 
 nav ul {
@@ -202,7 +206,6 @@ aside .aside-group {
 }
 
 .animation-accordion {
-  background-color: red;
   overflow: hidden;
 }
 
@@ -226,9 +229,11 @@ aside .aside-group {
   cursor: pointer;
   padding: 10px 0;
 }
-
-.user-i-option i {
+.panel .user-i-option i {
   margin-left: 20px;
+}
+.panel .user-i-option a p {
+  color: #fff;
 }
 
 .panel .user-i-option:hover {
@@ -472,11 +477,12 @@ main .panel-row .panel-description h3 {
   justify-content: end;
   align-items: center;
   flex-direction: column;
+  padding: 0 10px;
 }
-.list-immobile .immobile-row .group-inf .immobile-col .immobile-col p {
-  width: 100%;
+.list-immobile .immobile-row .group-inf .immobile-col p {
   color: #999797;
   font-size: 14px;
+  font-weight: 200;
 }
 .list-immobile .immobile-row .group-inf .immobile-col strong {
   color: #999797;
@@ -487,9 +493,11 @@ main .panel-row .panel-description h3 {
 }
 .list-immobile .immobile-row .group-inf .immobile-col h4 {
   width: 30%;
+  font-weight: 200;
 }
 .list-immobile .immobile-row .group-inf .immobile-col h4 strong {
   color: red;
+  font-weight: 200;
 }
 .list-immobile .immobile-row .immobile-col .immobile-image {
   width: 70px;
@@ -562,6 +570,7 @@ main .panel-row .panel-description h3 {
 .list-immobile .immobile-row .immobile-inf-row .detail-title i {
   color: rgb(104, 104, 179);
   cursor: pointer;
+  margin-right: 10px;
 }
 .list-immobile .immobile-row .immobile-inf-row .detail-info-immobile {
   width: 95%;
@@ -599,7 +608,7 @@ main .panel-row .panel-description h3 {
   width: 100%;
   height: 100%;
 }
-.list-immobile .immobile-row .activitie-row {
+.list-immobile .immobile-row .activity-row {
   width: 100%;
   padding: 10px 10px;
   display: none;
@@ -607,53 +616,54 @@ main .panel-row .panel-description h3 {
   flex-direction: column;
   background-color: rgb(206, 203, 203);
 }
-.list-immobile .immobile-row .activitie-row .activitie-title {
+.list-immobile .immobile-row .activity-row .activity-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 10px 10px;
 }
-.list-immobile .immobile-row .activitie-row .activitie-title .group-title {
+.list-immobile .immobile-row .activity-row .activity-title .group-title {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.list-immobile .immobile-row .activitie-row .activitie-title .group-title i {
+.list-immobile .immobile-row .activity-row .activity-title .group-title i {
   color: #585858;
 }
-.list-immobile .immobile-row .activitie-row .activitie-title .group-title p {
+.list-immobile .immobile-row .activity-row .activity-title .group-title p {
   font-weight: 300;
   color: #3b3b3b;
 }
-.list-immobile .immobile-row .activitie-row .activitie-title i {
+.list-immobile .immobile-row .activity-row .activity-title i {
   color: blue;
   cursor: pointer;
+  margin-right: 10px;
 }
-.list-immobile .immobile-row .activitie-row .movements_title {
+.list-immobile .immobile-row .activity-row .movements_title {
   width: 100%;
   background-color: rgb(212, 229, 243);
   padding: 10px 10px;
 }
-.list-immobile .immobile-row .activitie-row .movements_title p {
+.list-immobile .immobile-row .activity-row .movements_title p {
   font-weight: 300;
   color: blue;
 }
-.list-immobile .immobile-row .activitie-row .list-activitie {
+.list-immobile .immobile-row .activity-row .list-activity {
   width: 100%;
   height: auto;
   background-color: #fff;
 }
-.list-immobile .immobile-row .activitie-row .list-activitie table {
+.list-immobile .immobile-row .activity-row .list-activity table {
   width: 100%;
 }
-.list-immobile .immobile-row .activitie-row .list-activitie table .tr-title {
+.list-immobile .immobile-row .activity-row .list-activity table .tr-title {
   background-color: #e2dcdc;
 }
-.list-immobile .immobile-row .activitie-row .list-activitie table .tr-title tr {
+.list-immobile .immobile-row .activity-row .list-activity table .tr-title tr {
   font-weight: 100;
 }
-.list-immobile .immobile-row .activitie-row .list-activitie table .tr-info td {
+.list-immobile .immobile-row .activity-row .list-activity table .tr-info td {
   border-bottom: 1px solid rgb(209, 204, 204);
 }
 .list-immobile .immobile-row .document-row {
@@ -672,6 +682,11 @@ main .panel-row .panel-description h3 {
 .list-immobile .immobile-row .document-row .document_title p {
   font-style: 100;
   color: blue;
+}
+.list-immobile .immobile-row .document-row .document_title i {
+  color: blue;
+  cursor: pointer;
+  margin-right: 10px;
 }
 .list-immobile .immobile-row .document-row .list-document {
   width: 100%;
@@ -722,4 +737,100 @@ main .panel-row .panel-description h3 {
 }
 .panel-row .information-row p a {
   color: rgb(0, 68, 255);
-}/*# sourceMappingURL=styles-ksis.css.map */
+}
+
+.env-email-container {
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.env-email-container .alert {
+  background-color: rgb(36, 139, 105);
+  display: inline-block;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.env-email-container .alert p {
+  color: #fff;
+  font-size: 18px;
+}
+.env-email-container .alert-error-token {
+  background-color: rgb(204, 47, 47);
+  display: inline-block;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.env-email-container .alert-error-token p {
+  color: #fff;
+  font-size: 18px;
+}
+.env-email-container form {
+  width: 350px;
+  height: auto;
+  border: 1px solid #d3d0d0;
+}
+.env-email-container form .login-title {
+  padding: 10px 10px;
+  background-color: #ebeaea;
+  border-bottom: 1px solid #d3d0d0;
+  padding: 10px;
+}
+.env-email-container form .login-title h1 {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.env-email-container form .logo-image {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.env-email-container form .logo-image img {
+  height: 100px;
+}
+.env-email-container form .group-i {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.env-email-container form .group-i input {
+  width: 93%;
+  padding: 15px 10px;
+  border-style: #d3d0d0;
+  outline: none;
+}
+.env-email-container form .group-i input::-moz-placeholder {
+  font-size: 18px;
+  color: #9e9c9c;
+}
+.env-email-container form .group-i input::placeholder {
+  font-size: 18px;
+  color: #9e9c9c;
+}
+.env-email-container form .group-i button {
+  width: 100%;
+  height: 40px;
+  background-color: #337ab7;
+  color: #fff;
+  font-size: 18px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.env-email-container form .group-i button:hover {
+  background-color: #2165a0;
+}
+.env-email-container form .group-i a {
+  text-align: center;
+  color: #337ab7;
+}/*# sourceMappingURL=styles-ksi.css.map */

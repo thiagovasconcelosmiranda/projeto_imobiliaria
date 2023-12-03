@@ -2,6 +2,7 @@
     position: relative;
 
 }
+
 .item-page-col {
     width: 100%;
     height: auto;
@@ -255,11 +256,16 @@ p {
             justify-content: center;
             align-items: center;
             background-color: #fff;
+           
 
             i{
                 font-size: 25px;
                 color: rgb(214, 25, 25);
                 transform: rotate(-80deg);
+            }
+
+            img{
+                height: 45px;
             }
         }
         

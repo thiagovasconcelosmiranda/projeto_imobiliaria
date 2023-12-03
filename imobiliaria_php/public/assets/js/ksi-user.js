@@ -1,12 +1,10 @@
 window.onload = function () {
-
     let base = document.getElementById('refresh').getAttribute('data-url');
     if (document.querySelectorAll('.user-button-option-group')) {
         document.querySelectorAll('.user-button-option-group .group-accordion').forEach(item => {
             item.querySelector('.accordion').addEventListener('click', () => {
                 activePainel(item);
             })
-
         });
     }
 

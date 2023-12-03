@@ -3,7 +3,8 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\handlers\LoginHandler;
-
+use \src\handlers\AtividadeHandler;
+use \src\handlers\DocumentHandler;
 
 class ksiImmobileController extends Controller
 {
@@ -20,9 +21,15 @@ class ksiImmobileController extends Controller
     {
         $immobile = new PagImovelController();
         $infImmobile = $immobile->findIdImovel($this->infoUser->id);
-    
+       
+        $documentos = DocumentHandler::findByLoginId($this->infoUser->id);
+
+        $atividades = AtividadeHandler::findByLoginId($this->infoUser->id);
+      
         $this->render('ksi/immobile', [
-            'infImmobile'=> $infImmobile
+            'infImmobile'=> $infImmobile,
+             'documentos' => $documentos,
+             'atividades' => $atividades
         ]);
     }
 

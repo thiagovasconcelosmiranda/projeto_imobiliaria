@@ -28,19 +28,23 @@ $router->get('/busca-imovel', 'SearchImovelController@findName');
 
 $router->get('/sobre', 'AboutController@index');
 
-$router->post('/login', 'LoginController@checkLogin');
-$router->post('/login/{id}/update', 'LoginController@update');
-$router->get('/logout', 'LoginController@logout');
-
-$router->get('/anuncio', 'AnuncioController@index');
-$router->post('/anuncio', 'AnuncioController@add');
-
-$router->get('/ksi/area-cliente', 'AreaClienteController@index');
+$router->post('/ksi/login', 'KsiLoginController@checkLogin');
+$router->post('/ksi/login/{id}/update', 'KsiLoginController@update');
+$router->get('/ksi/logout', 'KsiLoginController@logout');
+$router->get('/ksi/env-email', 'KsiLoginController@envEmail');
+$router->post('/ksi/env-email', 'KsiLoginController@envEmailActive');
+$router->get('/ksi/area-cliente', 'KsiAreaClienteController@index');
 $router->get('/ksi/panel', 'KsiPanelController@index');
 $router->get('/ksi/alter-user', 'KsiAlterUserController@index');
 $router->get('/ksi/contract', 'KsiContractController@index');
 $router->get('/ksi/immobile', 'KsiImmobileController@index');
 $router->get('/ksi/information', 'KsiInformationController@index');
+$router->get('/ksi/alter-password/{token}', 'KsiLoginController@alterPassword');
+$router->post('/ksi/alter_password/{token}', 'KsiLoginController@alterPasswordAction');
+
+$router->get('/anuncio', 'AnuncioController@index');
+$router->post('/anuncio', 'AnuncioController@add');
+
 
 $router->get('/preco', 'PrecoController@index');
 

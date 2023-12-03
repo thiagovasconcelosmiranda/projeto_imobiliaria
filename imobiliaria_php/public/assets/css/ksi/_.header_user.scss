@@ -2,14 +2,20 @@
   margin: 0;
   padding: 0;
 }
+
 nav {
   width: auto;
   height: auto;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   background-color: #333;
   padding: 10px 0;
+  .logo-p{
+    color: #fff;
+    margin-left: 25px;
+
+  }
 }
 
 nav ul {
@@ -64,7 +70,6 @@ ul li a {
   color: #fff;
 }
 
-
 .menuMobile {
   width: 35px;
   height: 30px;
@@ -99,7 +104,6 @@ aside .aside-group {
   height: auto;
   display: flex;
   justify-content: center;
-
 }
 
 .col-user .content-user {
@@ -167,9 +171,7 @@ aside .aside-group {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-
 }
-
 
 .group-accordion {
   width: 100%;
@@ -189,14 +191,10 @@ aside .aside-group {
   align-items: center;
   overflow: hidden;
   z-index: 1;
-
 }
 
 .animation-accordion {
-  background-color: red;
   overflow: hidden;
-
-
 }
 
 .panel {
@@ -218,10 +216,14 @@ aside .aside-group {
   color: #fff;
   cursor: pointer;
   padding: 10px 0;
-}
 
-.user-i-option i {
-  margin-left: 20px;
+  i {
+    margin-left: 20px;
+  }
+
+  a p {
+    color: #fff;
+  }
 }
 
 .panel .user-i-option:hover {
@@ -235,7 +237,7 @@ main {
 main .container {
   margin: 0 auto;
   padding: 10px 10px;
-  
+
 
 }
 
@@ -266,19 +268,20 @@ main .panel-row {
       font-style: arial;
       font-size: 30px;
     }
-    
-p {
-  font-weight: 500;
-  font-style: arial;
-  font-size: 20px;
-  color: #585858;
-}
+
+    p {
+      font-weight: 500;
+      font-style: arial;
+      font-size: 20px;
+      color: #585858;
+    }
 
   }
+
   .panel-description {
-   padding: 20px;
-   
-    h3{
+    padding: 20px;
+
+    h3 {
       font-weight: 500;
       font-size: 25px;
       padding: 20px;

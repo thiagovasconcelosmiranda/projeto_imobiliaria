@@ -1,3 +1,4 @@
+
 <div class="panel-row container">
     <div class="panel-title">
         <h1>Meus imoveis</h1>
@@ -12,21 +13,19 @@
         </h5>
     </div>
     <div class="list-immobile">
-
         <?php foreach ($infImmobile as $item): ?>
             <?php $tipo = explode("/", $item['tipo']); ?>
             <div class="immobile-row">
-
                 <div class="group-inf">
                     <div class="immobile-col">
                         <div class="immobile-image">
-                            <img src="<?= $base; ?>/assets/images/<?= $item['id']; ?>/<?= $item['foto1']; ?>" alt="">
+                            <img src="<?=$base; ?>/assets/images/<?= $item['id']; ?>/<?= $item['foto1'];?>">
                         </div>
                     </div>
                     <div class="immobile-col">
-                        <p> <strong>Residência</strong> Casa/
-                            <?= $item['cidade']; ?>-
-                            <?= $item['uf']; ?> <span>Ref:2092
+                        <p style="width: 50%"></p> <strong>Residência</strong> Casa/
+                             <?= $item['cidade'];?> -
+                             <?= $item['uf']; ?> <span>Ref:2092
                                 <?= $item['end']; ?>,
                                 <?= $item['num']; ?> - Unid.
                                 0
@@ -34,22 +33,20 @@
                         </p>
                     </div>
                     <div class="immobile-col">
-                        <h4> <strong>Disposivel</strong>-
-                            <?= $item['preco_aluguels']; ?>
+                    <?php if(!empty($item['disponibilidade'])): ?>
+                        <h4><strong style="color: <?=($item['disponibilidade'] == 'disponível' ? 'green':'red')?>;"><?=$item['disponibilidade'];?></strong>-
+                            <p><?= $item['preco_aluguels'];?></p>
                         </h4>
+                        <?php endif; ?>
                     </div>
                     <div class="immobile-col">
                         <div class="select-option-i">
-                            <div class="group-select">
+                            <div class="group-select active-select">
+                                <i class="fa-solid"></i>
                                 <p>Ações</p>
                             </div>
                             <i class="fa-solid fa-caret-down"></i>
                             <div class="modal-option-immobile">
-                                <div class="group-select">
-                                    <i class="fa-solid fa-folder-open"></i>
-                                    <p>Ocorrêcias</p>
-                                </div>
-
                                 <div class="group-select">
                                     <i class="fa-solid fa-eye"></i>
                                     <p>Atividades</p>
@@ -57,7 +54,7 @@
 
                                 <div class="group-select">
                                     <i class="fa-solid fa-folder-open"></i>
-                                    <p>Documents</p>
+                                    <p>Documentos</p>
                                 </div>
                                 <div class="group-select">
                                     <i class="fa-solid fa-bars"></i>
@@ -130,18 +127,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="activitie-row">
-                    <div class="activitie-title">
+                <div class="activity-row">
+                    <div class="activity-title">
                         <div class="group-title">
                             <i class="fa-solid fa-square-poll-vertical"></i>
                             <p>Veja abaixo todas as movimentações do imóvel</p>
                         </div>
-                        <i class="fa-solid fa-chevron-up"></i>
+                        <i id="activity-off" class="fa-solid fa-chevron-up"></i>
                     </div>
                     <div class="movements_title">
                         <p>Movimentação</p>
                     </div>
-                    <div class="list-activitie">
+                    <div class="list-activity">
                         <table>
                             <tr class="tr-title">
                                 <td>Data Hora</td>
@@ -150,66 +147,24 @@
                                 <td>Atendente</td>
                                 <td>Setor</td>
                             </tr>
-
-                            <tr class="tr-info">
-                                <td>14/09/2023 01:11:44</td>
-                                <td>Visita Site</td>
-                                <td>Internet</td>
-                                <td>Site</td>
-                                <td>Locação</td>
-                            </tr>
-
-
-                            <tr class="tr-info">
-                                <td>14/09/2023 01:11:44</td>
-                                <td>Visita Site</td>
-                                <td>Internet</td>
-                                <td>Site</td>
-                                <td>Locação</td>
-                            </tr>
-
-
-                            <tr class="tr-info">
-                                <td>14/09/2023 01:11:44</td>
-                                <td>Visita Site</td>
-                                <td>Internet</td>
-                                <td>Site</td>
-                                <td>Locação</td>
-                            </tr>
-
-
-                            <tr class="tr-info">
-                                <td>14/09/2023 01:11:44</td>
-                                <td>Visita Site</td>
-                                <td>Internet</td>
-                                <td>Site</td>
-                                <td>Locação</td>
-                            </tr>
-
-
-                            <tr class="tr-info">
-                                <td>14/09/2023 01:11:44</td>
-                                <td>Visita Site</td>
-                                <td>Internet</td>
-                                <td>Site</td>
-                                <td>Locação</td>
-                            </tr>
-
-
-                            <tr class="tr-info">
-                                <td>14/09/2023 01:11:44</td>
-                                <td>Visita Site</td>
-                                <td>Internet</td>
-                                <td>Site</td>
-                                <td>Locação</td>
-                            </tr>
+                            <?php if(!empty($atividades)):?>
+                              <?php foreach($atividades as $item): ?>
+                               <tr class="tr-info">
+                                <td><?=$item['created_at'];?></td>
+                                <td><?=$item['descricao'];?></td>
+                                <td><?=$item['unidade'];?></td>
+                                <td><?=$item['atendente'];?></td>
+                                <td><?=$item['setor'];?></td>
+                               </tr>
+                              <?php endforeach; ?>
+                            <?php endif;?>
                         </table>
                     </div>
                 </div>
                 <div class="document-row">
                     <div class="document_title">
                         <p>Documentos</p>
-                        <i class="fa-solid fa-chevron-up"></i>
+                        <i id="documents-off" class="fa-solid fa-chevron-up"></i>
                     </div>
                     <div class="list-document">
                       <table>
@@ -220,30 +175,18 @@
                             <td>Tamanho</td>
                             <td>Data</td>
                         </tr>
-
+                        <?php if(!empty($atividades)):?>
+                        <?php foreach($documentos as $item):?>
                         <tr class="tr-description">
-                            <td> <i class="fa-solid fa-image"></i>Documento Imóvel</td>
-                            <td><a href="">Autorizado</a></td>
-                            <td>0</td>
-                            <td>19kb</td>
-                            <td>02/03/2023</td>
+                            <td> <i class="fa-solid fa-image"></i><?=$item['categoria'];?></td>
+                            <td><a href=""><?=$item['descricao'];?></a></td>
+                            <td><?=$item['download'];?></td>
+                            <td><?=$item['tamanho'];?></td>
+                            <td><?=$item['created_at'];?></td>
                         </tr>
-
-                        <tr class="tr-description">
-                            <td> <i class="fa-solid fa-image"></i>Documento Imóvel</td>
-                            <td><a href="">Autorizado</a></td>
-                            <td>0</td>
-                            <td>19kb</td>
-                            <td>02/03/2023</td>
-                        </tr>
-
-                        <tr class="tr-description">
-                            <td> <i class="fa-solid fa-image"></i>Documento Imóvel</td>
-                            <td><a href="">Autorizado</a></td>
-                            <td>0</td>
-                            <td>19kb</td>
-                            <td>02/03/2023</td>
-                        </tr>
+                        <?php endforeach;?>
+                        <?php endif;?>
+                       
                       </table>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\handlers\LoginHandler;
 
-class AreaClienteController extends Controller
+class KsiAreaClienteController extends Controller
 {
     
     private $infUser;
@@ -19,9 +19,10 @@ class AreaClienteController extends Controller
     }
     
     public function index()
-    {
-        $this->render('areaCliente', [
-            'infUser' => $this->infUser
+    {   $page="";
+        $this->render('ksi/areaCliente', [
+            'infUser' => $this->infUser,
+            'page'=> $page
         ]); 
     }
 }

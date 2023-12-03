@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpg" href="<?= $base; ?>/assets/images/logo.png" />
-    <link rel="stylesheet" href="<?= $base; ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= $base; ?>/assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Merriweather:wght@300&family=Open+Sans:wght@300&family=Sora:wght@200;300;500;600&family=Tektur:wght@500;800&display=swap"
@@ -19,9 +19,7 @@
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <title>Imobiliaria</title>
-
 </head>
 
 <body onload="loading()">

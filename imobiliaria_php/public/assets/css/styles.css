@@ -892,6 +892,9 @@ select option {
   color: rgb(214, 25, 25);
   transform: rotate(-80deg);
 }
+.footer .footer-i-top .footer-col-top .i-circle img {
+  height: 45px;
+}
 .footer .footer-i-top .footer-col-top .text-i {
   width: 40%;
 }
@@ -2287,7 +2290,7 @@ select option {
   }
 }
 .gray-page {
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(230, 230, 230);
 }
 
 .row-image {
@@ -2298,6 +2301,8 @@ select option {
   align-items: center;
   gap: 40px;
   flex-wrap: wrap;
+  padding: 30px 0;
+  margin-bottom: 30px;
 }
 .row-image .image-i {
   width: 100%;
@@ -2343,6 +2348,7 @@ select option {
   max-width: 100%;
   font-weight: 500;
   color: #969292;
+  font-weight: 500;
 }
 
 .container-photo {
@@ -2511,4 +2517,4 @@ a {
   padding: 10px 20px;
   border-radius: 8px;
   text-align: center;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=styles.css.map */

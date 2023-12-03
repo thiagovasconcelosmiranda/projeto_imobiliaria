@@ -8,7 +8,6 @@ class LoginHandler extends Controller
 {
   private static function _loginList($data)
   {
-    
     $user = new Login();
     $user->id = $data['id'];
     $user->nome = $data['nome'];
@@ -40,25 +39,40 @@ class LoginHandler extends Controller
     $user->token = $data['token'];
     $user->created_at = $data['created_at'];
     $user->updated_at = date('Y/m/d H:m:s');
-  
+
     return $user;
   }
 
   public static function checkLogin()
   {
+
     if (!empty($_SESSION['token'])) {
       $token = $_SESSION['token'];
       $data = Login::select()->where('token', $token)->one();
-      if (count($data) > 0) {
-        $data['token'] = $token;
-        
-        return self::_loginList($data);
+      if (!empty($data)) {
+        if (count($data) > 0) {
+          $data['token'] = $token;
+          return self::_loginList($data);
+        }
       }
       return false;
     }
   }
 
-  public static function veryLogin($cpf, $password)
+  public static function checkCpf($cpf)
+  {
+    $user = Login::select()
+      ->where('cpf', $cpf)
+      ->one();
+
+    if ($user) {
+      return $user;
+    }
+    return false;
+  }
+
+
+  public static function veryLogin($cpf, $password, $contratoPolitica)
   {
 
     $user = Login::select()->where('cpf', $cpf)->one();
@@ -66,10 +80,11 @@ class LoginHandler extends Controller
     if ($user) {
       if (password_verify($password, $user['password'])) {
         $token = md5(time() . rand(0, 9999) . time());
-         Login::update()
-         ->set('token', $token)
-         ->where('cpf', $cpf)
-         ->execute();
+        Login::update()
+          ->set('token', $token)
+          ->set('contrato_politica', $contratoPolitica)
+          ->where('cpf', $cpf)
+          ->execute();
 
         return $token;
       }
@@ -79,11 +94,8 @@ class LoginHandler extends Controller
 
   public static function update_form($array)
   {
-    
-   
     $user = self::checkLogin();
-    if($user){
-      
+    if ($user) {
       $hash = password_hash($array['password'], PASSWORD_DEFAULT);
       if (!$array['password']) {
         $array['password'] = $user->password;
@@ -91,7 +103,7 @@ class LoginHandler extends Controller
         $array['password'] = $hash;
       }
     }
-   
+
     Login::update()
       ->set('email', $array['email'])
       ->set('password', $array['password'])
@@ -103,7 +115,7 @@ class LoginHandler extends Controller
       ->set('telefone_residencial', $array['telefone_residencial'])
       ->set('celular', $array['celular'])
       ->set('telefone_comercial', $array['telefone_comercial'])
-      ->set('cep_comercial',$array['cep_comercial'])
+      ->set('cep_comercial', $array['cep_comercial'])
       ->set('end_comercial', $array['end_comercial'])
       ->set('num_comercial', $array['num_comercial'])
       ->set('bairro_comercial', $array['bairro_comercial'])
@@ -111,6 +123,7 @@ class LoginHandler extends Controller
       ->set('uf_comercial', $array['uf_comercial'])
       ->set('photo', $array['photo'])
       ->set('token', $array['token'])
+      ->set('contrato_politica', $array['contrato_politica'])
       ->set('updated_at', date('Y/m/d H:m:n'))
       ->where('id', $array['id'])
       ->execute();

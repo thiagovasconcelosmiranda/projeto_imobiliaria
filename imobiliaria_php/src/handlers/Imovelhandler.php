@@ -3,14 +3,15 @@ namespace src\handlers;
 
 use \core\Controller;
 use \src\models\Imovel;
-use \src\models\Foto;
 use \src\models\Venda;
 use \src\models\Aluguel;
+use \src\models\Document;
 
 class ImovelHandler extends Controller
 {
   public static function findByPublished($limit)
   {
+    
     $imovel = Imovel::select()
       ->limit($limit)
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
@@ -29,6 +30,7 @@ class ImovelHandler extends Controller
 
   public static function findId($id)
   {
+    
     $imovel = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
@@ -36,7 +38,12 @@ class ImovelHandler extends Controller
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.id', $id)
       ->get();
+
     return $imovel;
+    
+
+   
+  
   }
 
   public static function findPhotoId($id)
@@ -100,7 +107,6 @@ class ImovelHandler extends Controller
       }
 
       if ($key == 'regiao') {
-  
         $imovel = Imovel::select()
           ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
           ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
@@ -109,9 +115,7 @@ class ImovelHandler extends Controller
           ->where('ends.' . $key, $value)
           ->get();
       }
-
     }
-
     return $imovel;
   }
 

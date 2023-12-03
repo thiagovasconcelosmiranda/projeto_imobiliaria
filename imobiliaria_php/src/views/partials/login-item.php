@@ -15,10 +15,10 @@ if (!empty($_SESSION['flash-i'])) {
       <p>Preencha os campos abaixo com as informações recebidas via e-mail e
         clique em "Acessar área do cliente" para visualizar seus extratos ou boletos</p>
     </div>
-    <form method="POST" action="<?= $base; ?>/login">
+    <form method="POST" action="<?=$base; ?>/ksi/login">
       <!---->
       <?php if ($flash != ''): ?>
-        <div class="flash-login">
+        <div class="flash-login" style="color: green;">
           <?= $flash; ?>
         </div>
       <?php endif; ?>
@@ -28,7 +28,7 @@ if (!empty($_SESSION['flash-i'])) {
           <label>CPF/CNPJ*</label>
           <input id="error-input-1" type="text" name="cpf" />
           <strong class="msg-error-1" id="msg-error-1"></strong>
-          <a href="#">
+          <a href="<?=$base;?>/ksi/env-email">
             <p>Esqueceu sua senha?</p>
           </a>
         </div>
@@ -45,7 +45,7 @@ if (!empty($_SESSION['flash-i'])) {
       <div class="group-input">
         <div class="input">
           <div class="group-i-contract">
-            <p id="contract"><input type="checkbox" /> Ao clicar no botão "Acessar a área do cliente",
+            <p id="contract"><input type="checkbox" name="contrato_politica"  value="Concordo com os termos da política"/> Ao clicar no botão "Acessar a área do cliente",
               afirmo que li e
               concordo com os TERMOS DE USO (atualizados dia 11/08/2021) e POLITICA DE PRIVACIDADE
               (atualizados dia 11/08/2021).</p>

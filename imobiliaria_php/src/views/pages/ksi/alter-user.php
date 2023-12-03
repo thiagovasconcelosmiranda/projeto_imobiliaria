@@ -8,7 +8,7 @@
 <div class=" user-alter container">
     <h1>Dados do Usuário</h1>
 
-    <form method="POST" action="<?= $base;?>/login/1/update" enctype="multipart/form-data"  autocomplete="off">
+    <form method="POST" action="<?= $base;?>/ksi/login/1/update" enctype="multipart/form-data"  autocomplete="off">
         <div class="user-group-title">
             <i class="fa-solid fa-pencil"></i>
             <p>Alteração do cadastro</p>
@@ -102,7 +102,7 @@
                 <button id="button-alt" type="button">Alterar</button>
             </div>
             <div class="col-input-x flex">
-                <p class="error"> <input id="contract-input" type="checkbox" name="contrato" value="concordo"> Confirmo que os dados estão atualizados</p>
+                <p class="error"> <input id="contract-input" type="checkbox" name="contrato" value="Concordo com os termos da política"> Confirmo que os dados estão atualizados</p>
             </div>
 
             <div class="col-input-x">

@@ -17,7 +17,7 @@
          </div>
          <div class="footer-col-top">
              <div class="i-circle">
-                 <img src="<?=$base;?>/assets/images/logo.png" alt="Logo" height="50">
+                 <img src="<?=$base;?>/assets/images/logo.png" alt="Logo">
              </div>
              <div class="text-i">
                  <h5>Conheça a nossa imobiliaria</h5>
@@ -93,8 +93,6 @@
  <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-schedule.js"> </script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/alert-error-noEncontrei.js"> </script>
  <script type="text/javascript" src="<?= $base;?>/assets/js/modal-photo.js"> </script>
- 
-
  </body>
 
  </html>

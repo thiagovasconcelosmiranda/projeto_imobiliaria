@@ -14,7 +14,6 @@ const imageList = document.querySelector('.slider-wrapper .image-list');
 const sliderButtons = document.querySelectorAll('.slider-wrapper .slider-button');
 const sliderScrollbar = document.querySelector('.carousel .slider-scrollbar');
 const scrollBarThumb = sliderScrollbar.querySelector('.scrollbar-thumb');
-
 const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth + 20 ;
 
 sliderButtons.forEach(button => {

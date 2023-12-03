@@ -68,11 +68,12 @@
             justify-content: end;
             align-items: center;
             flex-direction: column;
+            padding: 0 10px;
 
-            .immobile-col p {
-                width: 100%;
+            p {
                 color: #999797;
                 font-size: 14px;
+                font-weight: 200;
             }
 
             strong {
@@ -86,10 +87,11 @@
 
             h4 {
                 width: 30%;
+                font-weight: 200;
 
                 strong {
                     color: red;
-
+                    font-weight: 200;
                 }
             }
 
@@ -178,6 +180,7 @@
             i {
                 color: rgb(104, 104, 179);
                 cursor: pointer;
+                margin-right: 10px;
             }
         }
 
@@ -226,7 +229,7 @@
 
     }
 
-    .activitie-row {
+    .activity-row {
         width: 100%;
         padding: 10px 10px;
         display: none;
@@ -234,7 +237,7 @@
         flex-direction: column;
         background-color: rgb(206, 203, 203);
 
-        .activitie-title {
+        .activity-title {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -259,6 +262,7 @@
             i {
                 color: blue;
                 cursor: pointer;
+                margin-right: 10px;
             }
 
         }
@@ -275,7 +279,7 @@
             }
         }
 
-        .list-activitie {
+        .list-activity {
             width: 100%;
             height: auto;
             background-color: #fff;
@@ -319,6 +323,12 @@
             p {
                 font-style: 100;
                 color: blue;
+            }
+
+            i {
+                color: blue;
+                cursor: pointer;
+                margin-right: 10px;
             }
         }
 

@@ -1,12 +1,8 @@
 
-
 let count = 1;
 setInterval(function () {
-
    newImage();
-
 }, 7000);
-
 
 function newImage() {
    count++
@@ -16,7 +12,6 @@ function newImage() {
    if (document.getElementById("radio" + count).checked = true) {
       document.getElementById("radio" + count).checked = true;
    }
-
 }
 
 if (document.getElementById('slider')) {
