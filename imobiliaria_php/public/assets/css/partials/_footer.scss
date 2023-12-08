@@ -1,0 +1,229 @@
+  .footer {
+    width: 100%;
+    height: auto;
+    background: #fff;
+
+    .footer-i-top {
+        width: 100%;
+        height: auto;
+        background-color: rgb(214, 25, 25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+
+        .footer-col-top {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto;
+            padding: 20px 0;
+            gap: 10px;
+
+
+            .i-circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff;
+
+
+                i {
+                    font-size: 25px;
+                    color: rgb(214, 25, 25);
+                    transform: rotate(-80deg);
+                }
+
+                img {
+                    height: 45px;
+                }
+            }
+
+            .text-i {
+                width: 40%;
+            }
+
+            h5 {
+                width: 100%;
+                color: #fff;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            a p {
+                width: 90%;
+                margin: 0 auto;
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+    }
+
+    .footer-text {
+        width: 100%;
+        height: 100%;
+        background: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    .footer-col {
+        width: auto;
+        padding: 0 50px;
+
+        h3 {
+            color: rgb(214, 25, 25);
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #000;
+        }
+
+        p {
+            margin-top: 8px;
+        }
+
+        i {
+            margin-left: 10px;
+            font-size: 25px;
+            color: rgb(214, 25, 25);
+        }
+    }
+
+    .group-i-logo {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+        .logo-tipo{
+            width:70px;
+            height: 70px;
+            img {
+                width: inherit;
+                height: inherit;
+             }
+        }
+        
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+.whatzapp {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    z-index: 4;
+    bottom: 20px;
+    right: 14px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 50%;
+        cursor: pointer;
+        transition: transform 0.4s;
+    }
+
+    img:hover {
+        transform: scale(1.1);
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        width: 130px;
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        color: #000;
+        font-size: 14px;
+        border: 1px solid #000;
+        text-align: center;
+        background-color: #fff;
+        transition: opacity 0.4s;
+    }
+}
+
+.whatzapp:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (min-width: 700px) and (max-width:900px ){
+    .footer-text {
+        gap: 20px;
+    }
+
+    .footer-i-top {
+        flex-direction: column;
+
+        .footer-col-top {
+            flex-direction: column;
+
+            .i-circle {
+                width: 20px;
+                height: 20px;
+            }
+
+            .text-i {
+                h5 {
+                    width: 100%;
+                    font-size: 16px;
+                }
+
+                a p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:700px ){
+    .footer-text {
+        gap: 20px;
+    }
+
+    .footer-i-top {
+        flex-direction: column;
+
+        .footer-col-top {
+            flex-direction: column;
+
+            .i-circle {
+                width: 20px;
+                height: 20px;
+            }
+
+            .text-i {
+                h5 {
+                    width: 100%;
+                    font-size: 16px;
+                }
+
+                a p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ body {
     height: 100vh;
     display: flex;
     position: fixed;
-    z-index: 6;
+    z-index: 99;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
@@ -26,7 +26,6 @@ body {
     height: 100px;
 }
 
-
 nav {
     width: 100%;
     height: 80px;
@@ -34,10 +33,10 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 6;
     position: fixed;
     box-shadow: 10px 5px 25px -8px #98999b;
-
+    z-index: 10;
+  
     img {
         height: 90px;
     }
@@ -96,7 +95,6 @@ label span:nth-child(3) {
 
 }
 
-
 ul {
     display: flex;
     justify-content: center;
@@ -121,10 +119,8 @@ li {
         font-size: 25px;
     }
 
-
     .i {
         font-size: 30px;
-
     }
 }
 
@@ -136,25 +132,14 @@ li a {
     font-size: 14px;
 }
 
-
-
-.container {
-    width: 100%;
-    height: 200vh;
-    background-color: transparent;
-    position: absolute;
-    z-index: 3;
-
-}
-
 .images-top-group {
     width: 100%;
-    height: 130vh;
+    height: 100vh;
     position: fixed;
 
     .top-image {
         width: 100%;
-        height: 110vh;
+        height: 80vh;
     }
 }
 
@@ -164,26 +149,26 @@ li a {
 
 .img-header {
     width: 100%;
-    height: 120vh;
+    height: 130vh;
     max-height: 800px;
     position: relative;
 
     img {
-        width: 100%;
-        height: 130vh;
+        width: inherit;
+        height: inherit;
     }
 
     .group-modal {
         width: 100%;
-        height: 100vh;
+        height: auto;
         position: absolute;
         left: 0;
         right: 0;
-        top: 0;
+        top: 10%;
         bottom: 0;
         margin: auto;
-        z-index: 5;
-
+        z-index: 1;
+       
         .align-title {
             width: 100%;
             height: auto;
@@ -235,8 +220,6 @@ li a {
                     justify-content: center;
                     flex-wrap: wrap;
                 }
-
-
                 button:hover,
                 button:active {
                     background-color: rgb(214, 25, 25);
@@ -323,7 +306,6 @@ li a {
                     flex-wrap: wrap;
                     padding: 0 20px;
 
-
                     li {
                         width: auto;
                         display: flex;
@@ -343,13 +325,10 @@ li a {
                             color: #fff;
                             font-size: 14px;
                             cursor: pointer;
-
                         }
                     }
                 }
             }
-
-
 
             .button-search {
                 width: 100%;
@@ -360,7 +339,7 @@ li a {
                 align-items: center;
 
                 button {
-                    width: 40%;
+                    width: 200px;
                     cursor: pointer;
                     padding: 15px 10px;
                     margin: 5px;
@@ -390,7 +369,8 @@ button {
     box-shadow: 10px 15px 25px 1px #c1c1c2;
     color: #7e7e81;
 }
-.select-i-m{
+
+.select-i-m {
     width: auto;
     color: rgb(84, 82, 86);
     background-color: rgb(255, 255, 255);
@@ -403,10 +383,12 @@ button {
     font-size: 14px;
     border-radius: 5px;
     gap: 20px;
-    i{
+
+    i {
         cursor: pointer;
     }
 }
+
 select {
     width: auto;
     padding: 15px 10px;
@@ -490,29 +472,232 @@ select {
     p strong {
         color: #7a7b7c;
     }
+
+    .img-header {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .group-modal {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 5;
+
+            .align-title {
+                width: 100%;
+                height: auto;
+                margin-top: 5%;
+                display: flex;
+                align-items: center;
+                padding: 20px 0;
+
+                h1 {
+                    width: 100%;
+                    color: rgb(255, 255, 255);
+                    text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px, rgba(0, 0, 0, 0.2) -1px -1px 5px;
+                    font-weight: normal;
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+
+            .painel {
+                margin: 0 auto;
+                width: 50%;
+                height: auto;
+                padding: 20px 60px;
+                transition: 0.9s;
+                border-radius: 0.5rem;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(1.25rem);
+                color: rgb(117, 114, 119);
+                display: flex;
+                flex-direction: column;
+                box-shadow: 5px 15px 25px -25px #98999b;
+
+                h5 {
+                    text-align: center;
+                    padding: 20px 0;
+                    font-weight: 400;
+                    font-size: 1.5rem;
+                }
+
+                .button-i {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+
+                    .respansive-button {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    }
+
+
+                    button:hover,
+                    button:active {
+                        background-color: rgb(214, 25, 25);
+                        color: #fff;
+                    }
+                }
+
+                .group-select-row {
+                    width: 85%;
+                    height: auto;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    background-color: rgb(236, 235, 235);
+                    padding: 20px 15px;
+                    display: none;
+                    overflow-x: scroll;
+                    position: relative;
+
+                    .align-select {
+                        width: 100%;
+                        display: flex;
+                        gap: 10px;
+                    }
+                }
+
+                .group-option-row,
+                .group-option-row-1,
+                .group-option-row-2,
+                .group-option-row-3 {
+                    width: 550px;
+                    height: auto;
+                    background-color: #fff;
+                    display: flex;
+                    justify-content: center;
+
+                    .group-option-col {
+                        width: 100%;
+                        padding: 20px 20px;
+
+                        .group-check {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            margin-top: 20px;
+
+                            label {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .group-option-row {
+                    display: none;
+                }
+
+                .group-option-row-1 {
+                    display: none;
+                }
+
+                .group-option-row-2 {
+                    display: none;
+                }
+
+                .group-option-row-3 {
+                    display: none;
+                }
+
+
+                .list-search {
+                    width: 90%;
+                    padding: 10px 0;
+                    background-color: rgb(236, 235, 235);
+                    margin: 0 auto;
+
+
+                    ul {
+                        width: auto;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        padding: 0 20px;
+
+
+                        li {
+                            width: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            align-items: center;
+                            background: rgb(214, 25, 25);
+                            padding: 10px 10px;
+                            color: #fff;
+                            border-radius: 5px;
+
+                            p {
+                                color: #fff;
+                            }
+
+                            i {
+                                color: #fff;
+                                font-size: 14px;
+                                cursor: pointer;
+
+                            }
+                        }
+                    }
+                }
+
+
+
+                .button-search {
+                    width: 100%;
+                    height: auto;
+                    padding: 20px 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    button {
+                        width: 100%;
+                        cursor: pointer;
+                        padding: 15px 10px;
+                        margin: 5px;
+                        background-color: #3e3f41;
+                        color: #fff;
+                        border: 1px solid #98999b;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+                    }
+
+                    .active {
+                        background-color: rgb(214, 25, 25);
+                    }
+
+                }
+            }
+        }
+    }
 }
 
-@media screen and (max-width: 900px) {
+@media (min-width: 700px) and (max-width: 900px) {
     ul {
         display: none;
     }
 
     button {
         width: 100%;
-    }
-
-    .painel {
-        .align-select {
-            flex-direction: column;
-
-            .group-col-x select {
-                width: 100%;
-            }
-        }
-
-        .button-search {
-            flex-direction: column;
-        }
     }
 
     ul.activeOption {
@@ -556,19 +741,166 @@ select {
         display: block;
     }
 
-    .align-title h1 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .group-i .align-modal .painel {
+    .img-header {
         width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.85);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: auto;
+        position: relative;
+        background-color: green;
 
+        img {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .group-modal {
+            .align-title {
+                h1 {
+                    text-align: center;
+                }
+            }
+
+            .painel {
+                .button-i button {
+                    margin-top: 10px;
+                    font-size: 25px;
+                }
+
+                .align-select {
+                    width: 100%;
+                    display: flex;
+                }
+            }
+
+            .button-search {
+                width: 100%;
+                height: auto;
+                padding: 20px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                button {
+                    width: 100%;
+                    cursor: pointer;
+                    padding: 15px 10px;
+                    margin: 5px;
+                    background-color: #3e3f41;
+                    color: #fff;
+                    border: 1px solid #98999b;
+                    border-radius: 5px;
+                    text-transform: uppercase;
+                }
+
+                .active {
+                    background-color: rgb(214, 25, 25);
+                }
+
+            }
+        }
+    }
+}
+
+
+@media(max-width: 700px) {
+    nav  a .logo-top{
+        width: 50px;
+        height: 50px;
+       img{
+        width: inherit;
+        height: inherit;
+       }
+       }
+    ul {
+        display: none;
     }
 
+    ul.activeOption {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 80px;
+        z-index: 4;
+        padding: 30px 0;
+        box-shadow: 10px 10px 25px -2px #98999b;
+
+        .border-option {
+            width: 100%;
+            height: 30px;
+            background-color: rgb(214, 25, 25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+
+            p {
+                color: #fff;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+
+        a:hover {
+            color: rgb(214, 25, 25);
+        }
+
+        i {
+            display: none;
+        }
+    }
+
+    label span {
+        display: block;
+    }
+
+    .img-header {
+        height: 600px;
+
+        img {
+            width: inherit;
+            height: inherit;
+        }
+
+        .group-modal {
+            top: 10%;
+
+            .align-title {
+                h1 {
+                    font-size: 16px;
+                }
+            }
+
+            .painel {
+                h5 {
+                    font-size: 16px;
+                }
+
+                .button-i button {
+                    width: 100%;
+                    padding: 10px 10px;
+                    margin-top: 5px;
+                    font-size: 14px;
+                }
+
+                .align-select {
+                    width: 100%;
+                    display: flex;
+                }
+            }
+
+            .button-search {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                button {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
 }

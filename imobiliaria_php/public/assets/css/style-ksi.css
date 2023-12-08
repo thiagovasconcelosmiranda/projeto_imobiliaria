@@ -60,6 +60,7 @@ nav li .nav-icon .modal-option {
   gap: 10px;
   padding: 10px 0;
   box-shadow: 0 5px 10px #999797;
+  z-index: 10;
 }
 
 .nav-icon .modal-option a {
@@ -120,7 +121,7 @@ aside .aside-group {
 
 .col-user .content-user {
   width: 80%;
-  height: 200px;
+  height: auto;
   background-color: #e6e5e5;
   display: flex;
   flex-direction: column;
@@ -152,10 +153,11 @@ aside .aside-group {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  padding: 20px 0;
 }
 
 .info-user .image-user {
-  width: 80px;
+  width: 60px;
   height: 60px;
   border: 1px solid #fff;
   display: flex;
@@ -165,7 +167,8 @@ aside .aside-group {
 }
 
 .image-user img {
-  height: 60px;
+  width: inherit;
+  height: inherit;
 }
 
 .info-user button {
@@ -182,7 +185,7 @@ aside .aside-group {
   height: 500px;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .group-accordion {
@@ -290,8 +293,59 @@ main .panel-row .panel-description h3 {
   color: blue;
 }
 
-@media (max-width: 700px) {
-  .menuMobile {
+@media (min-width: 700px) and (max-width: 900px) {
+  nav .logo-p {
+    margin-left: 40px;
+    font-size: 20px;
+  }
+  nav .menuMobile {
+    margin-right: 15px;
+    display: block;
+  }
+  .group-row-input {
+    flex-direction: column;
+  }
+  aside .aside-group {
+    width: 100%;
+    display: none;
+    position: absolute;
+  }
+  aside .aside-group .info-user {
+    height: auto;
+    padding: 40px 0;
+  }
+  .user-button-option-group {
+    margin-top: 150px;
+  }
+  .logo-image img {
+    width: 120px;
+  }
+  .align-i-row .user-button-option-group {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  .user-button-option-group .accordion {
+    height: 80px;
+    font-size: 25px;
+    padding-left: 75px;
+  }
+  .panel {
+    padding-left: 80px;
+  }
+  .panel .user-i-option {
+    font-size: 20px;
+  }
+}
+@media (max-width: 500px) {
+  nav .logo-p {
+    margin-left: 25px;
+    font-size: 12px;
+  }
+  nav .menuMobile {
+    margin-right: -10px;
     display: block;
   }
   aside .aside-group {
@@ -401,6 +455,30 @@ main .panel-row .panel-description h3 {
   cursor: pointer;
 }
 
+@media (min-width: 700px) and (max-width: 900px) {
+  .user-alter .group-input {
+    width: 100%;
+    height: auto;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .user-alter .group-input label {
+    color: #918f8f;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .user-alter .group-input input {
+    width: 80%;
+    height: 50px;
+    padding: 0 10px;
+    outline: none;
+    margin: 0 auto;
+    border: 1px solid #bdb9b9;
+  }
+}
 @media (max-width: 700px) {
   .user-alter h1 {
     font-weight: 500;
@@ -408,6 +486,19 @@ main .panel-row .panel-description h3 {
   }
   form .group-row-input {
     flex-direction: column;
+  }
+  .user-alter .group-input label {
+    color: #918f8f;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .user-alter .group-input input {
+    width: 80%;
+    height: 50px;
+    padding: 0 10px;
+    outline: none;
+    margin: 0 auto;
+    border: 1px solid #bdb9b9;
   }
 }
 .panel-row .count-immobile {
@@ -833,4 +924,4 @@ main .panel-row .panel-description h3 {
 .env-email-container form .group-i a {
   text-align: center;
   color: #337ab7;
-}/*# sourceMappingURL=styles-ksi.css.map */
+}/*# sourceMappingURL=style-ksi.css.map */
