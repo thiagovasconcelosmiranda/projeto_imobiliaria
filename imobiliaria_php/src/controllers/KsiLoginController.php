@@ -23,9 +23,8 @@ class KsiLoginController extends Controller
     $password = filter_input(INPUT_POST, 'password');
     $contratoPolitica = filter_input(INPUT_POST, 'contrato_politica');
 
-
     if ($cpf && $password && $contratoPolitica) {
-      $token = LoginHandler::veryLogin($cpf, $password, $contratoPolitica);
+      $token = LoginHandler::veryLogin($cpf, $password, $contratoPolitica, false);
       if ($token) {
         $_SESSION['token'] = $token;
         $this->redirect('/ksi/area-cliente');

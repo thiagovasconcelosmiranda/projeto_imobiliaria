@@ -42,6 +42,13 @@ $router->get('/ksi/information', 'KsiInformationController@index');
 $router->get('/ksi/alter-password/{token}', 'KsiLoginController@alterPassword');
 $router->post('/ksi/alter_password/{token}', 'KsiLoginController@alterPasswordAction');
 
+$router->get('/ksi/adm/panel-adm', 'ksiPanelAdmController@index');
+$router->get('/ksi/adm/adm-user', 'KsiUserAdmController@index');
+
+$router->get('/ksi/adm/area-adm', 'KsiAreaAdmController@index');
+$router->get('/ksi/adm/login-adm', 'KsiLoginAdmController@index');
+$router->post('/ksi/adm/login-adm-access', 'KsiLoginAdmController@loginAdmAccess');
+
 $router->get('/anuncio', 'AnuncioController@index');
 $router->post('/anuncio', 'AnuncioController@add');
 

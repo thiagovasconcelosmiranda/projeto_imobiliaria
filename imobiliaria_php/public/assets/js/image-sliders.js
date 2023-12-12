@@ -1,4 +1,5 @@
-
+let baseUrl = document.querySelector('.container').getAttribute('data-url');
+console.log(baseUrl);
 let count = 1;
 setInterval(function () {
    newImage();
@@ -17,8 +18,8 @@ function newImage() {
 if (document.getElementById('slider')) {
    const img = document.getElementById('slider');
    let num = 0;
-   const images = ['assets/images/belo-resort-de-hotel-em-frente-a-praia-tropical-com-piscina-paradisiaca-para-ferias-ge.jpg',
-      'assets/images/arquitetura-e-natureza-se-fundem-em-ia-generativa-de-design-moderno.jpg', 'assets/images/interior-plano-vazio-com-elementos-de-decoracao.jpg'];
+   const images = [`${baseUrl}/assets/images/belo-resort-de-hotel-em-frente-a-praia-tropical-com-piscina-paradisiaca-para-ferias-ge.jpg`,
+      `${baseUrl}/assets/images/full-shot-mulher-feliz-brincando-com-crianca.jpg`, `${baseUrl}/assets/images/interior-plano-vazio-com-elementos-de-decoracao.jpg`];
    let nTotal = images.length;
 
    setInterval(function () {

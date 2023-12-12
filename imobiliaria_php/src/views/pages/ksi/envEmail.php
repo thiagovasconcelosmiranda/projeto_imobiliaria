@@ -13,10 +13,13 @@
           <img src="<?=$base;?>/assets/images/logo.png" alt="">
        </div>
        <div class="group-i">
-          <input type="text" name="cpf" placeholder="Digite seu CPF">
+          <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
           <button>Enviar</button>
           <a href="<?=$base;?>/">Lembrei minha senha, voltar e fazer login</a>
        </div>
     </form> 
-
 </div>
+
+<?php $render('ksi/footer'); ?>
+
+

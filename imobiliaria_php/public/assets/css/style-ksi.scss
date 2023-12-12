@@ -11,9 +11,10 @@ a {
   text-decoration: none;
 }
 
-@import 'ksi/.header_user';
-@import 'ksi/alter_user';
-@import 'ksi/immobile_user';
-@import 'ksi/contract_user';
-@import 'ksi/information';
-@import 'ksi/alter_form_password_email';
+@import 'ksi/partials/header_user';
+@import 'ksi/clients/alter_user';
+@import 'ksi/clients/immobile_user';
+@import 'ksi/clients/contract_user';
+@import 'ksi/clients/information';
+@import 'ksi/partials/alter_form_password_email';
+@import 'ksi/adms/painel-ads.scss';

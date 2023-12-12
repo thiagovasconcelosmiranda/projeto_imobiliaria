@@ -3,11 +3,16 @@
     'activeLink' => $activeLink
 ]); ?>
 
-<div class="container">
+<div class="container" data-url="<?= $base; ?>">
     <main>
         <div class="item-page-col gray-page">
             <h3>Imagens em destaque</h3>
             <div class="row-image"></div>
+            <div class="row-image-load">
+                <div class="load"></div>
+                <div class="load"></div>
+                <div class="load"></div>
+            </div>
             <p>Venha conhecer os imoveis disponíveis</p>
         </div>
         <div class="item-page-col">
@@ -114,7 +119,7 @@
             </a>
         </div>
     </main>
-    <?php $render('login-item'); ?>
-    <script type="text/javascript" src="<?= $base; ?>/assets/js/image-slider.js"></script>
+    <?php $render('ksi/login-item'); ?>
+    <script type="text/javascript" src="<?= $base; ?>/assets/js/image-sliders.js"></script>
     <?php $render('footer'); ?>
 </div>

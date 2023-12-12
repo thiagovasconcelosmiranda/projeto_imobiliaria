@@ -10,11 +10,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>KSI - Kurole Sitema imobiliario</title>
 </head>
-
 <body>
     <header>
         <?php if($page == ""):?>
-        <nav class="nav-user">
+        <nav class="nav-user" data-url="<?=$base;?>">
             <p class="logo-p">KSI Kurole Sistema Imobiliaria</p>
             <ul>
                 <li><a>Ola,

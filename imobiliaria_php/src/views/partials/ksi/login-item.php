@@ -37,7 +37,7 @@ if (!empty($_SESSION['flash-i'])) {
         <div class="group-input">
           <div class="input">
             <label>Senha*</label>
-            <input id="error-input-2" type="password" name="password" />
+            <input id="error-input-2"  type="password" name="password" />
             <strong class="msg-error-2" id="msg-error-2"></strong>
           </div>
         </div>

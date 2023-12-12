@@ -2,59 +2,243 @@ main {
     position: relative;
 }
 
-    .container {
-        width: 100%;
-        height: 200vh;
-        background-color: transparent;
-        position: absolute;
-     
+.container {
+    width: 100%;
+    height: 200vh;
+    background-color: transparent;
+    position: absolute;
 
-        .item-page-col {
+
+    .item-page-col {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        z-index: 2;
+        padding: 30px 0;
+
+        h3 {
+            margin-bottom: 40px;
+            font-size: 30px;
+            margin-top: 50px;
+            color: #817e7e;
+            font-weight: 400;
+            font-style: arial;
+            text-transform: uppercase;
+
+        }
+
+        .cards {
             width: 100%;
             height: auto;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            background-color: #fff;
-            padding: 50px 0;
-            z-index: 2;
+            gap: 40px;
+            overflow: hidden;
             padding: 30px 0;
+        }
+    }
+
+    .page-public {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+    }
+
+    .slider {
+        margin: auto;
+        width: 70%;
+        height: 100%;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .slides {
+        width: 400%;
+        height: 350px;
+        display: flex;
+    }
+
+    .slides input {
+        display: none;
+    }
+
+    .slide {
+        width: 25%;
+        background-size: cover;
+        transition: 1s;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .manual-navigation {
+        width: 80%;
+        margin-top: 100px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .manual-btn {
+        width: 10px;
+        height: 10px;
+        border-radius: 25px;
+        background-color: #b30000;
+    }
+
+    .manual-btn:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    #radio1:checked~.first {
+        margin-left: 0;
+    }
+
+    #radio2:checked~.first {
+        margin-left: -25%;
+    }
+
+    #radio3:checked~.first {
+        margin-left: -50%;
+    }
+
+    .item-page {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.582));
+        padding: 70px 0;
+
+        h1 {
+            color: #cccbcb;
+            text-align: center;
+
+        }
+
+        p {
+            color: #cccbcb;
+            text-align: center;
+        }
+    }
+
+    .group-icons {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        margin-top: 100px;
+
+        h1 {
+            color: #cccbcb;
+            margin-top: 30px;
+        }
+
+        p {
+            color: #cccbcb;
+            margin-top: 10px;
+        }
+
+    }
+
+    .icon-i {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: rgb(214, 25, 25);
+        border: 2px solid red;
+        padding: 50px 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+
+        i {
+            font-size: 50px;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #cccbcb;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .hover-i {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: linear-gradient(rgba(219, 23, 23, 0.911), rgba(219, 23, 23, 0.849));
+            transition: 0.5s ease-in-out;
+            top: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
 
             h3 {
-                margin-bottom: 40px;
-                font-size: 30px;
-                margin-top: 50px;
-                color: #adaaaa;
-
-            }
-
-            .cards {
-                width: 100%;
-                height: auto;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                gap: 40px;
-                overflow: hidden;
-                padding: 30px 0;
+                color: #fff;
+                text-align: center;
             }
         }
+    }
 
-        .page-public {
-            width: 100%;
-            height: auto;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 0;
+    .icon-i:hover .hover-i {
+        top: 0;
+    }
+
+    .maps {
+        margin-top: -10%;
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        padding: 50px 0;
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 30px;
+            margin-top: 50px;
+            color: #817e7e;
+            font-weight: 400;
+            font-style: arial;
+            text-transform: uppercase;
+            text-align: center;
         }
 
+        .iframe {
+            background-color: #adaaaa;
+            margin-top: 40px;
+        }
+    }
+
+
+    @media (min-width: 700px) and (max-width: 900px) {
         .slider {
-            margin: 0 auto;
-            width: 80%;
+            margin: auto;
+            width: 100%;
             height: 100%;
             overflow: hidden;
             background: #fff;
@@ -62,9 +246,8 @@ main {
 
         .slides {
             width: 400%;
-            height: 470px;
+            height: 400px;
             display: flex;
-
         }
 
         .slides input {
@@ -73,10 +256,8 @@ main {
 
         .slide {
             width: 25%;
-            position: relative;
             background-size: cover;
             transition: 1s;
-
         }
 
         .slide img {
@@ -85,226 +266,79 @@ main {
             object-fit: contain;
         }
 
-        .manual-navigation {
-            position: absolute;
-            width: 80%;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .manual-btn {
-            width: 10px;
-            height: 10px;
-            border-radius: 25px;
-            background-color: red;
-        }
-
-        .manual-btn:not(:last-child) {
-            margin-right: 10px;
-        }
-
-        #radio1:checked~.first {
-            margin-left: 0;
-        }
-
-        #radio2:checked~.first {
-            margin-left: -25%;
-        }
-
-        #radio3:checked~.first {
-            margin-left: -50%;
-        }
-
-        .item-page {
-            width: 100%;
-            height: auto;
-            display: flex;
+        .cards {
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.582));
-            padding: 70px 0;
+            height: auto;
 
-            h1 {
-                color: #cccbcb;
-                text-align: center;
-
+            .item-page-col h3 {
+                font-size: 16px;
             }
 
-            p {
-                color: #cccbcb;
-                text-align: center;
-            }
-        }
-
-        .group-icons {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10%;
-            margin-top: 60px;
-
-            h1 {
-                color: #cccbcb;
-                margin-top: 30px;
-            }
-
-            p {
-                color: #cccbcb;
+            .card {
                 margin-top: 10px;
             }
 
         }
 
-        .icon-i {
-            width: 150px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .group-icons {
             flex-direction: column;
-            color: rgb(214, 25, 25);
-            border: 2px solid red;
-            padding: 50px 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
+            gap: 30px;
+        }
 
-            i {
-                font-size: 50px;
+        .item-page {
+            gap: 100px;
+        }
+
+        .group-i-logo {
+            flex-direction: column;
+        }
+
+        .slider {
+            height: 310px;
+            background-color: #ffff;
+
+        }
+
+        .slide img {
+            height: 50%;
+        }
+
+        .manual-navigation {
+            margin-top: -190px;
+        }
+
+        .maps h1 {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .modal-login .text-i .close {
+            left: 85%;
+        }
+    }
+
+    @media  (max-width: 700px) {
+        .item-page-col {
+            h3 {
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+
+        .icon-i i {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        .item-page {
+            h1 {
+                font-size: 18px;
             }
 
             p {
-                margin-top: 20px;
-                color: #cccbcb;
-                font-size: 20px;
-                text-align: center;
-            }
-
-            .hover-i {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                background-image: linear-gradient(rgba(219, 23, 23, 0.911), rgba(219, 23, 23, 0.849));
-                transition: 0.5s ease-in-out;
-                top: 100%;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-
-                h3 {
-                    color: #fff;
-                    text-align: center;
-                }
-            }
-
-        }
-
-
-        .icon-i:hover .hover-i {
-            top: 0;
-        }
-
-        .maps {
-            margin-top: -10%;
-            width: 100%;
-            height: auto;
-            background-color: #fff;
-            padding: 50px 0;
-
-            h1 {
-                text-align: center;
-                color: #cccbcb;
-                margin-bottom: 20px;
-            }
-
-            .iframe {
-                background-color: #adaaaa;
-                margin-top: 40px;
-            }
-        }
-
-
-        @media screen and (max-width: 870px) {
-            .cards {
-                flex-direction: column;
-                height: auto;
-
-                .item-page-col h3 {
-                    font-size: 16px;
-                }
-
-                .card {
-                    margin-top: 10px;
-                }
-
-            }
-
-            .group-icons {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .item-page {
-                gap: 100px;
-            }
-        
-            .group-i-logo {
-                flex-direction: column;
-            }
-
-            .slider {
-                height: 310px;
-                background-color: #ffff;
-
-            }
-
-            .slide img {
-                height: 50%;
-            }
-
-            .manual-navigation {
-                margin-top: -190px;
-            }
-
-            .maps h1 {
-                font-size: 18px;
-                text-align: center;
-            }
-
-            .modal-login .text-i .close {
-                left: 85%;
-            }
-        }
-
-        @media screen and (max-width: 400px) {
-            .item-page-col {
-                h3 {
-                    width: 100%;
-                    text-align: center;
-                    font-size: 18px;
-                }
-            }
-
-            .icon-i i {
-                margin-top: 30px;
-                font-size: 20px;
-            }
-
-            .item-page {
-                h1 {
-                    font-size: 18px;
-                }
-
-                p {
-                    margin-top: -80px;
-                }
+                margin-top: -80px;
             }
         }
     }
+}

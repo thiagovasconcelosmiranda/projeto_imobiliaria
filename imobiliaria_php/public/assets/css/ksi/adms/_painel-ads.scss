@@ -1,0 +1,227 @@
+main .group-title {
+    padding: 10px;
+
+    h1 {
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    p {
+        padding: 10px;
+        background-color: #CCC;
+        font-weight: bold;
+    }
+}
+
+main .panel-row-cards {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 30px;
+
+
+    .panel-col-card {
+        width: 100%;
+        display: inline-block;
+        height: auto;
+        margin-bottom: 30px;
+
+
+        .card-title {
+            padding: 20px;
+            border-bottom: 1px solid #8a8989;
+            padding-left: 20px;
+
+            h5 {
+                font-size: 16px;
+                font-weight: 100;
+            }
+        }
+
+        .card-description {
+            padding-left: 20px;
+            margin-bottom: 30px;
+
+            h3 {
+                margin-top: 10px
+            }
+
+            ;
+
+        }
+    }
+
+    .blue {
+        background-color: rgb(63, 117, 231);
+        color: #fff;
+
+    }
+
+    .yellowgreen {
+        background-color: yellowgreen;
+        color: #fff;
+    }
+
+    .yellow {
+        background-color: yellow;
+    }
+
+    .gray {
+        background-color: gray;
+        color: #fff;
+    }
+
+}
+
+.container {
+    width: auto;
+    display: grid;
+    gap: px10px;
+    grid-template-areas:
+        "graphic-1 graphic-2"
+        "list-immobile-1 list-immobile-1"
+        "list-user list-user"
+    ;
+}
+
+.col-i {
+    height: 200px;
+    margin: 10px;
+}
+
+.graphic-1 {
+    grid-area: graphic-1;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.graphic-2 {
+    width: 100%;
+    grid-area: graphic-2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.list-immobile-1 {
+    height: auto;
+    grid-area: list-immobile-1;
+
+    .list-immobile-1-title {
+        background-color: #23c2a7;
+        display: flex;
+        align-items: center;
+
+        i {
+            margin-left: 10px;
+        }
+
+        h5 {
+            padding: 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+    }
+
+    .group-table {
+        height: 200px;
+        overflow-y: scroll;
+
+        table {
+            margin-bottom: 60px;
+            width: 100%;
+
+            tr .td-top {
+                border: 1px solid blue;
+                padding: 5px 5px;
+                font-weight: bold;
+                background-color: #15b5bb;
+            }
+
+            tr .td-desc {
+                border: 1px solid blue;
+                padding: 5px 5px;
+
+                img {
+                    height: 60px;
+                }
+
+                i {
+                    color: blue;
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.list-user {
+    grid-area: list-user;
+
+    .list-list-user-title {
+        background-color: #CCC;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+
+        i {
+            margin-left: 10px;
+        }
+
+        h5 {
+            padding: 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+    }
+
+    .group-table {
+        height: 200px;
+        overflow-y: scroll;
+
+        table {
+            margin-bottom: 60px;
+            width: 100%;
+
+            tr .td-top {
+                border: 1px solid blue;
+                padding: 5px 5px;
+                font-weight: bold;
+                background-color: #15b5bb;
+            }
+
+            tr .td-desc {
+                border: 1px solid blue;
+                padding: 5px 5px;
+
+                img {
+                    height: 60px;
+                }
+
+                i {
+                    color: blue;
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

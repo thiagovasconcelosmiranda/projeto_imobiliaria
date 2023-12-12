@@ -879,9 +879,14 @@ main .panel-row .panel-description h3 {
   display: flex;
   margin-top: 20px;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .env-email-container form .logo-image img {
   height: 100px;
+}
+.env-email-container form .logo-image p {
+  font-weight: bold;
 }
 .env-email-container form .group-i {
   width: 90%;
@@ -898,6 +903,10 @@ main .panel-row .panel-description h3 {
   padding: 15px 10px;
   border-style: #d3d0d0;
   outline: none;
+}
+.env-email-container form .group-i .link-password-i a {
+  text-decoration: none;
+  color: #337ab7;
 }
 .env-email-container form .group-i input::-moz-placeholder {
   font-size: 18px;
@@ -924,4 +933,187 @@ main .panel-row .panel-description h3 {
 .env-email-container form .group-i a {
   text-align: center;
   color: #337ab7;
+}
+
+main .group-title {
+  padding: 10px;
+}
+main .group-title h1 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+main .group-title p {
+  padding: 10px;
+  background-color: #CCC;
+  font-weight: bold;
+}
+
+main .panel-row-cards {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 30px;
+}
+main .panel-row-cards .panel-col-card {
+  width: 100%;
+  display: inline-block;
+  height: auto;
+  margin-bottom: 30px;
+}
+main .panel-row-cards .panel-col-card .card-title {
+  padding: 20px;
+  border-bottom: 1px solid #8a8989;
+  padding-left: 20px;
+}
+main .panel-row-cards .panel-col-card .card-title h5 {
+  font-size: 16px;
+  font-weight: 100;
+}
+main .panel-row-cards .panel-col-card .card-description {
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+main .panel-row-cards .panel-col-card .card-description h3 {
+  margin-top: 10px;
+}
+main .panel-row-cards .blue {
+  background-color: rgb(63, 117, 231);
+  color: #fff;
+}
+main .panel-row-cards .yellowgreen {
+  background-color: yellowgreen;
+  color: #fff;
+}
+main .panel-row-cards .yellow {
+  background-color: yellow;
+}
+main .panel-row-cards .gray {
+  background-color: gray;
+  color: #fff;
+}
+
+.container {
+  width: auto;
+  display: grid;
+  gap: px10px;
+  grid-template-areas: "graphic-1 graphic-2" "list-immobile-1 list-immobile-1" "list-user list-user";
+}
+
+.col-i {
+  height: 200px;
+  margin: 10px;
+}
+
+.graphic-1 {
+  grid-area: graphic-1;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.graphic-1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.graphic-2 {
+  width: 100%;
+  grid-area: graphic-2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.graphic-2 img {
+  width: 100%;
+  height: 100%;
+}
+
+.list-immobile-1 {
+  height: auto;
+  grid-area: list-immobile-1;
+}
+.list-immobile-1 .list-immobile-1-title {
+  background-color: #23c2a7;
+  display: flex;
+  align-items: center;
+}
+.list-immobile-1 .list-immobile-1-title i {
+  margin-left: 10px;
+}
+.list-immobile-1 .list-immobile-1-title h5 {
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.list-immobile-1 .group-table {
+  height: 200px;
+  overflow-y: scroll;
+}
+.list-immobile-1 .group-table table {
+  margin-bottom: 60px;
+  width: 100%;
+}
+.list-immobile-1 .group-table table tr .td-top {
+  border: 1px solid blue;
+  padding: 5px 5px;
+  font-weight: bold;
+  background-color: #15b5bb;
+}
+.list-immobile-1 .group-table table tr .td-desc {
+  border: 1px solid blue;
+  padding: 5px 5px;
+}
+.list-immobile-1 .group-table table tr .td-desc img {
+  height: 60px;
+}
+.list-immobile-1 .group-table table tr .td-desc i {
+  color: blue;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.list-user {
+  grid-area: list-user;
+}
+.list-user .list-list-user-title {
+  background-color: #CCC;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+.list-user .list-list-user-title i {
+  margin-left: 10px;
+}
+.list-user .list-list-user-title h5 {
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.list-user .group-table {
+  height: 200px;
+  overflow-y: scroll;
+}
+.list-user .group-table table {
+  margin-bottom: 60px;
+  width: 100%;
+}
+.list-user .group-table table tr .td-top {
+  border: 1px solid blue;
+  padding: 5px 5px;
+  font-weight: bold;
+  background-color: #15b5bb;
+}
+.list-user .group-table table tr .td-desc {
+  border: 1px solid blue;
+  padding: 5px 5px;
+}
+.list-user .group-table table tr .td-desc img {
+  height: 60px;
+}
+.list-user .group-table table tr .td-desc i {
+  color: blue;
+  margin: 0 10px;
+  cursor: pointer;
 }/*# sourceMappingURL=style-ksi.css.map */

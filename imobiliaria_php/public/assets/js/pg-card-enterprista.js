@@ -27,12 +27,10 @@ if (document.querySelector('.search-cards')) {
         });
 
         const json = await req.json();
-
         if (json[0].length > 0) {
             listCard.innerHTML = "";
             json[0].forEach(item => {
                 let t = item['tipo'].split('/');
-                console.log(item['classificacao']);
                 let c = item['classificacao'].split('/');
                 listCard.insertAdjacentHTML("beforeEnd",
                     `<div class="card">

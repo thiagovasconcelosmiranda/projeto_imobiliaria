@@ -1,3 +1,6 @@
+if( document.querySelector('.slider-wrapper .image-list') && document.querySelector('.carousel .slider-scrollbar') &&
+ document.querySelector('.slider-wrapper .slider-button') && document.querySelector('.scrollbar-thumb')){
+
 if (document.querySelectorAll('.photos')) {
   document.querySelectorAll('.photos .image-photo').forEach(item => {
     document.querySelector('.carousel-close').addEventListener('click', () => {
@@ -42,3 +45,4 @@ imageList.addEventListener('scroll', () => {
   handlerSlideButton();
   updateScrollThumbPosition();
 });
+}

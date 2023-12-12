@@ -74,18 +74,20 @@
         <p>Copyright @ 2023 by Codehal | All Rights Reserved.</p>
     </div>
 </footer>
-<script type="text/javascript" src="<?= $base; ?>/assets/js/image-script.js"> </script>
+<script src="https://www.geradorcnpj.com/assets/js/jquery-1.2.6.pack.js" type="text/javascript"></script>
+<script src="https://www.geradorcnpj.com/assets/js/jquery.maskedinput-1.1.4.pack.js"></script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/images-script.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/header.js"> </script>
-<script type="text/javascript" src="<?= $base; ?>/assets/js/login.js"></script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/ksi-login.js"></script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/preload.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/modal.js"> </script>
-<script type="text/javascript" src="<?= $base; ?>/assets/js/pg-cards-enterprista.js"></script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/pg-card-enterprista.js"></script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/pg-cards-home.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-login.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-announcement.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-schedule.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-noEncontrei.js"> </script>
-<script type="text/javascript" src="<?= $base; ?>/assets/js/modal-photo.js"> </script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/modal-photos.js"> </script>
+<script src="<?= $base; ?>/assets/js/ksi-input-mask.js"></script>
 </body>
-
 </html>

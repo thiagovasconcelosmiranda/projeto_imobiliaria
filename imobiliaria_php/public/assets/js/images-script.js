@@ -3,8 +3,9 @@ let photourl = document.querySelector('.row-image');
 if (document.querySelectorAll('.row-image')) {
 
     setInterval(() => {
-        urlPhoto();
-    }, 50000);
+       urlPhoto();
+       document.querySelector('.row-image-load').style.display="none";
+    }, 30000);
 }
 
 async function urlPhoto() {

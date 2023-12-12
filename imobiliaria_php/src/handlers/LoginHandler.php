@@ -8,6 +8,7 @@ class LoginHandler extends Controller
 {
   private static function _loginList($data)
   {
+
     $user = new Login();
     $user->id = $data['id'];
     $user->nome = $data['nome'];
@@ -36,6 +37,7 @@ class LoginHandler extends Controller
     $user->bairro_comercial = $data['bairro_comercial'];
     $user->cidade_comercial = $data['cidade_comercial'];
     $user->uf_comercial = $data['uf_comercial'];
+    $user->administrador = $data['administrador'];
     $user->token = $data['token'];
     $user->created_at = $data['created_at'];
     $user->updated_at = date('Y/m/d H:m:s');
@@ -45,10 +47,10 @@ class LoginHandler extends Controller
 
   public static function checkLogin()
   {
-
     if (!empty($_SESSION['token'])) {
       $token = $_SESSION['token'];
       $data = Login::select()->where('token', $token)->one();
+
       if (!empty($data)) {
         if (count($data) > 0) {
           $data['token'] = $token;
@@ -57,6 +59,11 @@ class LoginHandler extends Controller
       }
       return false;
     }
+  }
+
+  public static function findAll(){
+    $user = Login::select()->get();
+    return $user;
   }
 
   public static function checkCpf($cpf)
@@ -72,10 +79,13 @@ class LoginHandler extends Controller
   }
 
 
-  public static function veryLogin($cpf, $password, $contratoPolitica)
+  public static function veryLogin($cpf, $password, $contratoPolitica, $adm)
   {
 
-    $user = Login::select()->where('cpf', $cpf)->one();
+    $user = Login::select()
+      ->where('cpf', $cpf)
+      ->where('administrador', $adm)
+      ->one();
 
     if ($user) {
       if (password_verify($password, $user['password'])) {
@@ -88,9 +98,10 @@ class LoginHandler extends Controller
 
         return $token;
       }
-      return false;
     }
+
   }
+
 
   public static function update_form($array)
   {

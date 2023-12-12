@@ -134,6 +134,41 @@ li a {
   font-size: 14px;
 }
 
+li .group-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+li .group-area i {
+  font-size: 18px;
+  cursor: pointer;
+}
+li .group-area .modal-login-access {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 150%;
+  right: 10px;
+  background-color: #fff;
+  box-shadow: 1px 0px 10px #c1c1c2;
+  display: none;
+  flex-direction: column;
+  z-index: 20;
+  overflow: hidden;
+}
+li .group-area .modal-login-access a, li .group-area .modal-login-access p {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  padding: 10px 0px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p:hover {
+  background-color: #d1d1d3;
+}
+
 .images-top-group {
   width: 100%;
   height: 100vh;
@@ -226,7 +261,7 @@ li a {
 .img-header .group-modal .painel .group-select-row {
   width: 85%;
   height: auto;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -241,11 +276,43 @@ li a {
   display: flex;
   gap: 10px;
 }
+.img-header .group-modal .painel .group-select-row .list-search {
+  width: 100%;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+.img-header .group-modal .painel .group-select-row .list-search ul {
+  width: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+.img-header .group-modal .painel .group-select-row .list-search ul li {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  background: rgb(214, 25, 25);
+  padding: 10px 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+.img-header .group-modal .painel .group-select-row .list-search ul li p {
+  color: #fff;
+}
+.img-header .group-modal .painel .group-select-row .list-search ul li i {
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
 .img-header .group-modal .painel .group-option-row,
 .img-header .group-modal .painel .group-option-row-1,
 .img-header .group-modal .painel .group-option-row-2,
 .img-header .group-modal .painel .group-option-row-3 {
-  width: 550px;
+  width: 573px;
   height: auto;
   background-color: #fff;
   display: flex;
@@ -284,39 +351,6 @@ li a {
 }
 .img-header .group-modal .painel .group-option-row-3 {
   display: none;
-}
-.img-header .group-modal .painel .list-search {
-  width: 90%;
-  padding: 10px 0;
-  background-color: rgb(236, 235, 235);
-  margin: 0 auto;
-}
-.img-header .group-modal .painel .list-search ul {
-  width: auto;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0 20px;
-}
-.img-header .group-modal .painel .list-search ul li {
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-items: center;
-  background: rgb(214, 25, 25);
-  padding: 10px 10px;
-  color: #fff;
-  border-radius: 5px;
-}
-.img-header .group-modal .painel .list-search ul li p {
-  color: #fff;
-}
-.img-header .group-modal .painel .list-search ul li i {
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
 }
 .img-header .group-modal .painel .button-search {
   width: 100%;
@@ -368,6 +402,9 @@ button {
 }
 .select-i-m i {
   cursor: pointer;
+}
+.select-i-m p {
+  width: 100%;
 }
 
 select {
@@ -701,6 +738,19 @@ select option {
     width: 100%;
     display: flex;
   }
+  .img-header .group-modal .painel .group-select-row {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: rgb(236, 235, 235);
+    padding: 20px 15px;
+    display: none;
+    overflow-x: scroll;
+    position: relative;
+  }
   .img-header .group-modal .button-search {
     width: 100%;
     height: auto;
@@ -798,10 +848,11 @@ select option {
     width: 100%;
     display: flex;
   }
+  .img-header .group-modal .painel .group-select-row {
+    width: 78%;
+    gap: 5px;
+  }
   .img-header .group-modal .button-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
   }
   .img-header .group-modal .button-search button {
@@ -953,7 +1004,6 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  padding: 50px 0;
   z-index: 2;
   padding: 30px 0;
 }
@@ -961,7 +1011,10 @@ main {
   margin-bottom: 40px;
   font-size: 30px;
   margin-top: 50px;
-  color: #adaaaa;
+  color: #817e7e;
+  font-weight: 400;
+  font-style: arial;
+  text-transform: uppercase;
 }
 .container .item-page-col .cards {
   width: 100%;
@@ -984,15 +1037,15 @@ main {
   padding: 30px 0;
 }
 .container .slider {
-  margin: 0 auto;
-  width: 80%;
+  margin: auto;
+  width: 70%;
   height: 100%;
   overflow: hidden;
   background: #fff;
 }
 .container .slides {
   width: 400%;
-  height: 470px;
+  height: 350px;
   display: flex;
 }
 .container .slides input {
@@ -1000,7 +1053,6 @@ main {
 }
 .container .slide {
   width: 25%;
-  position: relative;
   background-size: cover;
   transition: 1s;
 }
@@ -1011,17 +1063,18 @@ main {
      object-fit: contain;
 }
 .container .manual-navigation {
-  position: absolute;
   width: 80%;
-  margin-top: 30px;
+  margin-top: 100px;
+  margin: auto;
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 .container .manual-btn {
   width: 10px;
   height: 10px;
   border-radius: 25px;
-  background-color: red;
+  background-color: #b30000;
 }
 .container .manual-btn:not(:last-child) {
   margin-right: 10px;
@@ -1061,7 +1114,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 10%;
-  margin-top: 60px;
+  margin-top: 100px;
 }
 .container .group-icons h1 {
   color: #cccbcb;
@@ -1075,6 +1128,7 @@ main {
   width: 150px;
   height: 150px;
   display: flex;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -1122,15 +1176,46 @@ main {
   padding: 50px 0;
 }
 .container .maps h1 {
+  margin-bottom: 40px;
+  font-size: 30px;
+  margin-top: 50px;
+  color: #817e7e;
+  font-weight: 400;
+  font-style: arial;
+  text-transform: uppercase;
   text-align: center;
-  color: #cccbcb;
-  margin-bottom: 20px;
 }
 .container .maps .iframe {
   background-color: #adaaaa;
   margin-top: 40px;
 }
-@media screen and (max-width: 870px) {
+@media (min-width: 700px) and (max-width: 900px) {
+  .container .slider {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+  }
+  .container .slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+  }
+  .container .slides input {
+    display: none;
+  }
+  .container .slide {
+    width: 25%;
+    background-size: cover;
+    transition: 1s;
+  }
+  .container .slide img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
   .container .cards {
     flex-direction: column;
     height: auto;
@@ -1169,7 +1254,7 @@ main {
     left: 85%;
   }
 }
-@media screen and (max-width: 400px) {
+@media (max-width: 700px) {
   .container .item-page-col h3 {
     width: 100%;
     text-align: center;
@@ -1785,7 +1870,7 @@ main {
   justify-content: center;
   align-items: center;
   display: none;
-  z-index: 1;
+  z-index: 5;
 }
 .container-login .modal-login {
   width: 350px;
@@ -2400,7 +2485,7 @@ main {
 .container main .gray-page {
   background-color: rgb(238, 238, 238);
 }
-.container main .gray-page .row-image {
+.container main .gray-page .row-image, .container main .gray-page .row-image-load {
   width: 100%;
   height: auto;
   display: flex;
@@ -2411,7 +2496,25 @@ main {
   padding: 30px 0;
   margin-bottom: 30px;
 }
-.container main .gray-page .row-image .image-i {
+.container main .gray-page .row-image .load, .container main .gray-page .row-image-load .load {
+  width: 300px;
+  height: 200px;
+  background-color: rgba(221, 218, 218, 0.836);
+  animation: 2s load infinite;
+  opacity: 0.2;
+}
+@keyframes load {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 5;
+  }
+}
+.container main .gray-page .row-image .image-i, .container main .gray-page .row-image-load .image-i {
   width: 100%;
   width: 300px;
   height: 200px;
@@ -2421,11 +2524,11 @@ main {
   position: relative;
   cursor: pointer;
 }
-.container main .gray-page .row-image .image-i img {
+.container main .gray-page .row-image .image-i img, .container main .gray-page .row-image-load .image-i img {
   width: 100%;
   height: 100%;
 }
-.container main .gray-page .row-image .legend-locality {
+.container main .gray-page .row-image .legend-locality, .container main .gray-page .row-image-load .legend-locality {
   width: 200px;
   background-color: #fff;
   position: absolute;
@@ -2436,11 +2539,11 @@ main {
   align-items: center;
   padding: 10px 10px;
 }
-.container main .gray-page .row-image .legend-locality .locality-text {
+.container main .gray-page .row-image .legend-locality .locality-text, .container main .gray-page .row-image-load .legend-locality .locality-text {
   display: flex;
   gap: 10px;
 }
-.container main .gray-page .row-image .legend-locality .locality-text .icon {
+.container main .gray-page .row-image .legend-locality .locality-text .icon, .container main .gray-page .row-image-load .legend-locality .locality-text .icon {
   width: 50px;
   height: 30px;
   border-right: 1px solid #969292;
@@ -2448,10 +2551,10 @@ main {
   justify-content: center;
   align-items: center;
 }
-.container main .gray-page .row-image .legend-locality .locality-text .icon i {
+.container main .gray-page .row-image .legend-locality .locality-text .icon i, .container main .gray-page .row-image-load .legend-locality .locality-text .icon i {
   color: #969292;
 }
-.container main .gray-page .row-image .legend-locality .locality-text p {
+.container main .gray-page .row-image .legend-locality .locality-text p, .container main .gray-page .row-image-load .legend-locality .locality-text p {
   max-width: 100%;
   font-weight: 500;
   color: #969292;
@@ -2815,4 +2918,4 @@ a {
   padding: 10px 20px;
   border-radius: 8px;
   text-align: center;
-}/*# sourceMappingURL=styless.css.map */
+}/*# sourceMappingURL=styles.css.map */

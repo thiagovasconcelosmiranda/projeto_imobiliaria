@@ -176,6 +176,17 @@ class ImovelHandler extends Controller
     return $list;
   }
 
+  public static function findByAll()
+  {
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->get();
+    return $imovel;
+  }
+
   public static function update($id)
   {
     //
