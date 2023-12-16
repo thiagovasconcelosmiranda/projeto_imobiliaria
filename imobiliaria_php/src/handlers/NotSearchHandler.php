@@ -6,10 +6,23 @@ use \src\models\NotSearch;
 
 class NotSearchHandler extends Controller
 {
+
+  public static function findByAll(){
+   $notSerch = NotSearch::select()->get();
+   return $notSerch;
+  }
+
+  public static function search($nome){
+   $notSearchs = NotSearch::select()
+   ->where('nome','like', "%".$nome.'%')
+    ->execute();
+    return $notSearchs;
+
+  }
+
   public static function add($input)
   {
-
-    $notSearch = NotSearch::insert([
+     NotSearch::insert([
       'nome' => $input['nome'],
       'cidade' => $input['cidade'],
       'email' => $input['email'],
@@ -40,7 +53,11 @@ class NotSearchHandler extends Controller
     ])->execute();
 
     return true;
-
-
+  }
+  public static function remove($id){
+    NotSearch::delete()
+    ->where('id', $id)
+    ->execute();
+    return true;
   }
 }

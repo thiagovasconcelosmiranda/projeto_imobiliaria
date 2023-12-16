@@ -28,51 +28,56 @@ function activePainel(item) {
     }
 }
 
-document.querySelector('.nav-icon').addEventListener('click', () => {
-    let modal = document.querySelector('.modal-option');
+if (document.querySelector('.nav-icon')) {
+    document.querySelector('.nav-icon').addEventListener('click', () => {
+        let modal = document.querySelector('.modal-option');
+        if (modal.style.display == "flex") {
+            modal.style.display = "none";
+        } else {
+            modal.style.display = "flex";
+            setTimeout(() => {
+                document.addEventListener('click', removeClick);
+            }, 500);
+        }
+    });
+}
 
-    if (modal.style.display == "flex") {
-        modal.style.display = "none";
-    } else {
-        modal.style.display = "flex";
-        setTimeout(() => {
-            document.addEventListener('click', removeClick);
-        }, 500);
-    }
-});
 
 function removeClick() {
     document.querySelector('.modal-option').style.display = "none";
     document.removeEventListener('click', removeClick);
 }
 
-document.querySelector('.menuMobile').addEventListener('click', () => {
-    let panel = document.querySelector('.aside-group');
-    if (panel.style.display == "flex") {
-        panel.style.display = "none";
-    } else {
-        panel.style.display = "flex";
-    }
-});
+if(document.querySelector('.menuMobile')){
+    document.querySelector('.menuMobile').addEventListener('click', () => {
+        let panel = document.querySelector('.aside-group');
+        if (panel.style.display == "flex") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "flex";
+        }
+    });
+}
+
 
 document.querySelectorAll('.modal-option p').forEach(item => {
     item.addEventListener('click', () => {
         if (item.id == 'user') {
-            $('#refresh').load(`${base}/ksi/alter-user`);
+            $('#refreshClient').load(`${base}/ksi/alter-user`);
         }
 
         if (item.id == 'information') {
-            $('#refresh').load(`${base}/ksi/information`);
+            $('#refreshClient').load(`${baseUrl}/ksi/information`);
         }
     })
-})
-
-document.getElementById('button-alter').addEventListener('click', () => {
-    $('#refresh').load(`${base}/ksi/alter-user`);
 });
 
-
 //client
+if (document.getElementById('button-client-alt')) {
+    document.getElementById('button-client-alt').addEventListener('click', () => {
+        $('#refreshClient').load(`${baseUrl}/ksi/alter-user`);
+    });
+}
 $('#start').click(function () {
     refreshPageClient(1);
 });
@@ -87,33 +92,40 @@ document.querySelectorAll(".panel .user-i-option").forEach(button => {
 function refreshPageClient(element) {
     switch (element) {
         case 1:
-            $('#refresh').load(`${baseUrl}/ksi/panel`);
+            $('#refreshClient').load(`${baseUrl}/ksi/panel`);
             document.querySelectorAll('.panel').forEach(item => {
                 item.style.marginTop = "-150px";
             })
             break;
         case 'contract':
-            $('#refresh').load(`${base}/ksi/contract?contract=proprietario-locador`);
+            $('#refreshClient').load(`${baseUrl}/ksi/contract?contract=proprietario-locador`);
             break;
 
         case 'imovel':
-            $('#refresh').load(`${base}/ksi/immobile`);
+            $('#refreshClient').load(`${baseUrl}/ksi/immobile`);
             break;
 
         case 'contract-2':
-            $('#refresh').load(`${base}/ksi/contract?contract=inquilino-locatario`);
+            $('#refreshClient').load(`${baseUrl}/ksi/contract?contract=inquilino-locatario`);
             break;
         case 'contract-3':
-            $('#refresh').load(`${base}/ksi/contract?contract=favorecido-beneficiario`);
+            $('#refreshClient').load(`${baseUrl}/ksi/contract?contract=favorecido-beneficiario`);
             break;
 
         case 'fiador':
-            $('#refresh').load(`${base}/ksi/contract?contract=fiador`);
+            $('#refreshClient').load(`${baseUrl}/ksi/contract?contract=fiador`);
             break;
     }
 }
 
 //adm
+if (document.getElementById('button-adm-alt-user')) {
+    document.getElementById('button-adm-alt-user').addEventListener('click', () => {
+        $('#refresh-adm').load(`${baseUrl}/ksi/alter-user`);
+    });
+}
+
+
 $('#start-adm').click(function () {
     refreshPageAdm('start');
 });
@@ -127,16 +139,16 @@ document.querySelectorAll('.group-accordion .adm .user-i-option').forEach(button
 
 
 function refreshPageAdm(element) {
-    console.log(element);
-
     switch (element) {
         case 'start':
             $('#refresh-adm').load(`${baseUrl}/ksi/adm/panel-adm`);
-        break;
+            break;
         case 'novo_usuario':
-            $('#refresh-adm').load(`${baseUrl}/ksi/adm/adm-user`);
-        break;
-    
+            $('#refresh-adm').load(`${baseUrl}/ksi/adm/add-user`);
+            break;
+        case 'novo_imovel-2':
+            $('#refresh-adm').load(`${baseUrl}/ksi/adm/add-immobile`);
+            break;
         default:
             break;
     }

@@ -4,12 +4,12 @@ namespace src\controllers;
 
 use \core\Controller;
 
-class KsiUserAdmController extends Controller
+class KsiAddUserAdmController extends Controller
 {
 
     public function index()
     { 
-        $this->render('ksi/adm/user-adm');
+        $this->render('ksi/adm/add-user');
     }
 
 }

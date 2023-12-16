@@ -5,7 +5,7 @@
  $arrayDate = array_reverse($arrayDate);
  $newDate = $arrayDate[0]."/".$arrayDate[1]."".$arrayDate[2];
 ?>
-<div class=" user-alter container">
+<div class=" user-alter">
     <h1>Dados do Usuário</h1>
 
     <form method="POST" action="<?= $base;?>/ksi/login/1/update" enctype="multipart/form-data"  autocomplete="off">

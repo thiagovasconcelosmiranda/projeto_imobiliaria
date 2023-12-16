@@ -13,7 +13,7 @@
                             <img src="<?= $base; ?>/assets/images/user.png">
                         <?php endif; ?>
                     </div>
-                    <button id="button-alter" type="button">Alterar meus dados</button>
+                    <button id="button-adm-alt-user" type="button">Alterar meus dados</button>
                 </div>
             </div>
         </div>
@@ -34,10 +34,6 @@
                         <div class="user-i-option" id="novo_usuario">
                             <i class="fa-solid fa-user"></i>
                             <p>Novo Usuário</p>
-                        </div>
-                        <div class="user-i-option" id="vis_imovel">
-                            <i class="fa-solid fa-user"></i>
-                            <p>Visualizar usuários </p>
                         </div>
                     </div>
                 </div>
@@ -66,8 +62,8 @@
                     <p>Contrato proprietário</p>
                 </button>
                 <div class="animation-accordion">
-                    <div class="panel adm" id="painel_adm-4">
-                        <div class="user-i-option" id="contrato_prop">
+                    <div class="panel adm" id="painel_adm-3">
+                        <div class="user-i-option" id="contrato_prop-3">
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Proprietário</p>
                         </div>
@@ -79,12 +75,12 @@
                 </div>
             </div>
             <div class="group-accordion">
-                <button class="accordion" id="button-4">
+                <button class="accordion" id="button-5">
                     <i class="fa-solid fa-file-contract"></i>
                     <p>Contrato Inquilino </p>
                 </button>
                 <div class="animation-accordion">
-                    <div class="panel adm" id="painel_adm-4">
+                    <div class="panel adm" id="painel_adm-5">
                         <div class="user-i-option" id="novo_contrato_Inq">
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Inquilino</p>
@@ -115,12 +111,12 @@
                 </div>
             </div>
             <div class="group-accordion">
-                <button class="accordion" id="button-4">
+                <button class="accordion" id="button-5">
                     <i class="fa-solid fa-file-contract"></i>
                     <p>Contrato Fiador </p>
                 </button>
                 <div class="animation-accordion">
-                    <div class="panel adm" id="painel_adm-4">
+                    <div class="panel adm" id="painel_adm-5">
                         <div class="user-i-option" id="novo_contrato_fiad">
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Fiador</p>
@@ -133,12 +129,12 @@
                 </div>
             </div>
             <div class="group-accordion">
-                <button class="accordion" id="button-4">
+                <button class="accordion" id="button-6">
                     <i class="fa-solid fa-phone"></i>
                     <p>Contato</p>
                 </button>
                 <div class="animation-accordion">
-                    <div class="panel adm" id="painel_adm-4">
+                    <div class="panel adm" id="painel_adm-6">
                         <div class="user-i-option" id="contato">
                             <i class="fa-solid fa-phone"></i>
                             <p>Reclamações ou sugestões</p>

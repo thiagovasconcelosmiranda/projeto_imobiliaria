@@ -13,7 +13,7 @@
                             <img src="<?= $base; ?>/assets/images/user.png">
                         <?php endif; ?>
                     </div>
-                    <button id="button-alter" type="button">Alterar meus dados</button>
+                    <button id="button-client-alt" type="button">Alterar meus dados</button>
                 </div>
             </div>
         </div>
@@ -100,3 +100,6 @@
             </div>
         </div>
 </aside>
+
+
+

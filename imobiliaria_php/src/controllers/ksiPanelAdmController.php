@@ -4,6 +4,8 @@ namespace src\controllers;
 use \core\Controller;
 use \src\handlers\LoginHandler;
 use \src\handlers\ImovelHandler;
+use \src\handlers\NotSearchHandler;
+use \src\handlers\AnuncioHandler;
 
 class ksiPanelAdmController extends Controller
 {
@@ -13,6 +15,8 @@ class ksiPanelAdmController extends Controller
 
         $imoveis = ImovelHandler::findByAll();
         $users = LoginHandler::findAll();
+        $notSearchs = NotSearchHandler::findByAll();
+        $anuncios = AnuncioHandler::findByAll();
 
         $flash = "";
         if(!empty($_SESSION['flash'])){
@@ -23,7 +27,9 @@ class ksiPanelAdmController extends Controller
         $this->render('ksi/adm/panel-adm',[
             'flash'=> $flash,
             'imoveis' => $imoveis,
-            'usuarios' => $users
+            'usuarios' => $users, 
+            'notSearchs' => $notSearchs,
+            'anuncios' => $anuncios
         ]);
     }
 

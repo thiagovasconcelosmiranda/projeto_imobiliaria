@@ -78,6 +78,18 @@ class LoginHandler extends Controller
     return false;
   }
 
+  public static function checkEmail($email)
+  {
+    $user = Login::select()
+      ->where('email', $email)
+      ->one();
+
+    if ($user) {
+      return true;
+    }
+    return false;
+  }
+
 
   public static function veryLogin($cpf, $password, $contratoPolitica, $adm)
   {
@@ -95,13 +107,18 @@ class LoginHandler extends Controller
           ->set('contrato_politica', $contratoPolitica)
           ->where('cpf', $cpf)
           ->execute();
-
         return $token;
       }
     }
-
   }
 
+  public static function search($nome){
+    $usuario = Login::select()
+    ->where('nome', 'like', '%'.$nome.'%')
+    ->execute();
+
+    return $usuario;
+  }
 
   public static function update_form($array)
   {
@@ -139,6 +156,14 @@ class LoginHandler extends Controller
       ->where('id', $array['id'])
       ->execute();
     return true;
+  }
+
+  public static function delete($id){
+    Login::delete()
+    ->where()
+    ->execute();
+    return true;
+
   }
 }
 

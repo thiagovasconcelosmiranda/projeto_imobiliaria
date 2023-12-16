@@ -41,13 +41,25 @@ $router->get('/ksi/immobile', 'KsiImmobileController@index');
 $router->get('/ksi/information', 'KsiInformationController@index');
 $router->get('/ksi/alter-password/{token}', 'KsiLoginController@alterPassword');
 $router->post('/ksi/alter_password/{token}', 'KsiLoginController@alterPasswordAction');
-
 $router->get('/ksi/adm/panel-adm', 'ksiPanelAdmController@index');
-$router->get('/ksi/adm/adm-user', 'KsiUserAdmController@index');
-
+$router->get('/ksi/adm/add-user', 'KsiAddUserAdmController@index');
+$router->get('/ksi/adm/add-immobile', 'KsiAddImmobileController@index');
+$router->get('/ksi/adm/announcement', 'ksiAnnouncementController@index');
+$router->get('/ksi/adm/ajax/announcement/search', 'ksiAnnouncementController@searchAnnouncement');
+$router->get('/ksi/adm/ajax/announcement/remove/{id}', 'ksiAnnouncementController@remove');
+$router->get('/ksi/adm/NotSearch', 'KsiNotSearchController@index');
+$router->get('/ksi/adm/ajax/notSearch', 'KsiNotSearchController@searchNotSearch');
+$router->get('/ksi/adm/ajax/notSearch/remove/{id}', 'KsiNotSearchController@remove');
+$router->get('/ksi/adm/ajax/immobile', 'ksiImmobileController@search');
+$router->get('/ksi/adm/ajax/immobile/remove/{id}', 'ksiImmobileController@remove');
+$router->get('/ksi/adm/ajax/user', 'KsiUserController@search');
 $router->get('/ksi/adm/area-adm', 'KsiAreaAdmController@index');
 $router->get('/ksi/adm/login-adm', 'KsiLoginAdmController@index');
 $router->post('/ksi/adm/login-adm-access', 'KsiLoginAdmController@loginAdmAccess');
+$router->post('/ksi/login/create', 'KsiLoginAdmController@create');
+$router->get('/ksi/ajax/login/check-cpf', 'KsiLoginAdmController@checkCpf');
+$router->get('/ksi/ajax/login/check-email', 'KsiLoginAdmController@checkEmail');
+
 
 $router->get('/anuncio', 'AnuncioController@index');
 $router->post('/anuncio', 'AnuncioController@add');

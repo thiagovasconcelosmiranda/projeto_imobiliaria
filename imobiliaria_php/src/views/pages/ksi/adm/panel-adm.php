@@ -1,3 +1,4 @@
+
 <div class="group-title">
     <h1>Painel</h1>
     <p>Painel</p>
@@ -8,142 +9,77 @@
             <h5> Usuários Online</h5>
         </div>
         <div class="card-description">
-            <h3>500.000 usuarios</h3>
+            <i class="fa-solid fa-user"></i>
+            <h3>0</h3>
         </div>
     </div>
     <div class="panel-col-card yellowgreen">
         <div class="card-title">
-            <h5> Qutds Usuario no cadastrados</h5>
+            <h5>Usuários Ativos</h5>
         </div>
         <div class="card-description">
-            <h3>500.000 usuarios</h3>
+            <i class="fa-solid fa-user"></i>
+            <h3>
+                <?= count($usuarios); ?>
+            </h3>
         </div>
     </div>
     <div class="panel-col-card yellow">
         <div class="card-title">
-            <h5> Imoveis cadastrados</h5>
+            <h5> Imoveis Ativos</h5>
         </div>
         <div class="card-description">
+            <i class="fa-solid fa-house"></i>
             <h3>
-                <?= count($imoveis); ?> Imoveis
+                <?= count($imoveis);?>
             </h3>
         </div>
     </div>
-    <div class="panel-col-card gray">
+    <div class="panel-col-card gray cursor" id="notSearch">
         <div class="card-title">
-            <h5> Emails recebidos</h5>
+            <h5>Usuário não achou</h5>
         </div>
         <div class="card-description">
-            <h3>500.000 itens</h3>
+            <i class="fa-solid fa-envelope"></i>
+            <h3><?=count($notSearchs);?></h3>
+        </div>
+    </div>
+    <div class="panel-col-card red" id="announcement">
+        <div class="card-title">
+            <h5>Pedido de anuncios</h5>
+        </div>
+        <div class="card-description">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h3><?=count($anuncios);?></h3>
         </div>
     </div>
 </div>
-<div class="container">
-
-    <div class="col-i graphic-1">
-        <img src="https://adrianopataro.com.br/wp-content/uploads/2021/10/elementos-do-grafico-titulo-dinamico.png">
+<div class="container-panel">
+    <div class=" graphic-1" id="curve_chart">
     </div>
-    <div class="col-i graphic-2">
-        <img src="https://especiais.gazetadopovo.com.br/wp-content/uploads/sites/19/2020/03/09085018/grafico-historico-cotacao-dolar-4-reais.png"
-            alt="">
-    </div>
-    <div class="col-i list-immobile-1">
+    <div class="list-immobile-1">
         <div class="list-immobile-1-title">
             <i class="fa-solid fa-table"></i>
             <h5>Tabela de imíveis</h5>
+            <input type="text" id="search_immobile" name="search_immobile" placeholder="Buscar Imóvel">
         </div>
         <div class="group-table">
-            <table>
-                <tr class="tr-top">
-                    <td class="td-top">ID</td>
-                    <td class="td-top">TIPO</td>
-                    <td class="td-top">IMAGEM</td>
-                    <td class="td-top">CIDADE</td>
-                    <td class="td-top">UF</td>
-                    <td class="td-top">DATA CADASTRO</td>
-                    <td class="td-top">AÇÕES</td>
-                </tr>
-                <?php foreach ($imoveis as $item): ?>
-                    <tr>
-                        <td class="td-desc">
-                            <?= $item['id']; ?>
-                        </td>
-                        <td class="td-desc">
-                            <?= $item['tipo'] ?>
-                        </td>
-                        <td class="td-desc"><img
-                                src="<?= $base; ?>/assets/images/<?= $item['id']; ?>/<?= $item['foto1']; ?>">
-                        </td>
-
-                        <td class="td-desc">
-                            <?= $item['cidade']; ?>
-                        </td>
-                        <td class="td-desc">
-                            <?= $item['uf']; ?>
-                        </td>
-                        <td class="td-desc">
-                            <?= $item['created_at']; ?>
-                        </td>
-                        <td class="td-desc">
-                            <a href="<?= $base; ?>/<?= $item['id']; ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="<?= $base; ?>/<?= $item['id']; ?>"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
+            <table class="table_immobile"> </table>
         </div>
     </div>
-    <div class="col-i list-user">
+
+    <div class="list-user">
         <div class="list-list-user-title">
             <i class="fa-solid fa-table"></i>
             <h5>Tabela de Usuários</h5>
+            <input type="text" id="search_user" name="search_user" placeholder="Buscar usuário"/>
         </div>
         <div class="group-table">
-            <table>
-                <tr class="tr-top">
-                    <td class="td-top">ID</td>
-                    <td class="td-top">NOME</td>
-                    <td class="td-top">IMAGEM</td>
-                    <td class="td-top">EMAIL</td>
-                    <td class="td-top">CIDADE</td>
-                    <td class="td-top">UF</td>
-                    <td class="td-top">DATA CADASTRO</td>
-                    <td class="td-top">AÇÕES</td>
-                </tr>
-                <?php if (!empty($usuarios)): ?>
-                    <?php foreach ($usuarios as $item): ?>
-                        <tr>
-                            <td class="td-desc">
-                                <?= $item['id']; ?>
-                            </td>
-                            <td class="td-desc">
-                                <?= $item['nome']; ?>
-                            </td>
-                            <td class="td-desc"><img
-                                    src="<?= $base; ?>/assets/media/user/<?= $item['id']; ?>/<?= $item['photo'] ?>">
-                            </td>
-                            <td class="td-desc">
-                                <?= $item['email']; ?>
-                            </td>
-                            <td class="td-desc">
-                                <?= $item['cidade']; ?>
-                            </td>
-
-                            <td class="td-desc">
-                                <?= $item['uf']; ?>
-                            </td>
-                            <td class="td-desc">
-                                <?= $item['created_at']; ?>
-                            </td>
-                            <td class="td-desc">
-                                <a href="<?= $base; ?>/<?= $item['id']; ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="<?= $base; ?>/<?= $item['id']; ?>"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </table>
+            <table class="table_user"></table>
         </div>
     </div>
-
 </div>
+<script src="<?=$base;?>/assets/js/panel-adm.js"></script>
+<script src="<?=$base;?>/assets/js/ksi-adm-search-immobile.js"></script> 
+<script src="<?=$base;?>/assets/js/ksi-adm-search-user.js"></script>
+<?php $render('ksi/graphic', ['imoveis'=> $imoveis, 'anuncios'=>$anuncios]);?>

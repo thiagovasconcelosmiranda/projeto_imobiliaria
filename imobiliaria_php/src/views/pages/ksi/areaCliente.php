@@ -9,6 +9,6 @@ $nome = (explode(' ', $infUser->nome));
 
     <div class="align-i-row">
     <?php $render('ksi/client-aside', ['infUser' => $infUser]);?>
-        <main id="refresh" data-url="<?= $base; ?>"></main>
+        <main id="refreshClient" data-url="<?= $base; ?>"></main>
     </div>
    <?php $render('ksi/footer');?>

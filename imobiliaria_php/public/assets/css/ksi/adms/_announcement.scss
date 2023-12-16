@@ -1,0 +1,57 @@
+.container-announcement {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+   
+    .list-announcement-group {
+        background-color: rgb(192, 192, 206);
+        padding: 10px;
+
+        h3 {
+            font-size: 16px;
+            color: rgb(63, 63, 104);
+            margin-bottom: 10px;
+        }
+
+        input{
+            width: 200px;
+            height: 30px;
+            padding: 0 10px;
+            outline: 0;
+            border: 0;
+        }
+    }
+
+    .table-item {
+        width: 100%;
+        overflow-y: scroll;
+        width: 100%;
+        table {
+            width: 80%;
+            .tr-top {  
+                background-color: rgb(154, 166, 173);
+
+                td {
+                    padding: 0 10px;
+                    color: rgb(32, 88, 134);
+                    border: 1px solid blue;
+                    font-weight: bold;
+                }
+
+            }
+            
+               .tr-desc td {
+                    padding: 0 10px;
+                    border: 1px solid blue;
+                    i{
+                        color: red;
+                        cursor: pointer;
+                    }
+                }
+            }  
+        }
+    }
+
+@media (max-width: 700px){
+  
+}

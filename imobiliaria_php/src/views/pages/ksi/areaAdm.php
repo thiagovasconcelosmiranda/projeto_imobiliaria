@@ -7,6 +7,6 @@
 
 <div class="align-i-row">
    <?php $render('ksi/adm-aside', ['infUser' => $infUser]); ?>
-   <main id="refresh-adm"> ...</main>
+   <main id="refresh-adm"></main>
 </div>
 <?php $render('ksi/footer'); ?>

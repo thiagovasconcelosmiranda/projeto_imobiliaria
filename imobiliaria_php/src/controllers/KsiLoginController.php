@@ -37,10 +37,20 @@ class KsiLoginController extends Controller
 
   public function logout()
   {
-    if (!empty($_SESSION['token'])) {
+     $disconnect = filter_input(INPUT_GET, 'disconnect');
+     if (!empty($_SESSION['token'])) {
       $_SESSION['token'] = '';
-    }
-    $this->redirect('/');
+     }
+     
+     if($disconnect == 'true'){
+      $_SESSION['flash'] = "Sessão expirada!";
+      $this->redirect('/ksi/adm/login-adm');
+      exit;
+     }else{
+      $this->redirect('/');
+      exit;
+     }
+    
   }
 
   public function add()

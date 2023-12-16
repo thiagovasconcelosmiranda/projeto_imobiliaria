@@ -1,13 +1,15 @@
 .user-alter {
-    width: 90%;
+    width: 100%;
     height: auto;
 
     h1 {
         font-weight: 500;
         font-size: 25px;
-        font-weight: bold;
+        font-weight: 400;
         color: #918f8f;
         margin-bottom: 10px;
+        margin-top: 20px;
+        text-transform: uppercase;
     }
     .user-alter form {
         width: auto;
@@ -37,6 +39,8 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;
+        border-bottom: 1px solid #adabab;
+        padding: 10px 0;
     }
 
     form .row-upload .col-group-upload {
@@ -73,20 +77,35 @@
         justify-content: center;
         flex-direction: column;
         gap: 20px;
-    }
 
-    .group-input input {
-        width: 100%;
-        padding: 10px 10px;
-        outline: none;
-        margin: 0 auto;
+        .error-input{
+            border: 1px solid red ;
+        }
+        span{
+            color: red;
+            font-size: 12px;
+            margin-top: -15px;
+            display: none;
+        }
+
+        input {
+            width: 93%;
+            padding: 10px 10px;
+            outline: none;
+        }
     }
 
     form .group-row-input {
         display: flex;
         justify-content: center;
         padding: 20px 0;
-        gap: 60px
+        gap: 60px;
+
+        input {
+            width: 80%;
+            padding: 10px 10px;
+            outline: none;
+        }
     }
 
     .group-row-input .col-input-x {

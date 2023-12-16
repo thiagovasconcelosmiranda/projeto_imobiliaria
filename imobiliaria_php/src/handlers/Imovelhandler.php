@@ -142,7 +142,6 @@ class ImovelHandler extends Controller
   {
     $imovel = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
-      ->where('imovels.tipo', 'residencial/apartamento')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
@@ -187,6 +186,21 @@ class ImovelHandler extends Controller
     return $imovel;
   }
 
+  public static function search($value){
+
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('tipo','like', "%".$value.'%')
+      ->execute();
+
+     return $imovel;
+  }
+
+
+
   public static function update($id)
   {
     //
@@ -194,6 +208,10 @@ class ImovelHandler extends Controller
 
   public static function delete($id)
   {
-    //
+    Imovel::delete()
+    ->where('id', $id)
+    ->execute();
+
+    return true;
   }
 }
