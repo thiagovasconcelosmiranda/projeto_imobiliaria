@@ -20,6 +20,7 @@ class KsiAreaAdmController extends Controller
     
     public function index()
     {  
+    
         $imoveis = ImovelHandler::searchAll();
         $page = "";
     

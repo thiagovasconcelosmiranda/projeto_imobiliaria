@@ -121,7 +121,7 @@ function refreshPageClient(element) {
 //adm
 if (document.getElementById('button-adm-alt-user')) {
     document.getElementById('button-adm-alt-user').addEventListener('click', () => {
-        $('#refresh-adm').load(`${baseUrl}/ksi/alter-user`);
+        $('#refresh-adm').load(`${baseUrl}/ksi/alter-user?adm=true`);
     });
 }
 

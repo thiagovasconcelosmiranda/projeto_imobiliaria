@@ -16,9 +16,12 @@ class KsiAlterUserController extends Controller
     }
     public function index()
     {
-        $this->render('ksi/alter-user',[
-                'infoUser'=> $this->infoUser
-            ]);
+        $adm = filter_input(INPUT_GET, 'adm');
+
+        $this->render('ksi/alter-user', [
+            'infoUser' => $this->infoUser,
+            'adm' => $adm
+        ]);
     }
 
 }

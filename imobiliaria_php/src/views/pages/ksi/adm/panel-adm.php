@@ -1,8 +1,14 @@
-
 <div class="group-title">
     <h1>Painel</h1>
     <p>Painel</p>
 </div>
+<?php if ($flash !=""):?>
+    <div class="item-alert">
+        <div class="alert">
+            <p><?=$flash;?></p>
+        </div>
+    </div>
+<?php endif; ?>
 <div class="panel-row-cards">
     <div class="panel-col-card blue">
         <div class="card-title">
@@ -31,7 +37,7 @@
         <div class="card-description">
             <i class="fa-solid fa-house"></i>
             <h3>
-                <?= count($imoveis);?>
+                <?= count($imoveis); ?>
             </h3>
         </div>
     </div>
@@ -41,7 +47,9 @@
         </div>
         <div class="card-description">
             <i class="fa-solid fa-envelope"></i>
-            <h3><?=count($notSearchs);?></h3>
+            <h3>
+                <?= count($notSearchs); ?>
+            </h3>
         </div>
     </div>
     <div class="panel-col-card red" id="announcement">
@@ -50,7 +58,9 @@
         </div>
         <div class="card-description">
             <i class="fa-solid fa-bullhorn"></i>
-            <h3><?=count($anuncios);?></h3>
+            <h3>
+                <?= count($anuncios); ?>
+            </h3>
         </div>
     </div>
 </div>
@@ -72,14 +82,14 @@
         <div class="list-list-user-title">
             <i class="fa-solid fa-table"></i>
             <h5>Tabela de Usuários</h5>
-            <input type="text" id="search_user" name="search_user" placeholder="Buscar usuário"/>
+            <input type="text" id="search_user" name="search_user" placeholder="Buscar usuário" />
         </div>
         <div class="group-table">
             <table class="table_user"></table>
         </div>
     </div>
 </div>
-<script src="<?=$base;?>/assets/js/panel-adm.js"></script>
-<script src="<?=$base;?>/assets/js/ksi-adm-search-immobile.js"></script> 
-<script src="<?=$base;?>/assets/js/ksi-adm-search-user.js"></script>
-<?php $render('ksi/graphic', ['imoveis'=> $imoveis, 'anuncios'=>$anuncios]);?>
+<script src="<?= $base; ?>/assets/js/panel-adm.js"></script>
+<script src="<?= $base; ?>/assets/js/ksi-adm-search-immobile.js"></script>
+<script src="<?= $base; ?>/assets/js/ksi-adm-search-user.js"></script>
+<?php $render('ksi/graphic', ['imoveis' => $imoveis, 'anuncios' => $anuncios]); ?>

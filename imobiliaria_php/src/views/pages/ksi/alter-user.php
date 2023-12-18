@@ -1,5 +1,4 @@
 <?php
-//Formate date time
  $date = explode(' ', $infoUser->updated_at);
  $arrayDate = explode('/',$date[0]);
  $arrayDate = array_reverse($arrayDate);
@@ -8,7 +7,7 @@
 <div class=" user-alter">
     <h1>Dados do Usuário</h1>
 
-    <form method="POST" action="<?= $base;?>/ksi/login/1/update" enctype="multipart/form-data"  autocomplete="off">
+    <form method="POST" action="<?= $base;?>/ksi/login/1/update?adm=<?=$adm;?>" enctype="multipart/form-data"  autocomplete="off">
         <div class="user-group-title">
             <i class="fa-solid fa-pencil"></i>
             <p>Alteração do cadastro</p>
@@ -102,7 +101,10 @@
                 <button id="button-alt" type="button">Alterar</button>
             </div>
             <div class="col-input-x flex">
-                <p class="error"> <input id="contract-input" type="checkbox" name="contrato" value="Concordo com os termos da política"> Confirmo que os dados estão atualizados</p>
+              <div class="contract-i">
+                <input id="contract-input" type="checkbox" name="contrato" value="Concordo com os termos da política">
+                <p class="error"> Confirmo que os dados estão atualizados</p>
+              </div>
             </div>
 
             <div class="col-input-x">

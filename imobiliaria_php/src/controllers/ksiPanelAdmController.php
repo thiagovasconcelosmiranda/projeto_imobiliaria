@@ -19,9 +19,9 @@ class ksiPanelAdmController extends Controller
         $anuncios = AnuncioHandler::findByAll();
 
         $flash = "";
-        if(!empty($_SESSION['flash'])){
-         $flash = $_SESSION['flash'];
-         $_SESSION['flash'] = "";
+        if(!empty($_SESSION['flash-msg'])){
+         $flash = $_SESSION['flash-msg'];
+         $_SESSION['flash-msg'] = "";
         }
         
         $this->render('ksi/adm/panel-adm',[

@@ -11,6 +11,29 @@ a {
   text-decoration: none;
 }
 
+span {
+  color: red;
+  font-size: 12px;
+  margin-top: -15px;
+  display: none;
+}
+
+.item-alert {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.item-alert .alert {
+  background-color: rgb(66, 170, 66);
+  display: inline-block;
+  padding: 10px 20px;
+}
+.item-alert .alert p {
+  color: #fff;
+  text-transform: uppercase;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -431,12 +454,6 @@ main .panel-row .panel-description h3 {
 .user-alter .group-input .error-input {
   border: 1px solid red;
 }
-.user-alter .group-input span {
-  color: red;
-  font-size: 12px;
-  margin-top: -15px;
-  display: none;
-}
 .user-alter .group-input input {
   width: 93%;
   padding: 10px 10px;
@@ -460,7 +477,14 @@ main .panel-row .panel-description h3 {
   justify-content: center;
   flex-direction: column;
 }
-.user-alter .group-row-input .col-input-x p {
+.user-alter .group-row-input .col-input-x .contract-i {
+  display: flex;
+}
+.user-alter .group-row-input .col-input-x .contract-i #contract-input {
+  width: 20px;
+  margin-right: 6px;
+}
+.user-alter .group-row-input .col-input-x .contract-i p {
   font-size: 14px;
 }
 .user-alter .col-input-x button {
@@ -501,8 +525,31 @@ main .panel-row .panel-description h3 {
     font-weight: 500;
     font-size: 18px;
   }
+  form .row-upload {
+    flex-direction: column;
+  }
+  form .row-upload .col-group-upload {
+    width: 100%;
+  }
+  form .row-upload .col-group-upload img {
+    width: 150px;
+    height: 50px;
+    margin: auto;
+  }
+  form .row-upload .col-group-upload label .button {
+    background-color: blue;
+    background-color: #d1d1d1;
+    border: 1px solid #adabab;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
   form .group-row-input {
     flex-direction: column;
+  }
+  .user-alter .group-input {
+    padding: 0 30px;
   }
   .user-alter .group-input label {
     color: #918f8f;
@@ -511,11 +558,7 @@ main .panel-row .panel-description h3 {
   }
   .user-alter .group-input input {
     width: 80%;
-    height: 50px;
-    padding: 0 10px;
-    outline: none;
-    margin: 0 auto;
-    border: 1px solid #bdb9b9;
+    height: 20px;
   }
 }
 .panel-row .count-immobile {

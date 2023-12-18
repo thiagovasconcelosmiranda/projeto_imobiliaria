@@ -8,7 +8,8 @@
         <div class="row-upload">
             <div class="col-group-upload">
                 <h1>Foto</h1>
-                <img class="preview" src="<?= $base; ?>/assets/images/user.png" alt="user">
+                <span id="error-0">Campos obrigatórios*</span>
+                <img class="preview"src="<?= $base; ?>/assets/images/user.png" alt="user">
             </div>
             <div class="col-group-upload">
                 <input id="upload" name="photo" type="file" onchange="preview()">
@@ -19,7 +20,6 @@
                 </label>
             </div>
         </div>
-
         <div class="group-row-input">
             <div class="col-input-x">
                 <h1>Dados Pessoais:</h1>
@@ -29,7 +29,7 @@
                     <span id="msg-1">Campos Obrigatórios*</span>
 
                     <label>CPF</label>
-                    <input type="text" name="cpf" autocomplete="off" id="error-2">
+                    <input type="text" name="cpf"  autocomplete="off" id="error-2">
                     <span id="msg-2">Campos Obrigatórios*</span>
                 </div>
             </div>
@@ -44,7 +44,6 @@
                     <input type="email" name="check_email" id="error-4">
                     <span id="msg-4">Campos Obrigatórios*</span>
                 </div>
-
             </div>
         </div>
         <div class="group-row-input" style="align-items: center;">
@@ -60,22 +59,19 @@
                     <span id="msg-6">Campos Obrigatórios*</span>
                 </div>
             </div>
-
             <div class="col-input-x">
                 <h1>Telefones</h1>
                 <div class="group-input">
                     <label>Comercial:</label>
-                    <input type="text" name="tel_comercial">
+                    <input type="text" name="tel_comercial"id="tel_comercial">
 
                     <label>Residencial:</label>
-                    <input type="text" name="tel_residencial">
-
+                    <input type="text" name="tel_residencial" id="tel_residencial">
 
                     <label>Celular:</label>
                     <input type="text" name="celular" id="error-9">
                     <span id="msg-9">Campos Obrigatórios*</span>
                 </div>
-
             </div>
         </div>
         <div class="group-row-input">
@@ -107,20 +103,24 @@
                     <span id="msg-15">Campos Obrigatórios*</span>
                 </div>
             </div>
-
             <div class="col-input-x">
                 <h1>Endereço Comercial</h1>
                 <div class="group-input ">
                     <label>Cep:</label>
-                    <input type="text" name="cep_comercial">
+                    <input type="text" name="cep_comercial" id="cep_comercial">
+
                     <label>Cidade:</label>
                     <input type="text" name="cidade_comercial">
+
                     <label>Estado:</label>
                     <input type="test" name="bairro_comercial">
+
                     <label>Bairro:</label>
                     <input type="test" name="uf_comercial">
+
                     <label>Endereço:</label>
                     <input type="text" name="end_comercial">
+
                     <label>Numero:</label>
                     <input type="number" name="num_comercial">
                 </div>
@@ -133,69 +133,7 @@
         </div>
     </form>
 </div>
-<script>
-    document.getElementById('button-add-user').addEventListener('click', () => {
-        ckeckInput();
-    });
-
-
-    function ckeckInput() {
-        let num = 0;
-        document.querySelectorAll('form input').forEach(item => {
-            let id = item.id.split('-');
-            if (id[1]) {
-                if (!item.value) {
-                    document.getElementById('error-' + id[1]).classList.add('error-input');
-                    if (document.getElementById('msg-' + id[1])) {
-                        document.getElementById('msg-' + id[1]).style.display = "flex";
-                    }
-                } else {
-                    document.getElementById('error-' + id[1]).classList.remove('error-input');
-                    document.getElementById('msg-' + id[1]).style.display = "none";
-                    num++;
-                }
-            }
-        });
-        if(num == 13){
-            document.getElementById('button-add-user').type="submit";
-        }
-    }
-
-    async function checkCpf(cpf) {
-        if (cpf) {
-            var req = await fetch(`${baseUrl}/ksi/ajax/login/check-cpf?cpf=${cpf}`);
-            var json = await req.json();
-
-            if (json.error != "") {
-                alert(json.error);
-                return;
-            }
-
-            if (json.cpf == true) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    async function checkEmail(email) {
-        if (email) {
-            var req = await fetch(`${baseUrl}/ksi/ajax/login/check-email?email=${email}`);
-            var json = await req.json();
-
-            if (json.error != "") {
-                alert(json.error);
-                return;
-            }
-
-            if (json.email == true) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-</script>
-<script src="<?= $base; ?>/assets/js/ksi-user-alt.js" type="text/javascript"></script>
+<script src="<?=$base;?>/assets/js/ksi-input-mask.js"></script>
+<script src="<?=$base;?>/assets/js/ksi-add-user-error.js"></script>
+<script src="<?= $base;?>/assets/js/ksi-user-alt.js" type="text/javascript"></script>
+<script src="<?= $base;?>/assets/js/api-cep.js" type="text/javascript"></script>

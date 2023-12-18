@@ -13,18 +13,19 @@ function preview() {
     } else {
         preview.src = "";
     }
-
 }
 
-var buttonAlt = document.getElementById('button-alt');
-var contractInput = document.getElementById('contract-input');
-
-buttonAlt.addEventListener('click', () => {
-    console.log(contractInput)
-    if(!contractInput.checked){
-       document.querySelector('.error').style.color="red";
-    }else{
-        document.querySelector('.error').style.color="#000";
-        buttonAlt.type="submit";
-    }
-})
+if(document.getElementById('button-alt')){
+    var buttonAlt = document.getElementById('button-alt');
+    var contractInput = document.getElementById('contract-input');
+    
+    buttonAlt.addEventListener('click', () => {
+        console.log(contractInput)
+        if(!contractInput.checked){
+           document.querySelector('.error').style.color="red";
+        }else{
+            document.querySelector('.error').style.color="#000";
+            buttonAlt.type="submit";
+        }
+    });
+}

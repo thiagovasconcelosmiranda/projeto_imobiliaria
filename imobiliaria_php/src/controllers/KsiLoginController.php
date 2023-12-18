@@ -13,7 +13,6 @@ class KsiLoginController extends Controller
 
   public function __construct()
   {
-
     $this->userToken = LoginHandler::checkLogin();
   }
 
@@ -37,20 +36,20 @@ class KsiLoginController extends Controller
 
   public function logout()
   {
-     $disconnect = filter_input(INPUT_GET, 'disconnect');
-     if (!empty($_SESSION['token'])) {
+    $disconnect = filter_input(INPUT_GET, 'disconnect');
+    if (!empty($_SESSION['token'])) {
       $_SESSION['token'] = '';
-     }
-     
-     if($disconnect == 'true'){
+    }
+
+    if ($disconnect == 'true') {
       $_SESSION['flash'] = "Sessão expirada!";
       $this->redirect('/ksi/adm/login-adm');
       exit;
-     }else{
+    } else {
       $this->redirect('/');
       exit;
-     }
-    
+    }
+
   }
 
   public function add()
@@ -65,13 +64,13 @@ class KsiLoginController extends Controller
 
   public function update($att)
   {
-    $user = LoginHandler::checkLogin();
-
+    $adm = filter_input(INPUT_GET, 'adm');
 
     $array = [];
+    $user = LoginHandler::checkLogin();
+
     if ($att['id']) {
       $input = filter_input_array(INPUT_POST);
-
       $array['id'] = $user->id;
       $array['none'] = $user->nome;
       $array['email'] = $input['email'];
@@ -157,21 +156,40 @@ class KsiLoginController extends Controller
       }
 
       if (empty($array['contrato_politica'])) {
-        $_SESSION['flash'] = "Contrato não aceito";
-        $this->redirect('/ksi/area-cliente');
-        exit;
+        
+        if ($adm) {
+          $_SESSION['flash-msg'] = "Contrato não aceito";
+          $this->redirect('/ksi/adm/area-adm');
+          exit;
+        } else {
+          $_SESSION['flash'] = "Contrato não aceito";
+          $this->redirect('/ksi/area-cliente');
+          exit;
+        }
       }
 
       if ($array['password'] != $input['check_password']) {
-        $_SESSION['flash'] = "Senhas não conferem!";
-        $this->redirect('/ksi/area-cliente');
-        exit;
+        if ($adm) {
+          $_SESSION['flash-msg'] = "Senhas não conferem!";
+          $this->redirect('/ksi/adm/area-adm');
+          exit;
+        } else {
+          $_SESSION['flash'] = "Senhas não conferem!";
+          $this->redirect('/ksi/area-cliente');
+          exit;
+        }
       }
 
-
       if (LoginHandler::update_form($array)) {
+        if ($adm) {
+          $_SESSION['flash-msg'] = 'Alterado com sucesso';
+           $this->redirect('/ksi/adm/area-adm');
+          exit;
+        } else {
         $_SESSION['flash'] = 'Alterado com sucesso';
-        $this->redirect('/ksi/area-cliente');
+          $this->redirect('/ksi/area-cliente');
+          exit;
+        }
       }
     }
   }
@@ -211,7 +229,7 @@ class KsiLoginController extends Controller
 
   public function alterPassword($token)
   {
-   
+
     $flash = "";
     if (!empty($_SESSION['flash'])) {
       $flash = $_SESSION['flash'];
@@ -219,11 +237,11 @@ class KsiLoginController extends Controller
     }
 
     $page = "alterPassword";
-    
+
     if (!empty($token['token'])) {
 
-     $_SESSION['token'] = $token['token'];
-     $token = (!empty($this->userToken->token) ? $this->userToken->token:'');
+      $_SESSION['token'] = $token['token'];
+      $token = (!empty($this->userToken->token) ? $this->userToken->token : '');
     }
     $this->render('ksi/alter-password', [
       'page' => $page,
@@ -234,7 +252,7 @@ class KsiLoginController extends Controller
 
   public function alterPasswordAction($token)
   {
-    
+
     $newPassword = filter_input(INPUT_POST, 'password');
     $checkPassword = filter_input(INPUT_POST, 'check-password');
 
@@ -244,8 +262,8 @@ class KsiLoginController extends Controller
 
         $user['password'] = $newPassword;
         $user['updated_at'] = date('Y-m-d H:i:s');
-        if ( LoginHandler::update_form($user)) {
-          
+        if (LoginHandler::update_form($user)) {
+
           $_SESSION['flash-i'] = "Faça o login";
           $this->redirect('/');
         }

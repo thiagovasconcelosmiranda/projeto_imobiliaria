@@ -61,7 +61,8 @@ class LoginHandler extends Controller
     }
   }
 
-  public static function findAll(){
+  public static function findAll()
+  {
     $user = Login::select()->get();
     return $user;
   }
@@ -112,12 +113,51 @@ class LoginHandler extends Controller
     }
   }
 
-  public static function search($nome){
+  public static function search($nome)
+  {
     $usuario = Login::select()
-    ->where('nome', 'like', '%'.$nome.'%')
-    ->execute();
+      ->where('nome', 'like', '%' . $nome . '%')
+      ->execute();
 
     return $usuario;
+  }
+
+
+  public static function create($array)
+  {
+    $hash = password_hash($array['new_password'], PASSWORD_DEFAULT);
+    $token = md5(time() . rand(1, 9999));
+    $array['new_password'] = $hash;
+    $array['token'] = $token;
+    
+   $data = Login::insert([
+      'photo' => $array['photo'],
+      'nome' => $array['nome'],
+      'cpf' => $array['cpf'],
+      'email' => $array['new_email'],
+      'password' => $array['new_password'],
+      'telefone_comercial' => $array['tel_comercial'],
+      'telefone_residencial' => $array['tel_residencial'],
+      'celular' => $array['celular'],
+      'cep' => $array['cep'],
+      'end' => $array['end'],
+      'num' => $array['num'],
+      'bairro' => $array['bairro'],
+      'cidade' => $array['cidade'],
+      'uf' => $array['uf'],
+      'cep_comercial' => $array['cep_comercial'],
+      'end_comercial' => $array['end_comercial'],
+      'num_comercial' => $array['num_comercial'],
+      'bairro_comercial' => $array['bairro_comercial'],
+      'cidade_comercial' => $array['cidade_comercial'],
+      'uf_comercial' => $array['uf_comercial'],
+      'token' => $array['token'],
+      'updated_at' => date('Y/m/d H:m:s'),
+      'created_at' => date('Y/m/d H:m:s'),
+     
+    ])
+    ->execute();
+      return $data;
   }
 
   public static function update_form($array)
@@ -158,12 +198,23 @@ class LoginHandler extends Controller
     return true;
   }
 
-  public static function delete($id){
+  public static function delete($id)
+  {
     Login::delete()
-    ->where()
-    ->execute();
+      ->where()
+      ->execute();
     return true;
-
   }
+
+  public static function countId()
+  {
+    $user = Login::select('id')
+    ->orderBy(['id' => 'desc'])
+    ->one();
+    return $user;
+  }
+
 }
+
+
 
