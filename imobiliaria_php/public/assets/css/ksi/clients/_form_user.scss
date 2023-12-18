@@ -1,0 +1,205 @@
+.user-alter {
+    width: 100%;
+    height: auto;
+
+    h1 {
+        font-weight: 500;
+        font-size: 25px;
+        font-weight: 400;
+        color: #918f8f;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        text-transform: uppercase;
+    }
+    .user-alter form {
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    form .user-group-title {
+        width: auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #dfdcdc;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        color: blue;
+    }
+
+    form .user-group-title i {
+        margin-left: 20px;
+        color: blue;
+    }
+
+    form .row-upload {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #adabab;
+        padding: 10px 0;
+    }
+
+    form .row-upload .col-group-upload {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-right: 80px;
+        gap: 20px;
+    }
+
+    form .row-upload .col-group-upload img {
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .col-group-upload label .button {
+        padding: 10px 20px;
+        background-color: #d1d1d1;
+        border: 1px solid #adabab;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .group-input {
+        width: 100%;
+        height: auto;
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+
+        .error-input{
+            border: 1px solid red;
+        }
+
+        input {
+            width: 93%;
+            padding: 10px 10px;
+            outline: none;
+        }
+    }
+
+    form .group-row-input {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        gap: 60px;
+
+        input {
+            width: 80%;
+            padding: 10px 10px;
+            outline: none;
+        }
+    }
+
+    .group-row-input .col-input-x {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+          .contract-i{
+            display: flex;
+            #contract-input{
+            width: 20px;
+            margin-right: 6px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        
+    }
+
+    .col-input-x button {
+        width: 150px;
+        padding: 10px 0;
+        outline: none;
+        border: 0;
+        background-color: #cccccc;
+        cursor: pointer;
+    }
+}
+
+@media (min-width:700px) and (max-width: 900px) {
+    .user-alter .group-input {
+        width: 100%;
+        height: auto;
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .user-alter .group-input {
+        label{
+            color: #918f8f;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        input {
+            width: 80%;
+            height: 50px;
+            padding: 0 10px;
+            outline: none;
+            margin: 0 auto;
+            border: 1px solid #bdb9b9;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .user-alter h1 {
+        font-weight: 500;
+        font-size: 18px;
+    }
+    form .row-upload{
+        flex-direction: column;
+
+        .col-group-upload{
+            width: 100%;
+            img {
+                width: 150px;
+                height: 50px;
+                margin: auto;
+            }
+            label .button{
+                background-color: blue;
+                background-color: #d1d1d1;
+                border: 1px solid #adabab;
+                outline: none;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    form .group-row-input {
+        flex-direction: column;
+    }
+
+    .user-alter .group-input {
+        padding: 0 30px;
+        label{
+            color: #918f8f;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        input {
+            width: 80%;
+            height: 20px;
+        }
+    }
+
+}
