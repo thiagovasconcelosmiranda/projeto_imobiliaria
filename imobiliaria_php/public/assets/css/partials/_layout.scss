@@ -318,6 +318,7 @@ main {
     }
 
     @media  (max-width: 700px) {
+
         .item-page-col {
             h3 {
                 width: 100%;
@@ -328,7 +329,7 @@ main {
 
         .icon-i i {
             margin-top: 30px;
-            font-size: 20px;
+            font-size: 35px;
         }
 
         .item-page {
@@ -337,7 +338,7 @@ main {
             }
 
             p {
-                margin-top: -80px;
+                
             }
         }
     }

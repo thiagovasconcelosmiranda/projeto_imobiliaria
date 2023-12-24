@@ -14,44 +14,49 @@ class ksiImmobileController extends Controller
     {
         $this->infoUser = LoginHandler::checkLogin();
         if (!$this->infoUser) {
-            //$this->redirect("/");
+            $this->redirect("/");
         }
     }
 
     public function index()
-    {
-        $immobile = new PagImovelController();
-        $infImmobile = $immobile->findIdImovel($this->infoUser->id);
-       
+    {   $infImmobile =  ImovelHandler::ImmobileLoginId($this->infoUser->id);
         $documentos = DocumentHandler::findByLoginId($this->infoUser->id);
-
         $atividades = AtividadeHandler::findByLoginId($this->infoUser->id);
-      
+
         $this->render('ksi/immobile', [
-            'infImmobile'=> $infImmobile,
-             'documentos' => $documentos,
-             'atividades' => $atividades
+            'infImmobile' =>  $infImmobile,
+            'documentos' => $documentos,
+            'atividades' => $atividades,
         ]);
     }
 
-    public function search(){
-         $array = [];
+    public function search()
+    {
+        $array = [];
 
-         $search = filter_input(INPUT_GET, 'search');
+        $search = filter_input(INPUT_GET, 'search');
 
-         if($search){
+        if ($search) {
             $array[] = ImovelHandler::search($search);
-         }else{
+        } else {
             $array[] = ImovelHandler::searchAll();
-          }
-            
-         header('Access-Control-Allow-Origin: *');
-         header('Content-Type: application/json');
-         echo json_encode( $array);
+        }
+
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode($array);
     }
 
-    public function remove($att){
-       $id = $att['id'];
+    public function remove($att)
+    {
+        $id = $att['id'];
+    }
+
+    public function create($array)
+    {
+        $inputs = filter_input_array(INPUT_POST);
+        echo "<pre>";
+        print_r($inputs);
     }
 
 }

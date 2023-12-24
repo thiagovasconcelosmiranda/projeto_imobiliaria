@@ -33,7 +33,7 @@ if (document.querySelector('.nav-user')) {
 
     function actualizarCreonometro() {
         let valor = `${min}:${seg < 10 ? 0 : ''}${seg}`;
-        if (valor === '2:59') {
+        if (valor === '3:59') {
             window.location.href = `${base}/ksi/logout?disconnect=true`;
             detenerCronometro();
             return;

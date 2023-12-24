@@ -8,7 +8,7 @@
             <p><?=$flash;?></p>
         </div>
     </div>
-<?php endif; ?>
+<?php endif;?>
 <div class="panel-row-cards">
     <div class="panel-col-card blue">
         <div class="card-title">
@@ -16,7 +16,7 @@
         </div>
         <div class="card-description">
             <i class="fa-solid fa-user"></i>
-            <h3>0</h3>
+            <h3><?=count($status);?></h3>
         </div>
     </div>
     <div class="panel-col-card yellowgreen">
@@ -59,14 +59,13 @@
         <div class="card-description">
             <i class="fa-solid fa-bullhorn"></i>
             <h3>
-                <?= count($anuncios); ?>
+                <?= count($anuncios);?>
             </h3>
         </div>
     </div>
 </div>
 <div class="container-panel">
-    <div class=" graphic-1" id="curve_chart">
-    </div>
+    <div class=" graphic-1" id="curve_chart"></div>
     <div class="list-immobile-1">
         <div class="list-immobile-1-title">
             <i class="fa-solid fa-table"></i>
@@ -77,7 +76,6 @@
             <table class="table_immobile"> </table>
         </div>
     </div>
-
     <div class="list-user">
         <div class="list-list-user-title">
             <i class="fa-solid fa-table"></i>

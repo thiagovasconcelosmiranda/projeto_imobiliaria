@@ -8,7 +8,6 @@ class LoginHandler extends Controller
 {
   private static function _loginList($data)
   {
-
     $user = new Login();
     $user->id = $data['id'];
     $user->nome = $data['nome'];
@@ -39,17 +38,36 @@ class LoginHandler extends Controller
     $user->uf_comercial = $data['uf_comercial'];
     $user->administrador = $data['administrador'];
     $user->token = $data['token'];
+    $user->status = $data['status'];
     $user->created_at = $data['created_at'];
     $user->updated_at = date('Y/m/d H:m:s');
 
     return $user;
   }
 
+  public static function checkToken($token){
+    $user = Login::select()
+    ->where('token', $token)
+    ->one();
+    if($user){
+        return $user;
+    }else{
+      return false;
+    }
+  }
+  public static function checkStatus($status){
+      $status = Login::select()
+      ->where('status', $status)
+      ->get();
+
+      return $status;
+  }
+
   public static function checkLogin()
   {
     if (!empty($_SESSION['token'])) {
       $token = $_SESSION['token'];
-      $data = Login::select()->where('token', $token)->one();
+      $data = self::checkToken($token);
 
       if (!empty($data)) {
         if (count($data) > 0) {
@@ -59,6 +77,15 @@ class LoginHandler extends Controller
       }
       return false;
     }
+  }
+
+  public static function findById ($id) {
+    $user = Login::select()
+      ->where('id', $id)  
+      ->one();
+      $list_user = self::_loginList($user);
+
+      return $list_user;
   }
 
   public static function findAll()
@@ -92,9 +119,9 @@ class LoginHandler extends Controller
   }
 
 
-  public static function veryLogin($cpf, $password, $contratoPolitica, $adm)
+  public static function veryLogin($cpf, $password, $contratoPolitica, $adm=false, $status)
   {
-
+   
     $user = Login::select()
       ->where('cpf', $cpf)
       ->where('administrador', $adm)
@@ -106,6 +133,7 @@ class LoginHandler extends Controller
         Login::update()
           ->set('token', $token)
           ->set('contrato_politica', $contratoPolitica)
+          ->set('status', $status)
           ->where('cpf', $cpf)
           ->execute();
         return $token;
@@ -152,12 +180,22 @@ class LoginHandler extends Controller
       'cidade_comercial' => $array['cidade_comercial'],
       'uf_comercial' => $array['uf_comercial'],
       'token' => $array['token'],
+      'login_id' => $array['login_id'],
       'updated_at' => date('Y/m/d H:m:s'),
       'created_at' => date('Y/m/d H:m:s'),
-     
     ])
     ->execute();
       return $data;
+  }
+
+  public static function statusUpdate($array){
+     Login::update([
+      'status'=> $array->status
+     ])
+     ->where('id', $array->id)
+     ->execute();
+
+     return true;
   }
 
   public static function update_form($array)
@@ -171,7 +209,7 @@ class LoginHandler extends Controller
         $array['password'] = $hash;
       }
     }
-
+    
     Login::update()
       ->set('email', $array['email'])
       ->set('password', $array['password'])
@@ -180,21 +218,48 @@ class LoginHandler extends Controller
       ->set('bairro', $array['bairro'])
       ->set('cidade', $array['cidade'])
       ->set('uf', $array['uf'])
-      ->set('telefone_residencial', $array['telefone_residencial'])
+      ->set('telefone_residencial', (empty($array['telefone_residencial']) ?
+        $array['telefone_residencial'] ="" : $array['telefone_residencial']))
       ->set('celular', $array['celular'])
-      ->set('telefone_comercial', $array['telefone_comercial'])
-      ->set('cep_comercial', $array['cep_comercial'])
-      ->set('end_comercial', $array['end_comercial'])
-      ->set('num_comercial', $array['num_comercial'])
-      ->set('bairro_comercial', $array['bairro_comercial'])
-      ->set('cidade_comercial', $array['cidade_comercial'])
-      ->set('uf_comercial', $array['uf_comercial'])
-      ->set('photo', $array['photo'])
+
+      ->set('telefone_comercial', (empty($array['telefone_comercial']) ?
+        $array['telefone_comercial'] ="" : $array['telefone_comercial']))
+
+      ->set('cep_comercial', (empty($array['cep_comercial']) ?
+        $array['cep_comercial'] ="" : $array['cep_comercial']))
+
+      ->set('end_comercial',(empty($array['end_comercial']) ?
+        $array['end_comercial'] ="" : $array['cep_comercial']))
+
+      ->set('num_comercial', (empty($array['num_comercial']) ?
+        $array['num_comercial'] ="" : $array['num_comercial']))
+
+      ->set('bairro_comercial', (empty($array['bairro_comercial']) ?
+      $array['bairro_comercial'] ="" : $array['bairro_comercial']))
+
+      ->set('cidade_comercial', (empty($array['cidade_comercial']) ?
+      $array['cidade_comercial'] ="" : $array['cidade_comercial']))
+
+      ->set('uf_comercial', (empty($array['uf_comercial']) ?
+        $array['uf_comercial'] ="" : $array['uf_comercial']))
+
+      ->set('photo', (empty($array['photo']) ?
+        $array['photo'] ="Vazio" : $array['photo']))
+
       ->set('token', $array['token'])
-      ->set('contrato_politica', $array['contrato_politica'])
+
+      ->set('contrato_politica',  (empty($array['contrato_politica']) ?
+         $array['contrato_politica'] === 'Aguardando' : 
+         $array['contrato_politica'] ))
+
       ->set('updated_at', date('Y/m/d H:m:n'))
+
+      ->set('status', (empty($array['status']) ?
+         $array['status'] ="offline" : $array['status']))
+
       ->where('id', $array['id'])
       ->execute();
+     
     return true;
   }
 

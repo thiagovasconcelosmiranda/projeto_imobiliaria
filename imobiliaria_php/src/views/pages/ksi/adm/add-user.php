@@ -1,6 +1,7 @@
+
 <div class=" user-alter">
     <h1>Novo Usuário</h1>
-    <form method="POST" action="<?= $base; ?>/ksi/login/create" enctype="multipart/form-data" autocomplete="off">
+    <form method="POST" action="<?=$base;?>/ksi/adm/add-immobile" enctype="multipart/form-data">
         <div class="user-group-title">
             <i class="fa-solid fa-pencil"></i>
             <p>Alteração do cadastro</p>

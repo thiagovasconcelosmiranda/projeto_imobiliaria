@@ -23,7 +23,7 @@ class KsiLoginController extends Controller
     $contratoPolitica = filter_input(INPUT_POST, 'contrato_politica');
 
     if ($cpf && $password && $contratoPolitica) {
-      $token = LoginHandler::veryLogin($cpf, $password, $contratoPolitica, false);
+      $token = LoginHandler::veryLogin($cpf, $password, $contratoPolitica, false, 'online');
       if ($token) {
         $_SESSION['token'] = $token;
         $this->redirect('/ksi/area-cliente');
@@ -37,19 +37,25 @@ class KsiLoginController extends Controller
   public function logout()
   {
     $disconnect = filter_input(INPUT_GET, 'disconnect');
+    $this->userToken->status = "offline";
     if (!empty($_SESSION['token'])) {
       $_SESSION['token'] = '';
     }
 
     if ($disconnect == 'true') {
       $_SESSION['flash'] = "Sessão expirada!";
+
+     if(LoginHandler::statusUpdate($this->userToken)){
       $this->redirect('/ksi/adm/login-adm');
       exit;
+     }
+      
     } else {
-      $this->redirect('/');
-      exit;
+      if(LoginHandler::statusUpdate($this->userToken)){
+        $this->redirect('/');
+        exit;
+      }
     }
-
   }
 
   public function add()
@@ -65,9 +71,8 @@ class KsiLoginController extends Controller
   public function update($att)
   {
     $adm = filter_input(INPUT_GET, 'adm');
-
     $array = [];
-    $user = LoginHandler::checkLogin();
+    $user = $this->userToken;
 
     if ($att['id']) {
       $input = filter_input_array(INPUT_POST);
@@ -92,6 +97,7 @@ class KsiLoginController extends Controller
       $array['uf_comercial'] = $input['uf_comercial'];
       $array['contrato_politica'] = $input['contrato'];
       $array['token'] = $_SESSION['token'];
+      $array['status'] = "online";
 
 
       if (isset($_FILES['photo']) && !empty($_FILES['photo']['tmp_name'])) {
@@ -156,7 +162,7 @@ class KsiLoginController extends Controller
       }
 
       if (empty($array['contrato_politica'])) {
-        
+
         if ($adm) {
           $_SESSION['flash-msg'] = "Contrato não aceito";
           $this->redirect('/ksi/adm/area-adm');
@@ -183,10 +189,10 @@ class KsiLoginController extends Controller
       if (LoginHandler::update_form($array)) {
         if ($adm) {
           $_SESSION['flash-msg'] = 'Alterado com sucesso';
-           $this->redirect('/ksi/adm/area-adm');
+          $this->redirect('/ksi/adm/area-adm');
           exit;
         } else {
-        $_SESSION['flash'] = 'Alterado com sucesso';
+          $_SESSION['flash'] = 'Alterado com sucesso';
           $this->redirect('/ksi/area-cliente');
           exit;
         }
@@ -227,7 +233,7 @@ class KsiLoginController extends Controller
     }
   }
 
-  public function alterPassword($token)
+  public function alterPassword($att)
   {
 
     $flash = "";
@@ -236,51 +242,51 @@ class KsiLoginController extends Controller
       $_SESSION['flash'] = "";
     }
 
+
+
     $page = "alterPassword";
-
-    if (!empty($token['token'])) {
-
-      $_SESSION['token'] = $token['token'];
+    if (!empty($att['token'])) {
+      $_SESSION['token'] = $att['token'];
       $token = (!empty($this->userToken->token) ? $this->userToken->token : '');
+      $newToken = LoginHandler::checkToken($token);
+
     }
+
+
     $this->render('ksi/alter-password', [
       'page' => $page,
-      'newToken' => $token,
+      'newToken' => $newToken,
       'flash' => $flash
     ]);
   }
 
-  public function alterPasswordAction($token)
+  public function alterPasswordAction()
   {
 
     $newPassword = filter_input(INPUT_POST, 'password');
     $checkPassword = filter_input(INPUT_POST, 'check-password');
+    $token = filter_input(INPUT_POST, 'token');
 
-    if ($newPassword && $checkPassword) {
-      if ($newPassword == $checkPassword) {
-        $user = LoginHandler::checkCpf($this->userToken->cpf);
+    if ($newPassword && $checkPassword && $token) {
+      $user = LoginHandler::checkCpf($this->userToken->cpf);
 
-        $user['password'] = $newPassword;
-        $user['updated_at'] = date('Y-m-d H:i:s');
-        if (LoginHandler::update_form($user)) {
+      $user['password'] = $newPassword;
+      $user['updated_at'] = date('Y-m-d H:i:s');
 
-          $_SESSION['flash-i'] = "Faça o login";
-          $this->redirect('/');
-        }
-
-      } else {
-        $_SESSION['flash'] = "Senhas não conferem!";
-        $this->redirect('/ksi/alter-password/' . $token);
+      $user['token'] = md5(time().rand(1,9999));
+      
+      if (LoginHandler::update_form($user)) {
+        $_SESSION['flash-i'] = "Faça o login";
+        $this->redirect('/');
       }
+
     } else {
-      $_SESSION['flash'] = "Espaço em branco!";
+      $_SESSION['flash'] = "Senhas não conferem!";
       $this->redirect('/ksi/alter-password/' . $token);
     }
-
   }
 
   public function deletar()
   {
-
   }
 }

@@ -18,6 +18,7 @@ if (document.getElementById('search_immobile')) {
             table.innerHTML = `
                   <tr class="tr-top">
                     <td class="td-top">ID</td>
+                    <td class="td-top">REF</td>
                     <td class="td-top">TIPO</td>
                     <td class="td-top">IMAGEM</td>
                     <td class="td-top">CIDADE</td>
@@ -32,6 +33,7 @@ if (document.getElementById('search_immobile')) {
                      `
                         <tr>
                           <td class="td-desc">${item.id}</td>
+                          <td class="td-desc">${item.ref}</td>
                           <td class="td-desc">${item.tipo} </td>
                           <td class="td-desc">
                            <img src="${baseUrl}/assets/images/${item.id}/${item.foto1}">

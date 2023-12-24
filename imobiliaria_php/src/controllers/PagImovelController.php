@@ -46,6 +46,7 @@ class PagImovelController extends Controller
       $data[] = $imoveis;
       $data[] = $pageCount;
       $data[] = $casa;
+      
 
       header('Content: application/json');
       echo json_encode($data);

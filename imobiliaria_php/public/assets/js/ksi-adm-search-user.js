@@ -21,12 +21,14 @@ if (document.getElementById('search_user')) {
                 `
               <tr class="tr-top">
                 <td class="td-top">ID</td>
+                <td class="td-top">CPF</td>
                 <td class="td-top">NOME</td>
                 <td class="td-top">IMAGEM</td>
                 <td class="td-top">EMAIL</td>
                 <td class="td-top">CIDADE</td>
                 <td class="td-top">UF</td>
                 <td class="td-top">DATA CADASTRO</td>
+                <td class="td-top">Status</td>
                 <td class="td-top">AÇÕES</td>
               </tr>
           `;
@@ -38,6 +40,7 @@ if (document.getElementById('search_user')) {
                     `
                       <tr>
                        <td class="td-desc">${item.id}</td>
+                       <td class="td-desc">${item.cpf}</td>
                        <td class="td-desc">${item.nome}</td>
                        <td class="td-desc">
                        <img src="${baseUrl}/assets/media/user/${item.id}/${item.photo}"></td>
@@ -45,9 +48,10 @@ if (document.getElementById('search_user')) {
                        <td class="td-desc">${item.cidade}</td>
                        <td class="td-desc">${item.uf}</td>
                        <td class="td-desc">${item.created_at}</td>
+                       <td class="td-desc" style='color: ${item.status === 'online'? 'green': 'red'};'>${item.status}</td>
                        <td class="td-desc">
-                          <i class="fa-solid fa-eye"></i>
-                          <i class="fa-solid fa-pen-to-square"></i>
+                          <i onclick='view(${item.id})' class="fa-solid fa-eye"></i>
+                          <i onclick='alter(${item.id})' class="fa-solid fa-pen-to-square"></i>
                           <i class="fa-solid fa-trash"></i>
                         </td>
                      `
@@ -57,4 +61,12 @@ if (document.getElementById('search_user')) {
 
         }
     }
+}
+
+function alter(id_user){
+    $('#refresh-adm').load(`${baseUrl}/ksi/alter-user?adm=true&id_user=${id_user}`);
+}
+
+function view(id_user){
+    $('#refresh-adm').load(`${baseUrl}/ksi/adm/view-user?id_user=${id_user}`)
 }

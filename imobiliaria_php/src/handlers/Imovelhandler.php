@@ -11,26 +11,25 @@ class ImovelHandler extends Controller
 {
   public static function findByPublished($limit)
   {
-    
+
     $imovel = Imovel::select()
       ->limit($limit)
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
-      ->orderBy(['ends.create_at' => 'desc'])
+      ->orderBy(['imovels.id' => 'desc'])
       ->get();
     return $imovel;
   }
 
   public function add()
   {
-
   }
 
   public static function findId($id)
   {
-    
+
     $imovel = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
@@ -40,10 +39,10 @@ class ImovelHandler extends Controller
       ->get();
 
     return $imovel;
-    
 
-   
-  
+
+
+
   }
 
   public static function findPhotoId($id)
@@ -138,6 +137,18 @@ class ImovelHandler extends Controller
     return $imovel;
   }
 
+  public static function ImmobileLoginId($login_id)
+  {
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('login_id', $login_id)
+      ->execute();
+    return $imovel;
+  }
+
   public static function searchAll()
   {
     $imovel = Imovel::select()
@@ -186,17 +197,57 @@ class ImovelHandler extends Controller
     return $imovel;
   }
 
-  public static function search($value){
+  public static function search($value)
+  {
 
     $imovel = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
-      ->where('tipo','like', "%".$value.'%')
+      ->where('tipo', 'like', "%" . $value . '%')
       ->execute();
 
-     return $imovel;
+    return $imovel;
+  }
+
+  public static function create($array)
+  {
+    Imovel::insert([
+      'ref' => $array['ref'],
+      'aluguel_id' => $array['aluguel_id'],
+      'classificacao' => $array['classificacao'],
+      'tipo' => $array['tipo'],
+      'condominio' => $array['condominio'],
+      'qtd_quarto' => $array['qtd_quarto'],
+      'qtd_sala' => $array['qtd_sala'],
+      'qtd_banheiro' => $array['qtd_banheiro'],
+      'qtd_cozinha' => $array['qtd_cozinha'],
+      'qtd_varanda' => $array['qtd_varanda'],
+      'qtd_vaga' => $array['qtd_vaga'],
+      'outros' => $array['outros'],
+      'condicao' => $array['condicao'],
+      'login_id' => $array['login_id'],
+      'venda_id' => $array['venda_id'],
+      'update_at' => date('Y/m/d H:m:s'),
+      'create_at' => date('Y/m/d H:m:s'),
+      'area_terreno' => $array['area_terreno'],
+      'tipo_imovel' => $array['tipo_imovel'],
+      'descricao' => $array['descricao'],
+      'area_laser' => $array['area_laser'],
+      'disponibilidade' => $array['disponibilidade'],
+    ])->execute();
+
+    $lastId = self::lastId();
+    return $lastId;
+  }
+
+   static function lastId(){
+    $lastId = Imovel::select('id')
+    ->orderBy(['id' => 'desc'])
+   ->one();
+
+   return $lastId;
   }
 
 
@@ -209,8 +260,8 @@ class ImovelHandler extends Controller
   public static function delete($id)
   {
     Imovel::delete()
-    ->where('id', $id)
-    ->execute();
+      ->where('id', $id)
+      ->execute();
 
     return true;
   }

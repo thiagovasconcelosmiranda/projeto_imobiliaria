@@ -18,7 +18,7 @@ if (!empty($_SESSION['flash-i'])) {
     <form method="POST" action="<?=$base; ?>/ksi/login">
       <!---->
       <?php if ($flash != ''): ?>
-        <div class="flash-login" style="color: green;">
+        <div class="flash-login" style="color: <?= ($flash === "Faça o login" ? 'green' : 'red')?>;">
           <?= $flash; ?>
         </div>
       <?php endif; ?>

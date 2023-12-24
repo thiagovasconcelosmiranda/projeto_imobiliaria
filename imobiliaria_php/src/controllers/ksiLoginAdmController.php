@@ -27,12 +27,12 @@ class KsiLoginAdmController extends Controller
     $password = filter_input(INPUT_POST, 'password');
 
     if ($cpf && $password) {
-      if ($token = LoginHandler::veryLogin($cpf, $password, "Concordo com os termos da política", true)) {
+      if ($token = LoginHandler::veryLogin($cpf, $password, "Concordo com os termos da política", true, 'online')) {
         $_SESSION['token'] = $token;
         $this->redirect('/ksi/adm/area-adm');
         exit;
       } else {
-        $_SESSION['flash-sms'] = 'Cpf /ou Password';
+        $_SESSION['flash'] = 'Cpf /ou Password';
         $this->redirect('/ksi/adm/login-adm');
         exit;
       }
@@ -124,6 +124,7 @@ class KsiLoginAdmController extends Controller
           $x, $y, 0, 0,
           $newWidth, $newHeight, $widthOrig, $heightOrig
         );
+        
       }
     }
 
@@ -140,7 +141,6 @@ class KsiLoginAdmController extends Controller
       }
       $_SESSION['flash-msg'] = "Adicionado com sucesso!";
       $this->redirect('/ksi/adm/area-adm');
-
     }
   }
 }

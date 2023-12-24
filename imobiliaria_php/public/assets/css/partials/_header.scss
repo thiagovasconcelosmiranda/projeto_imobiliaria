@@ -775,6 +775,9 @@ select {
         i {
             display: none;
         }
+        #area-client{
+            display: flex;
+        }
     }
 
     label span {
@@ -905,6 +908,9 @@ select {
         i {
             display: none;
         }
+        #area-client{
+            display: flex;
+        }
     }
 
     label span {
@@ -958,8 +964,4 @@ select {
             }
         }
     }
-}
-
-.select-i-m{
-
 }

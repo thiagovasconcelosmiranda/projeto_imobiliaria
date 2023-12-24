@@ -1,12 +1,11 @@
-<?php ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="<?= $base; ?>/assets/images/logo.png" />
-    <link rel="stylesheet" href="<?= $base; ?>/assets/css/styles.css">
+    <link rel="icon" type="image/jpg" href="<?=$base;?>/assets/images/logo.png" />
+    <link rel="stylesheet" href="<?=$base;?>/assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Merriweather:wght@300&family=Open+Sans:wght@300&family=Sora:wght@200;300;500;600&family=Tektur:wght@500;800&display=swap"
@@ -26,10 +25,10 @@
 <body onload="loading()">
     <div class="box-load">
         <div class="pre">
-            <img src="<?= $base; ?>/assets//images/progress-icon-gif-1.jpg" alt="loading">
+            <img src="<?=$base;?>/assets/images/progress-icon-gif-1.jpg" alt="loading">
         </div>
     </div>
-    <div class="content" data="<?= $base; ?>"></div>
+    <div class="content" data="<?=$base;?>"></div>
     <header>
         <nav class="navbar">
             <input type="checkbox" id="option">
@@ -40,16 +39,16 @@
             </label>
             <a href="<?= $base; ?>">
                 <div class="logo-top">
-                    <img src="<?= $base; ?>/assets/images/logo.png" alt="Logotipo">
+                    <img src="<?= $base;?>/assets/images/logo.png" alt="Logotipo">
                 </div>
             </a>
             <ul class="ul" id="option-ul">
                 <div class="border-option">
                     <p>Seja bem vindo(a)</p>
                 </div>
-                <li class="<?= ($activeLink == 'impreendimentos' ? 'activelink' : '') ?>">
+                <li class="<?= ($activeLink == 'impreendimentos'?'activelink':'') ?>">
                     <i class="fa-solid fa-building"></i>
-                    <a href="<?= $base; ?>/impreendimentos">Impreendimentos</a>
+                    <a href="<?=$base;?>/impreendimentos">Impreendimentos</a>
                 </li>
                 <li class="<?= ($activeLink == 'anuncio' ? 'activelink' : '') ?>">
                     <i class="fa fa-bullhorn i" aria-hidden="true"></i>
@@ -73,7 +72,6 @@
                         <a href="<?=$base?>/ksi/adm/login-adm">Area Colaborador</a>
                      </div>
                     </div>
-                   
                 </li>
             </ul>
             <div class="aboud" style="display: <?= $aboutFlex; ?>;">

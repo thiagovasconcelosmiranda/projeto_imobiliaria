@@ -1,5 +1,4 @@
 let baseUrl = document.querySelector('.container').getAttribute('data-url');
-console.log(baseUrl);
 let count = 1;
 setInterval(function () {
    newImage();

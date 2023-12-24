@@ -48,7 +48,7 @@ function removeClick() {
     document.removeEventListener('click', removeClick);
 }
 
-if(document.querySelector('.menuMobile')){
+if (document.querySelector('.menuMobile')) {
     document.querySelector('.menuMobile').addEventListener('click', () => {
         let panel = document.querySelector('.aside-group');
         if (panel.style.display == "flex") {
@@ -62,12 +62,15 @@ if(document.querySelector('.menuMobile')){
 
 document.querySelectorAll('.modal-option p').forEach(item => {
     item.addEventListener('click', () => {
+
         if (item.id == 'user') {
-            $('#refreshClient').load(`${base}/ksi/alter-user`);
+            $('#refreshClient').load(`${baseUrl}/ksi/alter-user`);
+            $('#refresh-adm').load(`${baseUrl}/ksi/alter-user?adm=true`);
         }
 
         if (item.id == 'information') {
             $('#refreshClient').load(`${baseUrl}/ksi/information`);
+            $('#refresh-adm').load(`${baseUrl}/ksi/information`);
         }
     })
 });
@@ -120,6 +123,7 @@ function refreshPageClient(element) {
 
 //adm
 if (document.getElementById('button-adm-alt-user')) {
+
     document.getElementById('button-adm-alt-user').addEventListener('click', () => {
         $('#refresh-adm').load(`${baseUrl}/ksi/alter-user?adm=true`);
     });
@@ -139,6 +143,7 @@ document.querySelectorAll('.group-accordion .adm .user-i-option').forEach(button
 
 
 function refreshPageAdm(element) {
+    //console.log(element);
     switch (element) {
         case 'start':
             $('#refresh-adm').load(`${baseUrl}/ksi/adm/panel-adm`);
@@ -149,6 +154,11 @@ function refreshPageAdm(element) {
         case 'novo_imovel-2':
             $('#refresh-adm').load(`${baseUrl}/ksi/adm/add-immobile`);
             break;
+
+        case 'contrato_prop-3':
+            $('#refresh-adm').load(`${baseUrl}/ksi/adm/new-contract-owner-contract`);
+            break;
+
         default:
             break;
     }

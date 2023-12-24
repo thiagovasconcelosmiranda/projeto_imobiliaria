@@ -18,14 +18,18 @@
             <p> Área do Colaborador</p>
         </div>
         <div class="group-i">
-            <input type="text" name="cpf" placeholder="Digite seu CPF">
+            <input type="text" name="cpf" placeholder="Digite seu CPF" id="30">
+            <span id="msg-30">Campos obrigatório*</span>
             <div class="link-password-i">
-                <a href="<?= $base; ?>/">Esqueceu sua senha?</a>
+                <a href="<?=$base;?>/ksi/env-email">Esqueceu sua senha?</a>
             </div>
-            <input type="password" name="password" placeholder="Digite sua senha">
-            <button>Acessar</button>
+            <input type="password" name="password" placeholder="Digite sua senha" id="31">
+            <span id="msg-31">Campos obrigatório*</span>
+            <button id="button-login-adm" type="button">Acessar</button>
         </div>
     </form>
 </div>
+<script src="<?=$base;?>/assets/js/ksi-adm-login-error.js"></script>
+<?php $render('ksi/footer');?>
+<script> $("#30").mask("999.999.999-99");</script>
 
-<?php $render('ksi/footer'); ?>

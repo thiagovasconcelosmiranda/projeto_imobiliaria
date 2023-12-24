@@ -55,4 +55,8 @@ class KsiContractController extends Controller
             'contratos' => $array
         ]);
     }
+
+    public function generateContract(){
+      $this->render('/ksi/adm/new-owner-contract');
+    }
 }

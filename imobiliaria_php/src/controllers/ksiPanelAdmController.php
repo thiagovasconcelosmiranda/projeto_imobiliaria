@@ -17,6 +17,7 @@ class ksiPanelAdmController extends Controller
         $users = LoginHandler::findAll();
         $notSearchs = NotSearchHandler::findByAll();
         $anuncios = AnuncioHandler::findByAll();
+         $status = LoginHandler::checkStatus('online');
 
         $flash = "";
         if(!empty($_SESSION['flash-msg'])){
@@ -29,7 +30,8 @@ class ksiPanelAdmController extends Controller
             'imoveis' => $imoveis,
             'usuarios' => $users, 
             'notSearchs' => $notSearchs,
-            'anuncios' => $anuncios
+            'anuncios' => $anuncios,
+            'status' => $status
         ]);
     }
 

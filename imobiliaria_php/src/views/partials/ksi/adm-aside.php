@@ -41,17 +41,13 @@
             <div class="group-accordion">
                 <button class="accordion" id="button-2">
                     <i class="fa-solid fa-house"></i>
-                    <p>Adiionar Imóvel</p>
+                    <p>Adicionar Imóvel</p>
                 </button>
                 <div class="animation-accordion">
                     <div class="panel adm" id="painel_adm-2">
                         <div class="user-i-option" id="novo_imovel-2">
                             <i class="fa-solid fa-house"></i>
                             <p>Novo Imóvel</p>
-                        </div>
-                        <div class="user-i-option" id="vis-imovel">
-                            <i class="fa-solid fa-file-contract"></i>
-                            <p>Visualizar todos imóveis</p>
                         </div>
                     </div>
                 </div>
@@ -67,10 +63,6 @@
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Proprietário</p>
                         </div>
-                        <div class="user-i-option" id="Vis_contrato_prop">
-                            <i class="fa-solid fa-file-contract"></i>
-                            <p>Visualizar todos Contratos Proprietários</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -84,10 +76,6 @@
                         <div class="user-i-option" id="novo_contrato_Inq">
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Inquilino</p>
-                        </div>
-                        <div class="user-i-option" id="contrato_Inq">
-                            <i class="fa-solid fa-file-contract"></i>
-                            <p>Visualizar todos Contratos Inquilinos</p>
                         </div>
                     </div>
                 </div>
@@ -103,10 +91,6 @@
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Beneficiario</p>
                         </div>
-                        <div class="user-i-option" id="vis_contrato_benef">
-                            <i class="fa-solid fa-file-contract"></i>
-                            <p>Visualizar todos Contratos Beneficiarios</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -120,10 +104,6 @@
                         <div class="user-i-option" id="novo_contrato_fiad">
                             <i class="fa-solid fa-file-contract"></i>
                             <p>Novo Contrato Fiador</p>
-                        </div>
-                        <div class="user-i-option" id="vis_contrato_fiad">
-                            <i class="fa-solid fa-file-contract"></i>
-                            <p>Visualizar todos Contratos Fiadores</p>
                         </div>
                     </div>
                 </div>

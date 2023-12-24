@@ -36,14 +36,16 @@ $router->post('/ksi/env-email', 'KsiLoginController@envEmailActive');
 $router->get('/ksi/area-cliente', 'KsiAreaClienteController@index');
 $router->get('/ksi/panel', 'KsiPanelController@index');
 $router->get('/ksi/alter-user', 'KsiAlterUserController@index');
+$router->get('/ksi/adm/view-user', 'ksiViewUserController@index');
 $router->get('/ksi/contract', 'KsiContractController@index');
 $router->get('/ksi/immobile', 'KsiImmobileController@index');
 $router->get('/ksi/information', 'KsiInformationController@index');
 $router->get('/ksi/alter-password/{token}', 'KsiLoginController@alterPassword');
-$router->post('/ksi/alter_password/{token}', 'KsiLoginController@alterPasswordAction');
+$router->post('/ksi/alter_password', 'KsiLoginController@alterPasswordAction');
 $router->get('/ksi/adm/panel-adm', 'ksiPanelAdmController@index');
 $router->get('/ksi/adm/add-user', 'KsiAddUserAdmController@index');
 $router->get('/ksi/adm/add-immobile', 'KsiAddImmobileController@index');
+$router->post('/ksi/adm/add-immobile', 'KsiAddImmobileController@create');
 $router->get('/ksi/adm/announcement', 'ksiAnnouncementController@index');
 $router->get('/ksi/adm/ajax/announcement/search', 'ksiAnnouncementController@searchAnnouncement');
 $router->get('/ksi/adm/ajax/announcement/remove/{id}', 'ksiAnnouncementController@remove');
@@ -59,6 +61,8 @@ $router->post('/ksi/adm/login-adm-access', 'KsiLoginAdmController@loginAdmAccess
 $router->post('/ksi/login/create', 'KsiLoginAdmController@create');
 $router->get('/ksi/ajax/login/check-cpf', 'KsiLoginAdmController@checkCpf');
 $router->get('/ksi/ajax/login/check-email', 'KsiLoginAdmController@checkEmail');
+$router->get('/ksi/adm/new-contract-owner-contract', 'KsiContractController@generateContract');
+
 
 
 $router->get('/anuncio', 'AnuncioController@index');
@@ -68,4 +72,4 @@ $router->post('/anuncio', 'AnuncioController@add');
 $router->get('/preco', 'PrecoController@index');
 
 $router->get('/nao-encontrei', 'NotSearchController@index');
-$router->post('/nao-encontrei', 'NotSearchController@add');
+$router->post('/nao-encontrei', 'NotSearchController@add'); 
