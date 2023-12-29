@@ -8,17 +8,15 @@
     <h1>Dados do usuário</h1>
     <p>Dados do usuário</p>
 </div>
-
 <div class="container-view">
  <div class="view-form-user-row">
  <h1> Dados pessoais</h1>
   <div class="icon-option">
-    <i class="fa-solid fa-print"></i>
+    <i onclick="window.print()" class="fa-solid fa-print"></i>
     <i class="fa-regular fa-file-pdf"></i>
     <i class="fa-solid fa-floppy-disk"></i>
   </div>
  </div>
-    
     <div class="view-form-user-row">
         <div class="view-inf-col">
             <h5>NOME:</h5>

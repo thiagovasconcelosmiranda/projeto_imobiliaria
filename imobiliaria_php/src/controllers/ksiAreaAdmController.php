@@ -15,12 +15,17 @@ class KsiAreaAdmController extends Controller
             $this->infUser = LoginHandler::checkLogin();
         } else {
            $this->redirect('/');
+           exit;
         }
     }
     
     public function index()
     {  
-    
+        if(!$this->infUser->administrador){
+          $this->redirect('/ksi/adm/login-adm');
+          exit;
+        }
+
         $imoveis = ImovelHandler::searchAll();
         $page = "";
     

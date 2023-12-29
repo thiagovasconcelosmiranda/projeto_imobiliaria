@@ -13,9 +13,8 @@ class KsiAreaClienteController extends Controller
     {
         if (!empty(LoginHandler::checkLogin())) {
             $this->infUser = LoginHandler::checkLogin();
-        } else {
-            $this->redirect('/');
         }
+    
     }
     
     public function index()

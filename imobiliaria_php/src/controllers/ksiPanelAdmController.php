@@ -9,6 +9,14 @@ use \src\handlers\AnuncioHandler;
 
 class ksiPanelAdmController extends Controller
 {
+ private $infoUser;
+    public function __construct(){
+         LoginHandler::checkLogin();
+         if(!$this->infoUser = LoginHandler::checkLogin()){
+             $this->redirect('/ksi/adm/login-adm');
+             exit;   
+         }
+    }
 
     public function index()
     {
@@ -17,7 +25,7 @@ class ksiPanelAdmController extends Controller
         $users = LoginHandler::findAll();
         $notSearchs = NotSearchHandler::findByAll();
         $anuncios = AnuncioHandler::findByAll();
-         $status = LoginHandler::checkStatus('online');
+        $status = LoginHandler::checkStatus('online');
 
         $flash = "";
         if(!empty($_SESSION['flash-msg'])){
@@ -28,6 +36,7 @@ class ksiPanelAdmController extends Controller
         $this->render('ksi/adm/panel-adm',[
             'flash'=> $flash,
             'imoveis' => $imoveis,
+            'adm' => $this->infoUser,
             'usuarios' => $users, 
             'notSearchs' => $notSearchs,
             'anuncios' => $anuncios,

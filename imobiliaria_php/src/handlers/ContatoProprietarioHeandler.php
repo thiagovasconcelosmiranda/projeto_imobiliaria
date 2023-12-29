@@ -15,4 +15,17 @@ class ContatoProprietarioHeandler extends Controller
 
          return $info; 
    }
+
+   public static function create($login_id, $arquivo){
+     $date = date('Y/m/d H:m:s');
+     Contrato_proprietario::insert([
+       'login_id' => $login_id,
+       'arquivo' =>$arquivo,
+       'created_at' => $date,
+       'update_at' => $date
+     ])
+     ->execute();
+
+     return true;
+   }
 }

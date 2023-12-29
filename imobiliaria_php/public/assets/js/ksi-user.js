@@ -158,7 +158,17 @@ function refreshPageAdm(element) {
         case 'contrato_prop-3':
             $('#refresh-adm').load(`${baseUrl}/ksi/adm/new-contract-owner-contract`);
             break;
+        case 'novo_contrato_Inq':
+            $('#refresh-adm').load(`${baseUrl}/ksi/adm/new-contract-tenant`);
+            break;
 
+        case 'novo_contrato_fiad':
+            $('#refresh-adm').load(`${baseUrl}/ksi/adm/new-contract-guarantor`);
+            break;
+
+        case 'novo_contrato_benef':
+            $('#refresh-adm').load(`${baseUrl}/ksi/adm/new-contract-benefit`);
+            break;
         default:
             break;
     }

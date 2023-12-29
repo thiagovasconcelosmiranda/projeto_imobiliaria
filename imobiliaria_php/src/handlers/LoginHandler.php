@@ -213,7 +213,7 @@ class LoginHandler extends Controller
     Login::update()
       ->set('email', $array['email'])
       ->set('password', $array['password'])
-      ->set('end', $array['cep'])
+      ->set('end', $array['end'])
       ->set('num', $array['num'])
       ->set('bairro', $array['bairro'])
       ->set('cidade', $array['cidade'])

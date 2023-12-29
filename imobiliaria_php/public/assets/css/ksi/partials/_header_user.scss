@@ -253,6 +253,7 @@ main .panel-row {
   display: flex;
   flex-direction: column;
 
+
   .panel-alert p {
     color: #fff;
     display: inline-block;
@@ -284,6 +285,25 @@ main .panel-row {
 
   }
 
+  .button-replacement-panel-client {
+     padding: 20px 0;
+      padding: 5px 10px;
+      color: #000;
+      a{
+        padding: 10px;
+        display: inline-block;
+        background-color: #CCC;
+        color: #000;
+
+        i {
+          color: #000;
+          font-size: 14px;
+          margin-left: 10px;
+        }
+      }
+      
+    }
+  
   .panel-description {
     padding: 20px;
 

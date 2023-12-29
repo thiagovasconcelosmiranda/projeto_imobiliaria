@@ -61,13 +61,19 @@ $router->post('/ksi/adm/login-adm-access', 'KsiLoginAdmController@loginAdmAccess
 $router->post('/ksi/login/create', 'KsiLoginAdmController@create');
 $router->get('/ksi/ajax/login/check-cpf', 'KsiLoginAdmController@checkCpf');
 $router->get('/ksi/ajax/login/check-email', 'KsiLoginAdmController@checkEmail');
-$router->get('/ksi/adm/new-contract-owner-contract', 'KsiContractController@generateContract');
 
+$router->get('/ksi/adm/new-contract-owner-contract', 'KsiContractController@generateContract');
+$router->get('/ksi/adm/ajax/contract-user', 'KsiContractController@getUserContract');
+$router->get('/ksi/adm/new-contract-guarantor', 'KsiContractController@generateContractGuarantor');
+$router->get('/ksi/adm/new-contract-benefit', 'KsiContractController@generateContractBenefit');
+$router->post('/ksi/adm/create-contract-benefit', 'KsiContractController@createContractBenefit');
+$router->get('/ksi/adm/new-contract-tenant', 'KsiContractController@generateContractTenant');
+$router->post('/ksi/adm/create-contract-tenant', 'KsiContractController@createContractTenant');
+$router->post('/ksi/adm/create-contract-owner', 'KsiContractController@createContractOwner');
 
 
 $router->get('/anuncio', 'AnuncioController@index');
 $router->post('/anuncio', 'AnuncioController@add');
-
 
 $router->get('/preco', 'PrecoController@index');
 

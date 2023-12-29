@@ -8,7 +8,9 @@
    </div>
    <div class="panel-description">
       <i class="fa-solid fa-address-book"></i>
-      <h2>Você não é
+      <h2>Você <?=
+          (count($contratos[0]) > 0 ? '':'não');
+       ?> é
          <?= $title ?> /
          <?= ucfirst($descrition);?>
           <?php if(!empty($contratos[0])):?>

@@ -306,6 +306,22 @@ main .panel-row .panel-title p {
   font-size: 20px;
   color: #585858;
 }
+main .panel-row .button-replacement-panel-client {
+  padding: 20px 0;
+  padding: 5px 10px;
+  color: #000;
+}
+main .panel-row .button-replacement-panel-client a {
+  padding: 10px;
+  display: inline-block;
+  background-color: #CCC;
+  color: #000;
+}
+main .panel-row .button-replacement-panel-client a i {
+  color: #000;
+  font-size: 14px;
+  margin-left: 10px;
+}
 main .panel-row .panel-description {
   padding: 20px;
 }
@@ -1019,6 +1035,10 @@ main {
   padding-bottom: 30px;
 }
 
+.group-title {
+  padding: 10px 0;
+  gap: 20px;
+}
 .group-title h1 {
   margin-bottom: 20px;
   font-weight: 500;
@@ -1027,6 +1047,18 @@ main {
   padding: 10px;
   background-color: #CCC;
   font-weight: bold;
+}
+
+.button-replacement-panel-adm a {
+  background-color: #CCC;
+  padding: 5px 10px;
+  margin-top: 30px;
+  color: #000;
+}
+.button-replacement-panel-adm a i {
+  color: #000;
+  font-size: 14px;
+  margin-left: 10px;
 }
 
 main .panel-row-cards {
@@ -1531,16 +1563,121 @@ main .panel-row-cards .gray {
     flex-direction: column;
   }
 }
+@media print {
+  nav {
+    visibility: hidden;
+  }
+  .group-title p {
+    visibility: hidden;
+  }
+  .container-view .view-form-user-row .icon-option {
+    display: none;
+  }
+}
+.group-contract .select-i-user {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+  gap: 20px;
+}
+.group-contract .select-i-user .select-x {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.group-contract .select-i-user .select-x select {
+  padding: 10px;
+  outline: 0;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.group-contract .select-i-user .select-x span {
+  margin: 0;
+}
+.group-contract .sale {
+  display: none;
+}
+.group-contract h3 {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.group-contract form .select-user {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.group-contract form .select-user p {
+  padding: 10px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.group-contract form .select-user select {
+  padding: 20px 10px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+.group-contract form .select-user .error-select {
+  border: 1px solid red;
+}
+.group-contract form .select-user span {
+  margin-top: 10px;
+}
+.group-contract .upload-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.group-contract .upload-row .upload-col {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.group-contract .upload-row .upload-col .error-upload {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
+.group-contract .upload-row .upload-col span {
+  margin-top: 5px;
+}
+.group-contract .upload-row .upload-col img {
+  width: 300px;
+  cursor: pointer;
+}
+.group-contract .upload-row .upload-col button {
+  padding: 10px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+.group-contract .upload-row .upload-col input[type=file] {
+  display: none;
+}
+
 .container-contract {
   height: 100%;
-  max-height: 400px;
   border: 1px solid #ccc;
-  overflow-y: scroll;
 }
 .container-contract .contract-title {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-top: 20px;
+}
+.container-contract .contract-title img {
+  height: 60px;
+  margin-right: 10px;
 }
 .container-contract .contract-title h1 {
   font-size: 18px;
@@ -1560,25 +1697,98 @@ main .panel-row-cards .gray {
   opacity: 0.5;
 }
 .container-contract .contract-info {
+  height: 100%;
+  max-height: 400px;
   padding: 20px;
+  overflow-y: scroll;
 }
 .container-contract .contract-info p {
   margin-top: 30px;
 }
 .container-contract .contract-info p input {
+  width: 25%;
   border: 0;
   outline: none;
   border-bottom: 1px solid #ccc;
 }
+.container-contract .contract-info p input[type=number] {
+  width: 50px;
+}
+
+.group-button-contract {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+.group-button-contract button {
+  padding: 20px 20px;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+}
+
+.activeButton {
+  background-color: #333;
+  color: #fff;
+}
 
 .button-contract {
-  width: auto;
-  padding: 20px;
+  padding: 30px 0;
 }
 .button-contract button {
   padding: 10px 20px;
   cursor: pointer;
+  outline: none;
   border: 0;
-  outline: 0;
-  background-color: #b8b8b8;
+}
+.button-contract #auto-fill-contract-rent {
+  display: inline;
+}
+.button-contract #auto-fill-contract-sale {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .group-contract .select-i-user {
+    width: auto;
+    flex-direction: column;
+  }
+  .container-contract {
+    height: 100%;
+    border: 1px solid #ccc;
+  }
+  .container-contract .group-contract .select-i-user {
+    flex-direction: column;
+  }
+  .container-contract .contract-title {
+    width: auto;
+    flex-direction: column;
+  }
+  .group-button-contract {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+@media print {
+  .group-contract .group-title {
+    visibility: hidden;
+  }
+  .group-contract .select-i-user {
+    display: none;
+  }
+  .group-contract .container-contract {
+    border: 0;
+  }
+  .group-contract .container-contract .contract-title .icon-option {
+    display: none;
+  }
+  .group-contract .container-contract .contract-info {
+    overflow-y: hidden;
+    max-height: 100%;
+  }
+  .group-button-contract .button-contract {
+    display: none;
+  }
 }/*# sourceMappingURL=styles-ksi.css.map */

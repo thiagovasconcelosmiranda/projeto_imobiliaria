@@ -1,7 +1,17 @@
 <div class="group-title">
     <h1>Painel</h1>
-    <p>Painel</p>
+    <p>Painel </p>
 </div>
+
+<?php if(!empty($adm->administrador)):?>
+    <div class="button-replacement-panel-adm">
+        <a href="<?=$base;?>/ksi/area-cliente">
+          Modo cliente
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </a>   
+    </div>     
+<?php endif; ?>
+
 <?php if ($flash !=""):?>
     <div class="item-alert">
         <div class="alert">
