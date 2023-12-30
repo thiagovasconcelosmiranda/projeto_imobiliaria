@@ -17,8 +17,11 @@ function newImage() {
 if (document.getElementById('slider')) {
    const img = document.getElementById('slider');
    let num = 0;
-   const images = [`${baseUrl}/assets/images/belo-resort-de-hotel-em-frente-a-praia-tropical-com-piscina-paradisiaca-para-ferias-ge.jpg`,
-      `${baseUrl}/assets/images/full-shot-mulher-feliz-brincando-com-crianca.jpg`, `${baseUrl}/assets/images/interior-plano-vazio-com-elementos-de-decoracao.jpg`];
+   const images = [
+      `${baseUrl}/assets/images/belo-resort-de-hotel-em-frente-a-praia-tropical-com-piscina-paradisiaca-para-ferias-ge.jpg`,
+      `${baseUrl}/assets/images/seguro-sob-o-telhado-de-sua-nova-casa.jpg`,
+      `${baseUrl}/assets/images/full-shot-mulher-feliz-brincando-com-crianca.jpg`,
+      `${baseUrl}/assets/images/interior-plano-vazio-com-elementos-de-decoracao.jpg`];
    let nTotal = images.length;
 
    setInterval(function () {

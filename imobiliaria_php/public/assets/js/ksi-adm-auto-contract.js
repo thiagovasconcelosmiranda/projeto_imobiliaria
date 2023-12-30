@@ -26,15 +26,16 @@ if (document.getElementById('button-benefit')) {
     })
 }
 
-if (document.getElementById('button-upload-owner')) {
-    document.getElementById('button-upload-owner').addEventListener('click', () => {
-        errorInputUploadOwner()
+if (document.getElementById('button-upload')) {
+    document.getElementById('button-upload').addEventListener('click', () => {
+
+       errorInputUploadOwner()
     })
 }
 
 function errorInputUploadOwner() {
     let count = 0;
-    let spanInput = document.getElementById('msg-42');
+    let spanSelect = document.getElementById('msg-42');
     let spanUpdate = document.getElementById('msg-43');
 
     document.querySelectorAll('#form input, select').forEach(item => {
@@ -42,10 +43,10 @@ function errorInputUploadOwner() {
         if (!parseInt(item.id)) {
             if (!item.value) {
                 item.classList.add('error-select');
-                 spanInput.style.display = "flex";
+                spanSelect.style.display="flex";
             } else {
                 item.classList.remove('error-select');
-                spanInput.style.display = "none";
+                spanSelect.style.opacity="0";
                 count++;
             }
         }
@@ -55,13 +56,13 @@ function errorInputUploadOwner() {
             if (!item.value) {
                spanUpdate.style.display = "flex";
             } else {
-                spanUpdate.style.display = "none";
+                spanUpdate.style.opacity = "0";
             }
         }
     });
 
     if (count === 2) {
-        document.getElementById('button-upload-owner').type = 'submit';
+        document.getElementById('button-upload').type = 'submit';
     }
 }
 
@@ -78,7 +79,7 @@ function errorInputContract(contract) {
                     document.getElementById('msg-' + select.id).style.display = "flex";
                 } else {
                     select.style.border = "1px solid #ccc";
-                    document.getElementById('msg-' + select.id).style.display = "none";
+                    document.getElementById('msg-' + select.id).style.opacity = "0";
 
                     if (select.name === 'rent') {
                         idRent = select.value;
@@ -93,24 +94,6 @@ function errorInputContract(contract) {
 
         });
 
-        if (document.getElementById('contract-pdf')) {
-
-            let upload = document.getElementById('contract-pdf');
-            let spanUploadMsg = document.getElementById('msg-40');
-
-            if (!upload.value) {
-                spanUploadMsg.style.display = "flex";
-            } else {
-                if (upload.files[0]['type'] === 'application/pdf') {
-                    count++;
-                    spanUploadMsg.style.display = "nome";
-                }
-            }
-
-            if (count === 2) {
-                document.getElementById('button-benefit').type = "submit";
-            }
-        }
 
         item.querySelectorAll(`.${contract} input`).forEach(input => {
 
@@ -743,15 +726,17 @@ function contractHtml(list = []) {
 
 function previewPdf() {
     let pdf = document.getElementById('contract-pdf').files[0];
-    let preview = document.getElementById('preview-pdf');
+    let preview = document.getElementById('preview-pdf-contract');
     let reader = new FileReader();
-
+    document.querySelector('#descrition-pdf').innerHTML= pdf['name'];
+ 
     reader.onload = function () {
         preview.src = reader.result;
     }
-
+    
     if (pdf['type'] === 'application/pdf') {
         reader.readAsDataURL(pdf);
+        document.querySelector('.pdf-owner').style.display="block";
     } else {
         alert('Arquivo invalido!');
     }

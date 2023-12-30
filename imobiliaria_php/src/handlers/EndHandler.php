@@ -24,4 +24,21 @@ class EndHandler extends Controller
 
        return true;
    }
+
+   public static function update($id, $end){
+    End::update([
+      'cep' => $end['cep'],
+      'end' => $end['end'],
+      'num' => $end['num'],
+      'bairro' => $end['bairro'],
+      'cidade' => $end['cidade'],
+      'uf' => $end['uf'],
+      'imovel_id' => $end['imovel_id'],
+      'update_at' => date('Y/m/d H:m:s'),
+    ])
+    ->where('id', $id)
+    ->execute();
+
+    return true;
+}
 }

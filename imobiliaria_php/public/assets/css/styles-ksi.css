@@ -1597,14 +1597,15 @@ main .panel-row-cards .gray {
 .group-contract .sale {
   display: none;
 }
-.group-contract h3 {
+
+.group-upload-contract h3 {
   display: inline-block;
   padding: 10px;
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: bold;
 }
-.group-contract form .select-user {
+.group-upload-contract form .select-user {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1614,28 +1615,29 @@ main .panel-row-cards .gray {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-.group-contract form .select-user p {
+.group-upload-contract form .select-user p {
   padding: 10px 0;
   font-weight: bold;
   text-transform: uppercase;
 }
-.group-contract form .select-user select {
+.group-upload-contract form .select-user select {
   padding: 20px 10px;
   outline: none;
   border: 1px solid #ccc;
+  cursor: pointer;
 }
-.group-contract form .select-user .error-select {
+.group-upload-contract form .select-user .error-select {
   border: 1px solid red;
 }
-.group-contract form .select-user span {
+.group-upload-contract form .select-user span {
   margin-top: 10px;
 }
-.group-contract .upload-row {
+.group-upload-contract form .upload-row {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
 }
-.group-contract .upload-row .upload-col {
+.group-upload-contract form .upload-row .upload-col {
   width: 100%;
   padding: 20px;
   display: flex;
@@ -1643,25 +1645,40 @@ main .panel-row-cards .gray {
   align-items: center;
   flex-direction: column;
 }
-.group-contract .upload-row .upload-col .error-upload {
+.group-upload-contract form .upload-row .upload-col .error-upload {
   border: 1px solid red;
   display: flex;
   justify-content: center;
 }
-.group-contract .upload-row .upload-col span {
+.group-upload-contract form .upload-row .upload-col span {
   margin-top: 5px;
 }
-.group-contract .upload-row .upload-col img {
-  width: 300px;
+.group-upload-contract form .upload-row .upload-col label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   cursor: pointer;
+  padding: 10px;
 }
-.group-contract .upload-row .upload-col button {
+.group-upload-contract form .upload-row .upload-col label i {
+  color: rgb(214, 25, 25);
+  font-size: 25px;
+}
+.group-upload-contract form .upload-row .upload-col label:hover {
+  background-color: #eceaea;
+}
+.group-upload-contract form .upload-row .upload-col button {
   padding: 10px;
   outline: 0;
   border: 0;
   cursor: pointer;
 }
-.group-contract .upload-row .upload-col input[type=file] {
+.group-upload-contract form .upload-row .upload-col input[type=file] {
+  display: none;
+}
+
+.pdf-owner {
   display: none;
 }
 

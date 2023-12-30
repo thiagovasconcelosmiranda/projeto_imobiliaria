@@ -11,7 +11,7 @@ document.getElementById('button-add-end-immobile').addEventListener('click', () 
 });
 
 document.getElementById('button-add-image-immobile').addEventListener('click', () => {
-    immobileImageError();
+ immobileImageError();
 });
 
 function immobileInputError() {
@@ -28,7 +28,7 @@ function immobileInputError() {
                 num++;
             }
         }
-        if (num === 19) {
+        if (num === 18) {
             inputImmobile.style.display = "none";
             endImmobile.style.display = "block";
         }

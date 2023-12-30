@@ -8,10 +8,14 @@ use \src\models\Foto;
 class FotoHandler extends Controller
 {
 
+  public static function findById($imovel_id){
+     $fotos = Foto::select()
+     ->where('imovel_id', $imovel_id)
+     ->one();
+     return  $fotos;
+  }
+
    public static function create($array){
-
-
-    
        Foto::insert([
          'foto1' => $array['foto1'],
          'foto2' => $array['foto2'],
@@ -24,5 +28,20 @@ class FotoHandler extends Controller
        ])->execute();
 
        return true;
+   }
+
+   public static function update($login_id, $foto){
+    Foto::update([
+      'foto1' => $foto['foto1'],
+      'foto2' => $foto['foto2'],
+      'foto3' => $foto['foto3'],
+      'foto4' => $foto['foto4'],
+      'foto5' => $foto['foto5'],
+      'update_at' => date('Y/m/d H:m:s'),
+    ])
+    ->where('imovel_id', $login_id)
+    ->execute();
+
+    return true;
    }
 }

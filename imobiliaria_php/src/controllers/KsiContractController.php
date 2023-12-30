@@ -60,12 +60,13 @@ class KsiContractController extends Controller
         ]);
     }
 
-    public function generateContract()
+    public function generateOwnerContract()
     {
         $this->render('/ksi/adm/new-owner-contract', [
             'users' => $this->userAll
         ]);
     }
+    
 
     public function getUserContract()
     {
@@ -105,7 +106,7 @@ class KsiContractController extends Controller
       }
 
       public function createContractBenefit(){
-         $id_rent = filter_input(INPUT_POST, 'rent');
+         $id_rent = filter_input(INPUT_POST, 'id-user');
          if($id_rent){
             if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']['tmp_name'])) {
                $newPdf = $_FILES['arquivo'];
@@ -143,7 +144,7 @@ class KsiContractController extends Controller
      }
 
       public function createContractTenant(){
-        $id_rent = filter_input(INPUT_POST, 'rent');
+        $id_rent = filter_input(INPUT_POST, 'id-user');
 
         if($id_rent){
             if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']['tmp_name'])) {
@@ -174,7 +175,9 @@ class KsiContractController extends Controller
          }
       }
       public function createContractOwner(){
-        $id = filter_input(INPUT_POST, 'arquivo');
+       
+        $id = filter_input(INPUT_POST, 'id-user');
+        echo $id;
 
         if($id){
             if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']['tmp_name'])){

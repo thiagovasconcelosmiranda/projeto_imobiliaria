@@ -42,9 +42,10 @@ if (document.getElementById('search_immobile')) {
                           <td class="td-desc">${item.uf} </td>
                           <td class="td-desc">${item.created_at}</td>
                           <td class="td-desc">
-                             <i class="fa-solid fa-eye"></i>
-                             <i class="fa-solid fa-pen-to-square"></i>
-                             <i class="fa-solid fa-trash"></i>
+                             <i onclick="viewImmobile(${item.id})" class="fa-solid fa-eye"></i>
+                             <i  onclick="alterImmobile(${item.id})" class="fa-solid fa-pen-to-square"></i>
+                             <i onclick="deleteImmobile(${item.id})" class="fa-solid fa-trash"></i>
+                             <i onclick="scheduleImmobile(${item.id})" class="fa-solid fa-calendar-days"></i>
                           </td>
                          </tr>
                      `
@@ -54,4 +55,22 @@ if (document.getElementById('search_immobile')) {
             }
         }
     }
+}
+
+function viewImmobile(id){
+ alert(id)
+}
+
+
+function deleteImmobile(id){
+    alert(id)
+}
+
+
+function alterImmobile(id){
+    $('#refresh-adm').load(`${baseUrl}/ksi/adm/add-immobile?id=${id}`);
+}
+
+function scheduleImmobile(id){
+    alert(id)
 }

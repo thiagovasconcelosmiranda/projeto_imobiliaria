@@ -24,14 +24,28 @@ class KsiAddImmobileController extends Controller
 
     public function index()
     {
+        $title = "Adicionar novo Imóvel";
+        $url = "ksi/adm/add-immobile";
+        $id = filter_input(INPUT_GET, 'id');
+        $imoveis = [];
+       
+         if($id){
+            $imoveis[] =  ImovelHandler::findId($id);
+            $title = "Alterar Imóvel";
+            $url = "ksi/adm/alter-immobile/".$id;
+         }
+
         $users = LoginHandler::findAll();
         $alugueis = AluguelHandler::findByAll();
         $vendas = VendaHandler::findByAll();
 
         $this->render('ksi/adm/add-immobile', [
+            'title' => $title,
             'users' => $users,
             'alugueis' => $alugueis,
-            'vendas' => $vendas
+            'vendas' => $vendas,
+            'imoveis' => $imoveis,
+            'url' => $url
         ]);
     }
 
@@ -111,5 +125,9 @@ class KsiAddImmobileController extends Controller
                 }
             }
         }
+    }
+
+    public function update($atts){
+
     }
 }

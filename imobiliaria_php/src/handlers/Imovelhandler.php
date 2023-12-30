@@ -252,9 +252,31 @@ class ImovelHandler extends Controller
 
 
 
-  public static function update($id)
+  public static function update($id ,$imovel)
   {
-    //
+
+    Imovel::update([
+     'classificacao' => $imovel['classificacao'],
+     'tipo' => $imovel['tipo'],
+     'condicao' => $imovel['condicao'],
+     'area_terreno' => $imovel['area_terreno'],
+     'area_laser' => $imovel['area_laser'],
+     'qtd_vaga' => $imovel['qtd_vaga'],
+     'condominio' => $imovel['condominio'],
+     'disponibilidade' => $imovel['disponibilidade'],
+     'qtd_varanda' => $imovel['qtd_varanda'],
+     'qtd_quarto' => $imovel['qtd_quarto'],
+     'qtd_sala' => $imovel['qtd_sala'],
+     'qtd_banheiro' => $imovel['qtd_banheiro'],
+     'qtd_cozinha' => $imovel['qtd_cozinha'],
+     'outros' => $imovel['outros'],
+     'descricao' => $imovel['descricao'],
+     'update_at' => date('Y/m/d H:m:s')
+    ])
+    ->where('id', $id)
+    ->execute();
+    
+    return true;
   }
 
   public static function delete($id)

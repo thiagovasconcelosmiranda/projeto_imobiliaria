@@ -44,8 +44,11 @@ $router->get('/ksi/alter-password/{token}', 'KsiLoginController@alterPassword');
 $router->post('/ksi/alter_password', 'KsiLoginController@alterPasswordAction');
 $router->get('/ksi/adm/panel-adm', 'ksiPanelAdmController@index');
 $router->get('/ksi/adm/add-user', 'KsiAddUserAdmController@index');
+
 $router->get('/ksi/adm/add-immobile', 'KsiAddImmobileController@index');
 $router->post('/ksi/adm/add-immobile', 'KsiAddImmobileController@create');
+$router->post('/ksi/adm/alter-immobile/{id}', 'ksiAlterImmobileController@update');
+
 $router->get('/ksi/adm/announcement', 'ksiAnnouncementController@index');
 $router->get('/ksi/adm/ajax/announcement/search', 'ksiAnnouncementController@searchAnnouncement');
 $router->get('/ksi/adm/ajax/announcement/remove/{id}', 'ksiAnnouncementController@remove');
@@ -62,14 +65,17 @@ $router->post('/ksi/login/create', 'KsiLoginAdmController@create');
 $router->get('/ksi/ajax/login/check-cpf', 'KsiLoginAdmController@checkCpf');
 $router->get('/ksi/ajax/login/check-email', 'KsiLoginAdmController@checkEmail');
 
-$router->get('/ksi/adm/new-contract-owner-contract', 'KsiContractController@generateContract');
+$router->get('/ksi/adm/new-contract-owner-contract', 'KsiContractController@generateOwnerContract');
+$router->post('/ksi/adm/create-contract-owner', 'KsiContractController@createContractOwner');
 $router->get('/ksi/adm/ajax/contract-user', 'KsiContractController@getUserContract');
 $router->get('/ksi/adm/new-contract-guarantor', 'KsiContractController@generateContractGuarantor');
+
 $router->get('/ksi/adm/new-contract-benefit', 'KsiContractController@generateContractBenefit');
 $router->post('/ksi/adm/create-contract-benefit', 'KsiContractController@createContractBenefit');
+
 $router->get('/ksi/adm/new-contract-tenant', 'KsiContractController@generateContractTenant');
 $router->post('/ksi/adm/create-contract-tenant', 'KsiContractController@createContractTenant');
-$router->post('/ksi/adm/create-contract-owner', 'KsiContractController@createContractOwner');
+
 
 
 $router->get('/anuncio', 'AnuncioController@index');

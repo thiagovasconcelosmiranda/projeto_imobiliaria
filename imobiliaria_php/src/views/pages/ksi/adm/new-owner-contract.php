@@ -1,3 +1,4 @@
+<?php $url = "/ksi/adm/create-contract-owner";  ?>
 <div class="group-contract">
     <div class="group-title">
         <h1>Gerar contrato do proprietário</h1>
@@ -40,39 +41,6 @@
     </div>
     <?php $render('/ksi/contract-rent-owner'); ?>
     <?php $render('/ksi/contract-sale-owner'); ?>
-     <h3>Anexar contrato</h3>
-    <form method="post" id="form" action="<?=$base;?>/ksi/adm/create-contract-owner" enctype="multipart/form-data">
-        <div class="select-user">
-            <p>Pra quem você quer anexar?</p>
-            <select name="arquivo">
-                <option value="">Selecione o proprietário</option>
-                <?php foreach ($users as $item): ?>
-                    <option value="<?= $item['id']; ?>">
-                        <?= $item['id']; ?> -
-                        <?= $item['nome']; ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-            <span id="msg-42" >Campos obrigatório*</span>
-        </div>
-        <div class="upload-row upload">
-            <div class="upload-col">
-                <label for="contract-pdf">
-                    <img src="<?= $base; ?>/assets/images/pdf.webp" alt="pdf">
-                </label>
-                <input id="contract-pdf" type="file" name="arquivo" onchange="previewPdf()">
-                <span id="msg-43">Campos obrigatórios*</span>
-            </div>
-            <div class="upload-col">
-                <button id="button-upload-owner" type="button">Adicionar</button>
-            </div>
-        </div>
-    </form>
-    <div class="container-contract pdf-owner" style="height: 300px;">
-    <div>Visualizar arquivo</div>
-    <iframe width="100%" id="preview-pdf" src="" width="100%" height="100%">
-    </iframe>
 </div>
-</div>
-
+<?php $render('ksi/contract-upload', ['url' => $url, 'users' => $users]);?>
 <script src="<?= $base; ?>/assets/js/ksi-adm-auto-contract.js"></script>
