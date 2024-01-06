@@ -1,56 +1,65 @@
 <div class="group-title">
-    <h1>Painel</h1>
-    <p>Painel </p>
+    <h1>Painel do adiministrador</h1>
+    <p>Painel do adiministrador </p>
 </div>
 
-<?php if(!empty($adm->administrador)):?>
+<?php if (!empty($adm->administrador)): ?>
     <div class="button-replacement-panel-adm">
-        <a href="<?=$base;?>/ksi/area-cliente">
-          Modo cliente
-          <i class="fa-solid fa-right-to-bracket"></i>
-        </a>   
-    </div>     
+        <a href="<?= $base; ?>/ksi/area-cliente">
+            Modo cliente
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+    </div>
 <?php endif; ?>
 
-<?php if ($flash !=""):?>
+<?php if ($flash != ""): ?>
     <div class="item-alert">
         <div class="alert">
-            <p><?=$flash;?></p>
+            <p>
+                <?= $flash; ?>
+            </p>
         </div>
     </div>
-<?php endif;?>
+<?php endif; ?>
 <div class="panel-row-cards">
-    <div class="panel-col-card blue">
-        <div class="card-title">
-            <h5> Usuários Online</h5>
+    <fieldset class="border-card-view">
+        <legend>Viusalizar</legend>
+        <div class="panel-col-card blue">
+            <div class="card-title">
+                <h5> Usuários Online</h5>
+            </div>
+            <div class="card-description">
+                <i class="fa-solid fa-user"></i>
+                <h3>
+                    <?= count($status); ?>
+                </h3>
+            </div>
         </div>
-        <div class="card-description">
-            <i class="fa-solid fa-user"></i>
-            <h3><?=count($status);?></h3>
+        <div class="panel-col-card yellowgreen">
+            <div class="card-title">
+                <h5>Usuários Ativos</h5>
+            </div>
+            <div class="card-description">
+                <i class="fa-solid fa-user"></i>
+                <h3>
+                    <?= count($usuarios); ?>
+                </h3>
+            </div>
         </div>
-    </div>
-    <div class="panel-col-card yellowgreen">
-        <div class="card-title">
-            <h5>Usuários Ativos</h5>
+        <div class="panel-col-card yellow">
+            <div class="card-title">
+                <h5> Imoveis Ativos</h5>
+            </div>
+            <div class="card-description">
+                <i class="fa-solid fa-house"></i>
+                <h3>
+                    <?= count($imoveis); ?>
+                </h3>
+            </div>
         </div>
-        <div class="card-description">
-            <i class="fa-solid fa-user"></i>
-            <h3>
-                <?= count($usuarios); ?>
-            </h3>
-        </div>
-    </div>
-    <div class="panel-col-card yellow">
-        <div class="card-title">
-            <h5> Imoveis Ativos</h5>
-        </div>
-        <div class="card-description">
-            <i class="fa-solid fa-house"></i>
-            <h3>
-                <?= count($imoveis); ?>
-            </h3>
-        </div>
-    </div>
+    </fieldset>
+   <fieldset class="border-card-view">
+    <legend>Acessar</legend>
     <div class="panel-col-card gray cursor" id="notSearch">
         <div class="card-title">
             <h5>Usuário não achou</h5>
@@ -69,10 +78,22 @@
         <div class="card-description">
             <i class="fa-solid fa-bullhorn"></i>
             <h3>
-                <?= count($anuncios);?>
+                <?= count($anuncios); ?>
             </h3>
         </div>
     </div>
+    <div class="panel-col-card blue-2" id="work">
+        <div class="card-title">
+            <h5>Candidatos cadastrados</h5>
+        </div>
+        <div class="card-description">
+            <i class="fa-solid fa-user"></i>
+            <h3>
+                <?= count($works); ?>
+            </h3>
+        </div>
+    </div>
+    </fieldset>
 </div>
 <div class="container-panel">
     <div class=" graphic-1" id="curve_chart"></div>

@@ -2,10 +2,15 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\EndHandler;
+use src\handlers\FotoHandler;
 use \src\handlers\LoginHandler;
 use \src\handlers\AtividadeHandler;
 use \src\handlers\DocumentHandler;
 use \src\handlers\ImovelHandler;
+use \src\handlers\AluguelHandler;
+use \src\handlers\VendaHandler;
+use src\models\Document;
 
 class ksiImmobileController extends Controller
 {
@@ -19,16 +24,24 @@ class ksiImmobileController extends Controller
     }
 
     public function index()
-    {   $infImmobile =  ImovelHandler::ImmobileLoginId($this->infoUser->id);
-        $documentos = DocumentHandler::findByLoginId($this->infoUser->id);
-        $atividades = AtividadeHandler::findByLoginId($this->infoUser->id);
-
+    {
+        $date = [];
+        $listImmobile = ImovelHandler::ImmobileLoginId($this->infoUser->id);
+        foreach($listImmobile as  $item){
+             $doc = DocumentHandler::findByImovelId($item['id']);
+            $date[] = [
+               'imovel' =>  $item,
+                'doc' =>  $doc
+            ];
+        }
+       
+       
         $this->render('ksi/immobile', [
-            'infImmobile' =>  $infImmobile,
-            'documentos' => $documentos,
-            'atividades' => $atividades,
+            'listImmobile' => $date,
+
         ]);
     }
+
 
     public function search()
     {
@@ -52,11 +65,105 @@ class ksiImmobileController extends Controller
         $id = $att['id'];
     }
 
-    public function create($array)
+
+    public function create()
     {
+        $photos = [];
         $inputs = filter_input_array(INPUT_POST);
-        echo "<pre>";
-        print_r($inputs);
+        $inputs['ref'] = rand(9, 9999);
+        if (count($inputs) == 27) {
+            if (ImovelHandler::create($inputs)) {
+                $id_immobile = ImovelHandler::lastId();
+                if (EndHandler::create($id_immobile['id'], $inputs)) {
+                    foreach ($_FILES as $key => $photo) {
+                        if (isset($_FILES[$key]) && !empty($_FILES[$key]['tmp_name'])) {
+                            $newPhoto = $_FILES[$key];
+                            if (in_array($newPhoto['type'], ['image/jpg', 'image/jpeg', 'image/png'])) {
+                                $ext = strtolower(substr($newPhoto['name'], -4));
+                                $new_name = md5(time() . rand(1, 9999)) . $ext;
+
+                                $photos[$key] = $new_name;
+
+                                $dir = "assets/media/photos_immobile/" . $id_immobile['id'];
+                                if (is_dir($dir)) {
+                                    move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
+                                } else {
+                                    mkdir($dir, 0700);
+                                    if (is_dir($dir)) {
+                                        move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    if (FotoHandler::create($id_immobile['id'], $photos)) {
+                        $_SESSION['flash-msg'] = "Adicionado com sucesso!";
+                        $this->redirect('/ksi/adm/area-adm');
+                        exit;
+                    } else {
+                        $_SESSION['flash-msg'] = "Erro ao Adicionar";
+                        $this->redirect('/ksi/adm/area-adm');
+                        exit;
+                    }
+                }
+            }
+        }
+    }
+
+    public function update($atts)
+    {
+        $id = $atts['id'];
+        $photos = [];
+        $inputs = filter_input_array(INPUT_POST);
+       
+        if (count($inputs) === 25 && $id) {
+            if (ImovelHandler::update($id, $inputs)) {
+                if (EndHandler::update($id, $inputs)) {
+                    foreach ($_FILES as $key => $photo) {
+
+                        if ($_FILES[$key]['type'] != "") {
+                            if (isset($_FILES[$key]) && !empty($_FILES[$key]['tmp_name'])) {
+                                $newPhoto = $_FILES[$key];
+
+                                if (in_array($newPhoto['type'], ['image/jpg', 'image/jpeg', 'image/png'])) {
+                                    $ext = strtolower(substr($newPhoto['name'], -4));
+                                    $new_name = md5(time() . rand(1, 9999)) . $ext;
+
+                                    $photos[$key] = $new_name;
+
+                                    $dir = "assets/media/photos_immobile/".$id;
+                                    
+                                    if (is_dir($dir)) {
+                                     $foto =  FotoHandler::findById($id);
+                                    
+                                     $file = $dir.'/'.$foto[$key];
+
+                                      if(file_exists($file)){
+                                        unlink($file);
+                                      }
+
+                                       move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
+                                    } else {
+                                        mkdir($dir, 0700);
+                                        if (is_dir($dir)) {
+                                            move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
+                                        }
+                                    } 
+                                }
+                                FotoHandler::update($id, $key, $photos);
+                            }
+                        }
+
+                    }
+                
+                }
+            }
+            $_SESSION['flash-msg'] = "Alterado com sucesso!";
+            $this->redirect('/ksi/adm/area-adm');
+            exit;
+        }
     }
 
 }

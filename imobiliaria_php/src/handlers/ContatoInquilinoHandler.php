@@ -18,6 +18,7 @@ class ContatoInquilinoHandler extends Controller
 
    public static function create($login_id, $arquivo){
     $date = date('Y/m/d H:m:s');
+    
 
      Contrato_inquilino::insert([
         'login_id' =>$login_id,

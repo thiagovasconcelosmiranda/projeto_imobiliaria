@@ -13,8 +13,6 @@
  <h1> Dados pessoais</h1>
   <div class="icon-option">
     <i onclick="window.print()" class="fa-solid fa-print"></i>
-    <i class="fa-regular fa-file-pdf"></i>
-    <i class="fa-solid fa-floppy-disk"></i>
   </div>
  </div>
     <div class="view-form-user-row">

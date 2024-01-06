@@ -69,7 +69,7 @@ function divUrl(divimovel, data, page, pageButton, tipoClass) {
                       ${c[1]}
                     </div>
 
-                    <img src="assets/images/${item['id']}/${item['foto1']}" alt="Apartamento">
+                    <img src="assets/media/photos_immobile/${item['id']}/${item['foto1']}" alt="Apartamento">
                     </div>  
                     <div class="group-text">
                        <h4>${t[0]} - ${t[1]}</h4>

@@ -28,16 +28,16 @@
     <div class="footer-text">
         <div class="footer-col">
             <h3>Institucional</h3>
-            <a href="<?= $base; ?>/sobre">
+            <a href="<?=$base;?>/sobre">
                 <p>Sobre a imobiliaria</p>
             </a>
             <a href="#">
                 <p>Nossas unidades</p>
             </a>
-            <a href="<?= $base; ?>/impreendimentos">
+            <a href="<?=$base;?>/impreendimentos">
                 <p>Empreendimentos</p>
             </a>
-            <a href="#">
+            <a href="<?=$base;?>/trabalheconosco">
                 <p>Trabalhe conosco</p>
             </a>
             <a href="#">
@@ -76,18 +76,19 @@
 </footer>
 <script src="https://www.geradorcnpj.com/assets/js/jquery-1.2.6.pack.js" type="text/javascript"></script>
 <script src="https://www.geradorcnpj.com/assets/js/jquery.maskedinput-1.1.4.pack.js"></script>
-<script type="text/javascript" src="<?= $base; ?>/assets/js/images-script.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/header.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/ksi-login.js"></script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/preload.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/modal.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/pg-card-enterprista.js"></script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/pg-cards-home.js"> </script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/pg-cards-store.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-login.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-announcement.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-schedule.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-noEncontrei.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/modal-photos.js"> </script>
 <script src="<?= $base; ?>/assets/js/ksi-input-mask.js"></script>
+
 </body>
 </html>

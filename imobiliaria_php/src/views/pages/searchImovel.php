@@ -23,7 +23,7 @@
             <div class="inf-i blue" style="left: 70%; display: <?php echo (isset($c[1]) ? 'flex' : 'none'); ?>">
               <?= $c[1]; ?>
             </div>
-            <img src="assets/images/<?= $imovel['id']; ?>/<?= $imovel['foto1']; ?>" alt="Apartamento">
+            <img src="assets/media/photos_immobile/<?=$imovel['id']; ?>/<?= $imovel['foto1']; ?>" alt="Apartamento">
           </div>
           <div class="group-text">
             <h4>

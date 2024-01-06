@@ -6,6 +6,7 @@ use \src\handlers\LoginHandler;
 use \src\handlers\ImovelHandler;
 use \src\handlers\NotSearchHandler;
 use \src\handlers\AnuncioHandler;
+use \src\handlers\WorkHandler;
 
 class ksiPanelAdmController extends Controller
 {
@@ -26,6 +27,8 @@ class ksiPanelAdmController extends Controller
         $notSearchs = NotSearchHandler::findByAll();
         $anuncios = AnuncioHandler::findByAll();
         $status = LoginHandler::checkStatus('online');
+        $works = WorkHandler::findAll();
+
 
         $flash = "";
         if(!empty($_SESSION['flash-msg'])){
@@ -40,7 +43,8 @@ class ksiPanelAdmController extends Controller
             'usuarios' => $users, 
             'notSearchs' => $notSearchs,
             'anuncios' => $anuncios,
-            'status' => $status
+            'status' => $status,
+            'works' => $works
         ]);
     }
 

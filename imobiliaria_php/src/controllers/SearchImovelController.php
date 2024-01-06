@@ -14,24 +14,44 @@ class SearchImovelController extends Controller
     $activeLink = 'buscar';
 
     $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+    $numeric = (int) $data['ref'];
+    $list = str_split($numeric);
 
-    if (isset($data)) {
-      foreach ($data as $key => $value) {
-        $k = explode('/', $key);
-        $num++;
+    if (is_numeric($numeric) && count($list) === 4) {
+      $num++;
 
-        $ListImovel = ImovelHandler::findAllName($k[0], $value);
-        $imoveis[$num] = $ListImovel;
-
-        foreach ($imoveis[$num] as $key => $value) {
-          $array[] = $value;
-        }
+      $listImovel = ImovelHandler::findRef($numeric);
+      $imoveis[$num] = $listImovel;
+      
+      foreach ($imoveis[$num] as $key => $value) {
+        $array[] = $value;
       }
-
     } else {
-      $this->redirect('/');
-    }
+      
+      if (isset($data)) {
+        
+        foreach ($data as $key => $value) {
+          $k = explode('/', $key);
+          $num++;
+         
+          $listImovel = ImovelHandler::findAllName($k[0], $value);
+          $imoveis[$num] = $listImovel;
 
+          foreach ($imoveis[$num] as $key => $value) {
+            $array[] = $value;
+          }
+        }
+      } else {
+        $this->redirect('/');
+      }
+    }
+   
+    function loopImovels(){
+
+    }
+    
+   
+   
     $this->render('searchImovel', [
       'imoveis' => $array,
       'activeLink' => $activeLink

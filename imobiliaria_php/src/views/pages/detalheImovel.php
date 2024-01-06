@@ -6,27 +6,27 @@
      <div class="photos" >
      <?php if($imovel['foto1']){ ?>
        <div class="image-photo">
-         <img src="assets/images/<?=$imovel['id']?>/<?=$imovel['foto1'];?>" alt="Imagem imovel 1">
+         <img src="assets/media/photos_immobile/<?=$imovel['id']?>/<?=$imovel['foto1'];?>" alt="Imagem imovel 1">
        </div>
        <?php }?>
      <?php if($imovel['foto2']){ ?>
      <div class="image-photo">
-        <img src="assets/images/<?=$imovel['id']?>/<?=$imovel['foto2'];?>" alt="Imagem imovel 2">
+        <img src="assets/media/photos_immobile/<?=$imovel['id']?>/<?=$imovel['foto2'];?>" alt="Imagem imovel 2">
      </div>
      <?php }?>
      <?php if($imovel['foto3']){ ?>
         <div class="image-photo">
-           <img src="assets/images/<?=$imovel['id']?>/<?=$imovel['foto3'];?>" alt="Imagem imovel 3">
+           <img src="assets/media/photos_immobile/<?=$imovel['id']?>/<?=$imovel['foto3'];?>" alt="Imagem imovel 3">
         </div>
      <?php }?>
      <?php if($imovel['foto4']){ ?>
         <div class="image-photo">
-           <img src="assets/images/<?=$imovel['id']?>/<?=$imovel['foto4'];?>" alt="Imagem imovel 4">
+           <img src="assets/media/photos_immobile/<?=$imovel['id']?>/<?=$imovel['foto4'];?>" alt="Imagem imovel 4">
         </div>
      <?php }?>
      <?php if($imovel['foto5']){?>
         <div class="image-photo">
-          <img src="assets/images/<?=$imovel['id']?>/<?=$imovel['foto5'];?>" alt="Imagem imovel 5">
+          <img src="assets/media/photos_immobile/<?=$imovel['id']?>/<?=$imovel['foto5'];?>" alt="Imagem imovel 5">
         </div>
      <?php }?>
   </div>

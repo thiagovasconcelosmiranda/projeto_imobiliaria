@@ -13,4 +13,8 @@ class AluguelHandler extends Controller
 
         return $aluguels;
     }
+
+    public static function create($id, $array){
+      //
+    }
 }

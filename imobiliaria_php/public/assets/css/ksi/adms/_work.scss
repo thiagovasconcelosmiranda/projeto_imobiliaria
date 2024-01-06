@@ -1,0 +1,61 @@
+
+.container-work{
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+
+    .list-work-group {
+        background-color: rgb(192, 192, 206);
+        padding: 10px;
+ 
+        h3 {
+            font-size: 16px;
+            color: rgb(63, 63, 104);
+            margin-bottom: 10px;
+        }
+    }
+
+    .table-item {
+        width: 100%;
+        overflow-y: scroll;
+        width: 100%;
+
+        table {
+            width: 80%;
+
+            .tr-top {
+                background-color: rgb(154, 166, 173);
+
+                td {
+                    padding: 0 10px;
+                    color: rgb(32, 88, 134);
+                    border: 1px solid blue;
+                    font-weight: bold;
+                }
+            }
+
+            .tr-desc td {
+                padding: 0 10px;
+                border: 1px solid blue;
+                gap: 10px;
+
+                i {
+                
+                    color: red;
+                    cursor: pointer;
+                    padding: 10px;
+                }
+                .view{
+                    color: blue;
+                    cursor: pointer;
+                }
+                .curriculo{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    
+
+}

@@ -5,6 +5,11 @@ const mobile = document.querySelector('.menu-mobile');
 const ul = document.querySelector('#option-ul');
 
 
+document.getElementById('impreendimento').addEventListener('click', () => {
+  window.location.href = `${baseURL}/impreendimentos`;
+})
+
+
 document.querySelectorAll('.button-i button').forEach(button => {
   button.addEventListener('click', () => {
     activeButton(button);
@@ -28,11 +33,17 @@ mobile.addEventListener('click', () => {
 });
 
 if (document.querySelectorAll('.button-i button')) {
+ let item1  = document.querySelector('.row-select-row-ref')
+ let item2 = document.querySelector('.group-select-row');
 
   function butonClick(info) {
-    if (document.querySelector('.group-select-row')) {
-      document.querySelector('.group-select-row').style.display = "flex";
+    if (info == 'Código') {
+     item1.style.display = "flex";
+     item2.style.display = "none";
+    } else {
+      item2.style.display = "flex";
       priceAll(info);
+      item1.style.display = "none";
     }
   }
 
@@ -64,6 +75,7 @@ if (document.querySelectorAll('.button-i button')) {
         p3.style.display = "none";
         p4.style.display = "none";
         break;
+
       case 'Bairro':
         if (p2.style.display === "flex") {
           p1.style.display = "none";
@@ -77,8 +89,8 @@ if (document.querySelectorAll('.button-i button')) {
           p3.style.display = "none";
           p4.style.display = "none";
         }
-
         break;
+
       case 'Edificio/Condominio':
         if (p4.style.display === "flex") {
           p1.style.display = "none";
@@ -99,18 +111,21 @@ if (document.querySelectorAll('.button-i button')) {
         p3.style.display = "none";
         p4.style.display = "none";
         break;
+
       case 'Quartos':
         p1.style.display = "none";
         p2.style.display = "none";
         p3.style.display = "none";
         p4.style.display = "none";
         break;
+
       case 'Condiçoes':
         p1.style.display = "none";
         p2.style.display = "none";
         p3.style.display = "none";
         p4.style.display = "none";
         break;
+
       case 'Caracteristica':
         if (p3.style.display === "flex") {
           p1.style.display = "none";
@@ -125,6 +140,8 @@ if (document.querySelectorAll('.button-i button')) {
           p4.style.display = "none";
         }
         break;
+
+
     }
   }
 }
@@ -205,8 +222,17 @@ async function priceAll(info) {
     document.querySelector('#title-option')
   ) {
     const selectItem = document.querySelector('#preco');
+
     let i = info.split(' ');
-    selectItem.name = i[2];
+    $price = '';
+
+    if (i[2] == 'aluguels') {
+      $price = 'preco_aluguels';
+    } else {
+      $price = 'preco_vendas';
+    }
+
+    selectItem.name = $price;
     let titleOption = document.querySelector('#title-option');
     titleOption.innerHTML = info;
     selectItem.options.length = 1;

@@ -47,7 +47,7 @@ main .panel-row-cards {
     margin: auto;
 
     .panel-col-card {
-        width: 160px;
+        width: 125px;
         display: inline-block;
         height: auto;
         margin-bottom: 10px;
@@ -59,7 +59,7 @@ main .panel-row-cards {
             padding-left: 20px;
 
             h5 {
-                font-size: 16px;
+                font-size: 12px;
                 font-weight: 100;
             }
         }
@@ -72,22 +72,27 @@ main .panel-row-cards {
             gap: 20px;
 
             i {
-                font-size: 20px;
+                font-size: 15px;
                 margin-top: 5px;
             }
 
             h3 {
                 margin-top: 10px;
-                font-size: 25px;
+                font-size: 15px;
             }
         }
     }
-
-    .red {
-        background-color: rgb(206, 28, 28);
-        cursor: pointer;
-        color: #fff;
+   
+    .border-card-view{
+        display: flex;
+        align-items: center;
+        padding: 0px 15px;
+        padding-top: 10px;
+        border: 1px solid #ccc;
+        gap: 30px;
+        flex-wrap: wrap;
     }
+   
 
     .blue {
         background-color: rgb(63, 117, 231);
@@ -108,6 +113,34 @@ main .panel-row-cards {
         background-color: gray;
         cursor: pointer;
         color: #fff;
+        box-shadow: 5px 5px 5px #ccc;
+    }
+
+    .red {
+        background-color: rgb(206, 28, 28);
+        cursor: pointer;
+        color: #fff;
+        box-shadow: 5px 5px 5px #ccc;
+    }
+
+    .blue-2{
+        background-color: rgb(28, 206, 206);
+        cursor: pointer;
+        color: #000;
+        box-shadow: 5px 5px 5px #ccc;
+    }
+
+    .blue-2:hover{
+        background-color: rgb(25, 179, 179);
+    }
+    
+
+    .gray:hover{
+        background-color: rgb(110, 110, 110);
+    }
+
+    .red:hover{
+        background-color: rgb(175, 23, 23);
     }
 
 }

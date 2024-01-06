@@ -55,14 +55,13 @@
                     <p>Um local para seus negócios</p>
                     <div class="hover-i">
                         <h3>Um local para seus negócios</h3>
-                        <a href="#">
+                        <a href="<?=$base;?>/lojas">
                             <p>Mais detalhes</p>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="page-public">
             <div class="slider">
                 <div class="slides">
@@ -120,6 +119,8 @@
         </div>
     </main>
     <?php $render('ksi/login-item'); ?>
-    <script type="text/javascript" src="<?= $base; ?>/assets/js/image-sliders.js"></script>
+    <script type="text/javascript" src="<?=$base;?>/assets/js/image-slider.js"></script>
+    <script type="text/javascript" src="<?=$base;?>/assets/js/images-script.js"></script>
+
     <?php $render('footer'); ?>
 </div>

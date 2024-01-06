@@ -10,7 +10,8 @@ class PagImovelController extends Controller
    private $limit = 3;
    private $infUser;
 
-   public function __construct(){
+   public function __construct()
+   {
       $this->infUser = LoginHandler::checkLogin();
    }
 
@@ -46,7 +47,7 @@ class PagImovelController extends Controller
       $data[] = $imoveis;
       $data[] = $pageCount;
       $data[] = $casa;
-      
+
 
       header('Content: application/json');
       echo json_encode($data);
@@ -73,10 +74,47 @@ class PagImovelController extends Controller
       }
    }
 
-    public function findIdImovel($id){
-       $immobile = ImovelHandler::findId($id);
-       return $immobile;
-       
+   public function searchStore()
+   {
+      $data = [];
 
-    }
+      $value = filter_input(INPUT_GET, 'value');
+      $key = filter_input(INPUT_GET, 'name');
+   
+
+      if($value && $key){
+         $data['key'] = $key;
+         $data[] =  Imovelhandler::searchStore($key, $value);
+
+      }else{
+         $data[] = Imovelhandler::findStore();
+      }
+   
+      header('Content: application/json');
+      echo json_encode($data);
+   }
+
+   public function findIdImovel($id)
+   {
+      $immobile = ImovelHandler::findId($id);
+      return $immobile;
+   }
+
+
+   public function lastFirstId()
+   {
+      $array = ['error' => ''];
+      $firstId = Imovelhandler::firstId();
+      $lastId = Imovelhandler::lastId();
+
+      if ($firstId && $lastId) {
+         $array['firstId'] = $firstId['id'];
+         $array['lastId'] = $lastId['id'];
+      } else {
+         $array['error'] = 'Dados não enviado';
+      }
+
+      header('Content: application/json');
+      echo json_encode($array);
+   }
 }

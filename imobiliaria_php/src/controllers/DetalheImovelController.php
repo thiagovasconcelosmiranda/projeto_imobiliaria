@@ -37,7 +37,7 @@ class DetalheImovelController extends Controller
     }
   }
 
-  public function addSchedute()
+  public function addSchedule()
   {
     $id = filter_input(INPUT_POST, 'id');
     $name = filter_input(INPUT_POST, 'nome');

@@ -50,6 +50,7 @@
          </div>
         </div>
      </form>
+   </div>
     <div class="line"></div>
       <div class="search-cards"> <div>
    </div>

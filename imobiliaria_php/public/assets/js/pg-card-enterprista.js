@@ -43,7 +43,7 @@ if (document.querySelector('.search-cards')) {
                     <div class="inf-i" style="display: ${(item['condicao'] != 0 ? 'flex' : 'none')}">${item['condicao']}</div>
                     <div class="inf-i green" style="left: 41%; display: ${(c[0] ? 'flex' : 'none')}">${c[0]}</div>
                     <div class="inf-i blue" style="left: 61%; display: ${c[1]}">${c[1]}</div>
-                    <img src="assets/images/${item['id']}/${item['foto1']}" alt="Apartamento">
+                    <img src="assets/media/photos_immobile/${item['id']}/${item['foto1']}" alt="Apartamento">
                 </div>
                 <div class="group-text">
                    <h4> ${t[0]} - ${t[1]} </h4>

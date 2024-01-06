@@ -19,17 +19,19 @@
 @import 'partials/imageLayout';
 @import 'partials/modal-photoLayout';
 @import 'partials/footer';
+@import 'partials/work';
 
 body {
   font-family: Lato, sans-serif;
   font-size: 1rem;
   font-weight: normal;
+ 
 }
 
 
 /* width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 6px;
 }
 
 /* Handle */

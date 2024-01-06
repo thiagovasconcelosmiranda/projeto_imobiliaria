@@ -106,24 +106,29 @@ ul {
 }
 
 .activelink {
-  background-color: #f2f2f7;
-  padding: 10px 10px;
-  text-decoration: none;
+  border-color: rgb(214, 25, 25);
 }
 
 li {
   width: auto;
+  height: 80px;
   gap: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 6px solid transparent;
+  transition: 1s;
 }
 li i {
   color: rgb(214, 25, 25);
-  font-size: 25px;
+  font-size: 20px;
 }
 li .i {
   font-size: 30px;
+}
+
+li:hover {
+  border-color: rgb(214, 25, 25);
 }
 
 li a {
@@ -157,7 +162,8 @@ li .group-area .modal-login-access {
   z-index: 20;
   overflow: hidden;
 }
-li .group-area .modal-login-access a, li .group-area .modal-login-access p {
+li .group-area .modal-login-access a,
+li .group-area .modal-login-access p {
   width: 100%;
   font-size: 14px;
   color: #000;
@@ -165,7 +171,8 @@ li .group-area .modal-login-access a, li .group-area .modal-login-access p {
   padding-left: 10px;
   cursor: pointer;
 }
-li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p:hover {
+li .group-area .modal-login-access a:hover,
+li .group-area .modal-login-access p:hover {
   background-color: #d1d1d3;
 }
 
@@ -183,15 +190,25 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   opacity: 1;
 }
 
+.dark-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  position: absolute;
+}
+
 .img-header {
   width: 100%;
-  height: 120vh;
-  max-height: 800px;
+  height: auto;
   position: relative;
 }
 .img-header img {
   width: inherit;
   height: inherit;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .img-header .group-modal {
   width: 100%;
@@ -199,30 +216,52 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   position: absolute;
   left: 0;
   right: 0;
-  top: 28%;
+  top: 5%;
   bottom: 0;
   margin: auto;
   z-index: 1;
 }
-.img-header .group-modal .align-title {
+.img-header .group-modal .header-title-1,
+.img-header .group-modal .header-title-2 {
   width: 100%;
   height: auto;
-  margin-top: 5%;
+  margin-top: 10%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 20px 0;
 }
-.img-header .group-modal .align-title h1 {
+.img-header .group-modal .header-title-1 h1,
+.img-header .group-modal .header-title-2 h1 {
   width: 100%;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px, rgba(0, 0, 0, 0.2) -1px -1px 5px;
+  font-weight: normal;
+  font-size: 40px;
+  text-align: center;
+  animation: title 2s;
+  text-transform: uppercase;
+}
+.img-header .group-modal .header-title-1 p,
+.img-header .group-modal .header-title-2 p {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 20px 0;
+  font-size: 30px;
+}
+.img-header .group-modal .header-title-1 h2,
+.img-header .group-modal .header-title-2 h2 {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.85);
   text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px, rgba(0, 0, 0, 0.2) -1px -1px 5px;
   font-weight: normal;
   font-size: 32px;
   text-align: center;
+  margin-top: -80px;
 }
-.img-header .group-modal .painel {
+.img-header .painel {
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
   height: auto;
   padding: 10px 30px;
   transition: 0.9s;
@@ -234,34 +273,41 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   display: flex;
   flex-direction: column;
   box-shadow: 5px 15px 25px -25px #98999b;
+  animation: panel 1s;
 }
-.img-header .group-modal .painel h5 {
+.img-header .painel h5 {
   text-align: center;
   padding: 20px 0;
   font-weight: 400;
   font-size: 1.5rem;
 }
-.img-header .group-modal .painel .button-i {
+.img-header .painel .painel-group {
+  padding: 10px;
+  overflow: hidden;
+}
+.img-header .painel .painel-group .button-i {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
-.img-header .group-modal .painel .button-i .respansive-button {
+.img-header .painel .painel-group .button-i .respansive-button {
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
-.img-header .group-modal .painel .button-i button:hover,
-.img-header .group-modal .painel .button-i button:active {
+.img-header .painel .painel-group .button-i .respansive-button button {
+  width: 30%;
+}
+.img-header .painel .painel-group .button-i button:hover,
+.img-header .painel .painel-group .button-i button:active {
   background-color: rgb(214, 25, 25);
   color: #fff;
 }
-.img-header .group-modal .painel .group-select-row {
-  width: 85%;
+.img-header .painel .painel-group .group-select-row {
+  background-color: red;
+  width: auto;
   height: auto;
-  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -270,18 +316,19 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   display: none;
   overflow-x: scroll;
   position: relative;
+  margin: auto;
 }
-.img-header .group-modal .painel .group-select-row .align-select {
+.img-header .painel .painel-group .group-select-row .align-select {
   width: 100%;
   display: flex;
   gap: 10px;
 }
-.img-header .group-modal .painel .group-select-row .list-search {
+.img-header .painel .painel-group .group-select-row .list-search {
   width: 100%;
   padding: 10px 0;
   margin: 0 auto;
 }
-.img-header .group-modal .painel .group-select-row .list-search ul {
+.img-header .painel .painel-group .group-select-row .list-search ul {
   width: auto;
   display: flex;
   justify-content: left;
@@ -289,8 +336,9 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   flex-wrap: wrap;
   padding: 0 20px;
 }
-.img-header .group-modal .painel .group-select-row .list-search ul li {
+.img-header .painel .painel-group .group-select-row .list-search ul li {
   width: auto;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -300,59 +348,92 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   color: #fff;
   border-radius: 5px;
 }
-.img-header .group-modal .painel .group-select-row .list-search ul li p {
+.img-header .painel .painel-group .group-select-row .list-search ul li p {
   color: #fff;
 }
-.img-header .group-modal .painel .group-select-row .list-search ul li i {
+.img-header .painel .painel-group .group-select-row .list-search ul li i {
   color: #fff;
   font-size: 14px;
   cursor: pointer;
 }
-.img-header .group-modal .painel .group-option-row,
-.img-header .group-modal .painel .group-option-row-1,
-.img-header .group-modal .painel .group-option-row-2,
-.img-header .group-modal .painel .group-option-row-3 {
-  width: 573px;
+.img-header .painel .painel-group .group-select-row::-webkit-scrollbar {
+  width: 1px;
+}
+.img-header .painel .painel-group .row-select-row-ref,
+.img-header .painel .painel-group .group-option-row,
+.img-header .painel .painel-group .group-option-row-1,
+.img-header .painel .painel-group .group-option-row-2,
+.img-header .painel .painel-group .group-option-row-3 {
   height: auto;
   background-color: #fff;
   display: flex;
   justify-content: center;
 }
-.img-header .group-modal .painel .group-option-row .group-option-col,
-.img-header .group-modal .painel .group-option-row-1 .group-option-col,
-.img-header .group-modal .painel .group-option-row-2 .group-option-col,
-.img-header .group-modal .painel .group-option-row-3 .group-option-col {
+.img-header .painel .painel-group .row-select-row-ref .group-option-col,
+.img-header .painel .painel-group .group-option-row .group-option-col,
+.img-header .painel .painel-group .group-option-row-1 .group-option-col,
+.img-header .painel .painel-group .group-option-row-2 .group-option-col,
+.img-header .painel .painel-group .group-option-row-3 .group-option-col {
   width: 100%;
   padding: 20px 20px;
 }
-.img-header .group-modal .painel .group-option-row .group-option-col .group-check,
-.img-header .group-modal .painel .group-option-row-1 .group-option-col .group-check,
-.img-header .group-modal .painel .group-option-row-2 .group-option-col .group-check,
-.img-header .group-modal .painel .group-option-row-3 .group-option-col .group-check {
+.img-header .painel .painel-group .row-select-row-ref .group-option-col .group-check,
+.img-header .painel .painel-group .group-option-row .group-option-col .group-check,
+.img-header .painel .painel-group .group-option-row-1 .group-option-col .group-check,
+.img-header .painel .painel-group .group-option-row-2 .group-option-col .group-check,
+.img-header .painel .painel-group .group-option-row-3 .group-option-col .group-check {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 20px;
 }
-.img-header .group-modal .painel .group-option-row .group-option-col .group-check label,
-.img-header .group-modal .painel .group-option-row-1 .group-option-col .group-check label,
-.img-header .group-modal .painel .group-option-row-2 .group-option-col .group-check label,
-.img-header .group-modal .painel .group-option-row-3 .group-option-col .group-check label {
+.img-header .painel .painel-group .row-select-row-ref .group-option-col .group-check label,
+.img-header .painel .painel-group .group-option-row .group-option-col .group-check label,
+.img-header .painel .painel-group .group-option-row-1 .group-option-col .group-check label,
+.img-header .painel .painel-group .group-option-row-2 .group-option-col .group-check label,
+.img-header .painel .painel-group .group-option-row-3 .group-option-col .group-check label {
   width: 100%;
 }
-.img-header .group-modal .painel .group-option-row {
+.img-header .painel .painel-group .row-select-row-ref {
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.img-header .painel .painel-group .row-select-row-ref .group-ref-col {
+  width: 60%;
+  padding: 10px;
+}
+.img-header .painel .painel-group .row-select-row-ref .group-ref-col p {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.img-header .painel .painel-group .row-select-row-ref .group-ref-col input {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px 10px;
+  outline: 0;
+  border: 1px solid #ccc;
+}
+.img-header .painel .painel-group .group-option-row {
+  width: 600px;
   display: none;
 }
-.img-header .group-modal .painel .group-option-row-1 {
+.img-header .painel .painel-group .group-option-row-1 {
+  width: 600px;
   display: none;
 }
-.img-header .group-modal .painel .group-option-row-2 {
+.img-header .painel .painel-group .group-option-row-2 {
+  width: 600px;
   display: none;
 }
-.img-header .group-modal .painel .group-option-row-3 {
+.img-header .painel .painel-group .group-option-row-3 {
+  width: 600px;
   display: none;
 }
-.img-header .group-modal .painel .button-search {
+.img-header .painel .painel-group .button-search {
   width: 100%;
   height: auto;
   padding: 20px 0;
@@ -360,7 +441,7 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   justify-content: center;
   align-items: center;
 }
-.img-header .group-modal .painel .button-search button {
+.img-header .painel .painel-group .button-search button {
   width: 200px;
   cursor: pointer;
   padding: 15px 10px;
@@ -371,10 +452,21 @@ li .group-area .modal-login-access a:hover, li .group-area .modal-login-access p
   border-radius: 5px;
   text-transform: uppercase;
 }
-.img-header .group-modal .painel .button-search .active {
+.img-header .painel .painel-group .button-search .active {
   background-color: rgb(214, 25, 25);
 }
 
+@keyframes title {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 button {
   width: auto;
   padding: 20px 30px;
@@ -400,11 +492,11 @@ button {
   border-radius: 5px;
   gap: 20px;
 }
+.select-i-m p {
+  width: 130px;
+}
 .select-i-m i {
   cursor: pointer;
-}
-.select-i-m p {
-  width: 100%;
 }
 
 select {
@@ -545,12 +637,14 @@ select option {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 .aboud .img-header .group-modal .painel .button-i .respansive-button {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+}
+.aboud .img-header .group-modal .painel .button-i .respansive-button button {
+  width: 100%;
 }
 .aboud .img-header .group-modal .painel .button-i button:hover,
 .aboud .img-header .group-modal .painel .button-i button:active {
@@ -678,6 +772,7 @@ select option {
 @media (min-width: 700px) and (max-width: 900px) {
   ul {
     display: none;
+    border-color: transparent;
   }
   button {
     width: 100%;
@@ -730,10 +825,24 @@ select option {
     width: 100%;
     height: 100vh;
   }
-  .img-header .group-modal .align-title h1 {
+  .img-header .group-modal .header-title-1 h1,
+  .img-header .group-modal .header-title-2 h1 {
+    text-align: center;
+    font-size: 35px;
+  }
+  .img-header .group-modal .header-title-1 p,
+  .img-header .group-modal .header-title-2 p {
+    font-size: 30px;
+  }
+  .img-header .group-modal .header-title-1 h2,
+  .img-header .group-modal .header-title-2 h2 {
     text-align: center;
   }
-  .img-header .group-modal .painel .button-i button {
+  .img-header .group-modal .painel .button-i .respansive-button {
+    flex-direction: column;
+  }
+  .img-header .group-modal .painel .button-i .respansive-button button {
+    width: 100%;
     margin-top: 10px;
     font-size: 25px;
   }
@@ -741,38 +850,19 @@ select option {
     width: 100%;
     display: flex;
   }
+  .img-header .group-modal .painel .align-select .select-i-m p {
+    width: 130px;
+  }
   .img-header .group-modal .painel .group-select-row {
     width: 90%;
-    height: auto;
-    margin: auto;
-    display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: rgb(236, 235, 235);
-    padding: 20px 15px;
     display: none;
     overflow-x: scroll;
-    position: relative;
   }
   .img-header .group-modal .button-search {
     width: 100%;
-    height: auto;
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-  }
-  .img-header .group-modal .button-search button {
-    width: 100%;
-    cursor: pointer;
-    padding: 15px 10px;
-    margin: 5px;
-    background-color: #3e3f41;
-    color: #fff;
-    border: 1px solid #98999b;
-    border-radius: 5px;
-    text-transform: uppercase;
   }
   .img-header .group-modal .button-search .active {
     background-color: rgb(214, 25, 25);
@@ -789,6 +879,10 @@ select option {
   }
   ul {
     display: none;
+  }
+  ul li {
+    border: 0;
+    height: 10px;
   }
   ul.activeOption {
     width: 100%;
@@ -829,40 +923,64 @@ select option {
     display: block;
   }
   .img-header {
-    height: 600px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: green;
   }
   .img-header img {
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100vh;
   }
-  .img-header .group-modal {
-    top: 10%;
+  .img-header .group-modal .header-title-1 h1,
+  .img-header .group-modal .header-title-2 h1 {
+    text-align: center;
+    font-size: 20px;
   }
-  .img-header .group-modal .align-title h1 {
-    font-size: 16px;
+  .img-header .group-modal .header-title-1 p,
+  .img-header .group-modal .header-title-2 p {
+    font-size: 18px;
+  }
+  .img-header .group-modal .header-title-1 h2,
+  .img-header .group-modal .header-title-2 h2 {
+    font-size: 18px;
+    text-align: center;
   }
   .img-header .group-modal .painel h5 {
     font-size: 16px;
   }
-  .img-header .group-modal .painel .button-i button {
+  .img-header .group-modal .painel .button-i .respansive-button {
+    flex-direction: column;
+  }
+  .img-header .group-modal .painel .button-i .respansive-button button {
     width: 100%;
-    padding: 10px 10px;
-    margin-top: 5px;
+    height: 10px;
     font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .img-header .group-modal .painel .align-select {
     width: 100%;
     display: flex;
   }
+  .img-header .group-modal .painel .align-select .select-i-m p {
+    width: 130px;
+  }
   .img-header .group-modal .painel .group-select-row {
-    width: 78%;
+    width: 100%;
+    flex-direction: column;
     gap: 5px;
+    display: none;
+    overflow-x: scroll;
   }
   .img-header .group-modal .button-search {
+    width: 100%;
     flex-direction: column;
   }
-  .img-header .group-modal .button-search button {
-    font-size: 12px;
+  .img-header .group-modal .button-search .active {
+    background-color: rgb(214, 25, 25);
   }
 }
 .cards {
@@ -1494,7 +1612,8 @@ main {
   }
 }
 .search-cards,
-.search-cards-x {
+.search-cards-x,
+.search-cards-stores {
   width: 100%;
   height: auto;
   display: flex;
@@ -1506,7 +1625,8 @@ main {
   overflow: hidden;
 }
 .search-cards h3,
-.search-cards-x h3 {
+.search-cards-x h3,
+.search-cards-stores h3 {
   text-transform: uppercase;
   font-size: 20px;
   padding: 100px 0;
@@ -2879,6 +2999,262 @@ main {
     font-size: 14px;
   }
 }
+.container-work {
+  width: 100%;
+  height: auto;
+  padding-bottom: 30px;
+}
+.container-work .work-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+}
+.container-work .work-title h1 {
+  font-weight: 500;
+  color: #777;
+}
+.container-work .work-title .alert-flash {
+  padding: 20px 30px;
+  margin-top: 10px;
+  background-color: aquamarine;
+}
+.container-work form {
+  width: 90%;
+  max-width: 1024px;
+  margin: auto;
+}
+.container-work form .work-descrition {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+.container-work form .work-descrition p {
+  width: 50%;
+}
+.container-work form .group-work-input {
+  display: flex;
+  justify-content: center;
+}
+.container-work form .group-work-input .input-i {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-right: 40px;
+}
+.container-work form .group-work-input .input-i input,
+.container-work form .group-work-input .input-i textarea,
+.container-work form .group-work-input .input-i .select-option,
+.container-work form .group-work-input .input-i .upload {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #ccc;
+  color: #777;
+  cursor: pointer;
+}
+.container-work form .group-work-input .input-i input label,
+.container-work form .group-work-input .input-i textarea label,
+.container-work form .group-work-input .input-i .select-option label,
+.container-work form .group-work-input .input-i .upload label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.container-work form .group-work-input .input-i input label i,
+.container-work form .group-work-input .input-i textarea label i,
+.container-work form .group-work-input .input-i .select-option label i,
+.container-work form .group-work-input .input-i .upload label i {
+  font-size: 18px;
+  padding: 0 10px;
+}
+.container-work form .group-work-input .input-i input label p,
+.container-work form .group-work-input .input-i textarea label p,
+.container-work form .group-work-input .input-i .select-option label p,
+.container-work form .group-work-input .input-i .upload label p {
+  color: #777;
+}
+.container-work form .group-work-input .input-i .select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.container-work form .group-work-input .input-i .select-option i {
+  color: red;
+  font-size: 14px;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
+.container-work form .group-work-input .input-i .select-option .option-i {
+  width: 100%;
+  max-height: 200px;
+  height: auto;
+  padding-left: 5px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: -3px 10px 25px -10px #ccc;
+  z-index: 5;
+  padding: 10px 0;
+  display: none;
+  overflow-y: scroll;
+}
+.container-work form .group-work-input .input-i .select-option .option-i .select-radio {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.container-work form .group-work-input .input-i .select-option .option-i .select-radio label {
+  padding: 10px 0;
+}
+.container-work form .group-work-input .input-i .select-option .option-i .select-radio input[type=radio] {
+  display: none;
+}
+.container-work form .group-work-input .input-i .select-option .option-i .select-radio:hover {
+  background-color: #ccc;
+}
+.container-work form .group-work-input .input-i .error-input {
+  border: 1px solid red;
+}
+.container-work form .group-work-input span {
+  color: red;
+  font-size: 12px;
+  padding-left: 10px;
+  visibility: hidden;
+}
+.container-work form .group-work-input input[type=file] {
+  display: none;
+}
+.container-work form .work-i-row {
+  display: flex;
+  justify-content: center;
+}
+.container-work form .work-i-row .work-i-col {
+  width: 100%;
+  padding: 10px;
+}
+.container-work form .work-i-row .work-i-col .work-contract {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.container-work form .work-i-row .work-i-col .work-contract label {
+  width: 100%;
+  font-size: 12px;
+}
+.container-work form .work-i-row .work-i-col .work-button {
+  height: 45px;
+  padding: 0 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  background-color: #b30000;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+}
+.container-work form .justify-left {
+  display: flex;
+  justify-content: end;
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+  .container-work .work-title h1 {
+    font-size: 18px;
+  }
+  .container-work form {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .container-work form .work-descrition {
+    text-align: center;
+  }
+  .container-work form .group-work-input {
+    display: flex;
+    justify-content: center;
+  }
+  .container-work form .group-work-input input,
+  .container-work form .group-work-input .upload {
+    width: 90%;
+  }
+  .container-work form .group-work-input select {
+    width: 95%;
+  }
+  .container-work form .work-i-row {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container-work form .work-i-row .work-i-col p {
+    width: 80%;
+  }
+  .container-work form .work-i-row .work-i-col .upload label {
+    width: 80%;
+  }
+  .container-work form .work-i-row .work-i-col .work-button {
+    width: 50%;
+  }
+  .container-work form .justify-left {
+    justify-content: center;
+  }
+}
+@media (max-width: 700px) {
+  .container-work .work-title h1 {
+    font-size: 18px;
+  }
+  .container-work form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .container-work form .work-descrition {
+    text-align: center;
+  }
+  .container-work form .group-work-input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .container-work form .group-work-input .input-i {
+    width: 90%;
+    padding-left: 25px;
+  }
+  .container-work form .group-work-input .input-i input,
+  .container-work form .group-work-input .input-i textarea,
+  .container-work form .group-work-input .input-i .select-option,
+  .container-work form .group-work-input .input-i .upload {
+    width: 90%;
+  }
+  .container-work form .work-i-row {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container-work form .work-i-row p {
+    width: 80%;
+  }
+  .container-work form .work-i-row .upload label {
+    width: 80%;
+  }
+  .container-work form .justify-left {
+    justify-content: center;
+  }
+}
 body {
   font-family: Lato, sans-serif;
   font-size: 1rem;
@@ -2887,7 +3263,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 6px;
 }
 
 /* Handle */

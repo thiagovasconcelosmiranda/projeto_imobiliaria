@@ -39,11 +39,23 @@ class ImovelHandler extends Controller
       ->get();
 
     return $imovel;
-
-
-
-
   }
+
+  public static function findLoginId($id)
+  {
+
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('imovels.login_id', $id)
+      ->one();
+
+    return $imovel;
+  }
+
+  
 
   public static function findPhotoId($id)
   {
@@ -72,49 +84,53 @@ class ImovelHandler extends Controller
   public static function findAllName($key, $value)
   {
     $imovel = [];
-    //echo $key;
-    //exit;
-    if ($key != 'aluguels' && $key != 'vendas' && $key != 'bairro' && $key != 'regiao') {
-      $imovel = Imovel::select()
-        ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
-        ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
-        ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
-        ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+    $imovel = Imovel::select()
+    ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+    ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+    ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+    ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+    ->where($key, $value)
+    ->get();
 
-        ->where('imovels.' . $key, $value)
-        ->get();
-    } else {
+    return $imovel;
+  }
+  public static function findRef($ref){
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('imovels.ref', $ref)
+      ->get();
 
-      if ($key == 'aluguels' || $key == 'vendas') {
-        $imovel = Imovel::select()
-          ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
-          ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
-          ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
-          ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
-          ->where($key . '.preco_' . $key, $value)
-          ->get();
-      }
+      return $imovel;
+  }
+  
+  public static function findStore(){
+    $imovel = Imovel::select()
+      ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+      ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+      ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('imovels.tipo', 'comercial/lojaSopping')
+      ->get();
 
-      if ($key == 'bairro') {
-        $imovel = Imovel::select()
-          ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
-          ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
-          ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
-          ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
-          ->where('ends.' . $key, $value)
-          ->get();
-      }
-
-      if ($key == 'regiao') {
-        $imovel = Imovel::select()
-          ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
-          ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
-          ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
-          ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
-          ->where('ends.' . $key, $value)
-          ->get();
-      }
-    }
+      return $imovel;
+  }
+  
+  public static function searchStore($key, $value)
+  {
+    $imovel = [];
+    $imovel = Imovel::select()
+    ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+    ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
+    ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
+    ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+    ->where('imovels.tipo', 'comercial/lojaSopping')
+    ->where($key, $value)
+    ->get();
+    
+  
     return $imovel;
   }
 
@@ -213,6 +229,7 @@ class ImovelHandler extends Controller
 
   public static function create($array)
   {
+
     Imovel::insert([
       'ref' => $array['ref'],
       'aluguel_id' => $array['aluguel_id'],
@@ -242,40 +259,50 @@ class ImovelHandler extends Controller
     return $lastId;
   }
 
-   static function lastId(){
-    $lastId = Imovel::select('id')
-    ->orderBy(['id' => 'desc'])
-   ->one();
+  public static function firstId()
+  {
+    $firstId = Imovel::select('id')
+      ->orderBy(['id' => 'asc'])
+      ->one();
 
-   return $lastId;
+    return $firstId;
+  }
+
+  static function lastId()
+  {
+    $lastId = Imovel::select('id')
+      ->orderBy(['id' => 'desc'])
+      ->one();
+
+    return $lastId;
   }
 
 
 
-  public static function update($id ,$imovel)
+  public static function update($id, $imovel)
   {
 
     Imovel::update([
-     'classificacao' => $imovel['classificacao'],
-     'tipo' => $imovel['tipo'],
-     'condicao' => $imovel['condicao'],
-     'area_terreno' => $imovel['area_terreno'],
-     'area_laser' => $imovel['area_laser'],
-     'qtd_vaga' => $imovel['qtd_vaga'],
-     'condominio' => $imovel['condominio'],
-     'disponibilidade' => $imovel['disponibilidade'],
-     'qtd_varanda' => $imovel['qtd_varanda'],
-     'qtd_quarto' => $imovel['qtd_quarto'],
-     'qtd_sala' => $imovel['qtd_sala'],
-     'qtd_banheiro' => $imovel['qtd_banheiro'],
-     'qtd_cozinha' => $imovel['qtd_cozinha'],
-     'outros' => $imovel['outros'],
-     'descricao' => $imovel['descricao'],
-     'update_at' => date('Y/m/d H:m:s')
+      'classificacao' => $imovel['classificacao'],
+      'tipo' => $imovel['tipo'],
+      'condicao' => $imovel['condicao'],
+      'area_terreno' => $imovel['area_terreno'],
+      'area_laser' => $imovel['area_laser'],
+      'qtd_vaga' => $imovel['qtd_vaga'],
+      'condominio' => $imovel['condominio'],
+      'disponibilidade' => $imovel['disponibilidade'],
+      'qtd_varanda' => $imovel['qtd_varanda'],
+      'qtd_quarto' => $imovel['qtd_quarto'],
+      'qtd_sala' => $imovel['qtd_sala'],
+      'qtd_banheiro' => $imovel['qtd_banheiro'],
+      'qtd_cozinha' => $imovel['qtd_cozinha'],
+      'outros' => $imovel['outros'],
+      'descricao' => $imovel['descricao'],
+      'update_at' => date('Y/m/d H:m:s')
     ])
-    ->where('id', $id)
-    ->execute();
-    
+      ->where('id', $id)
+      ->execute();
+
     return true;
   }
 

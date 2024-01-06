@@ -36,7 +36,7 @@ if (document.getElementById('search_immobile')) {
                           <td class="td-desc">${item.ref}</td>
                           <td class="td-desc">${item.tipo} </td>
                           <td class="td-desc">
-                           <img src="${baseUrl}/assets/images/${item.id}/${item.foto1}">
+                           <img src="${baseUrl}/assets/media/photos_immobile/${item.id}/${item.foto1}">
                           </td>
                           <td class="td-desc">${item.cidade}</td>
                           <td class="td-desc">${item.uf} </td>
@@ -45,7 +45,7 @@ if (document.getElementById('search_immobile')) {
                              <i onclick="viewImmobile(${item.id})" class="fa-solid fa-eye"></i>
                              <i  onclick="alterImmobile(${item.id})" class="fa-solid fa-pen-to-square"></i>
                              <i onclick="deleteImmobile(${item.id})" class="fa-solid fa-trash"></i>
-                             <i onclick="scheduleImmobile(${item.id})" class="fa-solid fa-calendar-days"></i>
+                             <i onclick="documentImmobile(${item.id})" class="fa-solid fa-folder-open"></i>
                           </td>
                          </tr>
                      `
@@ -71,6 +71,6 @@ function alterImmobile(id){
     $('#refresh-adm').load(`${baseUrl}/ksi/adm/add-immobile?id=${id}`);
 }
 
-function scheduleImmobile(id){
-    alert(id)
+function documentImmobile(id){
+    $('#refresh-adm').load(`${baseUrl}/ksi/adm/document?id=${id}`);
 }
