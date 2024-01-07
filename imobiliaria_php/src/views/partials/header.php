@@ -56,11 +56,11 @@
                 </li>
                 <li>
                     <i class="fa-solid fa-phone"></i>
-                    <a href="#">(14) 99708-7974</a>
+                    <a  target="_blank" href="https://api.whatsapp.com/send?phone=551100000000&text=Quero%20entrar%20em%20contato">(14) 99708-7974</a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-comments"></i>
-                    <a href="#">Fale conosco</a>
+                    <i class="fa-solid fa-heart"></i>
+                    <a href="">Favoritos</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-user"></i>

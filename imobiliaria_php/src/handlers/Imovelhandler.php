@@ -36,7 +36,7 @@ class ImovelHandler extends Controller
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.id', $id)
-      ->get();
+      ->one();
 
     return $imovel;
   }

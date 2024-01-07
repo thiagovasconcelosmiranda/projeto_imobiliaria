@@ -1,11 +1,9 @@
 <div class="group-title">
-    <h1>
-        <?= $title ?>
-    </h1>
+    <h1><?= $title?></h1>
     <p>Adicionar imóvel</p>
 </div>
 <div class="container-immobile">
-    <form method="post" action="<?= $base; ?>/<?= $url; ?>" enctype="multipart/form-data">
+    <form method="post" action="<?= $base; ?>/<?= $url;?>" enctype="multipart/form-data">
         <div class="group-area-immobile">
             <?php if (empty($imoveis)): ?>
                 <div class="group-input-row line">
@@ -30,8 +28,8 @@
                 <div class="group-input-col-x">
                     <label>Classificação</label>
                     <select name="classificacao" id="1">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['classificacao']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a Classificação' : $imoveis[0][0]['classificacao']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['classificacao']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a Classificação' : $imoveis['classificacao']); ?>
                         </option>
                         <option value="aluguel">Aluguel</option>
                         <option value="venda">Venda</option>
@@ -40,14 +38,14 @@
                     <span id="msg-1">Campos obrigátorio*</span>
                     <label>Tipo</label>
                     <select name="tipo" id="3">
-                        <option value="<?=(empty($imoveis) ? '' : $imoveis[0][0]['tipo']);?>">
-                            <?=(empty($imoveis) ? 'Selecione o tipo' : $imoveis[0][0]['tipo']);?>
+                        <option value="<?=(empty($imoveis) ? '' : $imoveis['tipo']);?>">
+                            <?=(empty($imoveis) ? 'Selecione o tipo' : $imoveis['tipo']);?>
                         </option>
                         <option value="residencial/Casa">
                             <Residencial>Resindecial/Casa
                         </option>
                         <option value="comercial/casa">Comercial/Casa</option>
-                        <option value="residencial/Apartamento">Comercial/Apartamento</option>
+                        <option value="comercial/Apartamento">Comercial/Apartamento</option>
                         <option value="residencial/Apartamento">residencial/Apartamento</option>
                         <option value="comercial/Galpão/Barracão">Galpão/Barracão</option>
                         <option value="terreno/Área"> Àrea/Terreno</option>
@@ -57,8 +55,8 @@
 
                     <label>Condição do imóvel</label>
                     <select name="condicao" id="4">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['condicao']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a condição' : $imoveis[0][0]['condicao']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['condicao']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a condição' : $imoveis['condicao']); ?>
                         </option>
                         <option value="Pronto pra morar">Pronto pra morar</option>
                         <option value="Em construção">Em construção</option>
@@ -69,14 +67,14 @@
                     <span id="msg-4">Campos obrigátorio*</span>
 
                     <label for="">Área do terreno</label>
-                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['area_terreno']); ?>"
+                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['area_terreno']); ?>"
                         name="area_terreno" id="5">
                     <span id="msg-5">Campos obrigátorio*</span>
 
                     <label>Area de laser</label>
                     <select name="area_laser" id="6">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['area_laser']); ?>">
-                            <?= (empty($imoveis) ? ' Selecione a se tem area de laser' : $imoveis[0][0]['area_laser']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['area_laser']); ?>">
+                            <?= (empty($imoveis) ? ' Selecione a se tem area de laser' : $imoveis['area_laser']); ?>
                         </option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
@@ -85,8 +83,8 @@
 
                     <label>Qtde de vagas </label>
                     <select name="qtd_vaga" id="7">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['qtd_vaga']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a qtd de vagas' : $imoveis[0][0]['qtd_vaga']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['qtd_vaga']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a qtd de vagas' : $imoveis['qtd_vaga']); ?>
                         </option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -99,14 +97,14 @@
                 </div>
                 <div class="group-input-col-x">
                     <label>Condominio</label>
-                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['condominio']); ?>"
+                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['condominio']); ?>"
                         name="condominio" id="8">
                     <span id="msg-8">Campos obrigátorio*</span>
 
                     <label>Categoria </label>
                     <select name="tipo_imovel" id="9">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['tipo_imovel']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione o categoria' : $imoveis[0][0]['tipo_imovel']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['tipo_imovel']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione o categoria' : $imoveis['tipo_imovel']); ?>
                         </option>
                         <option value="Residencial">Residencial</option>
                         <option value="Comercial">Comercial</option>
@@ -115,8 +113,8 @@
 
                     <label>Disponibilidade </label>
                     <select name="disponibilidade" id="10">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['disponibilidade']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a disponibilidade' : $imoveis[0][0]['disponibilidade']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['disponibilidade']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a disponibilidade' : $imoveis['disponibilidade']); ?>
                         </option>
                         <option value="Disponível">Disponível</option>
                         <option value="Indisponível">Indisponível</option>
@@ -125,8 +123,8 @@
 
                     <label>Valores de aluguel </label>
                     <select name="aluguel_id" id="11">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['preco_aluguels']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione o valor aluguel' : $imoveis[0][0]['preco_aluguels']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['preco_aluguels']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione o valor aluguel' : $imoveis['preco_aluguels']); ?>
                         </option>
                         <?php if (!empty($alugueis)): ?>
                             <?php foreach ($alugueis as $item): ?>
@@ -141,8 +139,8 @@
                     <label>Valores de vendas </label>
                     <select name="venda_id" id="12">
                         <?php if (!empty($vendas)): ?>
-                            <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['preco_vendas']); ?>">
-                                <?= (empty($imoveis) ? 'Selecione o valor da venda' : $imoveis[0][0]['preco_vendas']); ?>
+                            <option value="<?= (empty($imoveis) ? '' : $imoveis['preco_vendas']); ?>">
+                                <?= (empty($imoveis) ? 'Selecione o valor da venda' : $imoveis['preco_vendas']); ?>
                             </option>
                             <?php foreach ($vendas as $item): ?>
                                 <option value="<?= $item['id']; ?>">
@@ -156,8 +154,8 @@
 
                     <label>Qtde de varanda </label>
                     <select name="qtd_varanda" id="13">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['qtd_varanda']); ?>">
-                            <?= (empty($imoveis) ? ' Selecione a qtd de varanda' : $imoveis[0][0]['qtd_varanda']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['qtd_varanda']); ?>">
+                            <?= (empty($imoveis) ? ' Selecione a qtd de varanda' : $imoveis['qtd_varanda']); ?>
                         </option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -171,8 +169,8 @@
                 <div class="group-input-col-x">
                     <label>Qtde de quartos </label>
                     <select name="qtd_quarto" id="14">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['qtd_quarto']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a qtd de quartos' : $imoveis[0][0]['qtd_quarto']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['qtd_quarto']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a qtd de quartos' : $imoveis['qtd_quarto']); ?>
                         </option>
                         <option value="Nenhum">Nenhum</option>
                         <option value="1">1</option>
@@ -184,8 +182,8 @@
                     <span id="msg-14">Campos obrigátorio*</span>
                     <label>Qtde de sala </label>
                     <select name="qtd_sala" id="15">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['qtd_sala']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a qtd de sala' : $imoveis[0][0]['qtd_sala']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['qtd_sala']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a qtd de sala' : $imoveis['qtd_sala']); ?>
                         </option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -198,8 +196,8 @@
 
                     <label>Qtde de banheiro </label>
                     <select name="qtd_banheiro" id="16">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['qtd_banheiro']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a qtd de banheiro' : $imoveis[0][0]['qtd_banheiro']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['qtd_banheiro']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a qtd de banheiro' : $imoveis['qtd_banheiro']); ?>
                         </option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -212,8 +210,8 @@
 
                     <label>Qtde de cozinha</label>
                     <select name="qtd_cozinha" id="17">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['qtd_cozinha']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a qtd de cozinha' : $imoveis[0][0]['qtd_cozinha']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['qtd_cozinha']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a qtd de cozinha' : $imoveis['qtd_cozinha']); ?>
                         </option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -225,7 +223,7 @@
                     <span id="msg-17">Campos obrigátorio*</span>
 
                     <label>Outros</label>
-                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['outros']); ?>" name="outros"
+                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['outros']); ?>" name="outros"
                         id="19">
                     <span id="msg-19">Campos obrigátorio*</span>
                 </div>
@@ -234,7 +232,7 @@
                 <div class="group-input-col-x">
                     <label>Descrição</label>
                     <span id="msg-20">Campos obrigátorio*</span>
-                    <textarea name="descricao" id="20" cols="30" rows="10">  <?= trim((empty($imoveis) ? '' : $imoveis[0][0]['descricao']));?></textarea>
+                    <textarea name="descricao" id="20" cols="30" rows="10"><?= trim((empty($imoveis) ? '' : $imoveis['descricao']));?></textarea>
                 </div>
             </div>
             <div class="group-input-row">
@@ -248,23 +246,23 @@
             <div class="group-input-row">
                 <div class="group-input-col-x">
                     <label>Cep:</label>
-                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['cep']); ?>" id="21"
+                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['cep']); ?>" id="21"
                         name="cep">
                     <span id="msg-21">Compos obrigatório*</span>
 
                     <label>Endereço</label>
-                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['end']); ?>" name="end"
+                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['end']); ?>" name="end"
                         id="22">
                     <span id="msg-22">Compos obrigatório*</span>
 
                     <label>Num:</label>
-                    <input type="number" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['num']); ?>" name="num"
+                    <input type="number" value="<?= (empty($imoveis) ? '' : $imoveis['num']); ?>" name="num"
                         id="23">
                     <span id="msg-23">Compos obrigatório*</span>
                     <label>Região</label>
                     <select name="regiao" id="24">
-                        <option value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['regiao']); ?>">
-                            <?= (empty($imoveis) ? 'Selecione a região' : $imoveis[0][0]['regiao']); ?>
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['regiao']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a região' : $imoveis['regiao']); ?>
                         </option>
                         <option value="Zona Oeste">Zona Oeste</option>
                         <option value="Zona Leste">Zona Leste</option>
@@ -275,17 +273,17 @@
                 </div>
                 <div class="group-input-col-x">
                     <label>Bairro:</label>
-                    <input type="text" name="bairro" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['bairro']); ?>"
+                    <input type="text" name="bairro" value="<?= (empty($imoveis) ? '' : $imoveis['bairro']); ?>"
                         id="25">
                         <span id="msg-25">Compos obrigatório*</span>
 
                     <label>Cidade:</label>
-                    <input type="text" name="cidade" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['cidade']); ?>"
+                    <input type="text" name="cidade" value="<?= (empty($imoveis) ? '' : $imoveis['cidade']); ?>"
                         id="26">
                     <span id="msg-26">Compos obrigatório*</span>
 
                     <label>Estado:</label>
-                    <input type="text" name="uf" value="<?= (empty($imoveis) ? '' : $imoveis[0][0]['uf']); ?>" id="27">
+                    <input type="text" name="uf" value="<?= (empty($imoveis) ? '' : $imoveis['uf']); ?>" id="27">
                     <span id="msg-27">Compos obrigatório*</span>
                 </div>
             </div>
@@ -306,7 +304,7 @@
                             <span id="err-1">Compo obrigatorio*</span>
                             <div class="immobile-photo" id="error-1">
                                 <img id="img-1"
-                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis[0][0]['id'] . '/' . $imoveis[0][0]['foto1']); ?>" />
+                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis['id'] . '/' . $imoveis['foto1']); ?>" />
                             </div>
                         </label>
                         <input type="file" name="foto1" id="photo-1">
@@ -315,7 +313,7 @@
                             <span id="err-2">Compo obrigatorio*</span>
                             <div class="immobile-photo" id="error-2">
                                 <img id="img-2"
-                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis[0][0]['id'] . '/' . $imoveis[0][0]['foto2']); ?>" />
+                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis['id'] . '/' . $imoveis['foto2']); ?>" />
                             </div>
                         </label>
                         <input type="file" name="foto2" id="photo-2">
@@ -324,7 +322,7 @@
                             <span id="err-3">campo obrigatorio*</span>
                             <div class="immobile-photo" id="error-3">
                                 <img id="img-3"
-                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis[0][0]['id'] . '/' . $imoveis[0][0]['foto3']); ?>" />
+                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis['id'] . '/' . $imoveis['foto3']); ?>" />
                             </div>
                         </label>
                         <input type="file" name="foto3" id="photo-3">
@@ -333,7 +331,7 @@
                             <span id="err-4">campo obrigatorio*</span>
                             <div class="immobile-photo" id="error-4">
                                 <img id="img-4"
-                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis[0][0]['id'] . '/' . $imoveis[0][0]['foto4']); ?>" />
+                                    src="<?= $base; ?><?= (empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis['id'] . '/' . $imoveis['foto4']); ?>" />
                             </div>
                         </label>
                         <input type="file" name="foto4" id="photo-4">
@@ -342,7 +340,7 @@
                             <span id="err-5">campo obrigatorio*</span>
                             <div class="immobile-photo" id="error-5">
                                 <img id="img-5"
-                                    src="<?=$base;?><?=(empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis[0][0]['id'] . '/' . $imoveis[0][0]['foto5']); ?>" />
+                                    src="<?=$base;?><?=(empty($imoveis) ? '/assets/images/images_icon-icons.com_50365.png' : '/assets/media/photos_immobile/' . $imoveis['id'] . '/' . $imoveis['foto5']); ?>" />
                             </div>
                             <span id="err-5">Compo obrigatorio*</span>
                         </label>

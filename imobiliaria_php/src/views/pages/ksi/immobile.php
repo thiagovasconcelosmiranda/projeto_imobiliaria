@@ -1,5 +1,3 @@
-
-
 <div class="panel-row container" data-url="<?=$base;?>">
     <div class="panel-title">
         <h1>Meus imoveis</h1>
@@ -12,30 +10,30 @@
         </h5>
     </div>
     <div class="list-immobile">
-        <?php foreach ($listImmobile as $item):
-        ?>
-            <?php $tipo = explode("/", $item['imovel']['tipo']); ?>
+        <?php if(!empty($listImmobile)):?>
+        <?php foreach ($listImmobile as $item):?>
+            <?php $tipo = explode("/", $item['tipo']); ?>
             <div class="immobile-row">
                 <div class="group-inf">
                     <div class="immobile-col">
                         <div class="immobile-image">
-                            <img src="<?= $base; ?>/assets/media/photos_immobile/<?= $item['imovel']['id']; ?>/<?= $item['imovel']['foto1']; ?>">
+                            <img src="<?= $base; ?>/assets/media/photos_immobile/<?= $item['id']; ?>/<?= $item['foto1']; ?>">
                         </div>
                     </div>
                     <div class="immobile-col">
                         <p style="width: 50%"></p> <strong>Residência</strong> Casa/
-                        <?= $item['imovel']['cidade']; ?> -
-                        <?= $item['imovel']['uf']; ?> <span>Ref:2092
-                            <?= $item['imovel']['end']; ?>,
-                            <?= $item['imovel']['num']; ?> - Unid.
+                        <?= $item['cidade']; ?> -
+                        <?= $item['uf']; ?> <span> Ref: <?=$item['ref'];?>
+                            <?= $item['end']; ?>,
+                            <?= $item['num']; ?> - Unid.
                             0
                         </span>
                         </p>
                     </div>
                     <div class="immobile-col">
-                        <?php if (!empty($item['imovel']['disponibilidade'])): ?>
-                            <h4><strong style="color: <?= ($item['imovel']['disponibilidade'] == 'Disponível' ? 'green' : 'red') ?>;">
-                                    <?= $item['imovel']['disponibilidade']; ?>
+                        <?php if (!empty($item['disponibilidade'])): ?>
+                            <h4><strong style="color: <?= ($item['disponibilidade'] == 'Disponível' ? 'green' : 'red') ?>;">
+                                    <?=['disponibilidade']; ?>
                                 </strong>-
                                 <p>
                                     <?= $item['imovel']['preco_aluguels']; ?>
@@ -77,7 +75,7 @@
                         </div>
                         <div class="detail-info-immobile">
                             <div class="inf-i">
-                                <p>Referência: 20892</p>
+                                <p>Referência: <?=$item['ref'];?></p>
                             </div>
                             <div class="inf-i">
                                 <p> Tipo:
@@ -143,19 +141,25 @@
                             <table >
                                 <tr class="tr-title">
                                     <td>Categoria</td>
+                                    <td>Arquivo</td>
                                     <td>Descrição</td>
                                     <td>Download</td>
                                     <td>Tamanho</td>
                                     <td>Data</td>
                                 </tr>
 
-                                <?php foreach($listImmobile as $doc): ?>
+                                <?php foreach($item['doc'] as $doc):?>
                                     <tr class="tr-desc">
-                                    <td>1</td>
-                                    <td>Descrição</td>
-                                    <td>Download</td>
-                                    <td>Tamanho</td>
-                                    <td>Data</td>
+                                    <td><?=$doc['id'];?></td>
+                                    <td>
+                                        <?php if(!empty( $doc['arquivo'])):?>
+                                            <i class="fa-solid fa-file"></i>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?=$doc['descricao'];?></td>
+                                    <td><?=$doc['download'];?></td>
+                                    <td><?=$doc['tamanho'];?></td>
+                                    <td><?=$doc['created_at'];?></td>
                                 </tr>
                                 <?php endforeach; ?>
                                 
@@ -179,28 +183,16 @@
                                 <tr class="tr-title">
                                     <td>Data Hora</td>
                                     <td>Descrição</td>
-                                    <td>Unidade</td>
                                     <td>Atendente</td>
                                     <td>Setor</td>
                                 </tr>
-                                <?php if (!empty($list['immobile'])): ?>
-                                    <?php foreach ($list['immobile'] as $item): ?>
+                                <?php if (!empty($item['at'])): ?>
+                                    <?php foreach ($item['at'] as $at): ?>
                                         <tr class="tr-info">
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                               
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
+                                          <td><?=$at['date'];?> - <?=$at['time'];?></td>
+                                          <td><?=$at['descricao'];?></td>
+                                          <td><?=$at['atendente'];?></td>
+                                          <td><?=$at['setor'];?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
@@ -211,7 +203,7 @@
                 </div>
             </div>
         <?php endforeach; ?>
-        
+        <?php endif;?>
     </div>
 </div>
 <script src="<?=$base;?>/assets/js/ksi-immobile.js"></script>

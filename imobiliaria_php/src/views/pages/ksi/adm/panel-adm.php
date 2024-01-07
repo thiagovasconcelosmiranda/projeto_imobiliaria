@@ -93,6 +93,17 @@
             </h3>
         </div>
     </div>
+    <div class="panel-col-card blue-2" id="visita">
+        <div class="card-title">
+            <h5>Pedido de visita</h5>
+        </div>
+        <div class="card-description">
+            <i class="fa-solid fa-calendar-days"></i>
+            <h3>
+                <?=count($visitas); ?>
+            </h3>
+        </div>
+    </div>
     </fieldset>
 </div>
 <div class="container-panel">

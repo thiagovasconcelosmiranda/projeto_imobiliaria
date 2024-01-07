@@ -11,6 +11,10 @@ document.getElementById('work').addEventListener('click', ()=>{
   $('main').load(`${baseUrl}/ksi/adm/work-list`); 
 });
 
+document.getElementById('visita').addEventListener('click', ()=>{
+  $('main').load(`${baseUrl}/ksi/adm/schedule-list`); 
+});
+
 
 async function remove(id){
    if(id){

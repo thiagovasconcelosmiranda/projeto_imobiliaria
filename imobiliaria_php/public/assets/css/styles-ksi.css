@@ -1896,7 +1896,7 @@ main .panel-row-cards .red:hover {
 
 .container-document {
   width: 100%;
-  height: 100vh;
+  height: auto;
 }
 .container-document .document-row {
   display: flex;
@@ -1983,4 +1983,91 @@ main .panel-row-cards .red:hover {
   .container-document .document-row {
     flex-direction: column;
   }
+}
+.container-activities {
+  width: 100%;
+  height: auto;
+}
+.container-activities .activities-row {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 30px;
+}
+.container-activities .activities-row .activities-col-input {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.container-activities .activities-row .activities-col-input label {
+  margin-bottom: 10px;
+}
+.container-activities .activities-row .activities-col-input input,
+.container-activities .activities-row .activities-col-input select {
+  width: 100%;
+  padding: 10px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.container-activities .activities-row .activities-col-input textarea {
+  padding: 10px 0;
+  outline: none;
+}
+.container-activities .activities-row .activities-col-input button {
+  width: 100px;
+  padding: 10px 20px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+.container-activities .activities-row .activities-col-input button:hover {
+  background-color: #ccc;
+}
+
+.container-schedule {
+  width: 100%;
+  height: 100vh;
+}
+.container-schedule .list-schedule-group {
+  background-color: rgb(192, 192, 206);
+  padding: 10px;
+}
+.container-schedule .list-schedule-group h3 {
+  font-size: 16px;
+  color: rgb(63, 63, 104);
+  margin-bottom: 10px;
+}
+.container-schedule .list-schedule-group input {
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  outline: 0;
+  border: 0;
+}
+.container-schedule .table-item {
+  width: 100%;
+  overflow-y: scroll;
+  width: 100%;
+}
+.container-schedule .table-item table {
+  width: 80%;
+}
+.container-schedule .table-item table .tr-top {
+  background-color: rgb(154, 166, 173);
+}
+.container-schedule .table-item table .tr-top td {
+  padding: 0 10px;
+  color: rgb(32, 88, 134);
+  border: 1px solid blue;
+  font-weight: bold;
+}
+.container-schedule .table-item table .tr-desc td {
+  padding: 0 10px;
+  border: 1px solid blue;
+}
+.container-schedule .table-item table .tr-desc td i {
+  color: red;
+  cursor: pointer;
 }/*# sourceMappingURL=styles-ksi.css.map */

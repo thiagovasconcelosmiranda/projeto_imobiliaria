@@ -1,7 +1,10 @@
+
+
 <?php $render('header', ['activeLink' => $activeLink]); ?>
 <?php $render('ksi/login-item');?>
 
 <div class="page">
+
     <h1>Detalhe do imóvel</h1>
      <div class="photos" >
      <?php if($imovel['foto1']){ ?>

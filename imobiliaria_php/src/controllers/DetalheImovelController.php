@@ -3,6 +3,8 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\handlers\ImovelHandler;
+use \src\handlers\VisitaHandler;
+
 
 class DetalheImovelController extends Controller
 {
@@ -16,44 +18,39 @@ class DetalheImovelController extends Controller
       $flash = $_SESSION['flash'];
       $_SESSION['flash'] = '';
     }
-    if ($id) {
-      $imovel = ImovelHandler::findId($id);
-      if (!empty($imovel)) {
-        foreach ($imovel as $item) {
-          $this->render('detalheImovel', [
-            'imovel' => $item,
-            'id' => $id,
-            'flash' => $flash,
-            'activeLink' => $activeLink
-          ]);
-        }
-      } else {
-        $this->redirect('/');
-        exit;
-      }
-    } else {
+    if (!$id) {
       $this->redirect('/');
       exit;
     }
+      $imovel = ImovelHandler::findId($id);
+
+      $this->render('detalheImovel', [
+        'imovel' => $imovel,
+        'id' => $id,
+        'flash' => $flash,
+        'activeLink' => $activeLink
+      ]);  
   }
 
   public function addSchedule()
   {
-    $id = filter_input(INPUT_POST, 'id');
-    $name = filter_input(INPUT_POST, 'nome');
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $option = filter_input(INPUT_POST, 'option');
-    $cel = filter_input(INPUT_POST, 'cel');
-    $date = filter_input(INPUT_POST, 'date');
-    $time = filter_input(INPUT_POST, 'time'); //
-    $contract = filter_input(INPUT_POST, 'contract');
+     $inputs = filter_input_array(INPUT_POST);
 
-    if ($id && $name && $email && $option && $cel && $date && $time && $contract) {
-      $_SESSION['flash'] = 'Adicionado com sucesso';
-      echo 'aceito';
+    if (count($inputs) === 8) {
+
+      if(VisitaHandler::create($inputs)){
+        $_SESSION['flash'] = 'Adicionado com sucesso';
+        $this->redirect('/detalhe-imovel?id=' . $inputs['id']);
+         exit;
+      }
+      
+
     }
-    $this->redirect('/detalhe-imovel?id=' . $id);
-    exit;
+   
 
   }
+
+ public  function listSchedule(){
+//Criar
+ }
 }

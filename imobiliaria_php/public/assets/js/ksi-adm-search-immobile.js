@@ -46,6 +46,7 @@ if (document.getElementById('search_immobile')) {
                              <i  onclick="alterImmobile(${item.id})" class="fa-solid fa-pen-to-square"></i>
                              <i onclick="deleteImmobile(${item.id})" class="fa-solid fa-trash"></i>
                              <i onclick="documentImmobile(${item.id})" class="fa-solid fa-folder-open"></i>
+                             <i onclick="activitiesImmobile(${item.id})" class="fa-solid fa-file"></i>
                           </td>
                          </tr>
                      `
@@ -73,4 +74,8 @@ function alterImmobile(id){
 
 function documentImmobile(id){
     $('#refresh-adm').load(`${baseUrl}/ksi/adm/document?id=${id}`);
+}
+
+function activitiesImmobile(id){
+    $('#refresh-adm').load(`${baseUrl}//ksi/adm/activities?id=${id}`);
 }

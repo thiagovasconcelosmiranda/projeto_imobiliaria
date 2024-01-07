@@ -17,10 +17,11 @@ class DocumentHandler extends Controller{
  public static function create($array){
     $date = date('Y/m/d H:m:s');
     Document::insert([
+      'arquivo' => $array['document'],
       'categoria' => $array['categoria'],
       'tamanho' => $array['tamanho'],
       'descricao' => $array['descricao'],
-      'download' => $array['document'],
+      'download' => '0',
       'imovel_id' => $array['imovel_id'],
       'update_at' => $date,
       'created_at' => $date,

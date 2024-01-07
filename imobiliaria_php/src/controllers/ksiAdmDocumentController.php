@@ -22,8 +22,6 @@ class KsiAdmDocumentController extends Controller
         $inputs = filter_input_array(INPUT_POST);
 
         if (count($inputs) === 4) {
-
-            //print_r(count($inputs) );
             if (isset($_FILES['document']) && !empty($_FILES['document']['tmp_name'])) {
                 $newDocument = $_FILES['document'];
                 if (in_array($newDocument['type'], ['application/pdf'])) {

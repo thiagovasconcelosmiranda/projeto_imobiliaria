@@ -2,15 +2,15 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\AluguelHandler;
 use src\handlers\EndHandler;
 use src\handlers\FotoHandler;
 use \src\handlers\LoginHandler;
 use \src\handlers\AtividadeHandler;
 use \src\handlers\DocumentHandler;
 use \src\handlers\ImovelHandler;
-use \src\handlers\AluguelHandler;
-use \src\handlers\VendaHandler;
-use src\models\Document;
+use src\handlers\VendaHandler;
+
 
 class ksiImmobileController extends Controller
 {
@@ -25,24 +25,41 @@ class ksiImmobileController extends Controller
 
     public function index()
     {
-        $date = [];
-        $listImmobile = ImovelHandler::ImmobileLoginId($this->infoUser->id);
-        foreach($listImmobile as  $item){
-             $doc = DocumentHandler::findByImovelId($item['id']);
-            $date[] = [
-               'imovel' =>  $item,
-                'doc' =>  $doc
-            ];
-        }
-       
-       
-        $this->render('ksi/immobile', [
-            'listImmobile' => $date,
+        $data = [];
 
+        $listImmobile = ImovelHandler::ImmobileLoginId($this->infoUser->id);
+        foreach ($listImmobile as $item) {
+            $doc = DocumentHandler::findByImovelId($item['id']);
+            $at = AtividadeHandler::findByImovelId($item['id']);
+            $data[] = [
+                "id" => $item['id'],
+                "ref" => $item['ref'],
+                "tipo" => $item['tipo'],
+                "descricao" => $item['descricao'],
+                "consdominio" => $item['condominio'],
+                "qtd_quarto" => $item['qtd_quarto'],
+                "qtd_sala" => $item['qtd_sala'],
+                "qtd_banheiro" => $item['qtd_banheiro'],
+                "qtd_cozinha" => $item['qtd_cozinha'],
+                "cidade" => $item['cidade'],
+                "foto1" => $item['foto1'],
+                "foto2" => $item['foto2'],
+                "foto3" => $item['foto3'],
+                "foto4" => $item['foto4'],
+                "foto5" => $item['foto5'],
+                "end" => $item['end'],
+                "num" => $item['num'],
+                "uf" => $item['uf'],
+                'doc' => $doc,
+                'at' => $at
+            ];
+
+        }
+
+        $this->render('ksi/immobile', [
+            'listImmobile' => $data,
         ]);
     }
-
-
     public function search()
     {
         $array = [];
@@ -111,13 +128,37 @@ class ksiImmobileController extends Controller
             }
         }
     }
+    public function getImmobile(){
+        $id = filter_input(INPUT_GET, 'id');
+        $title ="Adicionar imóvel";
+        $url = "ksi/adm/add-immobile";
+
+        if($id){
+            $title ="Alterar Imóvel";
+            $url = "ksi/adm/alter-immobile/".$id;    
+        }
+        $vendas = VendaHandler::findByAll();
+        $alugueis= AluguelHandler::findByAll();
+        $imoveis = ImovelHandler::findId($id);
+        $users = LoginHandler::findAll();
+       
+        $this->render('/ksi/adm/add-immobile', [
+            'title' => $title,
+            'url' => $url,
+            'users' => $users,
+            'imoveis' => $imoveis,
+            'vendas' => $vendas,
+            'alugueis' => $alugueis
+        ]);
+    }
+
 
     public function update($atts)
     {
         $id = $atts['id'];
         $photos = [];
         $inputs = filter_input_array(INPUT_POST);
-       
+
         if (count($inputs) === 25 && $id) {
             if (ImovelHandler::update($id, $inputs)) {
                 if (EndHandler::update($id, $inputs)) {
@@ -133,31 +174,31 @@ class ksiImmobileController extends Controller
 
                                     $photos[$key] = $new_name;
 
-                                    $dir = "assets/media/photos_immobile/".$id;
-                                    
+                                    $dir = "assets/media/photos_immobile/" . $id;
+
                                     if (is_dir($dir)) {
-                                     $foto =  FotoHandler::findById($id);
-                                    
-                                     $file = $dir.'/'.$foto[$key];
+                                        $foto = FotoHandler::findById($id);
 
-                                      if(file_exists($file)){
-                                        unlink($file);
-                                      }
+                                        $file = $dir . '/' . $foto[$key];
 
-                                       move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
+                                        if (file_exists($file)) {
+                                            unlink($file);
+                                        }
+
+                                        move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
                                     } else {
                                         mkdir($dir, 0700);
                                         if (is_dir($dir)) {
                                             move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
                                         }
-                                    } 
+                                    }
                                 }
                                 FotoHandler::update($id, $key, $photos);
                             }
                         }
 
                     }
-                
+
                 }
             }
             $_SESSION['flash-msg'] = "Alterado com sucesso!";
@@ -165,5 +206,7 @@ class ksiImmobileController extends Controller
             exit;
         }
     }
+
+
 
 }

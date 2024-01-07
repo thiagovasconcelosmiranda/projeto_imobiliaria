@@ -56,7 +56,7 @@ if (document.querySelector('.group-area-immobile') &&
                     num++;
                 }
             }
-            if (num === 7) {
+            if (num === 21) {
                 endImmobile.style.display = "none";
                 photoImmobile.style.display = "block";
             }

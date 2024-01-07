@@ -13,4 +13,13 @@ class VendaHandler extends Controller
 
         return $vendas;
     }
+
+    public static function delete($id)
+    {
+      Venda::delete()
+        ->where('id', $id)
+        ->execute();
+  
+      return true;
+    }
 }

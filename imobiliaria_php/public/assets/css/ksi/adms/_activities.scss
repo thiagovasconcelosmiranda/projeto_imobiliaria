@@ -1,0 +1,44 @@
+.container-activities{
+    width: 100%;
+    height: auto;
+
+    .activities-row{
+        width: auto;
+       display: flex;
+       justify-content: center;
+       margin-top: 10px;
+       gap: 30px;
+
+       .activities-col-input{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        label{
+            margin-bottom: 10px;
+        }
+        input,
+        select{
+            width: 100%;
+            padding: 10px 10px;
+            outline: none;
+            cursor: pointer;
+        }
+        textarea{
+            padding: 10px 0;
+            outline: none;
+        }
+        button{
+            width: 100px;
+            padding: 10px 20px;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #ccc;
+        }
+       }
+    }
+}
