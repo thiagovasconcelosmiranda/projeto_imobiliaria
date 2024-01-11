@@ -2,12 +2,14 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\FavoritoHandler;
 use \src\handlers\ImovelHandler;
 
 class SearchImovelController extends Controller
 {
   public function findName()
   {
+    $favorites = FavoritoHandler::findByAll();
     $imoveis = [];
     $array = [];
     $num = 1;
@@ -46,15 +48,11 @@ class SearchImovelController extends Controller
       }
     }
    
-    function loopImovels(){
-
-    }
-    
-   
    
     $this->render('searchImovel', [
       'imoveis' => $array,
-      'activeLink' => $activeLink
+      'activeLink' => $activeLink,
+      'favoriets' => $favorites
     ]);
 
   }

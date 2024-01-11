@@ -24,11 +24,12 @@ $router->post('/impreendimentos', 'ImpreendimentoController@search');
 $router->get('/trabalheconosco','WorkController@index');
 $router->post('/trabalheconosco/add','WorkController@create');
 
-
-
 $router->get('/apartamento', 'PagImovelController@apartamento');
 $router->get('/casa', 'PagImovelController@casa');
 $router->get('/destaque', 'PagImovelController@destaque');
+
+$router->get('/favorite', 'FavoriteController@index');
+$router->get('/favorite/verify/{id}', 'FavoriteController@verifyFavorite');
 
 $router->post('/busca-imovel', 'SearchImovelController@findName');
 $router->get('/busca-imovel', 'SearchImovelController@findName');
@@ -52,8 +53,6 @@ $router->post('/ksi/alter_password', 'KsiLoginController@alterPasswordAction');
 $router->get('/ksi/adm/panel-adm', 'ksiPanelAdmController@index');
 $router->get('/ksi/adm/add-user', 'KsiAddUserAdmController@index');
 $router->get('/ksi/favorite', 'KsiFavoriteController@index');
-$router->get('/ksi/favorite/{id}', 'KsiFavoriteController@verifyFavorite');
-$router->get('/ksi/favorite/immobile/{id}', 'KsiFavoriteController@getFavorite');
 
 $router->get('/ksi/adm/add-immobile', 'KsiImmobileController@getImmobile');
 $router->post('/ksi/adm/add-immobile', 'KsiImmobileController@create');

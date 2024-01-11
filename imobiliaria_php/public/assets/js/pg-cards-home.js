@@ -1,4 +1,3 @@
-
 async function apartamento(i) {
   var tipoClass = 'apt';
   if (document.getElementById('pag-1') &&
@@ -53,15 +52,15 @@ function divUrl(divimovel, data, page, pageButton, tipoClass) {
       let c = item['classificacao'].split('/');
       divimovel.insertAdjacentHTML("beforeEnd",
         `<div class="card">
-             <div class="hover-card">
-                <a href="http://localhost/imobiliaria_PHP/public/detalhe-imovel?id=${item['id']}">
-                  <button class="button-i-card" type="button">Mais Detalhes</button>
-                </a>
-                 <div class="hover-card-favorite">
-                   <i id="${item['id']}" onclick='favorite(${item['id']})' class="fa-regular fa-heart"></i>
-                   <h3>Favorito</h3>
-                </div>
-                        
+             <div class="hover-card">   
+                <div class="hover-card-group-i">
+                <a href="${base}/detalhe-imovel?id=${item['id']}">
+                   <button class="button-i-card" type="button">Mais Detalhes</button>
+                   </a>  
+                   <a href="${base}/favorite/verify/${item['id']}&&pag=home">
+                      <i class="fa-regular fa-heart"></i> 
+                     </a> 
+                </div> 
               </div>
               <div class="card-img">
                   <div class="inf-i" style="display: ${(item['condicao'] != 0 ? 'flex' : 'none')};">
@@ -118,26 +117,3 @@ apartamento(0);
 casa(0);
 destaque(0);
 
-async function favorite(id) {
-  let iconFavorite = document.getElementById(id);
-  var req = await fetch(`${base}/ksi/favorite/${id}`, {
-    method: 'get'
-  });
-  var json = await req.json();
-  if (json.error == 'Faça o login') {
-    window.location.href = base;
-  } else {
-    if (json.status == 'on') {
-      if (iconFavorite.classList.contains('fa-regular')) {
-        iconFavorite.classList.remove('fa-regular');
-        iconFavorite.classList.add('fa-solid');
-      }
-    } else {
-      if (iconFavorite.classList.contains('fa-solid')) {
-        iconFavorite.classList.remove('fa-solid');
-        iconFavorite.classList.add('fa-regular');
-      }
-    }
-
-  }
-}

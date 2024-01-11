@@ -1,6 +1,7 @@
 <?php $render('header', [
     'aboutFlex' => $aboutFlex,
-    'activeLink' => $activeLink
+    'activeLink' => $activeLink,
+    'favorites' => $favorites
 ]); ?>
 
 <div class="container" data-url="<?= $base; ?>">

@@ -1,4 +1,9 @@
-<?php $render('header', ['aboutFlex'=>$aboutFlex,'activeLink' => $activeLink ]); ?>
+<?php $render('header', [
+  'aboutFlex'=>$aboutFlex,
+  'activeLink' => $activeLink,
+  'favorites' => $favorites
+   ]
+  ); ?>
 <?php $render('ksi/login-item');?>
 <div class="page">
    <h1>Confira nossos emprendedorismos</h1>

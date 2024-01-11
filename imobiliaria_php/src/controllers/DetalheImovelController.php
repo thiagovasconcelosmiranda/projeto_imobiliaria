@@ -2,6 +2,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\FavoritoHandler;
 use \src\handlers\ImovelHandler;
 use \src\handlers\VisitaHandler;
 
@@ -11,9 +12,12 @@ class DetalheImovelController extends Controller
 
   public function find()
   {
+    $id = filter_input(INPUT_GET, 'id');
+    $favorites = FavoritoHandler::findByAll();
+    $favoriteImovel = FavoritoHandler::findByImmobile($id);
     $flash = '';
     $activeLink = 'detalhes';
-    $id = filter_input(INPUT_GET, 'id');
+  
     if (!empty($_SESSION['flash'])) {
       $flash = $_SESSION['flash'];
       $_SESSION['flash'] = '';
@@ -28,7 +32,9 @@ class DetalheImovelController extends Controller
         'imovel' => $imovel,
         'id' => $id,
         'flash' => $flash,
-        'activeLink' => $activeLink
+        'activeLink' => $activeLink,
+        'favorites' => $favorites,
+        'favoritoImovel' => $favoriteImovel
       ]);  
   }
 

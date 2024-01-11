@@ -114,15 +114,31 @@ li {
     align-items: center;
     border-bottom: 6px solid transparent;
     transition: 1s;
+    position: relative;
 
     i {
         color: rgb(214, 25, 25);
         font-size: 20px;
+       
+    }
+
+    .count-favorite{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 50px;
+        top: 15px;
+        p{
+            color: red;
+            font-size: 12px;
+        }
     }
 
     .i {
         font-size: 30px;
     }
+
+
 }
 
 li:hover {

@@ -3,12 +3,15 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\handlers\AnuncioHandler;
+use src\handlers\FavoritoHandler;
 
 class AnuncioController extends Controller
 {
 
     public function index()
     {
+        $favorites = FavoritoHandler::findByAll();
+
         $flash = "";
         $activeLink = 'anuncio';
         if (!empty($_SESSION['flash'])) {
@@ -20,7 +23,8 @@ class AnuncioController extends Controller
         $this->render('anuncio', [
             'aboutFlex' => $aboutFlex,
             'flash' => $flash,
-            'activeLink' => $activeLink
+            'activeLink' => $activeLink,
+            'favorites' => $favorites
         ]);
 
     }

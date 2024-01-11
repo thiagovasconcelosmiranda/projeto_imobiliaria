@@ -57,6 +57,16 @@
                 <li>
                     <i class="fa-solid fa-phone"></i>
                     <a  target="_blank" href="https://api.whatsapp.com/send?phone=551100000000&text=Quero%20entrar%20em%20contato">(14) 99708-7974</a>
+                  
+                </li>
+                <li class="<?= ($activeLink == 'favorite' ? 'activelink' : '') ?>">
+                 <?php if(count($favorites) > 0):?>
+                    <i class="fa-solid fa-heart"></i>
+                    <div class="count-favorite"><p><?=count($favorites)?></p></div>
+                    <?php else: ?>
+                    <i class="fa-regular fa-heart"></i>
+                    <?php endif;?>
+                    <a href="<?=$base;?>/favorite">Favorite</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-user"></i>

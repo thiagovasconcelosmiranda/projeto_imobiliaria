@@ -1,4 +1,7 @@
-<?php $render('header', ['activeLink' => $activeLink]); ?>
+<?php $render('header', [
+  'activeLink' => $activeLink,
+  'favorites' => $favorites
+  ]); ?>
 <div class="page">
   <h1>Resutado da busca</h1>
   <div class="search-cards-x">
@@ -25,6 +28,7 @@
             </div>
             <img src="assets/media/photos_immobile/<?=$imovel['id']; ?>/<?= $imovel['foto1']; ?>" alt="Apartamento">
           </div>
+          
           <div class="group-text">
             <h4>
               <?= $t[0]; ?> -

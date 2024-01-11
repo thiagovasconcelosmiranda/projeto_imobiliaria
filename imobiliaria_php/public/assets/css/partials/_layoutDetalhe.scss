@@ -64,20 +64,23 @@
    .detalhe-col {
       width: 100%;
       height: auto;
-      padding: 10px 20px;
       display: flex;
       justify-content: center;
       margin-top: 20px;
       flex-wrap: wrap;
+      .detalhe-icon-favorite {
+         a i {
+            color: rgb(214, 25, 25);
+            font-size: 30px;
+         }
 
-      .color {
-         color: rgb(214, 25, 25);
+         .color {
+            color: rgb(214, 25, 25);
+         }
       }
-
    }
 
    .item-dados {
-      padding: 20px 50px;
       margin: 20px;
 
       h3,
