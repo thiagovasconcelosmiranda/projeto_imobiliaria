@@ -128,20 +128,21 @@ class ksiImmobileController extends Controller
             }
         }
     }
-    public function getImmobile(){
+    public function getImmobile()
+    {
         $id = filter_input(INPUT_GET, 'id');
-        $title ="Adicionar imóvel";
+        $title = "Adicionar imóvel";
         $url = "ksi/adm/add-immobile";
 
-        if($id){
-            $title ="Alterar Imóvel";
-            $url = "ksi/adm/alter-immobile/".$id;    
+        if ($id) {
+            $title = "Alterar Imóvel";
+            $url = "ksi/adm/alter-immobile/" . $id;
         }
         $vendas = VendaHandler::findByAll();
-        $alugueis= AluguelHandler::findByAll();
+        $alugueis = AluguelHandler::findByAll();
         $imoveis = ImovelHandler::findId($id);
         $users = LoginHandler::findAll();
-       
+
         $this->render('/ksi/adm/add-immobile', [
             'title' => $title,
             'url' => $url,
@@ -149,6 +150,16 @@ class ksiImmobileController extends Controller
             'imoveis' => $imoveis,
             'vendas' => $vendas,
             'alugueis' => $alugueis
+        ]);
+    }
+
+    public function ViewImmobile()
+    {
+        $id = filter_input(INPUT_GET, 'id');
+        $listImmobile = ImovelHandler::findId($id);
+
+        $this->render('/ksi/adm/view-immobile', [
+            'listImmobile' => $listImmobile
         ]);
     }
 

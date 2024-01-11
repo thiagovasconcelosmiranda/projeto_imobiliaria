@@ -63,13 +63,20 @@
             font-size: 16px;
             color: #a7a3a3
         }
-
-        h4 {
-            color: rgb(214, 25, 25);
-            font-size: 14px;
-            text-transform: uppercase;
-
+        .group-card-title{
+            width: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+           
+            h4 {
+                color: rgb(214, 25, 25);
+                font-size: 14px;
+                text-transform: uppercase;
+            }
         }
+
+       
 
         p {
             width: 80%;
@@ -98,8 +105,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 30px;
+
 
     .button-i-card {
+        margin-top: 30px;
         width: 205px;
         height: 40px;
         box-shadow: none;
@@ -110,10 +121,26 @@
         padding: 10px 20px;
         cursor: pointer;
     }
+    .hover-card-favorite{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        i{
+            font-size: 30px;
+            cursor: pointer;
+            color: rgb(214, 25, 25);
+        }
+        h3{
+            font-size: 16px;
+        }
+    }
+   
 }
 
 .card:hover .hover-card {
     left: 0;
+    
 }
 
 .paginate {

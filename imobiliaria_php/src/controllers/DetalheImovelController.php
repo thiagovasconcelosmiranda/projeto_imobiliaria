@@ -35,9 +35,8 @@ class DetalheImovelController extends Controller
   public function addSchedule()
   {
      $inputs = filter_input_array(INPUT_POST);
-
+     
     if (count($inputs) === 8) {
-
       if(VisitaHandler::create($inputs)){
         $_SESSION['flash'] = 'Adicionado com sucesso';
         $this->redirect('/detalhe-imovel?id=' . $inputs['id']);

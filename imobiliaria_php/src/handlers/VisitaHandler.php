@@ -13,12 +13,21 @@ class VisitaHandler extends Controller
     return $vendas;
   }
 
+  public static function findByName($name)
+  {
+    $vendas = Visita::select()
+    ->where('name','like', "%".$name.'%')
+      ->get();
+    return $vendas;
+  }
+
   public static function create($array)
   {
     $date = date('Y/m/d H:m:s');
     Visita::insert([
       'name' => $array['nome'],
       'opcao' => $array['option'],
+      'celular' => $array['cel'],
       'email' => $array['email'],
       'date' => $array['date'],
       'time' => $array['time'],
@@ -30,5 +39,13 @@ class VisitaHandler extends Controller
     return true;
   }
 
+  public static function delete($id)
+  {
+       Visita::delete()
+       ->where('id', $id)
+       ->execute();
+
+       return true;
+  }
  
 }

@@ -1,0 +1,87 @@
+.group-title{
+   p i{
+      cursor: pointer;
+   }
+}
+.list-view-immobile {
+   width: 98%;
+   height: auto;
+   max-height: 100vh;
+   border: 1px solid #ccc;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   overflow-y: scroll;
+   
+
+   .view-immobile-title {
+      margin-top: 20px;
+
+      h1 {
+         color: #555;
+         font-size: 18px;
+         text-transform: uppercase;
+      }
+   }
+
+   .container-view-immobile {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+      .view-immobile-group-row {
+         width: 100%;
+         display: flex;
+         gap: 30px;
+         padding-left: 10px;
+         padding-right: 30px;
+         flex-wrap: wrap;
+
+         .view-immobile-col {
+            width: auto;
+            display: flex;
+             padding: 10px;
+             margin-right: 20px;
+
+            label {
+               text-transform: uppercase;
+               margin-right: 10px;
+            }
+
+            .view-info {
+               width: 100%;
+               border: 1px solid #ccc;
+               padding-left: 20px;
+               color: #555;
+               padding: 0px 20px;
+            }
+         }
+
+         .view-immobile-image {
+            width: 300px;
+            height: 200px;
+
+            img {
+               width: inherit;
+               height: inherit;
+            }
+         }
+      }
+   }
+}
+
+.flexWrap {
+   flex-wrap: wrap;
+   padding: 10px 10px;
+}
+
+@media print{
+   .list-view-immobile {
+      width: 100%;
+      max-height: none;
+      border: 1px solid #000;
+      overflow-y: hidden;
+      overflow-x: hidden;
+   }
+}

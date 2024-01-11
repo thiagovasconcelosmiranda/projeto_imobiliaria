@@ -1582,7 +1582,7 @@ main .panel-row-cards .red:hover {
 }
 .container-view .view-form-user-row .view-inf-col p {
   width: 80%;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 .container-view h4 {
   color: #9c9b9b;
@@ -2070,4 +2070,81 @@ main .panel-row-cards .red:hover {
 .container-schedule .table-item table .tr-desc td i {
   color: red;
   cursor: pointer;
+}
+
+.group-title p i {
+  cursor: pointer;
+}
+
+.list-view-immobile {
+  width: 98%;
+  height: auto;
+  max-height: 100vh;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-y: scroll;
+}
+.list-view-immobile .view-immobile-title {
+  margin-top: 20px;
+}
+.list-view-immobile .view-immobile-title h1 {
+  color: #555;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.list-view-immobile .container-view-immobile {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.list-view-immobile .container-view-immobile .view-immobile-group-row {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  padding-left: 10px;
+  padding-right: 30px;
+  flex-wrap: wrap;
+}
+.list-view-immobile .container-view-immobile .view-immobile-group-row .view-immobile-col {
+  width: auto;
+  display: flex;
+  padding: 10px;
+  margin-right: 20px;
+}
+.list-view-immobile .container-view-immobile .view-immobile-group-row .view-immobile-col label {
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+.list-view-immobile .container-view-immobile .view-immobile-group-row .view-immobile-col .view-info {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding-left: 20px;
+  color: #555;
+  padding: 0px 20px;
+}
+.list-view-immobile .container-view-immobile .view-immobile-group-row .view-immobile-image {
+  width: 300px;
+  height: 200px;
+}
+.list-view-immobile .container-view-immobile .view-immobile-group-row .view-immobile-image img {
+  width: inherit;
+  height: inherit;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+  padding: 10px 10px;
+}
+
+@media print {
+  .list-view-immobile {
+    width: 100%;
+    max-height: none;
+    border: 1px solid #000;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
 }/*# sourceMappingURL=styles-ksi.css.map */

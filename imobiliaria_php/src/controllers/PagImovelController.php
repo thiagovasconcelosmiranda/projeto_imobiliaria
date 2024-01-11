@@ -81,7 +81,6 @@ class PagImovelController extends Controller
       $value = filter_input(INPUT_GET, 'value');
       $key = filter_input(INPUT_GET, 'name');
    
-
       if($value && $key){
          $data['key'] = $key;
          $data[] =  Imovelhandler::searchStore($key, $value);

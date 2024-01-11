@@ -51,10 +51,14 @@ $router->get('/ksi/alter-password/{token}', 'KsiLoginController@alterPassword');
 $router->post('/ksi/alter_password', 'KsiLoginController@alterPasswordAction');
 $router->get('/ksi/adm/panel-adm', 'ksiPanelAdmController@index');
 $router->get('/ksi/adm/add-user', 'KsiAddUserAdmController@index');
+$router->get('/ksi/favorite', 'KsiFavoriteController@index');
+$router->get('/ksi/favorite/{id}', 'KsiFavoriteController@verifyFavorite');
+$router->get('/ksi/favorite/immobile/{id}', 'KsiFavoriteController@getFavorite');
 
 $router->get('/ksi/adm/add-immobile', 'KsiImmobileController@getImmobile');
 $router->post('/ksi/adm/add-immobile', 'KsiImmobileController@create');
 $router->post('/ksi/adm/alter-immobile/{id}', 'ksiImmobileController@update');
+$router->get('/ksi/adm/list-immobile', 'KsiImmobileController@ViewImmobile');
 
 $router->get('/ksi/adm/announcement', 'ksiAnnouncementController@index');
 $router->get('/ksi/adm/ajax/announcement/search', 'ksiAnnouncementController@searchAnnouncement');
@@ -83,6 +87,9 @@ $router->get('/ksi/adm/work-view', 'ksiWorkController@view');
 
 $router->get('/ksi/adm/schedule-list', 'ksiScheduleController@index');
 $router->post('/ksi/adm/schedule-list/delete/{id}', 'ksiScheduleController@delete');
+
+$router->get('/ksi/adm/ajax/schedule', 'ksiScheduleController@getVisit');
+$router->get('/ksi/adm/ajax/schedule/delete/{id}', 'ksiScheduleController@delete');
 
 
 $router->get('/ksi/adm/new-contract-benefit', 'KsiContractController@generateContractBenefit');

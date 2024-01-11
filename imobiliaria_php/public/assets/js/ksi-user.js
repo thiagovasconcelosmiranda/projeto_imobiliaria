@@ -76,6 +76,7 @@ document.querySelectorAll('.modal-option p').forEach(item => {
 });
 
 //client
+refreshPageClient(1);
 if (document.getElementById('button-client-alt')) {
     document.getElementById('button-client-alt').addEventListener('click', () => {
         $('#refreshClient').load(`${baseUrl}/ksi/alter-user`);
@@ -84,7 +85,12 @@ if (document.getElementById('button-client-alt')) {
 $('#start').click(function () {
     refreshPageClient(1);
 });
-refreshPageClient(1);
+
+
+$('#favorite').click(function () {
+    $('#refreshClient').load(`${baseUrl}/ksi/favorite`);
+});
+
 
 document.querySelectorAll(".panel .user-i-option").forEach(button => {
     button.addEventListener('click', () => {

@@ -59,7 +59,7 @@ if (document.getElementById('search_immobile')) {
 }
 
 function viewImmobile(id){
- alert(id)
+    $('#refresh-adm').load(`${baseUrl}/ksi/adm/list-immobile?id=${id}`);
 }
 
 

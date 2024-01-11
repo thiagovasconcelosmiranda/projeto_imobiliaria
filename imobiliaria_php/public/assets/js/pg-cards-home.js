@@ -53,36 +53,43 @@ function divUrl(divimovel, data, page, pageButton, tipoClass) {
       let c = item['classificacao'].split('/');
       divimovel.insertAdjacentHTML("beforeEnd",
         `<div class="card">
-                    <div class="hover-card">
-                        <a href="http://localhost/imobiliaria_PHP/public/detalhe-imovel?id=${item['id']}">
-                          <button class="button-i-card" type="button">Mais Detalhes</button>
-                         </a>
-                      </div>
-                    <div class="card-img">
-                    <div class="inf-i" style="display: ${(item['condicao'] != 0 ? 'flex' : 'none')};">
+             <div class="hover-card">
+                <a href="http://localhost/imobiliaria_PHP/public/detalhe-imovel?id=${item['id']}">
+                  <button class="button-i-card" type="button">Mais Detalhes</button>
+                </a>
+                 <div class="hover-card-favorite">
+                   <i id="${item['id']}" onclick='favorite(${item['id']})' class="fa-regular fa-heart"></i>
+                   <h3>Favorito</h3>
+                </div>
+                        
+              </div>
+              <div class="card-img">
+                  <div class="inf-i" style="display: ${(item['condicao'] != 0 ? 'flex' : 'none')};">
                     ${item['condicao']}
-                    </div>
-                    <div class="inf-i green" style="left: 41%; display: ${(c[0] ? 'flex' : 'none')};">
+                  </div>
+                  <div class="inf-i green" style="left: 41%; display: ${(c[0] ? 'flex' : 'none')};">
                       ${c[0]} 
-                   </div>
-                   <div class="inf-i blue" style="left: 61%; display: ${(c[1] ? 'flex' : 'none')};">
+                  </div>
+                  <div class="inf-i blue" style="left: 61%; display: ${(c[1] ? 'flex' : 'none')};">
                       ${c[1]}
-                    </div>
-
-                    <img src="assets/media/photos_immobile/${item['id']}/${item['foto1']}" alt="Apartamento">
-                    </div>  
-                    <div class="group-text">
-                       <h4>${t[0]} - ${t[1]}</h4>
-                       <p>Bairro: ${item['bairro']}</p>
-                       <p>${item['cidade']} -${item['uf']} </p>
-                        <p>Vender:</p>
-                        <h2> R$ ${item['preco_vendas']}</h4>
-                        <p>Alugar:</p>
-                        <h2> R$ ${item['preco_aluguels']}</h4>
-                        <p> <strong>${item['descricao']}</strong> | <strong>${item['qtd_quarto']}</strong> quartos | <strong>${item['qtd_sala']}</strong> |
-                        sala | <strong>${item['qtd_cozinha']}</strong> Cozinha | <strong>${item['qtd_banheiro']}</strong> banheiros | e <strong>1</strong> area de lazer.</p>
-                    </div>
-                 </div>`);
+                  </div>
+                  <img src="assets/media/photos_immobile/${item['id']}/${item['foto1']}" alt="Apartamento">
+              </div>  
+              <div class="group-text">
+                 <div class="group-card-title">
+                    <h4>${t[0]} - ${t[1]}</h4>
+                 </div>
+                   <p>Bairro: ${item['bairro']}</p>
+                   <p>${item['cidade']} -${item['uf']} </p>
+                   <p>Vender:</p>
+                   <h2> R$ ${item['preco_vendas']}</h4>
+                   <p>Alugar:</p>
+                   <h2> R$ ${item['preco_aluguels']}</h4>
+                   <p> <strong>${item['descricao']}</strong> | <strong>${item['qtd_quarto']}</strong> quartos | <strong>${item['qtd_sala']}</strong> |
+                      sala | <strong>${item['qtd_cozinha']}</strong> Cozinha | <strong>${item['qtd_banheiro']}</strong> banheiros | e <strong>1</strong> area de lazer.</p>
+                  </div>
+             </div>` 
+          );
     });
   }
 
@@ -110,3 +117,27 @@ function divUrl(divimovel, data, page, pageButton, tipoClass) {
 apartamento(0);
 casa(0);
 destaque(0);
+
+async function favorite(id) {
+  let iconFavorite = document.getElementById(id);
+  var req = await fetch(`${base}/ksi/favorite/${id}`, {
+    method: 'get'
+  });
+  var json = await req.json();
+  if (json.error == 'Faça o login') {
+    window.location.href = base;
+  } else {
+    if (json.status == 'on') {
+      if (iconFavorite.classList.contains('fa-regular')) {
+        iconFavorite.classList.remove('fa-regular');
+        iconFavorite.classList.add('fa-solid');
+      }
+    } else {
+      if (iconFavorite.classList.contains('fa-solid')) {
+        iconFavorite.classList.remove('fa-solid');
+        iconFavorite.classList.add('fa-regular');
+      }
+    }
+
+  }
+}

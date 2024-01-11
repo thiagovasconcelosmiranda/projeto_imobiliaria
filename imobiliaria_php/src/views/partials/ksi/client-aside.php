@@ -25,6 +25,12 @@
                 </button>
             </div>
             <div class="group-accordion">
+                <button class="accordion" id="favorite">
+                    <i class="fa-solid fa-heart"></i>
+                    <p>Meus favoritos</p>
+                </button>
+            </div>
+            <div class="group-accordion">
                 <button class="accordion" id="button-1">
                     <i class="fa-solid fa-user"></i>
                     <p>Proprietário</p>
@@ -100,6 +106,3 @@
             </div>
         </div>
 </aside>
-
-
-

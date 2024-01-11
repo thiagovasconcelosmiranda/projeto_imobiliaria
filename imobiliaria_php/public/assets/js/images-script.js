@@ -36,13 +36,11 @@ async function urlPhoto() {
         let id_random = Math.floor(Math.random() * (max - min) + min);
         
         if (id_random) {
-            console.log(id_random);
             let req = await fetch(`${baseURL}/photo?id=${id_random}`, {
                 method: 'GET'
             });
 
             let json = await req.json();
-            console.log(json);
             
             if (json.error === '') {
                 photoUrl.insertAdjacentHTML("beforeEnd",

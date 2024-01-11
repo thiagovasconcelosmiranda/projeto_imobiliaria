@@ -1043,7 +1043,13 @@ select option {
   font-size: 16px;
   color: #a7a3a3;
 }
-.card .group-text h4 {
+.card .group-text .group-card-title {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card .group-text .group-card-title h4 {
   color: rgb(214, 25, 25);
   font-size: 14px;
   text-transform: uppercase;
@@ -1071,8 +1077,11 @@ select option {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 30px;
 }
 .hover-card .button-i-card {
+  margin-top: 30px;
   width: 205px;
   height: 40px;
   box-shadow: none;
@@ -1082,6 +1091,20 @@ select option {
   outline: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+.hover-card .hover-card-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hover-card .hover-card-favorite i {
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(214, 25, 25);
+}
+.hover-card .hover-card-favorite h3 {
+  font-size: 16px;
 }
 
 .card:hover .hover-card {
