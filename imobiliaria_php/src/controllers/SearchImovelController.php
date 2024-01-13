@@ -9,15 +9,18 @@ class SearchImovelController extends Controller
 {
   public function findName()
   {
-    $favorites = FavoritoHandler::findByAll();
+    
     $imoveis = [];
     $array = [];
+    $listFavorite = [];
     $num = 1;
     $activeLink = 'buscar';
 
     $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     $numeric = (int) $data['ref'];
     $list = str_split($numeric);
+    $favorites = FavoritoHandler::findByAll();
+    
 
     if (is_numeric($numeric) && count($list) === 4) {
       $num++;
@@ -38,8 +41,9 @@ class SearchImovelController extends Controller
          
           $listImovel = ImovelHandler::findAllName($k[0], $value);
           $imoveis[$num] = $listImovel;
-
+  
           foreach ($imoveis[$num] as $key => $value) {
+          $listFavorite[] = FavoritoHandler::findByImmobile($value['id']);
             $array[] = $value;
           }
         }
@@ -48,11 +52,11 @@ class SearchImovelController extends Controller
       }
     }
    
-   
     $this->render('searchImovel', [
       'imoveis' => $array,
       'activeLink' => $activeLink,
-      'favoriets' => $favorites
+      'favorites' => $favorites,
+      'listFavorite' =>$listFavorite
     ]);
 
   }

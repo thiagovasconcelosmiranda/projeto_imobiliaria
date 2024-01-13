@@ -92,13 +92,14 @@
       </div>
       <div class="detalhe-col">
          <div class="detalhe-icon-favorite">
-            <a href="<?= $base; ?>/favorite/verify/<?= $imovel['id'] ?>">
               <?php if(count($favoritoImovel) > 0): ?>
-               <i class="fa-solid fa-heart"></i>
+               <i onclick="favoriteLink(<?=$imovel['id'];?>, 3)" class="fa-solid fa-heart"></i>
                <?php else: ?>
-                  <i class="fa-regular fa-heart"></i>
+                  <i onclick="favoriteLink(<?=$imovel['id'];?>, 3)" class="fa-regular fa-heart"></i>
                <?php endif; ?>
-            </a>
+         </div>
+         <div class="detalhe-icon-whatsapp">
+            <i onclick="share(<?=$imovel['id'];?>)" class="fa-solid fa-share"></i>
          </div>
       </div>
       <div class="detalhe-col">
@@ -107,7 +108,7 @@
                <div class="i-tipo">
                   <h2>Aluguel:</h2>
                   <h2 class="cinza">Preço: R$
-                     <?= $imovel['preco_aluguels'] ?> /mês
+                     <?= $imovel['preco_aluguels']?>/mês
                   </h2>
                </div>
                <div class="i-tipo">

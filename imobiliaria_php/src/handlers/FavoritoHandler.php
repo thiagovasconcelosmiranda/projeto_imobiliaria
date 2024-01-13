@@ -31,18 +31,24 @@ class FavoritoHandler extends Controller
 
   public static function create($array)
   {
-
     Favorito::insert([
       'foto1' => $array['foto1'],
       'ref' => $array['ref'],
       'tipo' => $array['tipo'],
       'bairro' => $array['bairro'],
+      'cidade' => $array['cidade'],
       'preco_vendas' => $array['preco_vendas'],
       'preco_aluguels' => $array['preco_aluguels'],
       'imovel_id' => $array['id'],
       'navegador' => self::__navigation(),
-      'ip_client' => self::__get_client_ip()
-
+      'ip_client' => self::__get_client_ip(),
+      'descricao' => $array['descricao'],
+      'qtd_quarto' => $array['qtd_quarto'],
+      'qtd_sala' => $array['qtd_sala'],
+      'qtd_cozinha' => $array['qtd_cozinha'],
+      'qtd_banheiro' => $array['qtd_banheiro'],
+      'qtd_varanda' => $array['qtd_varanda'],
+      'area_laser' => $array['area_laser']
     ])
       ->execute();
 

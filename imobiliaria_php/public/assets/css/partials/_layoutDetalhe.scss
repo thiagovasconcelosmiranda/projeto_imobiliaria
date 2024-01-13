@@ -68,16 +68,28 @@
       justify-content: center;
       margin-top: 20px;
       flex-wrap: wrap;
+      gap: 20px;
+
       .detalhe-icon-favorite {
-         a i {
+          i {
             color: rgb(214, 25, 25);
             font-size: 30px;
+            cursor: pointer;
          }
 
          .color {
             color: rgb(214, 25, 25);
          }
       }
+
+      .detalhe-icon-whatsapp{
+         i{
+            font-size: 30px;
+            color: #000;
+            cursor: pointer;
+         }
+      }
+
    }
 
    .item-dados {

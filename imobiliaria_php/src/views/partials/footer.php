@@ -88,6 +88,10 @@
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-schedule.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-noEncontrei.js"> </script>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/modal-photos.js"> </script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/favorite-link.js"> </script>
+<script type="text/javascript" src="<?= $base; ?>/assets/js/share.js"> </script>
+
+
 <script src="<?= $base; ?>/assets/js/ksi-input-mask.js"></script>
 
 </body>

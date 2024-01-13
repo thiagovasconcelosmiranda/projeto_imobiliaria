@@ -1,7 +1,9 @@
-<?php $render('header', [
+<?php
+$render('header', [
   'activeLink' => $activeLink,
   'favorites' => $favorites
-  ]); ?>
+]);
+?>
 <div class="page">
   <h1>Resutado da busca</h1>
   <div class="search-cards-x">
@@ -12,12 +14,21 @@
         ?>
         <div class="card">
           <div class="hover-card">
-            <a href="<?= $base; ?>/detalhe-imovel?id=<?= $imovel['id']; ?>">
-              <button class="button-i-card" type="button">Mais Detalhes</button>
-            </a>
+            <div class="hover-card-group-i">
+              <a href="<?= $base; ?>/detalhe-imovel?id=<?=$imovel['id'];?>">
+                <button class="button-i-card" type="button">Mais Detalhes</button>
+              </a>
+              <a href="<?= $base; ?>/favorite/verify/<?= $imovel['id'];?>?pag=detalhe-imovel">
+                 <?php if(count($imovel['favorito']) > 0):?>
+                  <i class="fa-solid fa-heart"></i>
+                  <?php else: ?>
+                    <i class="fa-regular fa-heart"></i>
+                  <?php endif;?> 
+              </a>
+            </div>
           </div>
           <div class="card-img">
-            <div class="inf-i" style="display: <?php echo ($imovel['condicao'] != 0 ? 'flex' : 'none'); ?>">
+            <div class="inf-i" style="display: <?= ($imovel['condicao'] != 0 ? 'flex' : 'none'); ?>">
               <?= $imovel['condicao']; ?>
             </div>
             <div class="inf-i green" style="left: 40%">
@@ -26,14 +37,17 @@
             <div class="inf-i blue" style="left: 70%; display: <?php echo (isset($c[1]) ? 'flex' : 'none'); ?>">
               <?= $c[1]; ?>
             </div>
-            <img src="assets/media/photos_immobile/<?=$imovel['id']; ?>/<?= $imovel['foto1']; ?>" alt="Apartamento">
+            <img src="assets/media/photos_immobile/<?= $imovel['id']; ?>/<?= $imovel['foto1']; ?>" alt="Apartamento">
           </div>
-          
+
           <div class="group-text">
-            <h4>
-              <?= $t[0]; ?> -
-              <?= $t[1]; ?>
-            </h4>
+            <div class="group-card-title">
+              <h4>
+                <?= strtoupper($t[0]); ?> -
+                <?= strtoupper($t[1]); ?>
+              </h4>
+            </div>
+
             <p>Bairro:
               <?= $imovel['bairro']; ?>
             </p>

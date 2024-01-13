@@ -50,16 +50,21 @@ function divUrl(divimovel, data, page, pageButton, tipoClass) {
     data.map(item => {
       let t = item['tipo'].split('/');
       let c = item['classificacao'].split('/');
+
       divimovel.insertAdjacentHTML("beforeEnd",
         `<div class="card">
              <div class="hover-card">   
                 <div class="hover-card-group-i">
                 <a href="${base}/detalhe-imovel?id=${item['id']}">
                    <button class="button-i-card" type="button">Mais Detalhes</button>
-                   </a>  
-                   <a href="${base}/favorite/verify/${item['id']}&&pag=home">
-                      <i class="fa-regular fa-heart"></i> 
-                     </a> 
+                   </a> 
+                   <div class="hover-card-icon-group">
+                       ${(item['favorito'].length > 0 ? 
+                       '<i onclick="favoriteLink('+item['id']+',1)" class="fa-solid fa-heart"></i> ': 
+                       '<i onclick="favoriteLink('+item['id']+',1)" class="fa-regular fa-heart"></i>'
+                       )}
+                       <i onclick="share(${item['id']})" class="fa-solid fa-share"></i> 
+                   </div> 
                 </div> 
               </div>
               <div class="card-img">

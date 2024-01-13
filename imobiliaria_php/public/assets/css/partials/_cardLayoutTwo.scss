@@ -13,7 +13,7 @@
 
 
 .cardTwo {
-    width: 80%;
+    width: 1000px;
     height: auto;
     border: 1px solid #beb7b7;
     border-radius: 10px;
@@ -66,7 +66,9 @@
             padding: 10px 5px;
             background-color: #b30000;
             color: #fff;
-            font-size: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+
          }
 
         h5 {
@@ -103,12 +105,28 @@
     } 
 }
 
-@media (max-width: 800px){
 
-  .card{
-    width: 50%;
+@media (max-width: 900px){
+  .cardTwo{
+    width: 330px;
     justify-content: center;
     flex-direction: column;
+    .group-text {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0px;
+        p{
+            text-align: center;
+        }
+        .button-favorite{
+            width: 100%;
+            padding: 15px 40px;
+            font-size: 14px;
+            margin: auto;
+         }
+        }
     
     .card-img{
         width: 100%;

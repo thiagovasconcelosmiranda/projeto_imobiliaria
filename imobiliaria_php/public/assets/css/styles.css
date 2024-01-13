@@ -41,7 +41,7 @@ nav {
   align-items: center;
   position: fixed;
   box-shadow: 10px 5px 25px -8px #98999b;
-  z-index: 10;
+  z-index: 20;
 }
 nav img {
   height: 90px;
@@ -782,9 +782,33 @@ select option {
 }
 
 @media (min-width: 700px) and (max-width: 900px) {
+  nav a .logo-top {
+    width: 50px;
+    height: 50px;
+  }
+  nav a .logo-top img {
+    width: inherit;
+    height: inherit;
+  }
   ul {
     display: none;
-    border-color: transparent;
+  }
+  ul li {
+    width: 30%;
+    border: 0;
+    height: 10px;
+    margin: auto;
+  }
+  ul li .count-favorite {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 30%;
+    top: -15px;
+  }
+  ul li .count-favorite p {
+    color: red;
+    font-size: 12px;
   }
   button {
     width: 100%;
@@ -893,8 +917,21 @@ select option {
     display: none;
   }
   ul li {
+    width: 50%;
     border: 0;
     height: 10px;
+    margin: auto;
+  }
+  ul li .count-favorite {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 30%;
+    top: -15px;
+  }
+  ul li .count-favorite p {
+    color: red;
+    font-size: 12px;
   }
   ul.activeOption {
     width: 100%;
@@ -1100,12 +1137,12 @@ select option {
   align-items: center;
   gap: 20px;
 }
-.hover-card .hover-card-group-i a i {
-  color: red;
+.hover-card .hover-card-group-i i {
+  color: #fff;
   font-size: 20px;
   margin-top: 30px;
-  border-left: 1px solid #ccc;
   padding-left: 10px;
+  cursor: pointer;
 }
 .hover-card .hover-card-group-i .button-i-card {
   margin-top: 30px;
@@ -1125,10 +1162,15 @@ select option {
   align-items: center;
   flex-direction: column;
 }
-.hover-card .hover-card-favorite i {
+.hover-card .hover-card-favorite .hover-card-icon-group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.hover-card .hover-card-favorite .hover-card-icon-group i {
   font-size: 30px;
   cursor: pointer;
-  color: rgb(214, 25, 25);
+  color: #fff;
 }
 .hover-card .hover-card-favorite h3 {
   font-size: 16px;
@@ -1174,7 +1216,7 @@ select option {
 }
 
 .cardTwo {
-  width: 80%;
+  width: 1000px;
   height: auto;
   border: 1px solid #beb7b7;
   border-radius: 10px;
@@ -1223,7 +1265,8 @@ select option {
   padding: 10px 5px;
   background-color: #b30000;
   color: #fff;
-  font-size: 10px;
+  font-size: 14px;
+  border-radius: 5px;
 }
 .cardTwo .group-text h5 {
   font-size: 16px;
@@ -1252,13 +1295,29 @@ select option {
   color: #a7a3a3;
 }
 
-@media (max-width: 800px) {
-  .card {
-    width: 50%;
+@media (max-width: 900px) {
+  .cardTwo {
+    width: 330px;
     justify-content: center;
     flex-direction: column;
   }
-  .card .card-img {
+  .cardTwo .group-text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+  }
+  .cardTwo .group-text p {
+    text-align: center;
+  }
+  .cardTwo .group-text .button-favorite {
+    width: 100%;
+    padding: 15px 40px;
+    font-size: 14px;
+    margin: auto;
+  }
+  .cardTwo .card-img {
     width: 100%;
     height: auto;
   }
@@ -1609,13 +1668,20 @@ main {
   justify-content: center;
   margin-top: 20px;
   flex-wrap: wrap;
+  gap: 20px;
 }
-.page .detalhe-col .detalhe-icon-favorite a i {
+.page .detalhe-col .detalhe-icon-favorite i {
   color: rgb(214, 25, 25);
   font-size: 30px;
+  cursor: pointer;
 }
 .page .detalhe-col .detalhe-icon-favorite .color {
   color: rgb(214, 25, 25);
+}
+.page .detalhe-col .detalhe-icon-whatsapp i {
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
 }
 .page .item-dados {
   margin: 20px;

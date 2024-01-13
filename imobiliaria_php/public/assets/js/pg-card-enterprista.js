@@ -26,6 +26,7 @@ if (document.querySelector('.search-cards')) {
             body: form
         });
 
+
         const json = await req.json();
         if (json[0].length > 0) {
             listCard.innerHTML = "";
@@ -33,11 +34,20 @@ if (document.querySelector('.search-cards')) {
                 let t = item['tipo'].split('/');
                 let c = item['classificacao'].split('/');
                 listCard.insertAdjacentHTML("beforeEnd",
-                    `<div class="card">
-                <div class=" hover-card">
-                    <a href="${base}/detalhe-imovel?id=${item['id']}">
-                        <button class="button-enterprise" type="button">Mais Detalhes</button>
-                     </a>
+                `<div class="card">
+                    <div class=" hover-card">
+                      <div class="hover-card-group-i">
+                         <a href="${base}/detalhe-imovel?id=${item['id']}">
+                            <button class="button-i-card" type="button">Mais Detalhes</button>
+                         </a>  
+                         <div class="hover-card-icon-group">
+                              ${(item['favorito'].length > 0? 
+                                '<i onclick="favoriteLink('+item['id']+', 2)" class="fa-solid fa-heart"></i> ':
+                                '<i onclick="favoriteLink('+item['id']+', 2)" class="fa-regular fa-heart"></i>'
+                               )}
+                               <i onclick="share(${item['id']})" class="fa-solid fa-share"></i> 
+                        </div>
+                      </div> 
                 </div>
                 <div class="card-img">
                     <div class="inf-i" style="display: ${(item['condicao'] != 0 ? 'flex' : 'none')}">${item['condicao']}</div>
@@ -46,15 +56,17 @@ if (document.querySelector('.search-cards')) {
                     <img src="assets/media/photos_immobile/${item['id']}/${item['foto1']}" alt="Apartamento">
                 </div>
                 <div class="group-text">
-                   <h4> ${t[0]} - ${t[1]} </h4>
-                   <p>Bairro: ${item['bairro']}</p>
-                   <p> ${item['cidade']} - ${item['uf']} </p>
-                   <p>Vender:</p>
-                   <h2> R$ ${item['preco_aluguels']}</h4>
-                   <p>Alugar:</p>
-                   <h2> R$ ${item['preco_vendas']}</h4>
-                   <p><strong>${item['descricao']}</strong> | ${item['qtd_quarto']}  quartos|  ${item['qtd_sala']}
-                   sala|  ${item['qtd_cozinha']} Cozinha|  ${item['qtd_banheiro']} banheiros|  area de lazer.</p>
+                    <div class="group-card-title">
+                     <h4> ${t[0]} - ${t[1]} </h4>
+                    </div>
+                    <p>Bairro: ${item['bairro']}</p>
+                    <p> ${item['cidade']} - ${item['uf']} </p>
+                    <p>Vender:</p>
+                    <h2> R$ ${item['preco_aluguels']}</h4>
+                    <p>Alugar:</p>
+                    <h2> R$ ${item['preco_vendas']}</h4>
+                    <p><strong>${item['descricao']}</strong> | ${item['qtd_quarto']}  quartos|  ${item['qtd_sala']}
+                    sala|  ${item['qtd_cozinha']} Cozinha|  ${item['qtd_banheiro']} banheiros|  area de lazer.</p>
                  </div>
               </div> `
                 );
@@ -65,5 +77,4 @@ if (document.querySelector('.search-cards')) {
         }
     }
     url(array);
-
 }

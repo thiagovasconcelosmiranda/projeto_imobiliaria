@@ -66,7 +66,7 @@
                     <?php else: ?>
                     <i class="fa-regular fa-heart"></i>
                     <?php endif;?>
-                    <a href="<?=$base;?>/favorite">Favorite</a>
+                    <a href="<?=$base;?>/favorite">Favoritos</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-user"></i>

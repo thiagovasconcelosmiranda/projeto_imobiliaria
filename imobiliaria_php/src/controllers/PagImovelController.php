@@ -20,12 +20,14 @@ class PagImovelController extends Controller
       $data = [];
       $apt = filter_input(INPUT_GET, 'apartamento');
 
-      $pagAll = ImovelHandler::findCount('residencial/Apartamento');
+      $pagAll = ImovelHandler::findCount('/apartamento');
+
       $pageCount = ceil($pagAll / $this->limit);
-      $imoveis = ImovelHandler::findType('residencial/apartamento', $apt, $this->limit);
+      $imoveis = ImovelHandler::findType('/apartamento', $apt, $this->limit);
 
       $data[] = $imoveis;
       $data[] = $pageCount;
+   
 
       header('Content: application/json');
       echo json_encode($data);
@@ -66,18 +68,18 @@ class PagImovelController extends Controller
 
       $data[] = $imoveis;
 
+
       header('Content: application/json');
       echo json_encode($data);
-
+  
       if ($destaque === null) {
-         $this->redirect('/');
+         //$this->redirect('/');
       }
    }
 
    public function searchStore()
    {
       $data = [];
-
       $value = filter_input(INPUT_GET, 'value');
       $key = filter_input(INPUT_GET, 'name');
    

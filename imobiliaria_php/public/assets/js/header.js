@@ -4,11 +4,11 @@ const painel = document.querySelector('.painel');
 const mobile = document.querySelector('.menu-mobile');
 const ul = document.querySelector('#option-ul');
 
-
-document.getElementById('impreendimento').addEventListener('click', () => {
-  window.location.href = `${baseURL}/impreendimentos`;
-})
-
+if (document.getElementById('impreendimento')) {
+  document.getElementById('impreendimento').addEventListener('click', () => {
+    window.location.href = `${baseURL}/impreendimentos`;
+  });
+}
 
 document.querySelectorAll('.button-i button').forEach(button => {
   button.addEventListener('click', () => {
@@ -33,13 +33,13 @@ mobile.addEventListener('click', () => {
 });
 
 if (document.querySelectorAll('.button-i button')) {
- let item1  = document.querySelector('.row-select-row-ref')
- let item2 = document.querySelector('.group-select-row');
+  let item1 = document.querySelector('.row-select-row-ref')
+  let item2 = document.querySelector('.group-select-row');
 
   function butonClick(info) {
     if (info == 'Código') {
-     item1.style.display = "flex";
-     item2.style.display = "none";
+      item1.style.display = "flex";
+      item2.style.display = "none";
     } else {
       item2.style.display = "flex";
       priceAll(info);
