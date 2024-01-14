@@ -2,25 +2,28 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\FavoritoHandler;
 use \src\handlers\WorkHandler;
 
 class WorkController extends Controller
 {
 
     public function index()
-    {
+    {    
+        $favorites = FavoritoHandler::findByAll();
         $flash="";
         if(!empty($_SESSION['flash-msg'])){
             $flash = $_SESSION['flash-msg'];
             $_SESSION['flash-msg'] = "";
 
         }
-        $about = "none";
+        $about = "flex";
         $activeLink = 'trabalheConosco';
         $this->render('trabalheConosco', [
             'aboutFlex' => $about,
             'activeLink' => $activeLink,
-            'flash' => $flash
+            'flash' => $flash,
+            'favorites' => $favorites
         ]);
     }
 

@@ -39,7 +39,7 @@ class ImovelHandler extends Controller
               'classificacao' => $item['classificacao'],
               'descricao' => $item['descricao'],
               'area_laser' => $item['area_laser'],
-              'disponibilidade' =>  $item['disponibilidade'],
+              'disponibilidade' => $item['disponibilidade'],
               'foto1' => $item['foto1'],
               'foto2' => $item['foto2'],
               'foto3' => $item['foto3'],
@@ -129,7 +129,7 @@ class ImovelHandler extends Controller
               'classificacao' => $item['classificacao'],
               'descricao' => $item['descricao'],
               'area_laser' => $item['area_laser'],
-              'disponibilidade' =>  $item['disponibilidade'],
+              'disponibilidade' => $item['disponibilidade'],
               'foto1' => $item['foto1'],
               'foto2' => $item['foto2'],
               'foto3' => $item['foto3'],
@@ -264,13 +264,45 @@ class ImovelHandler extends Controller
 
   public static function ImmobileLoginId($login_id)
   {
-    $imovel = Imovel::select()
+    $imovel = [];
+    $data = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('login_id', $login_id)
       ->execute();
+
+      foreach($data as $item){
+        $doc = DocumentHandler::findByImovelId($item['id']);
+        $at = AtividadeHandler::findByImovelId($item['id']);
+
+        $imovel[] = [
+          "id" => $item['id'],
+          "ref" => $item['ref'],
+          "tipo" => $item['tipo'],
+          "descricao" => $item['descricao'],
+          "consdominio" => $item['condominio'],
+          "qtd_quarto" => $item['qtd_quarto'],
+          "qtd_sala" => $item['qtd_sala'],
+          "qtd_banheiro" => $item['qtd_banheiro'],
+          "qtd_cozinha" => $item['qtd_cozinha'],
+          'disponibilidade' =>  $item['disponibilidade'],
+          'preco_aluguels' =>  $item['preco_aluguels'],
+          'preco_vendas' =>  $item['preco_vendas'],
+          "cidade" => $item['cidade'],
+          "foto1" => $item['foto1'],
+          "foto2" => $item['foto2'],
+          "foto3" => $item['foto3'],
+          "foto4" => $item['foto4'],
+          "foto5" => $item['foto5'],
+          "end" => $item['end'],
+          "num" => $item['num'],
+          "uf" => $item['uf'],
+          'doc' => $doc,
+          'at' => $at
+      ];
+    }
     return $imovel;
   }
 

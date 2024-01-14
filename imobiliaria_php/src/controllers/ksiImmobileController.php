@@ -25,39 +25,10 @@ class ksiImmobileController extends Controller
 
     public function index()
     {
-        $data = [];
-
         $listImmobile = ImovelHandler::ImmobileLoginId($this->infoUser->id);
-        foreach ($listImmobile as $item) {
-            $doc = DocumentHandler::findByImovelId($item['id']);
-            $at = AtividadeHandler::findByImovelId($item['id']);
-            $data[] = [
-                "id" => $item['id'],
-                "ref" => $item['ref'],
-                "tipo" => $item['tipo'],
-                "descricao" => $item['descricao'],
-                "consdominio" => $item['condominio'],
-                "qtd_quarto" => $item['qtd_quarto'],
-                "qtd_sala" => $item['qtd_sala'],
-                "qtd_banheiro" => $item['qtd_banheiro'],
-                "qtd_cozinha" => $item['qtd_cozinha'],
-                "cidade" => $item['cidade'],
-                "foto1" => $item['foto1'],
-                "foto2" => $item['foto2'],
-                "foto3" => $item['foto3'],
-                "foto4" => $item['foto4'],
-                "foto5" => $item['foto5'],
-                "end" => $item['end'],
-                "num" => $item['num'],
-                "uf" => $item['uf'],
-                'doc' => $doc,
-                'at' => $at
-            ];
-
-        }
 
         $this->render('ksi/immobile', [
-            'listImmobile' => $data,
+            'listImmobile' => $listImmobile,
         ]);
     }
     public function search()

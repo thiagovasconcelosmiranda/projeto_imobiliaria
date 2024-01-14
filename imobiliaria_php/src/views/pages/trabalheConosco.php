@@ -1,16 +1,25 @@
-<?php $render('header', ['aboutFlex' => $aboutFlex, 'activeLink' => $activeLink]); ?>
+<?php $render(
+    'header',
+    [
+        'aboutFlex' => $aboutFlex,
+        'activeLink' => $activeLink,
+        'favorites' => $favorites
+    ]
+); ?>
 
 <div class="container-work">
     <div class="work-title">
         <h1>Trabalhe Conosco</h1>
-        <?php if($flash): ?>
-        <div class="alert-flash">
-            <p><?=$flash;?></p>
-        </div>
+        <?php if ($flash): ?>
+            <div class="alert-flash">
+                <p>
+                    <?= $flash; ?>
+                </p>
+            </div>
         <?php endif; ?>
     </div>
 
-    <form method="post" action="<?=$base;?>/trabalheconosco/add" enctype="multipart/form-data">
+    <form method="post" action="<?= $base; ?>/trabalheconosco/add" enctype="multipart/form-data">
         <div class="work-descrition">
             <p>Cadastre seu currículo e esteja preparado para encarar novos desafios.</p>
         </div>
@@ -44,7 +53,7 @@
                     <div class="option-i">
                         <div class="select-radio">
                             <label for="f-incompleto">
-                               Ensino Médio - Incompleto
+                                Ensino Médio - Incompleto
                             </label>
                             <input type="radio" id="f-incompleto" value="Ensino Médio - Incompleto" name="escolaridade">
                         </div>
@@ -52,12 +61,13 @@
                             <label for="f-completo">
                                 Ensino Médio - Completo
                             </label>
-                            <input type="radio" id="f-completo" value="Ensino Médio Fundamental - Completo" name="escolaridade">
+                            <input type="radio" id="f-completo" value="Ensino Médio Fundamental - Completo"
+                                name="escolaridade">
                         </div>
 
                         <div class="select-radio">
                             <label for="g-incompleto">
-                               Graduação - Incompleto
+                                Graduação - Incompleto
                             </label>
                             <input type="radio" id="g-incompleto" value=" Graduação - Incompleto" name="escolaridade">
                         </div>
@@ -73,12 +83,13 @@
                             <label for="p-incompleto">
                                 Pos graduação - Incompleto
                             </label>
-                            <input type="radio" id="p-incompleto" value=" Pos graduação - Incompleto" name="escolaridade">
+                            <input type="radio" id="p-incompleto" value=" Pos graduação - Incompleto"
+                                name="escolaridade">
                         </div>
 
                         <div class="select-radio">
                             <label for="p-completo">
-                            Pos graduação - Completo
+                                Pos graduação - Completo
                             </label>
                             <input type="radio" id="p-completo" value="Pos graduação - Completo" name="escolaridade">
                         </div>
@@ -93,7 +104,7 @@
                         <p>Selecione um arquivo</p>
                     </label>
                 </div>
-                <input  type="file" name="curriculo" onchange="upload()" id="52">
+                <input type="file" name="curriculo" onchange="upload()" id="52">
                 <span id="msg-52">Campos obrigatórios*</span>
             </div>
         </div>
@@ -123,5 +134,6 @@
         </div>
     </form>
 </div>
+<?php $render('ksi/login-item'); ?>
 <script type="text/javascript" src="<?= $base; ?>/assets/js/alert-error-work.js"> </script>
 <?php $render('footer'); ?>

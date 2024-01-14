@@ -31,16 +31,20 @@
                         </p>
                     </div>
                     <div class="immobile-col">
-                        <?php if (!empty($item['disponibilidade'])): ?>
-                            <h4><strong style="color: <?= ($item['disponibilidade'] == 'Disponível' ? 'green' : 'red') ?>;">
-                                    <?=['disponibilidade']; ?>
-                                </strong>-
-                                <p>
-                                    <?= $item['imovel']['preco_aluguels']; ?>
-                                </p>
-                            </h4>
-                        <?php endif; ?>
-                    </div>
+                        <h4><strong style="color: <?= ($item['disponibilidade'] == 'Disponível' ? 'green' : 'red') ?>;">
+                                <?=$item['disponibilidade']; ?>
+                            </strong>
+                            <?php if(!empty($item['preco_aluguels'])):?>
+                             Aluguel:
+                             <p><?= $item['preco_aluguels']; ?></p>
+                            <?php endif; ?>
+                            <?php if(!empty($item['preco_vendas'])):?>
+                               <h4>Vendas:
+                               <p><?= $item['preco_vendas']; ?></p>
+                               </h4>
+                            <?php endif; ?>
+                        </h4>
+                     </div>
                     <div class="immobile-col" >
                         <div class="select-option-i">
                             <div class="group-select active-select">

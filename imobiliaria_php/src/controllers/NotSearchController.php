@@ -2,6 +2,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\FavoritoHandler;
 use \src\handlers\NotSearchHandler;
 
 class NotSearchController extends Controller
@@ -9,6 +10,7 @@ class NotSearchController extends Controller
 
   public function index()
   {
+     $favorites = FavoritoHandler::findByAll();
     $flashNoSerach = '';
     $activeLink = 'noEncontrado';
 
@@ -19,7 +21,8 @@ class NotSearchController extends Controller
 
     $this->render('notSearch', [
       'flashNoSerach' => $flashNoSerach,
-      'activeLink' => $activeLink
+      'activeLink' => $activeLink,
+      'favorites'=> $favorites
     ]);
   }
 

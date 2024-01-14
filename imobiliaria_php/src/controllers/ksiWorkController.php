@@ -2,6 +2,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\FavoritoHandler;
 use \src\handlers\LoginHandler;
 use \src\handlers\WorkHandler;
 
@@ -16,11 +17,11 @@ class ksiWorkController extends Controller
     }
 
     public function index()
-    {
+    { 
         $works = WorkHandler::findAll();
 
         $this->render('ksi/adm/work-list', [
-            'works' => $works
+            'works' => $works,
         ]);
     }
 

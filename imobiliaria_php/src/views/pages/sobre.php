@@ -1,4 +1,8 @@
-<?php $render('header', ['aboutFlex' => $aboutFlex, 'activeLink' => $activeLink]); ?>
+<?php $render('header',
+ ['aboutFlex' => $aboutFlex,
+  'activeLink' => $activeLink,
+  'favorites' => $favorites
+  ]); ?>
 <div class="page-about-i">
    <div class="image-top">
       <div class="text-about-1">

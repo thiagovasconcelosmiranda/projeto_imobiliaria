@@ -1,4 +1,9 @@
-<?php $render('header', ['activeLink' => $activeLink]); ?>
+<?php $render('header',
+ [
+  'activeLink' => $activeLink,
+  'favorites' => $favorites
+  ]); ?>
+  
 <div class="page">
   <h1>Não encontrou o que procura?</h1>
   <?php if ($flashNoSerach): ?>
