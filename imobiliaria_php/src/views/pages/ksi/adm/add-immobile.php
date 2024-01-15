@@ -2,8 +2,8 @@
     <h1><?= $title?></h1>
     <p>Adicionar imóvel</p>
 </div>
-<div class="container-immobile">
-    <form method="post" action="<?= $base; ?>/<?= $url;?>" enctype="multipart/form-data">
+<div class="container-immobile" dataTitle="<?=$title;?>">
+    <form method="post" action="<?= $base; ?>/<?= $url;?>" enctype="multipart/form-data" >
         <div class="group-area-immobile">
             <?php if (empty($imoveis)): ?>
                 <div class="group-input-row line">
@@ -226,13 +226,24 @@
                     <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['outros']); ?>" name="outros"
                         id="19">
                     <span id="msg-19">Campos obrigátorio*</span>
+
+                    <label>Contrutora </label>
+                    <select name="construtora_id" id="20">
+                        <option value="<?= (empty($imoveis) ? '' : $imoveis['nomeConstrutora']); ?>">
+                            <?= (empty($imoveis) ? 'Selecione a construtora' : $imoveis['nomeConstrutora']); ?>
+                        </option>
+                        <?php foreach( $construtoras as $c): ?>
+                          <option value="<?=$c['id'];?>"><?=$c['nomeConstrutora'];?></option>
+                        <?php endforeach;?>
+                    </select>
+                    <span id="msg-20">Campos obrigátorio*</span>
                 </div>
             </div>
             <div class="group-input-row line">
                 <div class="group-input-col-x">
                     <label>Descrição</label>
-                    <span id="msg-20">Campos obrigátorio*</span>
-                    <textarea name="descricao" id="20" cols="30" rows="10"><?= trim((empty($imoveis) ? '' : $imoveis['descricao']));?></textarea>
+                    <span id="msg-21">Campos obrigátorio*</span>
+                    <textarea name="descricao" id="21" cols="30" rows="10"><?= trim((empty($imoveis) ? '' : $imoveis['descricao']));?></textarea>
                 </div>
             </div>
             <div class="group-input-row">
@@ -246,21 +257,21 @@
             <div class="group-input-row">
                 <div class="group-input-col-x">
                     <label>Cep:</label>
-                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['cep']); ?>" id="21"
+                    <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['cep']); ?>" id="22"
                         name="cep">
-                    <span id="msg-21">Compos obrigatório*</span>
+                    <span id="msg-22">Compos obrigatório*</span>
 
                     <label>Endereço</label>
                     <input type="text" value="<?= (empty($imoveis) ? '' : $imoveis['end']); ?>" name="end"
-                        id="22">
-                    <span id="msg-22">Compos obrigatório*</span>
+                        id="23">
+                    <span id="msg-23">Compos obrigatório*</span>
 
                     <label>Num:</label>
                     <input type="number" value="<?= (empty($imoveis) ? '' : $imoveis['num']); ?>" name="num"
-                        id="23">
-                    <span id="msg-23">Compos obrigatório*</span>
+                        id="24">
+                    <span id="msg-24">Compos obrigatório*</span>
                     <label>Região</label>
-                    <select name="regiao" id="24">
+                    <select name="regiao" id="25">
                         <option value="<?= (empty($imoveis) ? '' : $imoveis['regiao']); ?>">
                             <?= (empty($imoveis) ? 'Selecione a região' : $imoveis['regiao']); ?>
                         </option>
@@ -269,22 +280,22 @@
                         <option value="Zona Norte">Zona Norte</option>
                         <option value="Zona Sul">Zona Sul</option>
                     </select>
-                    <span id="msg-24">Campos obrigátorio*</span>
+                    <span id="msg-25">Campos obrigátorio*</span>
                 </div>
                 <div class="group-input-col-x">
                     <label>Bairro:</label>
                     <input type="text" name="bairro" value="<?= (empty($imoveis) ? '' : $imoveis['bairro']); ?>"
-                        id="25">
-                        <span id="msg-25">Compos obrigatório*</span>
+                        id="26">
+                        <span id="msg-26">Compos obrigatório*</span>
 
                     <label>Cidade:</label>
                     <input type="text" name="cidade" value="<?= (empty($imoveis) ? '' : $imoveis['cidade']); ?>"
-                        id="26">
-                    <span id="msg-26">Compos obrigatório*</span>
+                        id="27">
+                    <span id="msg-27">Compos obrigatório*</span>
 
                     <label>Estado:</label>
-                    <input type="text" name="uf" value="<?= (empty($imoveis) ? '' : $imoveis['uf']); ?>" id="27">
-                    <span id="msg-27">Compos obrigatório*</span>
+                    <input type="text" name="uf" value="<?= (empty($imoveis) ? '' : $imoveis['uf']); ?>" id="28">
+                    <span id="msg-28">Compos obrigatório*</span>
                 </div>
             </div>
             <div class="group-input-row">
@@ -352,8 +363,9 @@
                 <div class="group-input-col-x flex-direction">
                     <button id="button-add-photo-immobile-back"  class="button" type="button"><- Voltar</button>
                     <button id="button-add-image-immobile" class="button"
-                      type="<?= ($title != "Alterar Imóvel" ? 'button' : 'submit');?>">
+                      type="<?=($title != "Alterar Imóvel" ? 'button' : 'submit');?>">
                       <?=($title != "Alterar Imóvel" ? 'Adicionar' : 'Alterar');?>
+                      
                      </button>
                 </div>
             </div>

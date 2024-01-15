@@ -23,35 +23,17 @@ class ImpreendimentoController extends Controller
 
   public function search()
   {
-    $array = [];
+    $array = ['error' => ''];
     $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
+    
     if ($data) {
       foreach ($data as $value) {
         $v = explode('=', $value);
-
-        switch ($v[0]) {
-          case 'cidade':
-            $imoveis = ImovelHandler::enterprise($v[0], $v[1], 'ends.');
-            $array[] = $imoveis;
-            break;
-
-          case 'tipo':
-            $imoveis = ImovelHandler::enterprise($v[0], $v[1], 'imovels.');
-            $array[] = $imoveis;
-            break;
-
-          /* 
-         case 'construtora':
-            $imoveis = ImovelHandler::enterprise($v[0], $v[1], 'imovels.');
-            $array[] = $imoveis;
-         break;
-
-        case 'status':
-          $imoveis = ImovelHandler::enterprise($v[0], $v[1], 'imovels.');
+        $imoveis = ImovelHandler::searchEnterprise($v[0], $v[1]);
+        if($imoveis){
           $array[] = $imoveis;
-        break;
-        */
+        }else{
+          $array['error'] = 'Nenhum imóvel encontrado';
         }
       }
 

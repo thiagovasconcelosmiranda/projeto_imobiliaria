@@ -8,9 +8,52 @@ use \src\models\Aluguel;
 
 class ImovelHandler extends Controller
 {
+
+  private static function __listObjectImmobile($data){
+    $imovel = [];
+    foreach($data as $item){
+      $imovel[] = [
+            'id' => $item['id'],
+            'ref' =>  $item['ref'],
+            'tipo' =>  $item['tipo'],
+            'condominio' => $item['condominio'],
+            'qtd_quarto' => $item['qtd_quarto'],
+            'qtd_sala' => $item['qtd_sala'],
+            'qtd_banheiro' => $item['qtd_banheiro'],
+            'qtd_cozinha' => $item['qtd_cozinha'],
+            'qtd_varanda' => $item['qtd_varanda'],
+            'qtd_vaga' =>  $item['qtd_vaga'],
+            'outos' =>  $item['outros'],
+            'condicao' =>  $item['condicao'],
+            'area_terreno' => $item['area_terreno'],
+            'tipo_imovel' => $item['tipo_imovel'],
+            'classificacao' => $item['classificacao'],
+            'descricao' => $item['descricao'],
+            'area_laser' => $item['area_laser'],
+            'disponibilidade' => $item['disponibilidade'],
+            'foto1' => $item['foto1'],
+            'foto2' => $item['foto2'],
+            'foto3' => $item['foto3'],
+            'foto4' => $item['foto4'],
+            'foto5' => $item['foto5'],
+            'preco_vendas' =>  $item['preco_vendas'],
+            'preco_aluguels' =>  $item['preco_aluguels'],
+            'cep' =>  $item['cep'],
+            'end' =>  $item['end'],
+            'num' =>  $item['num'],
+            'bairro' =>  $item['bairro'],
+            'cidade' =>  $item['cidade'],
+            'uf' => $item['uf'],  
+            'construtora_id' => $item['construtora_id'],
+            'favorito'  => FavoritoHandler::findByImmobile($item['id']),
+            'construtora' => ConstrutoraHandler::findById($item['construtora_id'])
+       ]; 
+    }
+    return $imovel;
+  }
   public static function findByPublished($limit)
   {
-    $imovel = [];
+    
     $data = Imovel::select()
       ->limit($limit)
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
@@ -20,57 +63,22 @@ class ImovelHandler extends Controller
       ->orderBy(['imovels.id' => 'desc'])
       ->get();
 
-      foreach($data as $item){
-        $imovel[] = [
-              'id' => $item['id'],
-              'ref' =>  $item['ref'],
-              'tipo' =>  $item['tipo'],
-              'condominio' => $item['condominio'],
-              'qtd_quarto' => $item['qtd_quarto'],
-              'qtd_sala' => $item['qtd_sala'],
-              'qtd_banheiro' => $item['qtd_banheiro'],
-              'qtd_cozinha' => $item['qtd_cozinha'],
-              'qtd_varanda' => $item['qtd_varanda'],
-              'qtd_vaga' =>  $item['qtd_vaga'],
-              'outos' =>  $item['outros'],
-              'condicao' =>  $item['condicao'],
-              'area_terreno' => $item['area_terreno'],
-              'tipo_imovel' => $item['tipo_imovel'],
-              'classificacao' => $item['classificacao'],
-              'descricao' => $item['descricao'],
-              'area_laser' => $item['area_laser'],
-              'disponibilidade' => $item['disponibilidade'],
-              'foto1' => $item['foto1'],
-              'foto2' => $item['foto2'],
-              'foto3' => $item['foto3'],
-              'foto4' => $item['foto4'],
-              'foto5' => $item['foto5'],
-              'preco_vendas' =>  $item['preco_vendas'],
-              'preco_aluguels' =>  $item['preco_aluguels'],
-              'cep' =>  $item['cep'],
-              'end' =>  $item['end'],
-              'num' =>  $item['num'],
-              'bairro' =>  $item['bairro'],
-              'cidade' =>  $item['cidade'],
-              'uf' => $item['uf'],  
-              'favorito'  => FavoritoHandler::findByImmobile($item['id'])
-         ]; 
-      }
-    return $imovel;
+     return self::__listObjectImmobile($data);
+
   }
 
   public static function findId($id)
   {
-
-    $imovel = Imovel::select()
+  
+    $data = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
+      ->join('construtoras', 'construtoras.id', '=', 'imovels.construtora_id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.id', $id)
       ->one();
-
-    return $imovel;
+    return $data;
   }
 
   public static function findLoginId($id)
@@ -109,45 +117,7 @@ class ImovelHandler extends Controller
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where( 'imovels.tipo', 'like', '%' . $info . '%')
       ->get();
-
-      foreach($data as $item){
-        $imovel[] = [
-              'id' => $item['id'],
-              'ref' =>  $item['ref'],
-              'tipo' =>  $item['tipo'],
-              'condominio' => $item['condominio'],
-              'qtd_quarto' => $item['qtd_quarto'],
-              'qtd_sala' => $item['qtd_sala'],
-              'qtd_banheiro' => $item['qtd_banheiro'],
-              'qtd_cozinha' => $item['qtd_cozinha'],
-              'qtd_varanda' => $item['qtd_varanda'],
-              'qtd_vaga' =>  $item['qtd_vaga'],
-              'outos' =>  $item['outros'],
-              'condicao' =>  $item['condicao'],
-              'area_terreno' => $item['area_terreno'],
-              'tipo_imovel' => $item['tipo_imovel'],
-              'classificacao' => $item['classificacao'],
-              'descricao' => $item['descricao'],
-              'area_laser' => $item['area_laser'],
-              'disponibilidade' => $item['disponibilidade'],
-              'foto1' => $item['foto1'],
-              'foto2' => $item['foto2'],
-              'foto3' => $item['foto3'],
-              'foto4' => $item['foto4'],
-              'foto5' => $item['foto5'],
-              'preco_vendas' =>  $item['preco_vendas'],
-              'preco_aluguels' =>  $item['preco_aluguels'],
-              'cep' =>  $item['cep'],
-              'end' =>  $item['end'],
-              'num' =>  $item['num'],
-              'bairro' =>  $item['bairro'],
-              'cidade' =>  $item['cidade'],
-              'uf' => $item['uf'],  
-              'favorito'  => FavoritoHandler::findByImmobile($item['id'])
-         ]; 
-      }
-
-    return $imovel;
+      return self::__listObjectImmobile($data);
   }
 
   public static function findAllName($key, $value)
@@ -162,45 +132,7 @@ class ImovelHandler extends Controller
     ->where($key, $value)
     ->get();
 
-    foreach($data as $item){
-      $favorito = FavoritoHandler::findByImmobile($item['id']);
-       $imovel[] = [
-        
-            'id' => $item['id'],
-            'ref' =>  $item['ref'],
-            'tipo' =>  $item['tipo'],
-            'condominio' => $item['condominio'],
-            'qtd_quarto' => $item['qtd_quarto'],
-            'qtd_sala' => $item['qtd_sala'],
-            'qtd_banheiro' => $item['qtd_banheiro'],
-            'qtd_cozinha' => $item['qtd_cozinha'],
-            'qtd_varanda' => $item['qtd_varanda'],
-            'qtd_vaga' =>  $item['qtd_vaga'],
-            'outos' =>  $item['outros'],
-            'condicao' =>  $item['condicao'],
-            'area_terreno' => $item['area_terreno'],
-            'tipo_imovel' => $item['tipo_imovel'],
-            'classificacao' => $item['classificacao'],
-            'descricao' => $item['descricao'],
-            'area_laser' => $item['area_laser'],
-            'disponibilidade' =>  $item['disponibilidade'],
-            'foto1' => $item['foto1'],
-            'foto2' => $item['foto2'],
-            'foto3' => $item['foto3'],
-            'foto4' => $item['foto4'],
-            'foto5' => $item['foto5'],
-            'preco_vendas' =>  $item['preco_vendas'],
-            'preco_aluguels' =>  $item['preco_aluguels'],
-            'cep' =>  $item['cep'],
-            'end' =>  $item['end'],
-            'num' =>  $item['num'],
-            'bairro' =>  $item['bairro'],
-            'cidade' =>  $item['cidade'],
-            'uf' => $item['uf'],  
-            'favorito'  => $favorito
-       ];
-    }
-    return $imovel;
+    return self::__listObjectImmobile($data);
   }
   public static function findRef($ref){
     $imovel = Imovel::select()
@@ -272,105 +204,41 @@ class ImovelHandler extends Controller
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('login_id', $login_id)
       ->execute();
-
-      foreach($data as $item){
-        $doc = DocumentHandler::findByImovelId($item['id']);
-        $at = AtividadeHandler::findByImovelId($item['id']);
-
-        $imovel[] = [
-          "id" => $item['id'],
-          "ref" => $item['ref'],
-          "tipo" => $item['tipo'],
-          "descricao" => $item['descricao'],
-          "consdominio" => $item['condominio'],
-          "qtd_quarto" => $item['qtd_quarto'],
-          "qtd_sala" => $item['qtd_sala'],
-          "qtd_banheiro" => $item['qtd_banheiro'],
-          "qtd_cozinha" => $item['qtd_cozinha'],
-          'disponibilidade' =>  $item['disponibilidade'],
-          'preco_aluguels' =>  $item['preco_aluguels'],
-          'preco_vendas' =>  $item['preco_vendas'],
-          "cidade" => $item['cidade'],
-          "foto1" => $item['foto1'],
-          "foto2" => $item['foto2'],
-          "foto3" => $item['foto3'],
-          "foto4" => $item['foto4'],
-          "foto5" => $item['foto5'],
-          "end" => $item['end'],
-          "num" => $item['num'],
-          "uf" => $item['uf'],
-          'doc' => $doc,
-          'at' => $at
-      ];
-    }
-    return $imovel;
+      return self::__listObjectImmobile($data);
   }
 
   public static function searchAll()
   {
+    $value = "apartamento";
     $imovel = [];
     $data = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
+      ->where('tipo', 'like', "%" . $value . '%')
       ->get();
 
-      foreach($data as $item){
-        $imovel[] = [
-          
-          'id' => $item['id'],
-          'ref' =>  $item['ref'],
-          'tipo' =>  $item['tipo'],
-          'condominio' => $item['condominio'],
-          'qtd_quarto' => $item['qtd_quarto'],
-          'qtd_sala' => $item['qtd_sala'],
-          'qtd_banheiro' => $item['qtd_banheiro'],
-          'qtd_cozinha' => $item['qtd_cozinha'],
-          'qtd_varanda' => $item['qtd_varanda'],
-          'qtd_vaga' =>  $item['qtd_vaga'],
-          'outos' =>  $item['outros'],
-          'condicao' =>  $item['condicao'],
-          'area_terreno' => $item['area_terreno'],
-          'tipo_imovel' => $item['tipo_imovel'],
-          'classificacao' => $item['classificacao'],
-          'descricao' => $item['descricao'],
-          'area_laser' => $item['area_laser'],
-          'disponibilidade' =>  $item['disponibilidade'],
-          'foto1' => $item['foto1'],
-          'foto2' => $item['foto2'],
-          'foto3' => $item['foto3'],
-          'foto4' => $item['foto4'],
-          'foto5' => $item['foto5'],
-          'preco_vendas' =>  $item['preco_vendas'],
-          'preco_aluguels' =>  $item['preco_aluguels'],
-          'cep' =>  $item['cep'],
-          'end' =>  $item['end'],
-          'num' =>  $item['num'],
-          'bairro' =>  $item['bairro'],
-          'cidade' =>  $item['cidade'],
-          'uf' => $item['uf'],  
-          'favorito'  => FavoritoHandler::findByImmobile($item['id'])
-     ]; 
-      }
-    
-     
-
-
-    return $imovel;
+      return self::__listObjectImmobile($data);
   }
 
-  public static function enterprise($name, $item, $collumm)
+  public static function searchEnterprise($name, $item)
   {
-    $imovel = Imovel::select()
+     $table = "";
+    if($name == 'status'){
+      $table = 'imovels.';
+    }
+
+    $imovel = [];
+    $data = Imovel::select()
       ->join('fotos', 'fotos.imovel_id', '=', 'imovels.id')
       ->join('vendas', 'vendas.id', '=', 'imovels.venda_id')
       ->join('aluguels', 'aluguels.id', '=', 'imovels.aluguel_id')
       ->join('ends', 'ends.imovel_id', '=', 'imovels.id')
       ->where('imovels.tipo', 'residencial/apartamento')
-      ->where($collumm . $name, 'like', '%' . $item . '%')
+      ->where($name, 'like', '%' . $item . '%')
       ->get();
-    return $imovel;
+      return self::__listObjectImmobile($data);
 
   }
 
@@ -420,6 +288,7 @@ class ImovelHandler extends Controller
       'classificacao' => $array['classificacao'],
       'tipo' => $array['tipo'],
       'condominio' => $array['condominio'],
+      'construtora_id' => $array['construtora_id'],
       'qtd_quarto' => $array['qtd_quarto'],
       'qtd_sala' => $array['qtd_sala'],
       'qtd_banheiro' => $array['qtd_banheiro'],
@@ -448,7 +317,6 @@ class ImovelHandler extends Controller
     $firstId = Imovel::select('id')
       ->orderBy(['id' => 'asc'])
       ->one();
-
     return $firstId;
   }
 
@@ -457,7 +325,6 @@ class ImovelHandler extends Controller
     $lastId = Imovel::select('id')
       ->orderBy(['id' => 'desc'])
       ->one();
-
     return $lastId;
   }
 
@@ -473,6 +340,7 @@ class ImovelHandler extends Controller
       'area_terreno' => $imovel['area_terreno'],
       'area_laser' => $imovel['area_laser'],
       'qtd_vaga' => $imovel['qtd_vaga'],
+      'construtora_id' => $imovel['construtora_id'],
       'condominio' => $imovel['condominio'],
       'disponibilidade' => $imovel['disponibilidade'],
       'qtd_varanda' => $imovel['qtd_varanda'],

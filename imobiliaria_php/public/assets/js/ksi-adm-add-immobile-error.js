@@ -1,3 +1,4 @@
+
 if (document.querySelector('.group-area-immobile') &&
     document.querySelector(".group-area-immobile-end") &&
     document.querySelector('.group-area-immobile-photos')) {
@@ -35,7 +36,7 @@ if (document.querySelector('.group-area-immobile') &&
                     num++;
                 }
             }
-            if (num === 18) {
+            if (num === 19) {
                 inputImmobile.style.display = "none";
                 endImmobile.style.display = "block";
             }
@@ -48,15 +49,15 @@ if (document.querySelector('.group-area-immobile') &&
             let id = parseInt(input.id);
             if (id != null) {
                 if (!input.value) {
-                    document.getElementById(id).classList.add('input-error');
-                    document.getElementById('msg-' + id).style.display = "flex";
+                   document.getElementById(id).classList.add('input-error');
+                   document.getElementById('msg-' + id).style.display = "flex";
                 } else {
-                    document.getElementById(id).classList.remove('input-error');
+                   document.getElementById(id).classList.remove('input-error');
                     document.getElementById('msg-'+id).style.display = "none";
                     num++;
                 }
             }
-            if (num === 21) {
+            if (num === 22) {
                 endImmobile.style.display = "none";
                 photoImmobile.style.display = "block";
             }
@@ -65,16 +66,16 @@ if (document.querySelector('.group-area-immobile') &&
 
     function immobileImageError() {
         let num = 0;
+        let title = document.querySelector('.container-immobile').getAttribute('dataTitle');
         document.querySelectorAll('.immobile-photos input').forEach(input => {
             let id = input.id.split('-');
-
             if (id[1]) {
                 if (!input.value) {
-                    document.getElementById('error-' + id[1]).classList.add('input-error');
-                    document.getElementById('err-' + id[1]).style.display = "flex";
+                  ( title != 'Alterar Imóvel' && document.getElementById('error-' + id[1]).classList.add('input-error'));
+                  ( title != 'Alterar Imóvel' &&  (document.getElementById('err-' + id[1]).style.display = "flex") );
                 } else {
-                    document.getElementById('error-' + id[1]).classList.remove('input-error');
-                    document.getElementById('err-' + id[1]).style.display = "none";
+                   (  title != 'Alterar Imóvel' && document.getElementById('error-' + id[1]).classList.remove('input-error'));
+                   (  title != 'Alterar Imóvel' && (document.getElementById('err-' + id[1]).style.display = "none"));
                     num++;
                 }
             }

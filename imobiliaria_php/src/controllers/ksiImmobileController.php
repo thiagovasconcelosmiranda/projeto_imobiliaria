@@ -3,6 +3,7 @@ namespace src\controllers;
 
 use \core\Controller;
 use src\handlers\AluguelHandler;
+use src\handlers\ConstrutoraHandler;
 use src\handlers\EndHandler;
 use src\handlers\FotoHandler;
 use \src\handlers\LoginHandler;
@@ -81,7 +82,6 @@ class ksiImmobileController extends Controller
                                         move_uploaded_file($newPhoto['tmp_name'], $dir . '/' . $new_name);
                                     }
                                 }
-
                             }
                         }
                     }
@@ -109,6 +109,7 @@ class ksiImmobileController extends Controller
             $title = "Alterar Imóvel";
             $url = "ksi/adm/alter-immobile/" . $id;
         }
+        $construtoras = ConstrutoraHandler::findByAll();
         $vendas = VendaHandler::findByAll();
         $alugueis = AluguelHandler::findByAll();
         $imoveis = ImovelHandler::findId($id);
@@ -120,7 +121,8 @@ class ksiImmobileController extends Controller
             'users' => $users,
             'imoveis' => $imoveis,
             'vendas' => $vendas,
-            'alugueis' => $alugueis
+            'alugueis' => $alugueis,
+            'construtoras' => $construtoras
         ]);
     }
 
@@ -134,14 +136,12 @@ class ksiImmobileController extends Controller
         ]);
     }
 
-
     public function update($atts)
     {
         $id = $atts['id'];
         $photos = [];
         $inputs = filter_input_array(INPUT_POST);
-
-        if (count($inputs) === 25 && $id) {
+        if (count($inputs) === 26 && $id) {
             if (ImovelHandler::update($id, $inputs)) {
                 if (EndHandler::update($id, $inputs)) {
                     foreach ($_FILES as $key => $photo) {

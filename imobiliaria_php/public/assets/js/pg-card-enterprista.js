@@ -1,21 +1,22 @@
 
 const base = document.querySelector('.content').getAttribute('data');
+
 if (document.querySelector('.search-cards')) {
     let array = [];
     let listCard = document.querySelector('.search-cards');
-    document.querySelectorAll('.form select, input ').forEach(item => {
+    document.querySelectorAll('.page input, select').forEach(item => {
         item.addEventListener('input', () => {
             if (item.value.length > 4) {
                 array.splice(0, 1);
                 array.unshift(item.name + '=' + item.value);
-                url(array);
+                urlAjax(array);
             } else {
                 array.splice(0, 1);
             }
         });
     });
 
-    async function url(list) {
+    async function urlAjax(list) {
         let form = new FormData();
         for (let i = 0; i < list.length; i++) {
             form.append(i, list[i]);
@@ -26,25 +27,27 @@ if (document.querySelector('.search-cards')) {
             body: form
         });
 
-
         const json = await req.json();
-        if (json[0].length > 0) {
-            listCard.innerHTML = "";
-            json[0].forEach(item => {
-                let t = item['tipo'].split('/');
-                let c = item['classificacao'].split('/');
-                listCard.insertAdjacentHTML("beforeEnd",
-                `<div class="card">
+        console.log(json);
+        if (json.error == '') {
+            
+                listCard.innerHTML = "";
+                json[0].forEach(item => {
+                    let t = item['tipo'].split('/');
+                    let c = item['classificacao'].split('/');
+
+                    listCard.insertAdjacentHTML("beforeEnd",
+                        `<div class="card">
                     <div class=" hover-card">
                       <div class="hover-card-group-i">
                          <a href="${base}/detalhe-imovel?id=${item['id']}">
                             <button class="button-i-card" type="button">Mais Detalhes</button>
                          </a>  
                          <div class="hover-card-icon-group">
-                              ${(item['favorito'].length > 0? 
-                                '<i onclick="favoriteLink('+item['id']+', 2)" class="fa-solid fa-heart"></i> ':
-                                '<i onclick="favoriteLink('+item['id']+', 2)" class="fa-regular fa-heart"></i>'
-                               )}
+                              ${(item['favorito'].length > 0 ?
+                            '<i onclick="favoriteLink(' + item['id'] + ', 2)" class="fa-solid fa-heart"></i> ' :
+                            '<i onclick="favoriteLink(' + item['id'] + ', 2)" class="fa-regular fa-heart"></i>'
+                        )}
                                <i onclick="share(${item['id']})" class="fa-solid fa-share"></i> 
                         </div>
                       </div> 
@@ -69,12 +72,13 @@ if (document.querySelector('.search-cards')) {
                     sala|  ${item['qtd_cozinha']} Cozinha|  ${item['qtd_banheiro']} banheiros|  area de lazer.</p>
                  </div>
               </div> `
-                );
-            });
+                    );
 
+                });
+                
         } else {
             listCard.innerHTML = "<h3>Nenhum impreendimento encontrado</h3>";
         }
     }
-    url(array);
+    urlAjax(array);
 }

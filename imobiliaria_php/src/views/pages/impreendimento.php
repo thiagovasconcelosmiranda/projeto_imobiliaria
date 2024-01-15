@@ -8,15 +8,15 @@
 <div class="page">
    <h1>Confira nossos emprendedorismos</h1>
    <div class="inputs-row">
-     <form action="" class="form">
+     <form class="form">
         <div class="group-i">
          <div class="align-i-10" >
-            <label>Nome Lançamento</label>
-            <input type="text" name="lancamento" placeholder="Ex: edicifio Esmeralda">
+            <label>Endereço</label>
+            <input type="text" name="end" placeholder="Ex: edicifio Esmeralda">
          </div>
         </div>
         <div class="group-i">
-          <div class="align-i-10" >
+          <div class="align-i-10">
              <label>Qual cidade?</label>
              <select type="text" name="cidade">
                <option value="">selecione</option>
@@ -29,7 +29,7 @@
           <div class="align-i-10" >
             <label>Qual o tipo?</label>
             <select type="text" name="tipo">
-              <option value="">selecione</option>
+              <option value="">Selecione</option>
               <option value="residencial/Apartamento">Edificio de Apartamento</option>
               <option value="residencial/Casa">Casa</option>
             </select>
@@ -37,10 +37,10 @@
         </div>
         <div class="group-i">
           <div class="align-i-10">
-            <label>Qual status?</label>
-            <select type="text" name="status">
-              <option value="s">Selecione</option>
-              <option value="Pronto para Morar">Pronto para Morar</option>
+            <label>Quala condicão?</label>
+            <select type="text" name="condicao">
+              <option value="">Selecione</option>
+              <option value="Pronto pra morar">Pronto para Morar</option>
               <option value="Em construção">Em construção</option>
             </select>
            </div>

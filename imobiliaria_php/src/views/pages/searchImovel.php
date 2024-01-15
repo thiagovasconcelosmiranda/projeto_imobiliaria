@@ -18,13 +18,16 @@ $render('header', [
               <a href="<?= $base; ?>/detalhe-imovel?id=<?=$imovel['id'];?>">
                 <button class="button-i-card" type="button">Mais Detalhes</button>
               </a>
-              <a href="<?= $base; ?>/favorite/verify/<?= $imovel['id'];?>?pag=detalhe-imovel">
-                 <?php if(count($imovel['favorito']) > 0):?>
-                  <i class="fa-solid fa-heart"></i>
+              <div class="hover-card-icon-group">
+                <a href="<?= $base; ?>/favorite/verify/<?=$imovel['id'];?>?pag=detalhe-imovel">
+                  <?php if (count($imovel['favorito']) > 0): ?>
+                    <i class="fa-solid fa-heart"></i>
                   <?php else: ?>
                     <i class="fa-regular fa-heart"></i>
-                  <?php endif;?> 
-              </a>
+                  <?php endif; ?>
+                </a>
+                <i onclick="share(<?=$imovel['id'];?>)" class="fa-solid fa-share"></i>
+              </div>
             </div>
           </div>
           <div class="card-img">
